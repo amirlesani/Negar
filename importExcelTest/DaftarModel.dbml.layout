@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DaftarModel">
+  <DataContextMoniker Name="/DaftarModelDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b12e4a2d-6973-42a7-bf8d-a5cdd5b08faa" absoluteBounds="3.5, 1.875, 2, 3.1170068359375">
+      <DataClassMoniker Name="/DaftarModelDataContext/DaftarTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5078e2eb-b44a-4673-8a45-d367b8f31bf2" absoluteBounds="3.515, 2.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

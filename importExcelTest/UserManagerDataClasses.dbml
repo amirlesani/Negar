@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Mali" Class="UserManagerDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=PML-PC;Initial Catalog=Mali;Persist Security Info=True;User ID=Xenups;Password=Xenups1368" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CityTable" Member="CityTables">
+    <Type Name="CityTable">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="UserTable_CityTable" Member="UserTable" ThisKey="Id" OtherKey="City" Type="UserTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserTable" Member="UserTables">
+    <Type Name="UserTable">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[User]" Member="User" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Family" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Permission" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="UserTable_CityTable" Member="CityTables" ThisKey="City" OtherKey="Id" Type="CityTable" />
+    </Type>
+  </Table>
+</Database>

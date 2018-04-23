@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Mali" Class="DaftarModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PML-PC;Initial Catalog=Mali;Persist Security Info=True;User ID=Xenups" SettingsObjectName="negar.Properties.Settings" SettingsPropertyName="MaliConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DaftarTable" Member="DaftarTables">
+    <Type Name="DaftarTable">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Refund" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BillDetailCode" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Date" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PlaceName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AccountType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DepositOwnerDetail" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DepositDetail" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Deposit" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CodeBudget" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CityID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RealDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
