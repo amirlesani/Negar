@@ -15,7 +15,9 @@ using System.Globalization;
 using System.Drawing.Text;
 using System.Threading;
 using System.Xml.Linq;
-
+/// <summary>
+/// Written By AmirHosein Lessani 2018 
+/// </summary>
 namespace negar
 {
     public partial class MainForm : Form
