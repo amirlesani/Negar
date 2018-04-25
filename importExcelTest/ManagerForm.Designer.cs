@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagerForm));
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.validationTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.persmissionCheckBox = new System.Windows.Forms.CheckBox();
@@ -62,6 +62,20 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.IDTextBox = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.validationDataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.endDateTimePickerX1 = new BehComponents.DateTimePickerX();
+            this.startDateTimePickerX = new BehComponents.DateTimePickerX();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.validCityComboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.deleteRestrictionButton = new System.Windows.Forms.Button();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.addRestrictionButton = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvColor = new System.Windows.Forms.Button();
             this.cityTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -70,7 +84,7 @@
             this.cityTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.daftarTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cityTableTableAdapter2 = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
-            this.tabControl1.SuspendLayout();
+            this.validationTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource2)).BeginInit();
@@ -82,6 +96,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.cityDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.validationDataGridView)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarDataSet2)).BeginInit();
@@ -89,20 +107,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.daftarTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // validationTab
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tabControl1.RightToLeftLayout = true;
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(763, 551);
-            this.tabControl1.TabIndex = 2;
-            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
+            this.validationTab.Controls.Add(this.tabPage1);
+            this.validationTab.Controls.Add(this.tabPage2);
+            this.validationTab.Controls.Add(this.tabPage4);
+            this.validationTab.Controls.Add(this.tabPage3);
+            this.validationTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.validationTab.Location = new System.Drawing.Point(0, 0);
+            this.validationTab.Name = "validationTab";
+            this.validationTab.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.validationTab.RightToLeftLayout = true;
+            this.validationTab.SelectedIndex = 0;
+            this.validationTab.Size = new System.Drawing.Size(763, 551);
+            this.validationTab.TabIndex = 2;
+            this.validationTab.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
@@ -422,6 +441,292 @@
             this.IDTextBox.Size = new System.Drawing.Size(100, 20);
             this.IDTextBox.TabIndex = 2;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.validationDataGridView);
+            this.tabPage4.Controls.Add(this.groupBox3);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(755, 525);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "مدیریت دسترسی";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // validationDataGridView
+            // 
+            this.validationDataGridView.AllowUserToAddRows = false;
+            this.validationDataGridView.AllowUserToDeleteRows = false;
+            this.validationDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.validationDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            this.validationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.validationDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.validationDataGridView.Location = new System.Drawing.Point(3, 216);
+            this.validationDataGridView.Name = "validationDataGridView";
+            this.validationDataGridView.ReadOnly = true;
+            this.validationDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.validationDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.validationDataGridView.Size = new System.Drawing.Size(749, 306);
+            this.validationDataGridView.TabIndex = 13;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.endDateTimePickerX1);
+            this.groupBox3.Controls.Add(this.startDateTimePickerX);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.validCityComboBox);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.deleteRestrictionButton);
+            this.groupBox3.Controls.Add(this.descriptionTextBox);
+            this.groupBox3.Controls.Add(this.pictureBox3);
+            this.groupBox3.Controls.Add(this.addRestrictionButton);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox3.Size = new System.Drawing.Size(749, 207);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "مدیریت دسترسی ";
+            // 
+            // endDateTimePickerX1
+            // 
+            this.endDateTimePickerX1.AnchorSize = new System.Drawing.Size(182, 25);
+            this.endDateTimePickerX1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.endDateTimePickerX1.BackColor = System.Drawing.Color.Transparent;
+            this.endDateTimePickerX1.CalendarBoldedDayForeColor = System.Drawing.Color.DimGray;
+            this.endDateTimePickerX1.CalendarBorderColor = System.Drawing.Color.Black;
+            this.endDateTimePickerX1.CalendarDayRectTickness = 2F;
+            this.endDateTimePickerX1.CalendarDaysBackColor = System.Drawing.Color.White;
+            this.endDateTimePickerX1.CalendarDaysFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endDateTimePickerX1.CalendarDaysForeColor = System.Drawing.Color.Black;
+            this.endDateTimePickerX1.CalendarEnglishAnnuallyBoldedDates = new System.DateTime[0];
+            this.endDateTimePickerX1.CalendarEnglishBoldedDates = new System.DateTime[0];
+            this.endDateTimePickerX1.CalendarEnglishHolidayDates = new System.DateTime[0];
+            this.endDateTimePickerX1.CalendarEnglishMonthlyBoldedDates = new System.DateTime[0];
+            this.endDateTimePickerX1.CalendarHolidayForeColor = System.Drawing.Color.Red;
+            this.endDateTimePickerX1.CalendarHolidayWeekly = BehComponents.MonthCalendarX.DayOfWeekForHoliday.Friday;
+            this.endDateTimePickerX1.CalendarLineWeekColor = System.Drawing.Color.Black;
+            this.endDateTimePickerX1.CalendarPersianAnnuallyBoldedDates = new BehComponents.PersianDateTime[0];
+            this.endDateTimePickerX1.CalendarPersianBoldedDates = new BehComponents.PersianDateTime[0];
+            this.endDateTimePickerX1.CalendarPersianHolidayDates = new BehComponents.PersianDateTime[0];
+            this.endDateTimePickerX1.CalendarPersianMonthlyBoldedDates = new BehComponents.PersianDateTime[0];
+            this.endDateTimePickerX1.CalendarShowToday = true;
+            this.endDateTimePickerX1.CalendarShowTodayRect = true;
+            this.endDateTimePickerX1.CalendarShowToolTips = false;
+            this.endDateTimePickerX1.CalendarShowTrailing = true;
+            this.endDateTimePickerX1.CalendarStyle_DaysButton = BehComponents.ButtonX.ButtonStyles.Simple;
+            this.endDateTimePickerX1.CalendarStyle_GotoTodayButton = BehComponents.ButtonX.ButtonStyles.Green;
+            this.endDateTimePickerX1.CalendarStyle_MonthButton = BehComponents.ButtonX.ButtonStyles.Blue;
+            this.endDateTimePickerX1.CalendarStyle_NextMonthButton = BehComponents.ButtonX.ButtonStyles.Green;
+            this.endDateTimePickerX1.CalendarStyle_PreviousMonthButton = BehComponents.ButtonX.ButtonStyles.Green;
+            this.endDateTimePickerX1.CalendarStyle_YearButton = BehComponents.ButtonX.ButtonStyles.Blue;
+            this.endDateTimePickerX1.CalendarTitleBackColor = System.Drawing.Color.IndianRed;
+            this.endDateTimePickerX1.CalendarTitleFont = new System.Drawing.Font("Tahoma", 8.25F);
+            this.endDateTimePickerX1.CalendarTitleForeColor = System.Drawing.Color.Black;
+            this.endDateTimePickerX1.CalendarTodayBackColor = System.Drawing.Color.Gainsboro;
+            this.endDateTimePickerX1.CalendarTodayFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.endDateTimePickerX1.CalendarTodayForeColor = System.Drawing.Color.Black;
+            this.endDateTimePickerX1.CalendarTodayRectColor = System.Drawing.Color.Coral;
+            this.endDateTimePickerX1.CalendarTodayRectTickness = 2F;
+            this.endDateTimePickerX1.CalendarTrailingForeColor = System.Drawing.Color.Gray;
+            this.endDateTimePickerX1.CalendarType = BehComponents.CalendarTypes.Persian;
+            this.endDateTimePickerX1.CalendarWeekDaysBackColor = System.Drawing.Color.Linen;
+            this.endDateTimePickerX1.CalendarWeekDaysFont = new System.Drawing.Font("Tahoma", 8.25F);
+            this.endDateTimePickerX1.CalendarWeekDaysForeColor = System.Drawing.Color.Black;
+            this.endDateTimePickerX1.CalendarWeekStartsOn = BehComponents.MonthCalendarX.WeekDays.Saturday;
+            this.endDateTimePickerX1.ClearButtonAlignment = BehComponents.DropDownEmpty.Alignments.Left;
+            this.endDateTimePickerX1.ClearButtonBackColor = System.Drawing.Color.White;
+            this.endDateTimePickerX1.ClearButtonForeColor = System.Drawing.SystemColors.ControlText;
+            this.endDateTimePickerX1.ClearButtonImage = null;
+            this.endDateTimePickerX1.ClearButtonImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.endDateTimePickerX1.ClearButtonImageFixedSize = new System.Drawing.Size(0, 0);
+            this.endDateTimePickerX1.ClearButtonImageSizeMode = BehComponents.DropDownEmpty.ImageSizeModes.Zoom;
+            this.endDateTimePickerX1.ClearButtonText = "";
+            this.endDateTimePickerX1.ClearButtonTextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.endDateTimePickerX1.ClearButtonToolTip = "";
+            this.endDateTimePickerX1.ClearButtonWidth = 17;
+            this.endDateTimePickerX1.ClearDateTimeWhenDownDeleteKey = true;
+            this.endDateTimePickerX1.CustomFormat = "";
+            this.endDateTimePickerX1.DockSide = BehComponents.DropDownEmpty.Alignments.Right;
+            this.endDateTimePickerX1.DropDownClosedWhenClickOnDays = true;
+            this.endDateTimePickerX1.DropDownClosedWhenSelectedDateChanged = false;
+            this.endDateTimePickerX1.Format = BehComponents.DateTimePickerX.FormatDate.Long;
+            this.endDateTimePickerX1.Format4Binding = "yyyy/MM/dd";
+            this.endDateTimePickerX1.Location = new System.Drawing.Point(479, 108);
+            this.endDateTimePickerX1.Name = "endDateTimePickerX1";
+            this.endDateTimePickerX1.RightToLeftLayout = true;
+            this.endDateTimePickerX1.ShowClearButton = false;
+            this.endDateTimePickerX1.Size = new System.Drawing.Size(182, 25);
+            this.endDateTimePickerX1.TabIndex = 35;
+            this.endDateTimePickerX1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.endDateTimePickerX1.TextWhenClearButtonClicked = "";
+            // 
+            // startDateTimePickerX
+            // 
+            this.startDateTimePickerX.AnchorSize = new System.Drawing.Size(182, 25);
+            this.startDateTimePickerX.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.startDateTimePickerX.BackColor = System.Drawing.Color.Transparent;
+            this.startDateTimePickerX.CalendarBoldedDayForeColor = System.Drawing.Color.DimGray;
+            this.startDateTimePickerX.CalendarBorderColor = System.Drawing.Color.Black;
+            this.startDateTimePickerX.CalendarDayRectTickness = 2F;
+            this.startDateTimePickerX.CalendarDaysBackColor = System.Drawing.Color.White;
+            this.startDateTimePickerX.CalendarDaysFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startDateTimePickerX.CalendarDaysForeColor = System.Drawing.Color.Black;
+            this.startDateTimePickerX.CalendarEnglishAnnuallyBoldedDates = new System.DateTime[0];
+            this.startDateTimePickerX.CalendarEnglishBoldedDates = new System.DateTime[0];
+            this.startDateTimePickerX.CalendarEnglishHolidayDates = new System.DateTime[0];
+            this.startDateTimePickerX.CalendarEnglishMonthlyBoldedDates = new System.DateTime[0];
+            this.startDateTimePickerX.CalendarHolidayForeColor = System.Drawing.Color.Red;
+            this.startDateTimePickerX.CalendarHolidayWeekly = BehComponents.MonthCalendarX.DayOfWeekForHoliday.Friday;
+            this.startDateTimePickerX.CalendarLineWeekColor = System.Drawing.Color.Black;
+            this.startDateTimePickerX.CalendarPersianAnnuallyBoldedDates = new BehComponents.PersianDateTime[0];
+            this.startDateTimePickerX.CalendarPersianBoldedDates = new BehComponents.PersianDateTime[0];
+            this.startDateTimePickerX.CalendarPersianHolidayDates = new BehComponents.PersianDateTime[0];
+            this.startDateTimePickerX.CalendarPersianMonthlyBoldedDates = new BehComponents.PersianDateTime[0];
+            this.startDateTimePickerX.CalendarShowToday = true;
+            this.startDateTimePickerX.CalendarShowTodayRect = true;
+            this.startDateTimePickerX.CalendarShowToolTips = false;
+            this.startDateTimePickerX.CalendarShowTrailing = true;
+            this.startDateTimePickerX.CalendarStyle_DaysButton = BehComponents.ButtonX.ButtonStyles.Simple;
+            this.startDateTimePickerX.CalendarStyle_GotoTodayButton = BehComponents.ButtonX.ButtonStyles.Green;
+            this.startDateTimePickerX.CalendarStyle_MonthButton = BehComponents.ButtonX.ButtonStyles.Blue;
+            this.startDateTimePickerX.CalendarStyle_NextMonthButton = BehComponents.ButtonX.ButtonStyles.Green;
+            this.startDateTimePickerX.CalendarStyle_PreviousMonthButton = BehComponents.ButtonX.ButtonStyles.Green;
+            this.startDateTimePickerX.CalendarStyle_YearButton = BehComponents.ButtonX.ButtonStyles.Blue;
+            this.startDateTimePickerX.CalendarTitleBackColor = System.Drawing.Color.IndianRed;
+            this.startDateTimePickerX.CalendarTitleFont = new System.Drawing.Font("Tahoma", 8.25F);
+            this.startDateTimePickerX.CalendarTitleForeColor = System.Drawing.Color.Black;
+            this.startDateTimePickerX.CalendarTodayBackColor = System.Drawing.Color.Gainsboro;
+            this.startDateTimePickerX.CalendarTodayFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.startDateTimePickerX.CalendarTodayForeColor = System.Drawing.Color.Black;
+            this.startDateTimePickerX.CalendarTodayRectColor = System.Drawing.Color.Coral;
+            this.startDateTimePickerX.CalendarTodayRectTickness = 2F;
+            this.startDateTimePickerX.CalendarTrailingForeColor = System.Drawing.Color.Gray;
+            this.startDateTimePickerX.CalendarType = BehComponents.CalendarTypes.Persian;
+            this.startDateTimePickerX.CalendarWeekDaysBackColor = System.Drawing.Color.Linen;
+            this.startDateTimePickerX.CalendarWeekDaysFont = new System.Drawing.Font("Tahoma", 8.25F);
+            this.startDateTimePickerX.CalendarWeekDaysForeColor = System.Drawing.Color.Black;
+            this.startDateTimePickerX.CalendarWeekStartsOn = BehComponents.MonthCalendarX.WeekDays.Saturday;
+            this.startDateTimePickerX.ClearButtonAlignment = BehComponents.DropDownEmpty.Alignments.Left;
+            this.startDateTimePickerX.ClearButtonBackColor = System.Drawing.Color.White;
+            this.startDateTimePickerX.ClearButtonForeColor = System.Drawing.SystemColors.ControlText;
+            this.startDateTimePickerX.ClearButtonImage = null;
+            this.startDateTimePickerX.ClearButtonImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.startDateTimePickerX.ClearButtonImageFixedSize = new System.Drawing.Size(0, 0);
+            this.startDateTimePickerX.ClearButtonImageSizeMode = BehComponents.DropDownEmpty.ImageSizeModes.Zoom;
+            this.startDateTimePickerX.ClearButtonText = "";
+            this.startDateTimePickerX.ClearButtonTextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.startDateTimePickerX.ClearButtonToolTip = "";
+            this.startDateTimePickerX.ClearButtonWidth = 17;
+            this.startDateTimePickerX.ClearDateTimeWhenDownDeleteKey = true;
+            this.startDateTimePickerX.CustomFormat = "";
+            this.startDateTimePickerX.DockSide = BehComponents.DropDownEmpty.Alignments.Right;
+            this.startDateTimePickerX.DropDownClosedWhenClickOnDays = true;
+            this.startDateTimePickerX.DropDownClosedWhenSelectedDateChanged = false;
+            this.startDateTimePickerX.Format = BehComponents.DateTimePickerX.FormatDate.Long;
+            this.startDateTimePickerX.Format4Binding = "yyyy/MM/dd";
+            this.startDateTimePickerX.Location = new System.Drawing.Point(479, 77);
+            this.startDateTimePickerX.Name = "startDateTimePickerX";
+            this.startDateTimePickerX.RightToLeftLayout = true;
+            this.startDateTimePickerX.ShowClearButton = false;
+            this.startDateTimePickerX.Size = new System.Drawing.Size(182, 25);
+            this.startDateTimePickerX.TabIndex = 34;
+            this.startDateTimePickerX.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.startDateTimePickerX.TextWhenClearButtonClicked = "";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(709, 108);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "پایان";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(705, 77);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(34, 13);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "شروع";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(716, 53);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "شهر";
+            // 
+            // validCityComboBox
+            // 
+            this.validCityComboBox.DataSource = this.cityTableBindingSource2;
+            this.validCityComboBox.DisplayMember = "CityName";
+            this.validCityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.validCityComboBox.FormattingEnabled = true;
+            this.validCityComboBox.Location = new System.Drawing.Point(540, 50);
+            this.validCityComboBox.Name = "validCityComboBox";
+            this.validCityComboBox.Size = new System.Drawing.Size(121, 21);
+            this.validCityComboBox.TabIndex = 15;
+            this.validCityComboBox.ValueMember = "Id";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(680, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "نام محدودیت";
+            // 
+            // deleteRestrictionButton
+            // 
+            this.deleteRestrictionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.deleteRestrictionButton.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
+            this.deleteRestrictionButton.Location = new System.Drawing.Point(571, 139);
+            this.deleteRestrictionButton.Name = "deleteRestrictionButton";
+            this.deleteRestrictionButton.Size = new System.Drawing.Size(42, 24);
+            this.deleteRestrictionButton.TabIndex = 5;
+            this.deleteRestrictionButton.UseVisualStyleBackColor = true;
+            this.deleteRestrictionButton.Click += new System.EventHandler(this.deleteRestrictionButton_Click);
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.descriptionTextBox.Location = new System.Drawing.Point(561, 24);
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.descriptionTextBox.TabIndex = 3;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::negar.Properties.Resources.How_to_manage_access_to_permission;
+            this.pictureBox3.Location = new System.Drawing.Point(-26, 27);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(272, 155);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // addRestrictionButton
+            // 
+            this.addRestrictionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.addRestrictionButton.Image = global::negar.Properties.Resources.add_icon__1_;
+            this.addRestrictionButton.Location = new System.Drawing.Point(619, 139);
+            this.addRestrictionButton.Name = "addRestrictionButton";
+            this.addRestrictionButton.Size = new System.Drawing.Size(42, 24);
+            this.addRestrictionButton.TabIndex = 4;
+            this.addRestrictionButton.UseVisualStyleBackColor = true;
+            this.addRestrictionButton.Click += new System.EventHandler(this.addRestrictionButton_Click);
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgvColor);
@@ -473,7 +778,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 551);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.validationTab);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -483,7 +788,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "مدیریت";
             this.Load += new System.EventHandler(this.ManagerForm_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.validationTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -497,6 +802,11 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.validationDataGridView)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarDataSet2)).EndInit();
@@ -508,7 +818,7 @@
 
         #endregion
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl validationTab;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -547,5 +857,19 @@
         private MaliDataSet maliDataSet;
         private System.Windows.Forms.BindingSource cityTableBindingSource2;
         private MaliDataSetTableAdapters.CityTableTableAdapter cityTableTableAdapter2;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView validationDataGridView;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox validCityComboBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button deleteRestrictionButton;
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button addRestrictionButton;
+        private BehComponents.DateTimePickerX endDateTimePickerX1;
+        private BehComponents.DateTimePickerX startDateTimePickerX;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
     }
 }

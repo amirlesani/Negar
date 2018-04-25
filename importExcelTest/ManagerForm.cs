@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersianDate;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace negar
     public partial class ManagerForm : Form
     {
         int selectedRow;
+        
         private MainForm mainForm;
 
         public ManagerForm(MainForm main)
@@ -34,6 +36,25 @@ namespace negar
                 return true;
             }
             catch(Exception )
+            {
+                MessageBox.Show("خطایی در جدول پیش آمده است");
+                return false;
+            }
+
+        }
+        private Boolean changeValidationTableColumnNames()
+        {
+            try
+            {
+                this.validationDataGridView.Columns[0].HeaderText = "شناسه";
+                this.validationDataGridView.Columns[1].HeaderText = "توضیحات ";
+                this.validationDataGridView.Columns[2].HeaderText = " شهر";
+                this.validationDataGridView.Columns[3].HeaderText = "شروع";
+                this.validationDataGridView.Columns[4].HeaderText = "پایان";
+
+                return true;
+            }
+            catch (Exception)
             {
                 MessageBox.Show("خطایی در جدول پیش آمده است");
                 return false;
@@ -73,6 +94,8 @@ namespace negar
 
                 // this.cityTableTableAdapter.Fill(this.daftarDataSet1.CityTable);
                 makeTable(sql.getDataCity());
+                makeTable(sql.getValidationData());
+
                 DGV_SetStyle(this.cityDataGridView);
 
                 changeCityDGVname();
@@ -177,6 +200,21 @@ namespace negar
                 makeTable(sql.getDataCity());
 
             }
+            if(e.TabPage == tabPage4)
+            {
+                try {
+                   
+                    SqlManipulator sql = new SqlManipulator();
+                    makeValidationTable(sql.getValidationData());
+                    var cities = sql.queryCities();
+                    validCityComboBox.DataSource = cities;
+                }
+                catch(Exception  ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -201,7 +239,12 @@ namespace negar
             cityDataGridView.DataSource = cities;
             DGV_SetStyle(this.cityDataGridView);
         }
-
+        private void makeValidationTable(IQueryable validationData)
+        {
+            validationDataGridView.DataSource = validationData;
+            DGV_SetStyle(this.validationDataGridView);
+            changeValidationTableColumnNames();
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -226,6 +269,61 @@ namespace negar
                 this.mainForm.refreshDGV();
             }
            
+        }
+
+        private void addRestrictionButton_Click(object sender, EventArgs e)
+        {
+            try { 
+            validationTable valid = new validationTable();
+            valid.description = (string)this.descriptionTextBox.Text;
+
+            DateTime startTime = startDateTimePickerX.SelectedDateInDateTime;
+            DateTime endTime = endDateTimePickerX1.SelectedDateInDateTime;
+
+            StartEndMonthClass date = new StartEndMonthClass();
+            date.startDate = Convert.ToInt64(startTime.ToFa("yyyyMMdd"));
+            date.endDate = Convert.ToInt64(endTime.ToFa("yyyyMMdd"));
+
+            valid.startDate = date.startDate;
+            valid.enDate = date.endDate;
+            valid.City = Convert.ToInt64(validCityComboBox.SelectedValue);
+            SqlManipulator sql = new SqlManipulator();
+            Report rpt = new Report(sql.addValidation(valid));
+            rpt.Show();
+            makeValidationTable(sql.getValidationData());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            
+        }
+
+        private void deleteRestrictionButton_Click(object sender, EventArgs e)
+        {
+
+            try {
+                selectedRow = validationDataGridView.CurrentCell.RowIndex;
+                SqlManipulator sql = new SqlManipulator();
+                DataGridViewRow newDataRow = validationDataGridView.Rows[selectedRow];
+                validationTable deletedRestriction = new validationTable();
+
+
+                deletedRestriction.City = (long)newDataRow.Cells[0].Value;
+                deletedRestriction.startDate = (long)newDataRow.Cells[1].Value;
+                deletedRestriction.enDate = (long)newDataRow.Cells[2].Value;
+                deletedRestriction.id = (long)newDataRow.Cells[3].Value;
+                deletedRestriction.description = (String)newDataRow.Cells[4].Value;
+                sql.removeRestriction(deletedRestriction);
+                var data = sql.getValidationData();
+                makeValidationTable(data);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

@@ -121,7 +121,7 @@ namespace negar
                     newDaftar.CityID = login.cityID;
                 }
                 newDaftar.Id = data.Id;
-
+                 
                 //var item = (ComboboxItem)placeComboBox.SelectedItem;
                 //newDaftar.CityID = item.Value;
                 newDaftar.Refund = Convert.ToInt64(this.refundTextBox.Text);
@@ -132,11 +132,18 @@ namespace negar
                 newDaftar.PlaceName = placeComboBox.SelectedItem.ToString();
                // newDaftar.RealDate = utl.changeToRealDate(newDaftar.Date);
                 newDaftar.Deposit = Convert.ToInt64(this.DepositTextBox.Text);
+                newDaftar.RealDate = data.RealDate;
                 newDaftar.DepositDetail = Convert.ToInt64(this.DepositDetailtextBox.Text);
                 newDaftar.DepositOwnerDetail = this.DepositOwnerDetailTextBox.Text;
-                var x = data.CityID;
-                
+                newDaftar.CityID = data.CityID;
 
+                if (sql.isRestricted(newDaftar))
+                {
+                    MessageBox.Show("دسترسی شما به این تاریخ توسط مدیر سیستم محدود شده است","خطا",
+                          MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                    return;
+                };
                 Report rpt = new Report(sql.update(newDaftar,godmode));
                 rpt.Show();
                 form.refreshState();
@@ -296,6 +303,5 @@ namespace negar
             }
             return base.ProcessDialogKey(keyData);
         }
-
     }
 }

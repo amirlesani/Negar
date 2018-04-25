@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Mali" Class="ValidationDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PML-PC;Initial Catalog=Mali;Persist Security Info=True;User ID=Xenups" SettingsObjectName="negar.Properties.Settings" SettingsPropertyName="MaliConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.validationTable" Member="validationTables">
+    <Type Name="validationTable">
+      <Column Name="City" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="startDate" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="enDate" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -153,6 +153,25 @@ namespace negar
                 return report; 
             }
         }
+        public List<string> addValidation(validationTable newRestriction)
+        {
+            try
+            {
+                ValidationDataClassesDataContext db = new ValidationDataClassesDataContext(cn);
+                db.validationTables.InsertOnSubmit(newRestriction);
+                db.SubmitChanges();
+                List<string> report = new List<string>();
+                report.Add(newRestriction.description + "" + "  با موفقیت اضافه گردید");
+                return report;
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                // DaftarModelDataContext db = new DaftarModelDataContext(cn);
+                List<string> report = new List<string>();
+                report.Add("خطا در اضافه کردن محدودیت");
+                return report;
+            }
+        }
 
         public Boolean removeUser(UserTable newLogin)
         {
@@ -194,7 +213,26 @@ namespace negar
                 return false;
             }
         }
+        public Boolean removeRestriction(validationTable restriction)
+        {
+            try
+            {
+                ValidationDataClassesDataContext db = new ValidationDataClassesDataContext(cn);
+                var q = from a in db.validationTables where a.id == restriction.id select a;
+                foreach (var a in q)
+                {
+                    db.validationTables.DeleteOnSubmit(a);
+                }
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
 
+        }
         public IQueryable getDataLogin()
         {
 
@@ -213,6 +251,24 @@ namespace negar
             var q = from c in db.CityTables select new {c.CityName,c.Id };
             return q;
         }
+        public IQueryable getValidationData()
+        {
+            ValidationDataClassesDataContext db = new ValidationDataClassesDataContext(cn);
+            
+            var q = from c in db.validationTables
+                    select new
+                    {
+                        c.id,
+                        c.description,
+                        c.City,
+                        c.startDate,
+                        c.enDate,
+                    };
+            return q;
+        }
+
+
+
         public string getCityName(long cityID)
         {
             UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext(cn);
@@ -373,6 +429,21 @@ namespace negar
                 return result;
 
         }
+       public Boolean isRestricted(DaftarTable data)
+        {
+            try {
+                ValidationDataClassesDataContext db = new ValidationDataClassesDataContext(cn);
+                var valid = (from c in db.validationTables.Where(x => x.City == data.CityID && data.RealDate>= x.startDate && data.RealDate<= x.enDate ) select c).Any();
+                
+                return valid;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+            
+        }
         public List<String> addRow(DaftarTable daftar)
         {
             try
@@ -405,7 +476,7 @@ namespace negar
             //}
 
         }
-        public List<string> remove(List<long> selectedIDs,bool godmode)
+        public List<string> remove(List<DaftarTable> newDaftar, bool godmode)
         {
             IQueryable<DaftarTable> data;
             data = null;
@@ -413,25 +484,32 @@ namespace negar
             List<string> report = new List<string>();
             report.Add("لیست  زیر");
             int count = 0;
-            foreach (var selectedID in selectedIDs)
+            foreach (var daftar in newDaftar)
             {
                 count++;
-                data = from a in db.DaftarTables.Where(x => x.Id == selectedID ) select a;
-               
+                data = from a in db.DaftarTables.Where(x => x.Id == daftar.Id) select a;
                 foreach (var a in data)
                 {
-                    if (Math.Abs(Convert.ToInt64(a.Refund))>0 && !godmode)
+                    if (Math.Abs(Convert.ToInt64(a.Refund)) > 0 && !godmode)
                     {
-                        report.Add(a.Id.ToString()+" "+a.DepositOwnerDetail.ToString()+" استرداد شده است! غیر قابل ویرایش می باشد  " );
+                        report.Add(a.Id.ToString() + " " + a.DepositOwnerDetail.ToString() + " استرداد شده است! غیر قابل ویرایش می باشد  ");
                     }
                     else {
-                        db.DaftarTables.DeleteOnSubmit(a);
-                        string msg = " حذف گردید  ";
-                        report.Add(a.Id+" "+a.DepositOwnerDetail+" "+msg);
+                        if (isRestricted(daftar))
+                        {
+                            string msg = " دسترسی شما به این تاریخ توسط مدیر سیستم محدود شده است";
+                            report.Add(a.Id + " " + a.DepositOwnerDetail + " " + msg);
+                        }
+                        else
+                        {
+                            db.DaftarTables.DeleteOnSubmit(a);
+                            string msg = " حذف گردید  ";
+                            report.Add(a.Id + " " + a.DepositOwnerDetail + " " + msg);
+                        }
                     }
                 }
             }
-            
+
             try
             {
                 db.SubmitChanges();
@@ -691,19 +769,24 @@ namespace negar
             return result;
         }
 
-        public List<string> refund(List<long> selectedIDs,bool godmode)
+        public List<string> refund(List<DaftarTable> newDaftar,bool godmode)
         {
 
             IQueryable<DaftarTable> data;
             data = null;
             DaftarModelDataContext db = new DaftarModelDataContext(cn);
             List<string> report = new List<string>();
-            foreach (var selectedID in selectedIDs)
+            foreach (var daftar in newDaftar)
             {
-                data = from a in db.DaftarTables.Where(x => x.Id == selectedID) select a;
+                data = from a in db.DaftarTables.Where(x => x.Id == daftar.Id) select a;
                 foreach (var a in data)
-                {
-                    if (a.Deposit != 0 )
+                {   
+                    if(isRestricted(a))
+                    {
+                        report.Add(a.Id.ToString() + " " + a.DepositOwnerDetail + " " + "دسترسی توسط مدیر سیستم محدود شده است ");
+
+                    }
+                    else if(a.Deposit != 0 )
                     {
                         a.Refund = a.Deposit;
                         a.Deposit = 0;

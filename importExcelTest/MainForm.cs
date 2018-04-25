@@ -29,6 +29,8 @@ namespace negar
         private  Result lastResult;
         private LoginInfo login;
         private DaftarTable dataForchanging;
+
+        private List<DaftarTable> datasForModify;
         private AdvancedSearchForm adv;
         bool godmode;
         private StartEndMonthClass startEnd;
@@ -43,6 +45,8 @@ namespace negar
             godmode = false;
             comboBox1.SelectedIndex = 1;
             selectedID = new List<long>();
+            datasForModify = new List<DaftarTable>();
+
             ExtensionMethods.DoubleBuffered(mainDataGridView, true);
             adv = new AdvancedSearchForm(this);
             startEnd = new StartEndMonthClass();
@@ -323,13 +327,13 @@ namespace negar
             if (dialogResult == DialogResult.Yes)
             {
                 SqlManipulator sql = new SqlManipulator();
-                if (!selectedID.Any())
+                if (!datasForModify.Any())
                 {
                     MessageBox.Show("لطفا سطری را جهت استرداد انتخاب نمائید");
                 }
                 else
                 {
-                    var refundItems = sql.refund(selectedID,godmode);
+                    var refundItems = sql.refund(datasForModify,godmode);
                     Report rpt = new Report(refundItems);
                     rpt.Show();
                     refreshState();
@@ -405,6 +409,7 @@ namespace negar
         {
             try
             {
+                
                 selectedRowupdate = mainDataGridView.CurrentCell.RowIndex;
                 DataGridViewRow newDataRow = mainDataGridView.Rows[selectedRowupdate];
 
@@ -419,6 +424,8 @@ namespace negar
                 dataForchanging.Deposit = Convert.ToInt64(newDataRow.Cells[8].Value);
                 dataForchanging.CodeBudget  = Convert.ToInt64(newDataRow.Cells[9].Value);
                 dataForchanging.CityID = Convert.ToInt64(newDataRow.Cells[10].Value);
+                dataForchanging.RealDate = Convert.ToInt64(newDataRow.Cells[11].Value);
+
                            
             }
             catch (Exception ex)
@@ -428,11 +435,34 @@ namespace negar
         }
         private void mainDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            selectedID.Clear();
-            foreach(DataGridViewRow row in mainDataGridView.SelectedRows)
+            datasForModify.Clear();
+
+            foreach (DataGridViewRow row in mainDataGridView.SelectedRows)
             {
-               var id =  row.Cells[0].Value.ToString();
-               selectedID.Add(Convert.ToInt64(id));
+                try {
+                    DaftarTable data = new DaftarTable();
+
+                    data.Id = Convert.ToInt64(row.Cells[0].Value);
+                    data.Refund = Convert.ToInt64(row.Cells[1].Value);
+                    data.BillDetailCode = Convert.ToInt64(row.Cells[2].Value);
+                    data.Date = row.Cells[3].Value.ToString();
+                    data.AccountType = row.Cells[5].Value.ToString();
+                    data.DepositOwnerDetail = row.Cells[6].Value.ToString();
+                    data.DepositDetail = Convert.ToInt64(row.Cells[7].Value);
+                    data.Deposit = Convert.ToInt64(row.Cells[8].Value);
+                    data.CodeBudget = Convert.ToInt64(row.Cells[9].Value);
+                    data.CityID = Convert.ToInt64(row.Cells[10].Value);
+                    data.RealDate = Convert.ToInt64(row.Cells[11].Value);
+
+                    datasForModify.Add(data);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+                // var id =  row.Cells[0].Value.ToString();
+                //selectedID.Add(Convert.ToInt64(id));
             }
         }
         private void setRowNumber(DataGridView dgv)
@@ -481,12 +511,16 @@ namespace negar
             if (dialogResult == DialogResult.Yes)
             {
                 SqlManipulator sql = new SqlManipulator();
-                var rpt = sql.remove(selectedID,godmode);
+                if(!datasForModify.Any())
+                {
+                    MessageBox.Show("لطفا سطری را برای حذف انتخاب کنید");
+                }
+                var rpt = sql.remove(datasForModify,godmode);
 
                 Report r = new Report(rpt);
                 r.Show();
 
-                selectedID.Clear();
+                datasForModify.Clear();
 
                 LasteStateClass lst = new LasteStateClass();
                 lst.cityID = login.cityID;

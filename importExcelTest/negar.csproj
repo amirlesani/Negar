@@ -286,6 +286,11 @@
       <DependentUpon>UserSettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
+    <Compile Include="ValidationDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationDataClasses.dbml</DependentUpon>
+    </Compile>
     <Compile Include="YeKe.cs" />
     <EmbeddedResource Include="AddEditForm.resx">
       <DependentUpon>AddEditForm.cs</DependentUpon>
@@ -323,6 +328,9 @@
     <EmbeddedResource Include="UserSettingsForm.resx">
       <DependentUpon>UserSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ValidationDataClasses.dbml.layout">
+      <DependentUpon>ValidationDataClasses.dbml</DependentUpon>
+    </None>
     <None Include="DaftarDataSet2.xsc">
       <DependentUpon>DaftarDataSet2.xsd</DependentUpon>
     </None>
@@ -389,6 +397,11 @@
     <None Include="UserManagerDataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>UserManagerDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ValidationDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ValidationDataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -468,6 +481,7 @@
   <ItemGroup>
     <Content Include="Designbolts-Free-Multimedia-IMac.ico" />
     <Content Include="if_Prism-3_379418.ico" />
+    <None Include="Resources\How-to-manage-access-to-permission.png" />
     <None Include="Resources\Edit %281%29.png" />
     <None Include="Resources\copy-16.png" />
     <None Include="Resources\21321.png" />

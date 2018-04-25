@@ -168,8 +168,19 @@ namespace negar
                         newDaftar.CityID = login.cityID;
                         newDaftar.PlaceName = login.cityName;
                     }
-                    SqlManipulator sql = new SqlManipulator();
-                    Report rpt = new Report( sql.addRow(newDaftar));
+
+
+
+                SqlManipulator sql = new SqlManipulator();
+                if (sql.isRestricted(newDaftar))
+                {
+                    MessageBox.Show("دسترسی شما به این تاریخ توسط مدیر سیستم محدود شده است" ,"خطا",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                };
+               
+                Report rpt = new Report( sql.addRow(newDaftar));
                     rpt.Show();
                     
                     form.refreshLastState();

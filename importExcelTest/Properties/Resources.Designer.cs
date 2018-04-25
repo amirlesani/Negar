@@ -313,6 +313,16 @@ namespace negar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap How_to_manage_access_to_permission {
+            get {
+                object obj = ResourceManager.GetObject("How-to-manage-access-to-permission", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IC852343 {
             get {
                 object obj = ResourceManager.GetObject("IC852343", resourceCulture);
