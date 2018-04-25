@@ -781,12 +781,13 @@ namespace negar
                 data = from a in db.DaftarTables.Where(x => x.Id == daftar.Id) select a;
                 foreach (var a in data)
                 {   
-                    if(isRestricted(a))
-                    {
-                        report.Add(a.Id.ToString() + " " + a.DepositOwnerDetail + " " + "دسترسی توسط مدیر سیستم محدود شده است ");
+                    //if(isRestricted(a))
+                    //{
+                    //    report.Add(a.Id.ToString() + " " + a.DepositOwnerDetail + " " + "دسترسی توسط مدیر سیستم محدود شده است ");
 
-                    }
-                    else if(a.Deposit != 0 )
+                    //}else if
+                    //
+                     if(a.Deposit != 0 )
                     {
                         a.Refund = a.Deposit;
                         a.Deposit = 0;

@@ -46,6 +46,12 @@ namespace negar
         {
             try
             {
+                SqlManipulator sql = new SqlManipulator();
+                var cities = sql.getDataCity();
+                foreach (var city in cities)
+                {
+                    
+                }
                 this.validationDataGridView.Columns[0].HeaderText = "شناسه";
                 this.validationDataGridView.Columns[1].HeaderText = "توضیحات ";
                 this.validationDataGridView.Columns[2].HeaderText = " شهر";
