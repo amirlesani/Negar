@@ -100,9 +100,11 @@ namespace negar
 
                 // this.cityTableTableAdapter.Fill(this.daftarDataSet1.CityTable);
                 makeTable(sql.getDataCity());
-                makeTable(sql.getValidationData());
+                makeTableUsers(sql.getDataLogin());
+                makeValidationTable(sql.getValidationData());
 
                 DGV_SetStyle(this.cityDataGridView);
+
 
                 changeCityDGVname();
 
@@ -161,10 +163,9 @@ namespace negar
         private void makeTableUsers(IQueryable accounts)
         {  
             usersDataGridView.DataSource = accounts;
+            changeColumnName();
             DGV_SetStyle(usersDataGridView);
           
-
-
         }
         public void DGV_SetStyle(DataGridView Dgv)
         {
@@ -243,6 +244,7 @@ namespace negar
         private void makeTable(IQueryable cities)
         {
             cityDataGridView.DataSource = cities;
+            changeCityDGVname();
             DGV_SetStyle(this.cityDataGridView);
         }
         private void makeValidationTable(IQueryable validationData)
@@ -312,16 +314,17 @@ namespace negar
 
             try {
                 selectedRow = validationDataGridView.CurrentCell.RowIndex;
+
                 SqlManipulator sql = new SqlManipulator();
                 DataGridViewRow newDataRow = validationDataGridView.Rows[selectedRow];
                 validationTable deletedRestriction = new validationTable();
 
 
-                deletedRestriction.City = (long)newDataRow.Cells[0].Value;
-                deletedRestriction.startDate = (long)newDataRow.Cells[1].Value;
-                deletedRestriction.enDate = (long)newDataRow.Cells[2].Value;
-                deletedRestriction.id = (long)newDataRow.Cells[3].Value;
-                deletedRestriction.description = (String)newDataRow.Cells[4].Value;
+                deletedRestriction.City = (long)newDataRow.Cells[2].Value;
+                deletedRestriction.startDate = (long)newDataRow.Cells[3].Value;
+                deletedRestriction.enDate = (long)newDataRow.Cells[4].Value;
+                deletedRestriction.id = (long)newDataRow.Cells[0].Value;
+                deletedRestriction.description = (String)newDataRow.Cells[1].Value;
                 sql.removeRestriction(deletedRestriction);
                 var data = sql.getValidationData();
                 makeValidationTable(data);
