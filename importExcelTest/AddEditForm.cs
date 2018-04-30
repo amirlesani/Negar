@@ -180,7 +180,7 @@ namespace negar
                     return;
                 };
                
-                Report rpt = new Report( sql.addRow(newDaftar));
+                Report rpt = new Report( sql.addRow(newDaftar),(int)errorImages.info);
                     rpt.Show();
                     
                     form.refreshLastState();

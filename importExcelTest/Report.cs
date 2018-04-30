@@ -13,29 +13,58 @@ namespace negar
 {
     public partial class Report : Form
     {
-       
 
-        public Report(List<string> list)
+
+        public Report(List<string> list,int errorType)
         {
             
             InitializeComponent();
-            reportListBox.DataSource = list;
+            listView1.SmallImageList = errorImageList;
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+
+            //   reportListBox.DataSource = list;
+            foreach (var a in list)
+            {
+                listView1.Items.Add(a, errorType);
+            }
+            SetListViewColumnSizes(listView1, -2);
         }
         public Report()
         {
             InitializeComponent();
-            reportListBox.DataSource = null;
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            //reportListBox.DataSource = null;
 
         }
         public Report(List<List<string>> lists)
         {
             InitializeComponent();
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
             List<string> t = new List<string>();
             foreach (var list in lists)
             {
                 t.AddRange(list);
             }
-            reportListBox.DataSource = t;
+            foreach (var a in t)
+            {
+                listView1.Items.Add(a, (int)errorImages.info);
+
+            }
+            SetListViewColumnSizes(listView1,500);
+        }
+        private void SetListViewColumnSizes(ListView lvw, int width)
+        {
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+           
+          
+          
         }
 
         public void addItem(XElement data)
@@ -62,8 +91,11 @@ namespace negar
             {
                 foreach (var a in messagesList)
                 {
-                    var msg =" شناسه  " +a.Id.ToString() + " شهر " + a.CityName.ToString() + a.DepositOwnerDetail.ToString()+"  تغییر کرده است " ;
-                    this.reportListBox.Items.Add(msg);
+                    var msg =" شناسه  " +a.Id.ToString() + " شهر " + a.CityName.ToString() +" "+ a.DepositOwnerDetail.ToString()+"  تغییر کرده است " ;
+                    //this.reportListBox.Items.Add(msg);
+
+                    this.listView1.Items.Add(msg, (int)errorImages.watch);
+                    SetListViewColumnSizes(listView1, -1);
                 }
                 //this.Show();
             }));

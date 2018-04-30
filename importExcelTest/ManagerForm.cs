@@ -136,7 +136,7 @@ namespace negar
             }
 
             SqlManipulator sql = new SqlManipulator();
-            Report rpt = new Report(sql.addUser(newLogin));
+            Report rpt = new Report(sql.addUser(newLogin), (int)errorImages.info);
             rpt.Show();
             makeTableUsers(sql.getDataLogin());
         }
@@ -296,7 +296,7 @@ namespace negar
             valid.enDate = date.endDate;
             valid.City = Convert.ToInt64(validCityComboBox.SelectedValue);
             SqlManipulator sql = new SqlManipulator();
-            Report rpt = new Report(sql.addValidation(valid));
+            Report rpt = new Report(sql.addValidation(valid), (int)errorImages.info);
             rpt.Show();
             makeValidationTable(sql.getValidationData());
 

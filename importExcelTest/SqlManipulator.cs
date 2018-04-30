@@ -462,10 +462,10 @@ namespace negar
             //duplicate record
             catch (System.Data.SqlClient.SqlException ex)
             {
-                MessageBox.Show(ex.ToString()); 
+               // MessageBox.Show(ex.ToString()); 
                 // DaftarModelDataContext db = new DaftarModelDataContext(cn);
                 List<string> report = new List<string>();
-                report.Add(daftar.Id + "" + " شناسه تکراری است");
+                report.Add(daftar.Id + "" + " شناسه تکراری است . تاریخ یا کد سپرده می بایست متفاوت باشد" );
                 return report;
             }
 
@@ -563,7 +563,7 @@ namespace negar
             {
                 MessageBox.Show(ex.Message);
                 List<string> list = new List<string>();
-                Report rpt = new Report(list);
+                Report rpt = new Report(list, (int)errorImages.info);
                 rpt.Show();
                 return list;
             }

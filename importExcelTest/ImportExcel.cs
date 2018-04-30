@@ -184,7 +184,7 @@ namespace negar
                     }
                     else
                     {
-                        Report rpt = new Report(valid.report);
+                        Report rpt = new Report(valid.report, (int)errorImages.info);
                         rpt.Show();
                         importButton1.Enabled = false;
                     }

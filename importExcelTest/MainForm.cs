@@ -17,6 +17,7 @@ using System.Threading;
 using System.Xml.Linq;
 /// <summary>
 /// Written By AmirHosein Lessani 2018 
+/// 30 april 2018
 /// </summary>
 namespace negar
 {
@@ -334,7 +335,7 @@ namespace negar
                 else
                 {
                     var refundItems = sql.refund(datasForModify,godmode);
-                    Report rpt = new Report(refundItems);
+                    Report rpt = new Report(refundItems, (int)errorImages.info);
                     rpt.Show();
                     refreshState();
                 }
@@ -517,7 +518,7 @@ namespace negar
                 }
                 var rpt = sql.remove(datasForModify,godmode);
 
-                Report r = new Report(rpt);
+                Report r = new Report(rpt, (int)errorImages.info);
                 r.Show();
 
                 datasForModify.Clear();
