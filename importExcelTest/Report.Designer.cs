@@ -68,6 +68,7 @@
             this.errorImageList.Images.SetKeyName(1, "if_Incorrect_Symbol_381610.png");
             this.errorImageList.Images.SetKeyName(2, "info-32.png");
             this.errorImageList.Images.SetKeyName(3, "512px-Eye_open_font_awesome.svg.png");
+            this.errorImageList.Images.SetKeyName(4, "pulse_gq-1.gif");
             // 
             // Report
             // 

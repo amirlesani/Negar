@@ -429,9 +429,11 @@ namespace negar
                 return result;
 
         }
-       public Boolean isRestricted(DaftarTable data)
+       public Boolean isRestricted(DaftarTable data,bool permission)
         {
             try {
+                if (permission)
+                    return true;
                 ValidationDataClassesDataContext db = new ValidationDataClassesDataContext(cn);
                 var valid = (from c in db.validationTables.Where(x => x.City == data.CityID && data.RealDate>= x.startDate && data.RealDate<= x.enDate ) select c).Any();
                 
@@ -476,7 +478,7 @@ namespace negar
             //}
 
         }
-        public List<string> remove(List<DaftarTable> newDaftar, bool godmode)
+        public List<string> remove(List<DaftarTable> newDaftar, bool godmode,bool permision)
         {
             IQueryable<DaftarTable> data;
             data = null;
@@ -495,7 +497,7 @@ namespace negar
                         report.Add(a.Id.ToString() + " " + a.DepositOwnerDetail.ToString() + " استرداد شده است! غیر قابل ویرایش می باشد  ");
                     }
                     else {
-                        if (isRestricted(daftar))
+                        if (isRestricted(daftar,permision))
                         {
                             string msg = " دسترسی شما به این تاریخ توسط مدیر سیستم محدود شده است";
                             report.Add(a.Id + " " + a.DepositOwnerDetail + " " + msg);

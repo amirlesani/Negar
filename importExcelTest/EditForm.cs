@@ -137,7 +137,7 @@ namespace negar
                 newDaftar.DepositOwnerDetail = this.DepositOwnerDetailTextBox.Text;
                 newDaftar.CityID = data.CityID;
 
-                if (sql.isRestricted(newDaftar))
+                if (sql.isRestricted(newDaftar,login.permission))
                 {
                     MessageBox.Show("دسترسی شما به این تاریخ توسط مدیر سیستم محدود شده است","خطا",
                           MessageBoxButtons.OK,

@@ -11,7 +11,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace negar
 {
-    enum errorImages { warning, error, info,watch };
+    enum errorImages { warning, error, info,watch,puls };
 
     public class ComboboxItem
     {

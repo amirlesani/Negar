@@ -163,12 +163,12 @@
             // persmissionCheckBox
             // 
             this.persmissionCheckBox.AutoSize = true;
-            this.persmissionCheckBox.Location = new System.Drawing.Point(597, 157);
+            this.persmissionCheckBox.Location = new System.Drawing.Point(644, 153);
             this.persmissionCheckBox.Name = "persmissionCheckBox";
             this.persmissionCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.persmissionCheckBox.Size = new System.Drawing.Size(134, 17);
+            this.persmissionCheckBox.Size = new System.Drawing.Size(79, 17);
             this.persmissionCheckBox.TabIndex = 15;
-            this.persmissionCheckBox.Text = "دسترسی به همه شهرها";
+            this.persmissionCheckBox.Text = "مدیر سیستم";
             this.persmissionCheckBox.UseVisualStyleBackColor = true;
             // 
             // cityComboBox

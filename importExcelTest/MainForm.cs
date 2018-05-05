@@ -516,7 +516,7 @@ namespace negar
                 {
                     MessageBox.Show("لطفا سطری را برای حذف انتخاب کنید");
                 }
-                var rpt = sql.remove(datasForModify,godmode);
+                var rpt = sql.remove(datasForModify,godmode,login.permission);
 
                 Report r = new Report(rpt, (int)errorImages.info);
                 r.Show();

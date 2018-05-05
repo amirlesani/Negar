@@ -172,7 +172,7 @@ namespace negar
 
 
                 SqlManipulator sql = new SqlManipulator();
-                if (sql.isRestricted(newDaftar))
+                if (sql.isRestricted(newDaftar,login.permission))
                 {
                     MessageBox.Show("دسترسی شما به این تاریخ توسط مدیر سیستم محدود شده است" ,"خطا",
                         MessageBoxButtons.OK,
