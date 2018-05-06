@@ -167,7 +167,7 @@
             this.persmissionCheckBox.Name = "persmissionCheckBox";
             this.persmissionCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.persmissionCheckBox.Size = new System.Drawing.Size(79, 17);
-            this.persmissionCheckBox.TabIndex = 15;
+            this.persmissionCheckBox.TabIndex = 5;
             this.persmissionCheckBox.Text = "مدیر سیستم";
             this.persmissionCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -180,7 +180,7 @@
             this.cityComboBox.Location = new System.Drawing.Point(530, 79);
             this.cityComboBox.Name = "cityComboBox";
             this.cityComboBox.Size = new System.Drawing.Size(121, 21);
-            this.cityComboBox.TabIndex = 14;
+            this.cityComboBox.TabIndex = 2;
             this.cityComboBox.ValueMember = "Id";
             // 
             // cityTableBindingSource2
@@ -224,7 +224,7 @@
             this.familyTextBox.Location = new System.Drawing.Point(551, 48);
             this.familyTextBox.Name = "familyTextBox";
             this.familyTextBox.Size = new System.Drawing.Size(100, 20);
-            this.familyTextBox.TabIndex = 11;
+            this.familyTextBox.TabIndex = 1;
             // 
             // nameTextBox
             // 
@@ -232,7 +232,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(551, 19);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 10;
+            this.nameTextBox.TabIndex = 0;
             // 
             // label3
             // 
@@ -271,7 +271,7 @@
             this.removeButton.Location = new System.Drawing.Point(633, 180);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(42, 26);
-            this.removeButton.TabIndex = 5;
+            this.removeButton.TabIndex = 7;
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
@@ -292,7 +292,7 @@
             this.addButton.Location = new System.Drawing.Point(681, 180);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(42, 26);
-            this.addButton.TabIndex = 4;
+            this.addButton.TabIndex = 6;
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
@@ -302,7 +302,7 @@
             this.userNameTextBox.Location = new System.Drawing.Point(551, 106);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.userNameTextBox.TabIndex = 1;
+            this.userNameTextBox.TabIndex = 3;
             // 
             // passWordTextBox
             // 
@@ -310,7 +310,7 @@
             this.passWordTextBox.Location = new System.Drawing.Point(551, 130);
             this.passWordTextBox.Name = "passWordTextBox";
             this.passWordTextBox.Size = new System.Drawing.Size(100, 20);
-            this.passWordTextBox.TabIndex = 2;
+            this.passWordTextBox.TabIndex = 4;
             // 
             // usersDataGridView
             // 
@@ -401,7 +401,7 @@
             this.button3.Location = new System.Drawing.Point(571, 85);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(42, 24);
-            this.button3.TabIndex = 5;
+            this.button3.TabIndex = 3;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -411,7 +411,7 @@
             this.CityTextBox.Location = new System.Drawing.Point(561, 59);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(100, 20);
-            this.CityTextBox.TabIndex = 3;
+            this.CityTextBox.TabIndex = 1;
             // 
             // pictureBox2
             // 
@@ -429,9 +429,9 @@
             this.button4.Location = new System.Drawing.Point(619, 85);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(42, 24);
-            this.button4.TabIndex = 4;
+            this.button4.TabIndex = 2;
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.addCityToFormManagerButton_Click);
             // 
             // IDTextBox
             // 
@@ -439,7 +439,7 @@
             this.IDTextBox.Location = new System.Drawing.Point(561, 30);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.IDTextBox.TabIndex = 2;
+            this.IDTextBox.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -560,7 +560,7 @@
             this.endDateTimePickerX1.RightToLeftLayout = true;
             this.endDateTimePickerX1.ShowClearButton = false;
             this.endDateTimePickerX1.Size = new System.Drawing.Size(182, 25);
-            this.endDateTimePickerX1.TabIndex = 35;
+            this.endDateTimePickerX1.TabIndex = 3;
             this.endDateTimePickerX1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.endDateTimePickerX1.TextWhenClearButtonClicked = "";
             // 
@@ -633,7 +633,7 @@
             this.startDateTimePickerX.RightToLeftLayout = true;
             this.startDateTimePickerX.ShowClearButton = false;
             this.startDateTimePickerX.Size = new System.Drawing.Size(182, 25);
-            this.startDateTimePickerX.TabIndex = 34;
+            this.startDateTimePickerX.TabIndex = 2;
             this.startDateTimePickerX.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.startDateTimePickerX.TextWhenClearButtonClicked = "";
             // 
@@ -674,7 +674,7 @@
             this.validCityComboBox.Location = new System.Drawing.Point(540, 50);
             this.validCityComboBox.Name = "validCityComboBox";
             this.validCityComboBox.Size = new System.Drawing.Size(121, 21);
-            this.validCityComboBox.TabIndex = 15;
+            this.validCityComboBox.TabIndex = 1;
             this.validCityComboBox.ValueMember = "Id";
             // 
             // label6
@@ -704,7 +704,7 @@
             this.descriptionTextBox.Location = new System.Drawing.Point(561, 24);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(100, 20);
-            this.descriptionTextBox.TabIndex = 3;
+            this.descriptionTextBox.TabIndex = 0;
             // 
             // pictureBox3
             // 

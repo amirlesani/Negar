@@ -433,7 +433,7 @@ namespace negar
         {
             try {
                 if (permission)
-                    return true;
+                    return false;
                 ValidationDataClassesDataContext db = new ValidationDataClassesDataContext(cn);
                 var valid = (from c in db.validationTables.Where(x => x.City == data.CityID && data.RealDate>= x.startDate && data.RealDate<= x.enDate ) select c).Any();
                 

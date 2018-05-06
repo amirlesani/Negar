@@ -104,6 +104,8 @@ namespace negar
         }
         public void setCityComboBox()
         {
+            try { 
+            cityComboBox.Items.Clear();
             if (!login.permission)
             { SqlManipulator sql = new SqlManipulator();
                 cityComboBox.Items.Add(new ComboboxItem(login.cityName, login.cityID));
@@ -127,6 +129,11 @@ namespace negar
                 {
                     throw;
                 }
+            }
+            }
+            catch(Exception)
+            {
+
             }
         }
         private void setDataGrid()

@@ -224,21 +224,28 @@ namespace negar
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void addCityToFormManagerButton_Click(object sender, EventArgs e)
         {
-            CityTable newCity = new CityTable();
-            newCity.CityName = CityTextBox.Text;
-            newCity.Id = Convert.ToInt64(IDTextBox.Text);
-            SqlManipulator sql = new SqlManipulator();
-            if (sql.addCity(newCity))
-            {
-                makeTable(sql.getDataCity());
-                MessageBox.Show("با موفقیت شهر مورد نظر اضافه گردید");
+            try {
+                CityTable newCity = new CityTable();
+                newCity.CityName = CityTextBox.Text;
+                newCity.Id = Convert.ToInt64(IDTextBox.Text);
+                SqlManipulator sql = new SqlManipulator();
+                if (sql.addCity(newCity))
+                {
+                    makeTable(sql.getDataCity());
+                    MessageBox.Show("با موفقیت شهر مورد نظر اضافه گردید");
+                    mainForm.setCityComboBox();
 
+                }
+                else
+                {
+                    MessageBox.Show("خطا");
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("خطا");
+                MessageBox.Show(ex.ToString());
             }
         }
         private void makeTable(IQueryable cities)
