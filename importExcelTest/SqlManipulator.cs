@@ -314,9 +314,10 @@ namespace negar
                 }
                 var query = listDaftar.AsQueryable();                
                 var search = (from c in db.DaftarTables.Where(x => x.CityID == cityID && x.RealDate >= date.startDate && x.RealDate <= date.endDate) select c);
-
+                bool t = false;
                 foreach (var a in search)
                 {
+                    t = false;
                     foreach (var b in query)
                     {
                         if (a.Id==b.Id)
@@ -326,13 +327,19 @@ namespace negar
                                 a.Refund = a.Deposit;
                                 a.Deposit = 0;
                                 report.Add(a.DepositOwnerDetail +" " +a.Id +"استرداد شد");
+                                t = false;
                             }
+                            else
+                            {
+                                t = true;
+                            }
+                        
                         }
-                        else
-                        {
-                            report.Add(a.DepositOwnerDetail + " " + a.Id + "در پایگاه داده موجود نیست");
-                        }
-                    }                                        
+                    }
+                    if (t)
+                    {
+                        report.Add(a.DepositOwnerDetail + " " + a.Id + "خطا در استرداد");
+                    }                                    
                 }
                 db.SubmitChanges();
                 excelQuery = null;
