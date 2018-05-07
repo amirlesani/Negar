@@ -302,7 +302,9 @@ namespace negar
 
                     if(this.refundRadioButton.Checked)
                     {
-                        sql.refundFromFile(query, login.cityID);
+                        var report =  sql.refundFromFile(query, login.cityID);
+                        Report rpt = new Report(report,Convert.ToInt32(errorImages.info));
+                        rpt.Show();
                     }
                     if (this.depositRadioButton.Checked)
                     {

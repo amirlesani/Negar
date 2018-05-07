@@ -284,12 +284,13 @@ namespace negar
             return "not found";
 
         }
-        public Boolean refundFromFile(IQueryable<Daftarcs> excelQuery, long cityID)
+        public List<string> refundFromFile(IQueryable<Daftarcs> excelQuery, long cityID)
         {
             try
             {
+                List<string> report = new List<string>();
                 Utility utl = new Utility();
-
+                
                 DaftarModelDataContext db =
                 new DaftarModelDataContext(cn);
                 List<DaftarTable> listDaftar = new List<DaftarTable>();
@@ -324,18 +325,26 @@ namespace negar
                             {
                                 a.Refund = a.Deposit;
                                 a.Deposit = 0;
+                                report.Add(a.DepositOwnerDetail +" " +a.Id +"استرداد شد");
                             }
+                        }
+                        else
+                        {
+                            report.Add(a.DepositOwnerDetail + " " + a.Id + "در پایگاه داده موجود نیست");
                         }
                     }                                        
                 }
                 db.SubmitChanges();
                 excelQuery = null;
-                return true;
+                return report;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                return false;
+                string exp = "خطا";
+                List<string> report = new List<string>();
+                report.Add(ex.ToString());
+                report.Add(exp);
+                return report;
             }
         }
         
