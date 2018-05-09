@@ -50,7 +50,7 @@ namespace negar
 
             // ... Your code is here 
 
-            // Don't forget to stop the listener somewhere!
+            // Don'refundStatus forget to stop the listener somewhere!
             //listener.Stop();
         }
         
@@ -314,32 +314,32 @@ namespace negar
                 }
                 var query = listDaftar.AsQueryable();                
                 var search = (from c in db.DaftarTables.Where(x => x.CityID == cityID && x.RealDate >= date.startDate && x.RealDate <= date.endDate) select c);
-                bool t = false;
-                foreach (var a in search)
+
+                
+                foreach (var b in query)
                 {
-                    t = false;
-                    foreach (var b in query)
+                    bool refunded = false;
+                    foreach (var a in search)
                     {
-                        if (a.Id==b.Id)
+
+                        if (a.Id == b.Id)
                         {
-                            if (b.Refund != 0 && b.Deposit == 0 && a.Refund ==0)
+                            if (b.Refund != 0 && b.Deposit == 0 && a.Refund == 0)
                             {
                                 a.Refund = a.Deposit;
                                 a.Deposit = 0;
-                                report.Add(a.DepositOwnerDetail +" " +a.Id +"استرداد شد");
-                                t = false;
+                                report.Add(a.DepositOwnerDetail + " " + a.Id + "استرداد شد");
+                                refunded = true;   
                             }
-                            else
-                            {
-                                t = true;
-                            }
-                        
                         }
                     }
-                    if (t)
-                    {
-                        report.Add(a.DepositOwnerDetail + " " + a.Id + "خطا در استرداد");
-                    }                                    
+
+                    if(!refunded)
+                    {                                 
+                        report.Add(b.DepositOwnerDetail + " " + b.Id + "خطا در استرداد");
+                    }
+                    
+
                 }
                 db.SubmitChanges();
                 excelQuery = null;
