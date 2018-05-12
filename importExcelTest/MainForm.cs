@@ -775,7 +775,7 @@ namespace negar
             var query = searchResultQuery();
             if (!query.query.Any())
             {
-                MessageBox.Show("نتیجه ایی یافت نشد","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("نتیجه ایی یافت نشد","هشدار ",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 return;
             }
             try
