@@ -104,11 +104,7 @@ namespace WindowsFormsApplication1
               .Where(g => g.Count() > 1)
               .Select(y => y.Key)
               .ToList();
-            foreach(var a in query)
-            {
-                
-                MessageBox.Show("شناسه یکسان یافت شد  "+a.ToString());
-            }
+           
             return query;
         }
         public IQueryable<Daftarcs> dataCorrection(IQueryable<Daftarcs> data)
@@ -166,8 +162,13 @@ namespace WindowsFormsApplication1
                         }
                     }
                     var t = findDuplicateID(ids);
-                    foreach (var a in t ) {
-                        list.Add(a.ToString()+" دارای مشخصات یکسان است");
+                    if (t.Any())
+                    {
+                        valid = false;
+                        foreach (var a in t)
+                        {
+                            list.Add(a.ToString() + " دارای مشخصات یکسان است");
+                        }
                     }
 
                 }
@@ -178,7 +179,6 @@ namespace WindowsFormsApplication1
                 }
             }
             list.Add(" خطا در فایل " + fileName);
-            list.Add("   ");
             ExcelValidationClass validation = new ExcelValidationClass();
             validation.report = list;
             validation.isValid = valid;
