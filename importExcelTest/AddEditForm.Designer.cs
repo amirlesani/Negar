@@ -95,9 +95,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(312, 102);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 13);
+            this.label9.Size = new System.Drawing.Size(60, 13);
             this.label9.TabIndex = 41;
-            this.label9.Text = "کد  سپرده";
+            this.label9.Text = "شماره قبض";
             // 
             // label8
             // 
@@ -143,7 +143,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(310, 206);
+            this.label4.Location = new System.Drawing.Point(308, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 36;

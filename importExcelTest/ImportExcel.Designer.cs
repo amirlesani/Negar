@@ -150,10 +150,10 @@
             this.depositRadioButton.Location = new System.Drawing.Point(115, 16);
             this.depositRadioButton.Name = "depositRadioButton";
             this.depositRadioButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.depositRadioButton.Size = new System.Drawing.Size(89, 17);
+            this.depositRadioButton.Size = new System.Drawing.Size(78, 17);
             this.depositRadioButton.TabIndex = 6;
             this.depositRadioButton.TabStop = true;
-            this.depositRadioButton.Text = "درخواست وجه";
+            this.depositRadioButton.Text = "دریافت وجه";
             this.depositRadioButton.UseVisualStyleBackColor = true;
             this.depositRadioButton.CheckedChanged += new System.EventHandler(this.depositRadioButton_CheckedChanged);
             this.depositRadioButton.Click += new System.EventHandler(this.depositRadioButton_Click);

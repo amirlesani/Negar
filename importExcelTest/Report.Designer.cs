@@ -82,10 +82,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Report";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "گزارش";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Report_Load);
             this.ResumeLayout(false);
 
