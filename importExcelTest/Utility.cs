@@ -99,6 +99,16 @@ namespace negar
             return st;
 
         }
+        public List<long> findDuplicateID(List<long> list)
+        {
+
+            var query = list.GroupBy(x => x)
+              .Where(g => g.Count() > 1)
+              .Select(y => y.Key)
+              .ToList();
+
+            return query;
+        }
         public string getMonthName(int month)
         {
             //sort monthes if u need

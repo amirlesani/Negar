@@ -250,6 +250,12 @@
     </Compile>
     <Compile Include="MapClassToPersianClass.cs" />
     <Compile Include="MaxMinClass.cs" />
+    <Compile Include="NoteBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoteBook.Designer.cs">
+      <DependentUpon>NoteBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersianCultureHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -291,6 +297,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ValidationDataClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="XMLHandler.cs" />
     <Compile Include="YeKe.cs" />
     <EmbeddedResource Include="AddEditForm.resx">
       <DependentUpon>AddEditForm.cs</DependentUpon>
@@ -318,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoteBook.resx">
+      <DependentUpon>NoteBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
@@ -481,6 +491,8 @@
   <ItemGroup>
     <Content Include="Designbolts-Free-Multimedia-IMac.ico" />
     <Content Include="if_Prism-3_379418.ico" />
+    <None Include="Resources\note1.png" />
+    <None Include="Resources\Edit %281%291.png" />
     <None Include="Resources\How-to-manage-access-to-permission.png" />
     <None Include="Resources\Edit %281%29.png" />
     <None Include="Resources\copy-16.png" />

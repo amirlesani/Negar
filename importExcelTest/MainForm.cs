@@ -28,6 +28,7 @@ namespace negar
         private int pageNumber;
         private int lastSelectedRow;
         private  Result lastResult;
+        private NoteBook ntp;
         private LoginInfo login;
         private DaftarTable dataForchanging;
 
@@ -50,6 +51,7 @@ namespace negar
 
             ExtensionMethods.DoubleBuffered(mainDataGridView, true);
             adv = new AdvancedSearchForm(this);
+            ntp = new NoteBook();
             startEnd = new StartEndMonthClass();
             lastResult = new Result();
 
@@ -454,6 +456,7 @@ namespace negar
                     data.Refund = Convert.ToInt64(row.Cells[1].Value);
                     data.BillDetailCode = Convert.ToInt64(row.Cells[2].Value);
                     data.Date = row.Cells[3].Value.ToString();
+                    data.PlaceName = row.Cells[4].Value.ToString();
                     data.AccountType = row.Cells[5].Value.ToString();
                     data.DepositOwnerDetail = row.Cells[6].Value.ToString();
                     data.DepositDetail = Convert.ToInt64(row.Cells[7].Value);
@@ -995,7 +998,21 @@ namespace negar
             // Determine if text has changed in the textbox by comparing to original text.
             // Display a MsgBox asking the user to save changes or abort.
             // Determine if text has changed in the textbox by comparing to original text.
-           // e.Cancel = false;
+            // e.Cancel = false;
+            Environment.Exit(Environment.ExitCode);
+
+
+            if (System.Windows.Forms.Application.MessageLoop)
+            {
+                // WinForms app
+                System.Windows.Forms.Application.Exit();
+            }
+            else
+            {
+                // Console app
+                System.Environment.Exit(1);
+            }
+
             Application.Exit();
 
         }
@@ -1187,6 +1204,46 @@ namespace negar
         private void شنیدنToolStripMenuItem_Click(object sender, EventArgs e)
         {
             notificate();
+        }
+
+        private void اضافهبهدفترToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            XMLHandler xml = new XMLHandler();
+            if (!datasForModify.Any())
+            {
+                MessageBox.Show("لطفا سطری را برای اضافه کردن به دفتر انتخاب کنید");
+                return;
+            }
+            else
+            {
+                if(xml.addToNoteBook(datasForModify))
+                {
+                    try {
+                        ntp.setDataGridView();
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+            }
+            //var rpt = sql.remove(datasForModify, godmode, login.permission);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ntp.Show();
+        }
+
+        private void دفترToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ntp.Show();
+        }
+
+        private void ذخیرهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
