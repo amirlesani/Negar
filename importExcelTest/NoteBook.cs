@@ -256,15 +256,20 @@ namespace negar
 
         private void حذفToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (dataForchanging.Any())
+            DialogResult dialogResult = MessageBox.Show("آیا از حذف مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
             {
-                XMLHandler xml = new XMLHandler();
-                xml.remove(dataForchanging);
-                setDataGridView();
-            }
-            else
-            {
-                MessageBox.Show("خالی است");
+                if (dataForchanging.Any())
+                {
+                    XMLHandler xml = new XMLHandler();
+                    xml.remove(dataForchanging);
+                    setDataGridView();
+
+                }
+                else
+                {
+                    MessageBox.Show("سطری را انتخاب کنید");
+                }
             }
 
         }
