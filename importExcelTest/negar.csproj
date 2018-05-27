@@ -10,10 +10,10 @@
     <AssemblyName>negar</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
     <PublishUrl>C:\Users\PML\Desktop\update\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
+    <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -21,9 +21,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://localhost:8080/updateFolder/a/</InstallUrl>
     <UpdateUrl>http://localhost:8080/updateFolder/a/</UpdateUrl>
     <ProductName>Negar</ProductName>
     <PublisherName>Xenups Corportation</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
     <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.2</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -491,6 +494,7 @@
   <ItemGroup>
     <Content Include="Designbolts-Free-Multimedia-IMac.ico" />
     <Content Include="if_Prism-3_379418.ico" />
+    <None Include="Resources\stp.gif" />
     <None Include="Resources\note1.png" />
     <None Include="Resources\Edit %281%291.png" />
     <None Include="Resources\How-to-manage-access-to-permission.png" />

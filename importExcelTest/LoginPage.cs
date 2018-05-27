@@ -104,12 +104,17 @@ namespace negar
                             return;
                         }
                     }
-                    MessageBox.Show("نام کاربری و گذر واژه فاقد اعتبار است");
+                    MessageBox.Show("نام کاربری و گذر واژه فاقد اعتبار است", "خطا",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Error);
                     return;
                 }
                 else
                 {
-                    MessageBox.Show("ارتباط با سرور قطع است ، تنظیمات سرور را بررسی کنید  ");
+                    MessageBox.Show("ارتباط با سرور قطع است ، تنظیمات سرور را بررسی کنید", "خطا",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
+
                     return;
                 }
 
@@ -137,21 +142,12 @@ namespace negar
             this.Hide();
 
         }
-        private void login_Keydown(object sender,KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                loginButton_Click(this,new EventArgs());
-            }
-        }
+       
         private void GearPictureBox_MouseClick(object sender, MouseEventArgs e)
         {
             form_ServerSetting srv = new form_ServerSetting();
             srv.Show();
         }
-
-        
-
 
         private void LoginButton_KeyDown(object sender, KeyEventArgs e)
         {
@@ -181,9 +177,12 @@ namespace negar
         private void LoginPage_Load(object sender, EventArgs e)
         {
             UserNametextBox.Text = Properties.Settings.Default.LastUser.ToString();
-
-           
             
+        }
+
+        private void GearPictureBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

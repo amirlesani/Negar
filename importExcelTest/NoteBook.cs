@@ -194,13 +194,7 @@ namespace negar
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            XMLHandler xml = new XMLHandler();
-            xml.remove(dataForchanging);
-            setDataGridView();
-            
-        }
+        
         private void rightclick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)

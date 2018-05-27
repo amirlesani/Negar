@@ -105,6 +105,7 @@
             this.GearPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.GearPictureBox.TabIndex = 5;
             this.GearPictureBox.TabStop = false;
+            this.GearPictureBox.Click += new System.EventHandler(this.GearPictureBox_Click);
             this.GearPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GearPictureBox_MouseClick);
             // 
             // pictureBox1

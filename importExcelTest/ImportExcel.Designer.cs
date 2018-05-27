@@ -101,6 +101,8 @@
             this.excelDataGridView.AllowUserToOrderColumns = true;
             this.excelDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.excelDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.excelDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.excelDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.excelDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.excelDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.excelDataGridView.Location = new System.Drawing.Point(0, 0);

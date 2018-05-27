@@ -39,9 +39,9 @@
             this.فایلمتنیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.خروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ویرایشToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حذفToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.حذفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.حذفToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.NoteBookDataGridView)).BeginInit();
             this.notebookGroupBox.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -54,6 +54,8 @@
             this.NoteBookDataGridView.AllowUserToDeleteRows = false;
             this.NoteBookDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NoteBookDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.NoteBookDataGridView.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.NoteBookDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.NoteBookDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NoteBookDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NoteBookDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -108,14 +110,14 @@
             this.ذخیرهبهعنوانToolStripMenuItem.Image = global::negar.Properties.Resources.f3d48a1d;
             this.ذخیرهبهعنوانToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.ذخیرهبهعنوانToolStripMenuItem.Name = "ذخیرهبهعنوانToolStripMenuItem";
-            this.ذخیرهبهعنوانToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ذخیرهبهعنوانToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.ذخیرهبهعنوانToolStripMenuItem.Text = "ذخیره به عنوان";
             // 
             // فایلاکسلToolStripMenuItem
             // 
             this.فایلاکسلToolStripMenuItem.Image = global::negar.Properties.Resources.excel;
             this.فایلاکسلToolStripMenuItem.Name = "فایلاکسلToolStripMenuItem";
-            this.فایلاکسلToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.فایلاکسلToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.فایلاکسلToolStripMenuItem.Text = "فایل اکسل";
             this.فایلاکسلToolStripMenuItem.Click += new System.EventHandler(this.فایلاکسلToolStripMenuItem_Click);
             // 
@@ -123,14 +125,14 @@
             // 
             this.فایلمتنیToolStripMenuItem.Image = global::negar.Properties.Resources.note;
             this.فایلمتنیToolStripMenuItem.Name = "فایلمتنیToolStripMenuItem";
-            this.فایلمتنیToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.فایلمتنیToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.فایلمتنیToolStripMenuItem.Text = "فایل متنی";
             this.فایلمتنیToolStripMenuItem.Click += new System.EventHandler(this.فایلمتنیToolStripMenuItem_Click);
             // 
             // خروجToolStripMenuItem
             // 
             this.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem";
-            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.خروجToolStripMenuItem.Text = "خروج";
             this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
@@ -141,6 +143,14 @@
             this.ویرایشToolStripMenuItem.Name = "ویرایشToolStripMenuItem";
             this.ویرایشToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.ویرایشToolStripMenuItem.Text = "ویرایش";
+            // 
+            // حذفToolStripMenuItem1
+            // 
+            this.حذفToolStripMenuItem1.Image = global::negar.Properties.Resources.if_sign_error_299045;
+            this.حذفToolStripMenuItem1.Name = "حذفToolStripMenuItem1";
+            this.حذفToolStripMenuItem1.Size = new System.Drawing.Size(95, 22);
+            this.حذفToolStripMenuItem1.Text = "حذف";
+            this.حذفToolStripMenuItem1.Click += new System.EventHandler(this.حذفToolStripMenuItem1_Click);
             // 
             // contextMenuStrip1
             // 
@@ -156,14 +166,6 @@
             this.حذفToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.حذفToolStripMenuItem.Text = "حذف";
             this.حذفToolStripMenuItem.Click += new System.EventHandler(this.حذفToolStripMenuItem_Click);
-            // 
-            // حذفToolStripMenuItem1
-            // 
-            this.حذفToolStripMenuItem1.Image = global::negar.Properties.Resources.if_sign_error_299045;
-            this.حذفToolStripMenuItem1.Name = "حذفToolStripMenuItem1";
-            this.حذفToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.حذفToolStripMenuItem1.Text = "حذف";
-            this.حذفToolStripMenuItem1.Click += new System.EventHandler(this.حذفToolStripMenuItem1_Click);
             // 
             // NoteBook
             // 

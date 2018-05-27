@@ -30,7 +30,7 @@ namespace negar
         private  Result lastResult;
         private NoteBook ntp;
         private LoginInfo login;
-        private DaftarTable dataForchanging;
+        private DaftarTable rowsData;
 
         private List<DaftarTable> datasForModify;
         private AdvancedSearchForm adv;
@@ -62,6 +62,7 @@ namespace negar
             userToolStripStatusLabel.Text = " کاربر :"+ login.Name + "" + login.family;
             this.statusStrip1.Invalidate();
             this.statusStrip1.Refresh();
+            
 
          }
          int pageSize = Properties.Settings.Default.pageSize;
@@ -81,10 +82,11 @@ namespace negar
                 }
 
                     ///too halat e search e
-                    SqlManipulator sql = new SqlManipulator();
+                SqlManipulator sql = new SqlManipulator();
                 var query = searchResultQuery();
                 refreshDVGquery(query,pageNumber);
                 
+
 
             }
             catch (Exception ex)
@@ -423,18 +425,18 @@ namespace negar
                 selectedRowupdate = mainDataGridView.CurrentCell.RowIndex;
                 DataGridViewRow newDataRow = mainDataGridView.Rows[selectedRowupdate];
 
-                dataForchanging = new DaftarTable();
-                dataForchanging.Id = Convert.ToInt64(newDataRow.Cells[0].Value);
-                dataForchanging.Refund = Convert.ToInt64(newDataRow.Cells[1].Value);
-                dataForchanging.BillDetailCode = Convert.ToInt64(newDataRow.Cells[2].Value);
-                dataForchanging.Date = newDataRow.Cells[3].Value.ToString();
-                dataForchanging.AccountType = newDataRow.Cells[5].Value.ToString();
-                dataForchanging.DepositOwnerDetail = newDataRow.Cells[6].Value.ToString();
-                dataForchanging.DepositDetail = Convert.ToInt64(newDataRow.Cells[7].Value);
-                dataForchanging.Deposit = Convert.ToInt64(newDataRow.Cells[8].Value);
-                dataForchanging.CodeBudget  = Convert.ToInt64(newDataRow.Cells[9].Value);
-                dataForchanging.CityID = Convert.ToInt64(newDataRow.Cells[10].Value);
-                dataForchanging.RealDate = Convert.ToInt64(newDataRow.Cells[11].Value);
+                rowsData = new DaftarTable();
+                rowsData.Id = Convert.ToInt64(newDataRow.Cells[0].Value);
+                rowsData.Refund = Convert.ToInt64(newDataRow.Cells[1].Value);
+                rowsData.BillDetailCode = Convert.ToInt64(newDataRow.Cells[2].Value);
+                rowsData.Date = newDataRow.Cells[3].Value.ToString();
+                rowsData.AccountType = newDataRow.Cells[5].Value.ToString();
+                rowsData.DepositOwnerDetail = newDataRow.Cells[6].Value.ToString();
+                rowsData.DepositDetail = Convert.ToInt64(newDataRow.Cells[7].Value);
+                rowsData.Deposit = Convert.ToInt64(newDataRow.Cells[8].Value);
+                rowsData.CodeBudget  = Convert.ToInt64(newDataRow.Cells[9].Value);
+                rowsData.CityID = Convert.ToInt64(newDataRow.Cells[10].Value);
+                rowsData.RealDate = Convert.ToInt64(newDataRow.Cells[11].Value);
 
                            
             }
@@ -478,11 +480,16 @@ namespace negar
         }
         private void setRowNumber(DataGridView dgv)
         {
-            
-            foreach(DataGridViewRow r in dgv.Rows)
+            try {
+                foreach (DataGridViewRow r in dgv.Rows)
+                {
+                    dgv.Rows[r.Index].HeaderCell.Value = (r.Index + 1).ToString();
+                    dgv.RowHeadersWidth = 50;
+                }
+            }
+            catch(Exception)
             {
-                dgv.Rows[r.Index].HeaderCell.Value = (r.Index + 1).ToString();
-                dgv.RowHeadersWidth = 50;
+
             }
         }
         private List<string> getColumnsHeader()
@@ -542,7 +549,7 @@ namespace negar
             }
             else if (dialogResult == DialogResult.No)
             {
-
+                return;
             }
         }
 
@@ -558,7 +565,7 @@ namespace negar
         }
         private void updateButton_Click(object sender, EventArgs e)
         {
-            EditForm edit = new EditForm(dataForchanging,this,login,godmode);
+            EditForm edit = new EditForm(rowsData,this,login,godmode);
             edit.Show();
         }
         public void refreshState()
@@ -593,7 +600,7 @@ namespace negar
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddEditForm add = new AddEditForm(login,this,false, dataForchanging);
+            AddEditForm add = new AddEditForm(login,this,false, rowsData);
             add.Show();
         }
 
@@ -1072,14 +1079,14 @@ namespace negar
 
         private void اضافهToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddEditForm add = new AddEditForm(login, this, false, dataForchanging);
+            AddEditForm add = new AddEditForm(login, this, false, rowsData);
             add.Show();
 
         }
 
         private void تغییرToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditForm edit = new EditForm(dataForchanging, this, login,godmode);
+            EditForm edit = new EditForm(rowsData, this, login,godmode);
             edit.Show();
         }
 
@@ -1109,11 +1116,7 @@ namespace negar
 
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
+      
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             delete();
@@ -1121,7 +1124,7 @@ namespace negar
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditForm edit = new EditForm(dataForchanging, this, login,godmode);
+            EditForm edit = new EditForm(rowsData, this, login,godmode);
             edit.Show();
         }
 
@@ -1144,7 +1147,7 @@ namespace negar
 
         private void اضافهToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            AddEditForm add = new AddEditForm(login, this, true, dataForchanging);
+            AddEditForm add = new AddEditForm(login, this, true, rowsData);
             add.Show();
         }
 
@@ -1157,12 +1160,12 @@ namespace negar
             }
             if(e.KeyCode == Keys.F2)
             {
-                EditForm edit = new EditForm(dataForchanging, this, login,godmode);
+                EditForm edit = new EditForm(rowsData, this, login,godmode);
                 edit.Show();
             }
             if(e.KeyCode == Keys.F1)
             {
-                AddEditForm add = new AddEditForm(login, this, true, dataForchanging);
+                AddEditForm add = new AddEditForm(login, this, true, rowsData);
                 add.Show();
             }
         }
@@ -1231,20 +1234,12 @@ namespace negar
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+               private void دفترToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ntp.Show();
         }
 
-        private void دفترToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ntp.Show();
-        }
-
-        private void ذخیرهToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 
 
