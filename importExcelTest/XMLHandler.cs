@@ -35,6 +35,7 @@ namespace negar
                     
                         x.Add(data.Element("DaftarTable"));
                         x.Save(rootFile);
+                    
                         //stream.Close();
                   
                 }
@@ -42,6 +43,7 @@ namespace negar
                 {   
 
                         data.Save(rootFile);
+                    
                         
                         //CreateIsf.Close();
                   
