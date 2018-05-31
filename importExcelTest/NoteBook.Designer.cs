@@ -54,7 +54,7 @@
             this.NoteBookDataGridView.AllowUserToDeleteRows = false;
             this.NoteBookDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NoteBookDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            this.NoteBookDataGridView.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.NoteBookDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.NoteBookDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.NoteBookDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NoteBookDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -62,7 +62,7 @@
             this.NoteBookDataGridView.Location = new System.Drawing.Point(3, 16);
             this.NoteBookDataGridView.Name = "NoteBookDataGridView";
             this.NoteBookDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.NoteBookDataGridView.Size = new System.Drawing.Size(870, 365);
+            this.NoteBookDataGridView.Size = new System.Drawing.Size(870, 375);
             this.NoteBookDataGridView.TabIndex = 0;
             this.NoteBookDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.NoteBookDataGridView_CellMouseClick);
             this.NoteBookDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.NoteBookDataGridView_CellMouseDown);
@@ -76,7 +76,7 @@
             this.notebookGroupBox.Location = new System.Drawing.Point(0, 24);
             this.notebookGroupBox.Name = "notebookGroupBox";
             this.notebookGroupBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.notebookGroupBox.Size = new System.Drawing.Size(876, 384);
+            this.notebookGroupBox.Size = new System.Drawing.Size(876, 394);
             this.notebookGroupBox.TabIndex = 1;
             this.notebookGroupBox.TabStop = false;
             this.notebookGroupBox.Text = "دفتر";
@@ -110,7 +110,7 @@
             this.ذخیرهبهعنوانToolStripMenuItem.Image = global::negar.Properties.Resources.f3d48a1d;
             this.ذخیرهبهعنوانToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.ذخیرهبهعنوانToolStripMenuItem.Name = "ذخیرهبهعنوانToolStripMenuItem";
-            this.ذخیرهبهعنوانToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.ذخیرهبهعنوانToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ذخیرهبهعنوانToolStripMenuItem.Text = "ذخیره به عنوان";
             // 
             // فایلاکسلToolStripMenuItem
@@ -132,7 +132,7 @@
             // خروجToolStripMenuItem
             // 
             this.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem";
-            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.خروجToolStripMenuItem.Text = "خروج";
             this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
@@ -148,7 +148,7 @@
             // 
             this.حذفToolStripMenuItem1.Image = global::negar.Properties.Resources.if_sign_error_299045;
             this.حذفToolStripMenuItem1.Name = "حذفToolStripMenuItem1";
-            this.حذفToolStripMenuItem1.Size = new System.Drawing.Size(95, 22);
+            this.حذفToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.حذفToolStripMenuItem1.Text = "حذف";
             this.حذفToolStripMenuItem1.Click += new System.EventHandler(this.حذفToolStripMenuItem1_Click);
             // 
@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 408);
+            this.ClientSize = new System.Drawing.Size(876, 418);
             this.Controls.Add(this.notebookGroupBox);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -318,6 +318,8 @@
             this.usersDataGridView.AllowUserToDeleteRows = false;
             this.usersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.usersDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            this.usersDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.usersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.usersDataGridView.Location = new System.Drawing.Point(3, 232);
@@ -346,6 +348,8 @@
             this.cityDataGridView.AllowUserToDeleteRows = false;
             this.cityDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.cityDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            this.cityDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.cityDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.cityDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cityDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cityDataGridView.Location = new System.Drawing.Point(3, 216);
@@ -459,8 +463,11 @@
             this.validationDataGridView.AllowUserToDeleteRows = false;
             this.validationDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.validationDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            this.validationDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.validationDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.validationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.validationDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.validationDataGridView.GridColor = System.Drawing.SystemColors.Control;
             this.validationDataGridView.Location = new System.Drawing.Point(3, 216);
             this.validationDataGridView.Name = "validationDataGridView";
             this.validationDataGridView.ReadOnly = true;

@@ -211,15 +211,23 @@ namespace negar
 
         private void حذفToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataForchanging.Any())
+            DialogResult dialogResult = MessageBox.Show("آیا از حذف مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
             {
-                XMLHandler xml = new XMLHandler();
-                xml.remove(dataForchanging);
-                setDataGridView();
+                if (dataForchanging.Any())
+                {
+                    XMLHandler xml = new XMLHandler();
+                    xml.remove(dataForchanging);
+                    setDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("خالی است");
+                }
             }
             else
             {
-                MessageBox.Show("خالی است");
+                return;
             }
         }
 
