@@ -122,7 +122,7 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 97);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 94);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(994, 0);
             this.flowLayoutPanel1.TabIndex = 11;
@@ -345,7 +345,7 @@
             this.groupBox2.Controls.Add(this.backwardButton);
             this.groupBox2.Controls.Add(this.forwardButton);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 97);
+            this.groupBox2.Location = new System.Drawing.Point(0, 94);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox2.Size = new System.Drawing.Size(994, 59);
@@ -446,7 +446,7 @@
             this.mainDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.mainDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.mainDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mainDataGridView.Size = new System.Drawing.Size(988, 382);
+            this.mainDataGridView.Size = new System.Drawing.Size(988, 385);
             this.mainDataGridView.TabIndex = 0;
             this.mainDataGridView.VirtualMode = true;
             this.mainDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.mainDataGridView_CellFormatting);
@@ -462,10 +462,10 @@
             this.groupBox4.Controls.Add(this.mainDataGridView);
             this.groupBox4.Controls.Add(this.statusStrip1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 156);
+            this.groupBox4.Location = new System.Drawing.Point(0, 153);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox4.Size = new System.Drawing.Size(994, 423);
+            this.groupBox4.Size = new System.Drawing.Size(994, 426);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "پایگاه داده";
@@ -477,7 +477,7 @@
             this.counttoolStripStatusLabel1,
             this.sumStripStatusLabel1,
             this.changeStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 398);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 401);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(988, 22);
             this.statusStrip1.TabIndex = 2;
@@ -495,7 +495,7 @@
             this.counttoolStripStatusLabel1.Name = "counttoolStripStatusLabel1";
             this.counttoolStripStatusLabel1.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
             this.counttoolStripStatusLabel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.counttoolStripStatusLabel1.Size = new System.Drawing.Size(454, 17);
+            this.counttoolStripStatusLabel1.Size = new System.Drawing.Size(470, 17);
             this.counttoolStripStatusLabel1.Spring = true;
             this.counttoolStripStatusLabel1.Text = "تعداد";
             this.counttoolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -503,7 +503,7 @@
             // sumStripStatusLabel1
             // 
             this.sumStripStatusLabel1.Name = "sumStripStatusLabel1";
-            this.sumStripStatusLabel1.Size = new System.Drawing.Size(454, 17);
+            this.sumStripStatusLabel1.Size = new System.Drawing.Size(470, 17);
             this.sumStripStatusLabel1.Spring = true;
             this.sumStripStatusLabel1.Text = "جمع";
             this.sumStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -541,7 +541,7 @@
             this.groupBox3.Location = new System.Drawing.Point(0, 24);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox3.Size = new System.Drawing.Size(994, 73);
+            this.groupBox3.Size = new System.Drawing.Size(994, 70);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             // 
@@ -584,6 +584,7 @@
             // 
             this.updateButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.updateButton3.AutoSize = true;
+            this.updateButton3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.updateButton3.Image = global::negar.Properties.Resources.if_icon_ios7_refresh_empty_211812;
             this.updateButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.updateButton3.Location = new System.Drawing.Point(12, 23);
@@ -600,6 +601,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.button2.AutoSize = true;
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button2.Image = global::negar.Properties.Resources.if_basics_15_2968191;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.button2.Location = new System.Drawing.Point(319, 22);
@@ -616,6 +618,7 @@
             this.updateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.updateButton.AutoSize = true;
             this.updateButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.updateButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.updateButton.Image = global::negar.Properties.Resources.if_081_Pen_183209__1_;
             this.updateButton.Location = new System.Drawing.Point(185, 23);
             this.updateButton.Name = "updateButton";
@@ -656,6 +659,7 @@
             this.esterdadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.esterdadButton.AutoSize = true;
             this.esterdadButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.esterdadButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.esterdadButton.Image = global::negar.Properties.Resources.e_commerce_icon_icon;
             this.esterdadButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.esterdadButton.Location = new System.Drawing.Point(112, 23);
@@ -673,6 +677,7 @@
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.deleteButton.AutoSize = true;
             this.deleteButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.deleteButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.deleteButton.Image = global::negar.Properties.Resources.if_basics_22_296812;
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.deleteButton.Location = new System.Drawing.Point(255, 22);

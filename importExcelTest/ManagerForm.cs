@@ -341,5 +341,59 @@ namespace negar
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void yearComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void setYearMonthComboBox(long cityID)
+        {
+            ////To DO
+            //// 6/17/2018
+            //////yearComboBox.Items.Clear();
+            //////monthComboBox.Items.Clear();
+            //////SqlManipulator sql = new SqlManipulator();
+            //////var minmax = sql.findMaxminMonthDay(cityID);///
+            //////////neeed to change and find the maximum data of month and day into the validation table 
+            //////Utility utl = new Utility();
+            //////if (minmax != null)
+            //////{
+            //////    try
+            //////    {
+            //////        long endDate = Convert.ToInt64(utl.formatStringDate(minmax.max.ToString()).ToEn().ToFa("yyyy"));
+            //////        long startDate = Convert.ToInt64(utl.formatStringDate(minmax.min.ToString()).ToEn().ToFa("yyyy"));
+            //////        for (long year = startDate; year <= endDate; year++)
+            //////        {
+            //////            yearComboBox.Items.Add(year);
+            //////        }
+            //////        for (int month = 1; month <= 12; month++)
+            //////        {
+            //////            monthComboBox.Items.Add(new ComboboxItem(utl.getMonthName(month), month));
+            //////        }
+
+            //////    }
+            //////    catch (Exception ex)
+            //////    {
+            //////        MessageBox.Show(ex.ToString());
+            //////    }
+            //////}
+        }
+        private void monthComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //SqlManipulator sql = new SqlManipulator();
+            //Utility utl = new Utility();
+            
+            //var mItem = (ComboboxItem)monthComboBox.SelectedItem;
+            //long month = mItem.Value;
+            //int year = Convert.ToInt32(yearComboBox.SelectedItem);
+
+            //var item = (ComboboxItem)cityComboBox.SelectedItem;
+            //int cityID =Convert.ToInt32(item.Value);
+
+            //var starEndofMonth = utl.getStartEndofMonth(year, month);
+            //var data = sql.getValidationDataByCityandDate(cityID,starEndofMonth.startDate,starEndofMonth.endDate);
+            //makeValidationTable(data);
+        }
     }
 }

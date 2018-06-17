@@ -30,7 +30,24 @@ namespace negar
 
     class Utility
     {
-       public bool isNullorWhiteSpace(string text)
+        public List<string> getColumnsHeader()
+        {
+            List<string> header = new List<string>();
+            header.Add("شناسه");
+            header.Add("استرداد");
+            header.Add("شماره قبض سپرده");
+            header.Add("تاریخ");
+            header.Add("واحد ثبتی");
+            header.Add("نوع حساب");
+            header.Add("مشخصات صاحب سپرده");
+            header.Add("کد مشخصات سپرده");
+            header.Add("واریزی");
+            header.Add("کد بودجه");
+            header.Add("کد شهر");
+            header.Add("تاریخ حقیقی");
+            return header;
+        }
+        public bool isNullorWhiteSpace(string text)
         {
             if (text == null) return true;
 
@@ -84,7 +101,21 @@ namespace negar
             }
              
         }
-  
+        public List<string> getReportColumnsHeader()
+        {
+            List<string> header = new List<string>();
+            header.Add("کد بودجه");
+            header.Add("مشخصات صاحب سپرده");
+            header.Add("نوع حساب");
+            header.Add("عنوان واحد ثبتی");
+            header.Add("تاریخ");
+            header.Add("کد مشخصات سپرده");
+            header.Add("واریزی");
+            header.Add("استرداد");
+            header.Add("واریزی");
+
+            return header;
+        }
         public   StartEndMonthClass getStartEndofMonth(int year,long month)
         {
             int days = getMonthsDay(year, Convert.ToInt32(month));

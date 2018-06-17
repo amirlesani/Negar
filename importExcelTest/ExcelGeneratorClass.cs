@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -11,11 +12,19 @@ namespace negar
     
     class ExcelGeneratorClass
     {
+        private string fileName;
+        private List<string> header;
+        private IQueryable<DaftarTable> query;
 
-        public ExcelGeneratorClass(List<DaftarTable> data ,string path,List<string> header)
+       
+
+        public ExcelGeneratorClass(IQueryable<DaftarTable> data ,string path,List<string> header)
         {
+            
             string newFileName = path  + ".xlsx";
-            makeReport(data, newFileName,header);
+            var q = data.OrderBy(o => o.PlaceName);
+            //var t = from a in q select new { a.CodeBudget,a.DepositOwnerDetail,a.AccountType,a.PlaceName,a.BillDetailCode,a.DepositDetail,a.Deposit,a.Refund };
+            makeReport(q.ToList(), newFileName,header);
         }
         public string ReplaceXMLEncodedCharacters(string input)
         {

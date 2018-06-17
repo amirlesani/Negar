@@ -138,9 +138,10 @@ namespace negar
             {
                 if ((mystream = saveExcelDialog.OpenFile()) != null)
                 {
-                    var header = getColumnsHeader();
+                    Utility utl = new Utility();
+                    var header = utl.getColumnsHeader();
                     StartProgress();
-                    ExcelGeneratorClass createReport = new ExcelGeneratorClass(tempData.ToList(), saveExcelDialog.FileName, header);
+                    ExcelGeneratorClass createReport = new ExcelGeneratorClass(tempData, saveExcelDialog.FileName, header);
                     mystream.Close();
                     CloseProgress();
                     MessageBox.Show("فایل اکسل با موفقیت ساخته شد");

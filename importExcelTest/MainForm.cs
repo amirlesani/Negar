@@ -492,26 +492,12 @@ namespace negar
 
             }
         }
-        private List<string> getColumnsHeader()
-        {
-            List<string> header = new List<string>();
-            header.Add("شناسه");
-            header.Add("استرداد");
-            header.Add("شماره قبض سپرده");
-            header.Add("تاریخ");
-            header.Add("واحد ثبتی");
-            header.Add("نوع حساب");
-            header.Add("مشخصات صاحب سپرده");
-            header.Add("کد مشخصات سپرده");
-            header.Add("واریزی");
-            header.Add("کد بودجه");
-            header.Add("کد شهر");
-            header.Add("تاریخ حقیقی");
-            return header;
-        }
+      
+       
         private void changeColumnName()
         {
-            var header = getColumnsHeader();
+            Utility utl = new Utility();
+            var header = utl.getColumnsHeader();
             int i = 0;
             foreach (var a in header)
             {
@@ -923,8 +909,9 @@ namespace negar
                         if ((mystream = saveExcelDialog.OpenFile()) != null)
                         {
                             StartProgress();
-                            var header = getColumnsHeader();
-                            ExcelGeneratorClass createReport = new ExcelGeneratorClass(q.query.ToList(), saveExcelDialog.FileName,header);
+                            Utility utl = new Utility();
+                            var header = utl.getColumnsHeader();
+                            ExcelGeneratorClass createReport = new ExcelGeneratorClass(q.query, saveExcelDialog.FileName,header);
                             mystream.Close();
                             CloseProgress();
                             MessageBox.Show("فایل اکسل با موفقیت ساخته شد");
@@ -958,12 +945,13 @@ namespace negar
 
                 SqlManipulator sql = new SqlManipulator();
                 Result q = new Result();
+                q = this.lastResult;
+
                 if (q.query == null)
                 {
                     MessageBox.Show("تاریخ یا شهر را انتخاب کنید");
                     
                 }
-                q = this.lastResult;
                 if (q.query.ToList().Any())
                 {
                     SaveFileDialog saveTextDialog = new SaveFileDialog();

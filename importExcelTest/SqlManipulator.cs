@@ -266,6 +266,21 @@ namespace negar
                     };
             return q;
         }
+        public IQueryable getValidationDataByCityandDate(int cityID,long startDate,long endDate)
+        {
+            ValidationDataClassesDataContext db = new ValidationDataClassesDataContext(cn);
+            var q = from c in db.validationTables.Where(x=>x.id == cityID && x.startDate ==startDate && x.enDate == endDate) 
+                    select new 
+                    {
+                        c.id,
+                        c.description,
+                        c.City,
+                        c.startDate,
+                        c.enDate,
+                    };
+            return q;
+            
+        }
 
 
 

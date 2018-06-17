@@ -494,6 +494,7 @@
   <ItemGroup>
     <Content Include="Designbolts-Free-Multimedia-IMac.ico" />
     <Content Include="if_Prism-3_379418.ico" />
+    <None Include="Resources\stp1.gif" />
     <None Include="Resources\stp.gif" />
     <None Include="Resources\note1.png" />
     <None Include="Resources\Edit %281%291.png" />
