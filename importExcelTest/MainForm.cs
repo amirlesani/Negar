@@ -960,7 +960,11 @@ namespace negar
                     saveTextDialog.RestoreDirectory = true;
                     if (saveTextDialog.ShowDialog() == DialogResult.OK)
                     {
-                            textReportClass txt = new textReportClass(q.query, saveTextDialog.FileName);
+                        StartProgress();
+                        textReportClass txt = new textReportClass(q.query, saveTextDialog.FileName);
+                        CloseProgress();
+                        MessageBox.Show("فایل متنی با موفقیت ساخته شد");
+
                     }
                 }
                 else

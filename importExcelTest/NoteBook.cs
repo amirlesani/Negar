@@ -158,7 +158,10 @@ namespace negar
             saveTextDialog.RestoreDirectory = true;
             if (saveTextDialog.ShowDialog() == DialogResult.OK)
             {
+                StartProgress();
                 textReportClass txt = new textReportClass(tempData, saveTextDialog.FileName);
+                CloseProgress();
+                MessageBox.Show("فایل متنی با موفقیت ساخته شد");
             }
         }
 
