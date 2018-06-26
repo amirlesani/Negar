@@ -31,6 +31,8 @@ namespace negar
         private NoteBook ntp;
         private LoginInfo login;
         private DaftarTable rowsData;
+        int lastYearSelected = 0;
+        int lastMonthSelected = 0;
 
         private List<DaftarTable> datasForModify;
         private AdvancedSearchForm adv;
@@ -367,8 +369,21 @@ namespace negar
                 login.cityID = item.Value;
             }
             setYearMonthComboBox(login.cityID);
-            yearComboBox.SelectedIndex = 0;
-            monthComboBox.Enabled = true;
+            try {
+                if(lastYearSelected !=null || lastMonthSelected !=null)
+                {
+                    yearComboBox.SelectedIndex = lastYearSelected;
+                    monthComboBox.Enabled = true;
+                    monthComboBox.SelectedIndex = lastMonthSelected;
+                }
+                
+                monthComboBox.Enabled = true;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            
 
         }
         void refreshDVGquery(Result result ,  int pageNumber)
@@ -875,6 +890,10 @@ namespace negar
                 laste.cityID = login.cityID;
                 laste.date = startEnd;
                 laste.searchValue = this.searchTextBox.Text;
+                /////alpha testing
+                lastYearSelected = this.yearComboBox.SelectedIndex;
+                lastMonthSelected = this.monthComboBox.SelectedIndex;
+                //// alpha testing
                 saveLastState(laste);
             }
             catch (Exception) { throw; }

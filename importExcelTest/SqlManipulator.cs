@@ -172,6 +172,32 @@ namespace negar
                 return report;
             }
         }
+        public void addPRVMonthToRestrictedArea(Int64 city)
+        {
+            try
+            {
+                Utility utl = new Utility();
+                validationTable newRestriction = new validationTable();
+                newRestriction.startDate = findMaxminMonthDay(0).min;
+                newRestriction.enDate = Convert.ToInt64(utl.getPrvMonthLastDay());
+                newRestriction.City = city;
+                string cityName =  getCityName(newRestriction.City);
+
+                string message = cityName + "  "+ "  تاریخ  "+ newRestriction.enDate;
+                MessageBox.Show(utl.getPrvMonthFirstDay());
+                newRestriction.description = message ;
+                
+                MessageBox.Show(message);
+                ///addValidation(newRestriction);
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                // DaftarModelDataContext db = new DaftarModelDataContext(cn);
+                List<string> report = new List<string>();
+                report.Add("خطا در اضافه کردن محدودیت");
+                return ;
+            }
+        }
 
         public Boolean removeUser(UserTable newLogin)
         {

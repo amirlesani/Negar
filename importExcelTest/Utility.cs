@@ -178,6 +178,44 @@ namespace negar
 
             return monthsDay;
         }
+        public string getPrvMonthLastDay()
+        {
+            try
+            {
+               
+                var date = DateTime.Now.AddMonths(-1).ToFa();
+                int lastdayofMonth = getMonthsDay(date);
+                var splittedDate = date.Split('/');
+                string endOfPrvMonth = splittedDate[0] + splittedDate[1] + lastdayofMonth.ToString();
+
+                isvalidDate(endOfPrvMonth);
+                return endOfPrvMonth;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+
+        }
+        public string getPrvMonthFirstDay()
+        {
+            try
+            {
+
+                var date = DateTime.Now.AddMonths(-1).ToFa();
+                string firstdayofMonth = "01";
+                var splittedDate = date.Split('/');
+                string firstOfPRVMonth = splittedDate[0] + splittedDate[1] + firstdayofMonth.ToString();
+
+                isvalidDate(firstOfPRVMonth);
+                return firstOfPRVMonth;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
         public string formatStringDate(string unformattedDate)
         {
                 try { 
@@ -191,6 +229,23 @@ namespace negar
                 {
                     throw;
                 }
+        }
+        public int getMonthsDay(String farsiDate)
+        {
+            try {
+                var words = farsiDate.Split('/');
+                string year = words[0];
+                string month = words[1];
+
+                var persianCal = new System.Globalization.PersianCalendar();
+                int monthsDay = persianCal.GetDaysInMonth(Convert.ToInt32(year), Convert.ToInt32(month));
+
+                return monthsDay;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
         public long changeToRealDate(string handDate)
         {

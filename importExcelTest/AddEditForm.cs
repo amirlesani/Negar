@@ -15,6 +15,7 @@ namespace negar
         MainForm form;
         bool copy;
         DaftarTable data;
+        
         public AddEditForm(LoginInfo login, MainForm form,bool addCopiedRow, DaftarTable data)
         {
             InitializeComponent();

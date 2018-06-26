@@ -84,6 +84,12 @@
             this.cityTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.daftarTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cityTableTableAdapter2 = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.manualLockButton = new System.Windows.Forms.RadioButton();
+            this.unlockprvMonth = new System.Windows.Forms.RadioButton();
+            this.lockLastMonth = new System.Windows.Forms.RadioButton();
+            this.commitLockButton = new System.Windows.Forms.Button();
             this.validationTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -105,6 +111,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.daftarDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarTableBindingSource)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // validationTab
@@ -119,7 +127,7 @@
             this.validationTab.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.validationTab.RightToLeftLayout = true;
             this.validationTab.SelectedIndex = 0;
-            this.validationTab.Size = new System.Drawing.Size(763, 551);
+            this.validationTab.Size = new System.Drawing.Size(810, 666);
             this.validationTab.TabIndex = 2;
             this.validationTab.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -130,7 +138,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(755, 525);
+            this.tabPage1.Size = new System.Drawing.Size(802, 640);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "مدیریت کاربران";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -155,7 +163,7 @@
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(749, 223);
+            this.groupBox1.Size = new System.Drawing.Size(796, 223);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "مدیر کاربری";
@@ -322,12 +330,12 @@
             this.usersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.usersDataGridView.Location = new System.Drawing.Point(3, 232);
+            this.usersDataGridView.Location = new System.Drawing.Point(3, 347);
             this.usersDataGridView.Name = "usersDataGridView";
             this.usersDataGridView.ReadOnly = true;
             this.usersDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.usersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersDataGridView.Size = new System.Drawing.Size(749, 290);
+            this.usersDataGridView.Size = new System.Drawing.Size(796, 290);
             this.usersDataGridView.TabIndex = 8;
             // 
             // tabPage2
@@ -452,7 +460,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(755, 525);
+            this.tabPage4.Size = new System.Drawing.Size(802, 640);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "مدیریت دسترسی";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -468,32 +476,24 @@
             this.validationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.validationDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.validationDataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.validationDataGridView.Location = new System.Drawing.Point(3, 216);
+            this.validationDataGridView.Location = new System.Drawing.Point(3, 267);
             this.validationDataGridView.Name = "validationDataGridView";
             this.validationDataGridView.ReadOnly = true;
             this.validationDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.validationDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.validationDataGridView.Size = new System.Drawing.Size(749, 306);
+            this.validationDataGridView.Size = new System.Drawing.Size(796, 370);
             this.validationDataGridView.TabIndex = 13;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.endDateTimePickerX1);
-            this.groupBox3.Controls.Add(this.startDateTimePickerX);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.validCityComboBox);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.deleteRestrictionButton);
-            this.groupBox3.Controls.Add(this.descriptionTextBox);
+            this.groupBox3.Controls.Add(this.groupBox5);
+            this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.pictureBox3);
-            this.groupBox3.Controls.Add(this.addRestrictionButton);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox3.Size = new System.Drawing.Size(749, 207);
+            this.groupBox3.Size = new System.Drawing.Size(796, 258);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "مدیریت دسترسی ";
@@ -562,7 +562,7 @@
             this.endDateTimePickerX1.DropDownClosedWhenSelectedDateChanged = false;
             this.endDateTimePickerX1.Format = BehComponents.DateTimePickerX.FormatDate.Long;
             this.endDateTimePickerX1.Format4Binding = "yyyy/MM/dd";
-            this.endDateTimePickerX1.Location = new System.Drawing.Point(479, 108);
+            this.endDateTimePickerX1.Location = new System.Drawing.Point(178, 116);
             this.endDateTimePickerX1.Name = "endDateTimePickerX1";
             this.endDateTimePickerX1.RightToLeftLayout = true;
             this.endDateTimePickerX1.ShowClearButton = false;
@@ -635,7 +635,7 @@
             this.startDateTimePickerX.DropDownClosedWhenSelectedDateChanged = false;
             this.startDateTimePickerX.Format = BehComponents.DateTimePickerX.FormatDate.Long;
             this.startDateTimePickerX.Format4Binding = "yyyy/MM/dd";
-            this.startDateTimePickerX.Location = new System.Drawing.Point(479, 77);
+            this.startDateTimePickerX.Location = new System.Drawing.Point(178, 85);
             this.startDateTimePickerX.Name = "startDateTimePickerX";
             this.startDateTimePickerX.RightToLeftLayout = true;
             this.startDateTimePickerX.ShowClearButton = false;
@@ -647,7 +647,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(709, 108);
+            this.label7.Location = new System.Drawing.Point(408, 116);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 37;
@@ -656,7 +656,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(705, 77);
+            this.label9.Location = new System.Drawing.Point(404, 85);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 36;
@@ -666,7 +666,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(716, 53);
+            this.label8.Location = new System.Drawing.Point(412, 61);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(27, 13);
             this.label8.TabIndex = 16;
@@ -678,7 +678,7 @@
             this.validCityComboBox.DisplayMember = "CityName";
             this.validCityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.validCityComboBox.FormattingEnabled = true;
-            this.validCityComboBox.Location = new System.Drawing.Point(540, 50);
+            this.validCityComboBox.Location = new System.Drawing.Point(239, 58);
             this.validCityComboBox.Name = "validCityComboBox";
             this.validCityComboBox.Size = new System.Drawing.Size(121, 21);
             this.validCityComboBox.TabIndex = 1;
@@ -688,7 +688,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(680, 27);
+            this.label6.Location = new System.Drawing.Point(376, 35);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 9;
@@ -696,9 +696,9 @@
             // 
             // deleteRestrictionButton
             // 
-            this.deleteRestrictionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.deleteRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.deleteRestrictionButton.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
-            this.deleteRestrictionButton.Location = new System.Drawing.Point(571, 139);
+            this.deleteRestrictionButton.Location = new System.Drawing.Point(6, 29);
             this.deleteRestrictionButton.Name = "deleteRestrictionButton";
             this.deleteRestrictionButton.Size = new System.Drawing.Size(42, 24);
             this.deleteRestrictionButton.TabIndex = 5;
@@ -708,7 +708,7 @@
             // descriptionTextBox
             // 
             this.descriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(561, 24);
+            this.descriptionTextBox.Location = new System.Drawing.Point(261, 32);
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(100, 20);
             this.descriptionTextBox.TabIndex = 0;
@@ -725,11 +725,11 @@
             // 
             // addRestrictionButton
             // 
-            this.addRestrictionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.addRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addRestrictionButton.Image = global::negar.Properties.Resources.add_icon__1_;
-            this.addRestrictionButton.Location = new System.Drawing.Point(619, 139);
+            this.addRestrictionButton.Location = new System.Drawing.Point(54, 29);
             this.addRestrictionButton.Name = "addRestrictionButton";
-            this.addRestrictionButton.Size = new System.Drawing.Size(42, 24);
+            this.addRestrictionButton.Size = new System.Drawing.Size(42, 26);
             this.addRestrictionButton.TabIndex = 4;
             this.addRestrictionButton.UseVisualStyleBackColor = true;
             this.addRestrictionButton.Click += new System.EventHandler(this.addRestrictionButton_Click);
@@ -780,11 +780,89 @@
             // 
             this.cityTableTableAdapter2.ClearBeforeFill = true;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.descriptionTextBox);
+            this.groupBox4.Controls.Add(this.endDateTimePickerX1);
+            this.groupBox4.Controls.Add(this.addRestrictionButton);
+            this.groupBox4.Controls.Add(this.startDateTimePickerX);
+            this.groupBox4.Controls.Add(this.deleteRestrictionButton);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.validCityComboBox);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Location = new System.Drawing.Point(288, 95);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(502, 157);
+            this.groupBox4.TabIndex = 38;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "قفل دستی";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.commitLockButton);
+            this.groupBox5.Controls.Add(this.lockLastMonth);
+            this.groupBox5.Controls.Add(this.unlockprvMonth);
+            this.groupBox5.Controls.Add(this.manualLockButton);
+            this.groupBox5.Location = new System.Drawing.Point(294, 27);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(496, 62);
+            this.groupBox5.TabIndex = 39;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "انتخاب قفل";
+            // 
+            // manualLockButton
+            // 
+            this.manualLockButton.AutoSize = true;
+            this.manualLockButton.Location = new System.Drawing.Point(370, 19);
+            this.manualLockButton.Name = "manualLockButton";
+            this.manualLockButton.Size = new System.Drawing.Size(74, 17);
+            this.manualLockButton.TabIndex = 0;
+            this.manualLockButton.TabStop = true;
+            this.manualLockButton.Text = "قفل دستی";
+            this.manualLockButton.UseVisualStyleBackColor = true;
+            this.manualLockButton.CheckedChanged += new System.EventHandler(this.manualLockButton_CheckedChanged);
+            // 
+            // unlockprvMonth
+            // 
+            this.unlockprvMonth.AutoSize = true;
+            this.unlockprvMonth.Location = new System.Drawing.Point(144, 19);
+            this.unlockprvMonth.Name = "unlockprvMonth";
+            this.unlockprvMonth.Size = new System.Drawing.Size(124, 17);
+            this.unlockprvMonth.TabIndex = 1;
+            this.unlockprvMonth.TabStop = true;
+            this.unlockprvMonth.Text = "باز کردن قفل ماه قبل";
+            this.unlockprvMonth.UseVisualStyleBackColor = true;
+            this.unlockprvMonth.CheckedChanged += new System.EventHandler(this.unlockprvMonth_CheckedChanged);
+            // 
+            // lockLastMonth
+            // 
+            this.lockLastMonth.AutoSize = true;
+            this.lockLastMonth.Location = new System.Drawing.Point(274, 19);
+            this.lockLastMonth.Name = "lockLastMonth";
+            this.lockLastMonth.Size = new System.Drawing.Size(81, 17);
+            this.lockLastMonth.TabIndex = 2;
+            this.lockLastMonth.TabStop = true;
+            this.lockLastMonth.Text = "قفل ماه قبل";
+            this.lockLastMonth.UseVisualStyleBackColor = true;
+            this.lockLastMonth.CheckedChanged += new System.EventHandler(this.lockLastMonth_CheckedChanged);
+            // 
+            // commitLockButton
+            // 
+            this.commitLockButton.Location = new System.Drawing.Point(7, 19);
+            this.commitLockButton.Name = "commitLockButton";
+            this.commitLockButton.Size = new System.Drawing.Size(75, 23);
+            this.commitLockButton.TabIndex = 3;
+            this.commitLockButton.Text = "اعمال";
+            this.commitLockButton.UseVisualStyleBackColor = true;
+            this.commitLockButton.Click += new System.EventHandler(this.commitLockButton_Click);
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 551);
+            this.ClientSize = new System.Drawing.Size(810, 666);
             this.Controls.Add(this.validationTab);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -812,13 +890,16 @@
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.validationDataGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarTableBindingSource)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -878,5 +959,11 @@
         private BehComponents.DateTimePickerX startDateTimePickerX;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button commitLockButton;
+        private System.Windows.Forms.RadioButton lockLastMonth;
+        private System.Windows.Forms.RadioButton unlockprvMonth;
+        private System.Windows.Forms.RadioButton manualLockButton;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }

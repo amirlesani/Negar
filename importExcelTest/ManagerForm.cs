@@ -395,5 +395,82 @@ namespace negar
             //var data = sql.getValidationDataByCityandDate(cityID,starEndofMonth.startDate,starEndofMonth.endDate);
             //makeValidationTable(data);
         }
+      
+        private void commitLockButton_Click(object sender, EventArgs e)
+        {
+          if(lockValue != null)
+            {
+                var value = lockValue;
+                switch(value)
+                {
+                    case (int)lockOption.manualLock:
+                        ///do somthing
+                       MessageBox.Show("manual");
+
+                        break;
+                    case (int)lockOption.lockprvMonth:
+                        MessageBox.Show("lock");
+                        SqlManipulator sql = new SqlManipulator();
+                        Int64 city = Convert.ToInt64(validCityComboBox.SelectedValue);
+                        sql.addPRVMonthToRestrictedArea(city);
+
+
+                        break;
+
+                    case (int)lockOption.unlockprvMonth:
+                        MessageBox.Show("unlock");
+
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("select a radio button please ");
+            }
+        }
+
+        private void manualLockButton_CheckedChanged(object sender, EventArgs e)
+        {
+            lockchangingRadioButton(sender, e);
+
+        }
+        enum lockOption { manualLock, lockprvMonth,unlockprvMonth};
+        int lockValue;
+        private void lockchangingRadioButton(object sender, EventArgs e)
+        {
+            RadioButton btn = sender as RadioButton;
+            if (btn != null && btn.Checked)
+            {
+                switch (btn.Name)
+                {
+                    case ("manualLockButton"):
+                        lockValue = (int)lockOption.manualLock;
+                        break;
+                    case ("lockLastMonth"):
+
+                        lockValue = (int)lockOption.lockprvMonth;
+                        groupBox2.Enabled = false;
+                        break;
+                    case ("unlockprvMonth"):
+                        ////lock groupbox
+                        ///unlock prv month
+                        lockValue = (int)lockOption.unlockprvMonth;
+                        groupBox2.Enabled = false;
+                        break;
+                }
+
+            }
+        }
+        private void lockLastMonth_CheckedChanged(object sender, EventArgs e)
+        {
+
+            lockchangingRadioButton(sender,e);
+        }
+
+        private void unlockprvMonth_CheckedChanged(object sender, EventArgs e)
+        {
+            lockchangingRadioButton(sender, e);
+
+        }
     }
 }
