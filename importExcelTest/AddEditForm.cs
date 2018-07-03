@@ -183,8 +183,10 @@ namespace negar
                
                 Report rpt = new Report( sql.addRow(newDaftar),(int)errorImages.info);
                     rpt.Show();
+
+                LasteStateClass lastestate = new LasteStateClass();
                     
-                    form.refreshLastState();
+                    form.refreshLastState(lastestate);
                 }
                
             catch (Exception ex)

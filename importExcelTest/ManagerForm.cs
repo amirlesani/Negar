@@ -144,16 +144,20 @@ namespace negar
         private void removeButton_Click(object sender, EventArgs e)
         {
             try {
-                selectedRow = usersDataGridView.CurrentCell.RowIndex;
-                SqlManipulator sql = new SqlManipulator();
-                DataGridViewRow newDataRow = usersDataGridView.Rows[selectedRow];
-                UserTable deletePerson = new UserTable();
-                deletePerson.Id = (int)newDataRow.Cells[0].Value;
-                deletePerson.User = (string)newDataRow.Cells[1].Value;
-                deletePerson.Password = (string)newDataRow.Cells[2].Value;
-                sql.removeUser(deletePerson);
-                var logindata = sql.getDataLogin();
-                makeTableUsers(logindata);
+                DialogResult dialogResult = MessageBox.Show("آیا از حذف مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    selectedRow = usersDataGridView.CurrentCell.RowIndex;
+                    SqlManipulator sql = new SqlManipulator();
+                    DataGridViewRow newDataRow = usersDataGridView.Rows[selectedRow];
+                    UserTable deletePerson = new UserTable();
+                    deletePerson.Id = (int)newDataRow.Cells[0].Value;
+                    deletePerson.User = (string)newDataRow.Cells[1].Value;
+                    deletePerson.Password = (string)newDataRow.Cells[2].Value;
+                    sql.removeUser(deletePerson);
+                    var logindata = sql.getDataLogin();
+                    makeTableUsers(logindata);
+                }
             }
             catch(Exception ex)
             {
@@ -261,18 +265,28 @@ namespace negar
             changeValidationTableColumnNames();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void RemoveButton_Click(object sender, EventArgs e)
         {
-            selectedRow = cityDataGridView.CurrentCell.RowIndex;
-            SqlManipulator sql = new SqlManipulator();
-            DataGridViewRow newDataRow = cityDataGridView.Rows[selectedRow];
-            CityTable deletedCity = new CityTable();
-            
-            deletedCity.Id = (long)newDataRow.Cells[1].Value;
-            deletedCity.CityName = (string)newDataRow.Cells[0].Value;
-            sql.removeCity(deletedCity);
-            var cityData = sql.getDataCity();
-            makeTable(cityData);
+            DialogResult dialogResult = MessageBox.Show("آیا از حذف مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try {
+                    selectedRow = cityDataGridView.CurrentCell.RowIndex;
+                    SqlManipulator sql = new SqlManipulator();
+                    DataGridViewRow newDataRow = cityDataGridView.Rows[selectedRow];
+                    CityTable deletedCity = new CityTable();
+
+                    deletedCity.Id = (long)newDataRow.Cells[1].Value;
+                    deletedCity.CityName = (string)newDataRow.Cells[0].Value;
+                    sql.removeCity(deletedCity);
+                    var cityData = sql.getDataCity();
+                    makeTable(cityData);
+                }
+                catch(Exception)
+                {
+                    throw;
+                }
+            }
         }
 
         private void dgvColor_Click(object sender, EventArgs e)
@@ -398,6 +412,8 @@ namespace negar
       
         private void commitLockButton_Click(object sender, EventArgs e)
         {
+            Utility utl = new Utility();
+            ///utl.getpr
           if(lockValue != null)
             {
                 var value = lockValue;
@@ -412,7 +428,7 @@ namespace negar
                         MessageBox.Show("lock");
                         SqlManipulator sql = new SqlManipulator();
                         Int64 city = Convert.ToInt64(validCityComboBox.SelectedValue);
-                        sql.addPRVMonthToRestrictedArea(city);
+                        sql.addPRVMonthToRestrictedArea(city,this.textBox1.Text);
 
 
                         break;

@@ -27,6 +27,12 @@ namespace negar
             return Text;
         }
     }
+    enum mode{
+        all = 0,
+        deposit = 1,
+        refund =2
+
+    }
 
     class Utility
     {
@@ -178,16 +184,56 @@ namespace negar
 
             return monthsDay;
         }
-        public string getPrvMonthLastDay()
+       
+        public string getPrvMonthLastDay(string untitest)
         {
             try
             {
-               
-                var date = DateTime.Now.AddMonths(-1).ToFa();
-                int lastdayofMonth = getMonthsDay(date);
-                var splittedDate = date.Split('/');
-                string endOfPrvMonth = splittedDate[0] + splittedDate[1] + lastdayofMonth.ToString();
 
+
+
+                var date= formatStringDate(untitest);
+                //var date = DateTime.Now.AddMonths(-1).ToFa();
+                var splittedDate = date.Split('/');
+                
+                int year = Convert.ToInt32(splittedDate[0]);
+                int month = Convert.ToInt32(splittedDate[1]);
+                int prvMonth;
+                int prvYear;
+
+                if(month==1)
+                {
+                    prvYear = year - 1;
+                    prvMonth = 12;
+                }
+                else
+                {
+                    prvYear = year;
+                    prvMonth = month - 1;
+                }
+
+
+
+                var persianCal = new System.Globalization.PersianCalendar();
+
+                int lastday = 30;
+                MessageBox.Show(prvYear.ToString());
+                MessageBox.Show(persianCal.IsLeapYear(prvYear, System.Globalization.PersianCalendar.PersianEra).ToString());
+                if ( prvMonth <= 6 )
+                {
+                    lastday = 31;
+                }
+                
+                else if (prvMonth== 12 && persianCal.IsLeapYear(prvYear,System.Globalization.PersianCalendar.PersianEra))
+                {
+                    lastday = 29;
+                }
+                else
+                {
+                    lastday = 30;
+                }
+                
+                string endOfPrvMonth = prvYear.ToString("D2") + prvMonth.ToString("D2")+ lastday.ToString("D2") ;
                 isvalidDate(endOfPrvMonth);
                 return endOfPrvMonth;
             }
@@ -239,6 +285,7 @@ namespace negar
 
                 var persianCal = new System.Globalization.PersianCalendar();
                 int monthsDay = persianCal.GetDaysInMonth(Convert.ToInt32(year), Convert.ToInt32(month));
+                
 
                 return monthsDay;
             }

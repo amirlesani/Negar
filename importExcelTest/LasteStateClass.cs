@@ -10,6 +10,8 @@ namespace negar
         public string searchValue;
         public long cityID;
         public StartEndMonthClass date;
-
+        public int lastYearSelected;
+        public int lastMonthSelected;
+        public int lastModeSelected;
     }
 }

@@ -95,7 +95,7 @@ namespace negar
 
 
         }
-        public StartEndMonthClass findMinMaxInQuert(IQueryable<Daftarcs> data)
+        public StartEndMonthClass findMinMaxInQuery(IQueryable<Daftarcs> data)
         {
             StartEndMonthClass minmax = new StartEndMonthClass();
 
@@ -172,19 +172,17 @@ namespace negar
                 return report;
             }
         }
-        public void addPRVMonthToRestrictedArea(Int64 city)
+        public void addPRVMonthToRestrictedArea(Int64 city,string testDate)
         {
             try
             {
                 Utility utl = new Utility();
                 validationTable newRestriction = new validationTable();
                 newRestriction.startDate = findMaxminMonthDay(0).min;
-                newRestriction.enDate = Convert.ToInt64(utl.getPrvMonthLastDay());
+                newRestriction.enDate = Convert.ToInt64(utl.getPrvMonthLastDay(testDate));
                 newRestriction.City = city;
                 string cityName =  getCityName(newRestriction.City);
-
                 string message = cityName + "  "+ "  تاریخ  "+ newRestriction.enDate;
-                MessageBox.Show(utl.getPrvMonthFirstDay());
                 newRestriction.description = message ;
                 
                 MessageBox.Show(message);
@@ -335,7 +333,7 @@ namespace negar
                 DaftarModelDataContext db =
                 new DaftarModelDataContext(cn);
                 List<DaftarTable> listDaftar = new List<DaftarTable>();
-                StartEndMonthClass date =  findMinMaxInQuert(excelQuery);
+                StartEndMonthClass date =  findMinMaxInQuery(excelQuery);
                 foreach (var row in excelQuery)
                 {
                     DaftarTable newDaftar = new DaftarTable();
@@ -462,31 +460,79 @@ namespace negar
         }
 
         
-        public Result searchByDate(long cityID,int pageSize ,long start, long end)
+        public Result searchByDate(long cityID,int pageSize ,long start, long end,mode searchType)
         {
             Result result = new Result();
-            DaftarModelDataContext db = new DaftarModelDataContext(cn);
-            Utility utl = new Utility();
+            //DaftarModelDataContext db = new DaftarModelDataContext(cn);
+            //Utility utl = new Utility();
    
-            if (cityID == 0)
-            {
-                var query = (from c in db.DaftarTables.Where(x => x.RealDate >= start && x.RealDate <=end) select c);
-                var count = query.Count();
-                result.recordCount = count;
-                result.queryPageNumber =count/ pageSize;
-                result.query = query;
-                return result;
-            }
-             
-                var query2 = (from c in db.DaftarTables.Where(x=>x.CityID == cityID && x.RealDate>=start && x.RealDate<=end) select c);
-                var count2 = query2.Count();
-                result.recordCount = count2;
-                result.queryPageNumber = count2 / pageSize;
-                result.query = query2;
-                return result;
+            //if (cityID == 0)
+            //{
+            //    switch(searchType)
+            //    {
+            //        case mode.all :
+            //            var query = (from c in db.DaftarTables.Where(x => x.RealDate >= start && x.RealDate <= end) select c);
+            //            var count = query.Count();
+            //            result.recordCount = count;
+            //            result.queryPageNumber = count / pageSize;
+            //            result.query = query;
+            //            return result;
+            //        case mode.deposit:
+            //            var queryDeposit = (from c in db.DaftarTables.Where(x => x.RealDate >= start && x.RealDate <= end && x.Deposit > 0 && x.Refund == 0) select c);
+            //            var countDeposit = queryDeposit.Count();
+            //            result.recordCount = countDeposit;
+            //            result.queryPageNumber = countDeposit / pageSize;
+            //            result.query = queryDeposit;
+            //            return result;
+            //        case mode.refund:
+            //            var queryRefund = (from c in db.DaftarTables.Where(x => x.RealDate >= start && x.RealDate <= end && x.Refund > 0 && x.Deposit ==0) select c);
+            //            var countReund = queryRefund.Count();
+            //            result.recordCount = countReund;
+            //            result.queryPageNumber = countReund / pageSize;
+            //            result.query = queryRefund;
+            //            return result;
+            //    }
+            //}
+            ////var query2 = (from c in db.DaftarTables.Where(x => x.CityID == cityID && x.RealDate >= start && x.RealDate <= end) select c);
+            ////var count2 = query2.Count();
+            //Int64 refund = 0;
+            //Int64 deposit = 0;
+            //switch (searchType)
+            //{
+            //    case mode.all:
+            //        //var query = (from c in db.DaftarTables.Where(x => x.CityID == cityID && x.RealDate >= start && x.RealDate <= end) select c);
+            //        //var count = query.Count();
+            //        //result.recordCount = count;
+            //        //result.queryPageNumber = count / pageSize;
+            //        //result.query = query;
+            //        break;
+                    
+            //    case mode.deposit:
+            //        MessageBox.Show("deposit selected");
+            //        //// ( x.CityID == cityID &&( x.RealDate >= start && x.RealDate <= end ))
+            //        var queryDeposit = (from c in db.DaftarTables.Where(x =>x.Deposit == 0 && x.Refund > 0 ) select c);
+            //        var countDeposit = queryDeposit.Count();
+            //        result.recordCount = countDeposit;
+            //        result.queryPageNumber = countDeposit / pageSize;
+            //        result.query = queryDeposit;
+            //        break;
+                    
+            //    case mode.refund:
+            //        //var queryRefund = (from c in db.DaftarTables.Where(x => x.CityID == cityID && x.RealDate >= start && x.RealDate <= end && x.Refund > 0) select c);
+            //        //var countReund = queryRefund.Count();
+            //        //result.recordCount = countReund;
+            //        //result.queryPageNumber = countReund / pageSize;
+            //        //result.query = queryRefund;
+            //        break;
+                    
+
+            //}
+            return result;
+
+
 
         }
-       public Boolean isRestricted(DaftarTable data,bool permission)
+        public Boolean isRestricted(DaftarTable data,bool permission)
         {
             try {
                 if (permission)
@@ -627,15 +673,36 @@ namespace negar
                 return list;
             }
         }
-        public Result ownerQuery(long cityID, string code, StartEndMonthClass startend, int pageSize)
+        public Result ownerQuery(long cityID, string code, StartEndMonthClass startend, int pageSize,mode searchType)
         {
             DaftarModelDataContext db = new DaftarModelDataContext(cn);
-
             Result result = new Result();
+
+            int depositValue = -1;
+            int refundValue = -1;
+
+            switch(searchType)
+            {
+                case mode.all:
+                    depositValue = -1;
+                    refundValue = -1;
+                    break;
+                case mode.deposit:
+                    depositValue = 0;
+                    refundValue = -1;
+                    break;
+                case mode.refund:
+                    depositValue = -1;
+                    refundValue =  0;
+                    
+                    break;
+            }
+
             if (cityID == 0)
             {
                 var query = (from c in db.DaftarTables.Where(x => x.RealDate >= startend.startDate &&
-                             x.RealDate <= startend.endDate && x.DepositOwnerDetail.ToString().Contains(code))
+                             x.RealDate <= startend.endDate && x.DepositOwnerDetail.ToString().Contains(code) && 
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                              select c);
                 var count = query.Count();
                 result.recordCount = count;
@@ -648,7 +715,8 @@ namespace negar
             var query2 = (from c in db.DaftarTables.Where(x => x.CityID == cityID &&
                           x.RealDate >= startend.startDate &&
                           x.RealDate <= startend.endDate
-                          && x.DepositOwnerDetail.ToString().Contains(code))
+                          && x.DepositOwnerDetail.ToString().Contains(code) &&
+                          x.Deposit.Value>depositValue && x.Refund.Value > refundValue)
                           select c);
             var count2 = query2.Count();
             result.recordCount = count2;
@@ -656,15 +724,38 @@ namespace negar
             result.query = query2;
             return result;
         }
-        public Result budgetCodeQuery(long cityID ,string code , StartEndMonthClass startend, int pageSize)
+        public Result budgetCodeQuery(long cityID ,string code , StartEndMonthClass startend, int pageSize,mode searchType)
         {
+
+            int depositValue = -1;
+            int refundValue = -1;
+
+            switch (searchType)
+            {
+                case mode.all:
+                    depositValue = -1;
+                    refundValue = -1;
+                    break;
+                case mode.deposit:
+                    depositValue = 0;
+                    refundValue = -1;
+                    break;
+                case mode.refund:
+                    depositValue = -1;
+                    refundValue = 0;
+
+                    break;
+            }
+
+
             DaftarModelDataContext db = new DaftarModelDataContext(cn);
 
             Result  result = new Result();
             if (cityID == 0)
             {
                 var query = (from c in db.DaftarTables.Where(x => x.RealDate >= startend.startDate && 
-                             x.RealDate <= startend.endDate &&  x.CodeBudget.ToString().Contains(code)) select c);
+                             x.RealDate <= startend.endDate &&  x.CodeBudget.ToString().Contains(code) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue) select c);
                 var count = query.Count();
                 result.queryPageNumber =count/ pageSize;
                 result.recordCount = count;
@@ -675,7 +766,8 @@ namespace negar
             var query2 = (from c in db.DaftarTables.Where(x => x.CityID == cityID &&
                           x.RealDate >= startend.startDate &&
                           x.RealDate <= startend.endDate
-                          && x.CodeBudget.ToString().Contains(code)) select c);
+                          && x.CodeBudget.ToString().Contains(code) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue) select c);
             var count2 = query2.Count();
             result.recordCount = count2;
             result.queryPageNumber = count2 / pageSize;
@@ -687,15 +779,36 @@ namespace negar
         //کد مشخصات سپرده
         //واریزی
         //استرداد
-        public Result AccountTypeQuery(long cityID, string accountTypeQuery, StartEndMonthClass startend, int pageSize)
+        public Result AccountTypeQuery(long cityID, string accountTypeQuery, StartEndMonthClass startend, int pageSize,mode searchType)
         {
             DaftarModelDataContext db = new DaftarModelDataContext(cn);
+
+            int depositValue = -1;
+            int refundValue = -1;
+
+            switch (searchType)
+            {
+                case mode.all:
+                    depositValue = -1;
+                    refundValue = -1;
+                    break;
+                case mode.deposit:
+                    depositValue = 0;
+                    refundValue = -1;
+                    break;
+                case mode.refund:
+                    depositValue = -1;
+                    refundValue = 0;
+
+                    break;
+            }
 
             Result result = new Result();
             if (cityID == 0)
             {
                 var query = (from c in db.DaftarTables.Where(x => x.RealDate >= startend.startDate &&
-                             x.RealDate <= startend.endDate && x.AccountType.ToString().Contains(accountTypeQuery))
+                             x.RealDate <= startend.endDate && x.AccountType.ToString().Contains(accountTypeQuery) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                              select c);
                 var count = query.Count();
                 result.recordCount = count;
@@ -707,7 +820,8 @@ namespace negar
             var query2 = (from c in db.DaftarTables.Where(x => x.CityID == cityID &&
                           x.RealDate >= startend.startDate &&
                           x.RealDate <= startend.endDate
-                          && x.AccountType.ToString().Contains(accountTypeQuery))
+                          && x.AccountType.ToString().Contains(accountTypeQuery) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                           select c);
             var count2 = query2.Count();
             result.recordCount = count2;
@@ -715,15 +829,38 @@ namespace negar
             result.query = query2;
             return result;
         }
-        public Result billDetailCodeQuery(long cityID, string code, StartEndMonthClass startend, int pageSize)
+        public Result billDetailCodeQuery(long cityID, string code, StartEndMonthClass startend, int pageSize,mode searchType)
         {
             DaftarModelDataContext db = new DaftarModelDataContext(cn);
+
+            int depositValue = -1;
+            int refundValue = -1;
+
+            switch (searchType)
+            {
+                case mode.all:
+                    depositValue = -1;
+                    refundValue = -1;
+                    break;
+                case mode.deposit:
+                    depositValue = 0;
+                    refundValue = -1;
+                    break;
+                case mode.refund:
+                    depositValue = -1;
+                    refundValue = 0;
+
+                    break;
+            }
+
+
 
             Result result = new Result();
             if (cityID == 0)
             {
                 var query = (from c in db.DaftarTables.Where(x => x.RealDate >= startend.startDate &&
-                             x.RealDate <= startend.endDate && x.BillDetailCode.ToString().Contains(code))
+                             x.RealDate <= startend.endDate && x.BillDetailCode.ToString().Contains(code) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                              select c);
                 var count = query.Count();
                 result.recordCount = count;
@@ -735,7 +872,8 @@ namespace negar
             var query2 = (from c in db.DaftarTables.Where(x => x.CityID == cityID &&
                           x.RealDate >= startend.startDate &&
                           x.RealDate <= startend.endDate
-                          && x.BillDetailCode.ToString().Contains(code))
+                          && x.BillDetailCode.ToString().Contains(code) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                           select c);
             var count2 = query2.Count();
             result.recordCount = count2;
@@ -743,15 +881,38 @@ namespace negar
             result.query = query2;
             return result;
         }
-        public Result depositDetailCodeQuery(long cityID, string code, StartEndMonthClass startend, int pageSize)
+        public Result depositDetailCodeQuery(long cityID, string code, StartEndMonthClass startend, int pageSize,mode searchType)
         {
             DaftarModelDataContext db = new DaftarModelDataContext(cn);
 
             Result result = new Result();
+
+            int depositValue = -1;
+            int refundValue = -1;
+
+            switch (searchType)
+            {
+                case mode.all:
+                    depositValue = -1;
+                    refundValue = -1;
+                    break;
+                case mode.deposit:
+                    depositValue = 0;
+                    refundValue = -1;
+                    break;
+                case mode.refund:
+                    depositValue = -1;
+                    refundValue = 0;
+
+                    break;
+            }
+
+
             if (cityID == 0)
             {
                 var query = (from c in db.DaftarTables.Where(x => x.RealDate >= startend.startDate &&
-                             x.RealDate <= startend.endDate && x.DepositDetail.ToString().Contains(code))
+                             x.RealDate <= startend.endDate && x.DepositDetail.ToString().Contains(code) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                              select c);
                 var count = query.Count();
                 result.queryPageNumber =count/ pageSize;
@@ -763,7 +924,8 @@ namespace negar
             var query2 = (from c in db.DaftarTables.Where(x => x.CityID == cityID &&
                           x.RealDate >= startend.startDate &&
                           x.RealDate <= startend.endDate
-                          && x.DepositDetail.ToString().Contains(code))
+                          && x.DepositDetail.ToString().Contains(code) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                           select c);
             var count2 = query2.Count();
             result.recordCount = count2;
@@ -771,15 +933,38 @@ namespace negar
             result.query = query2;
             return result;
         }
-        public Result depositQuery(long cityID, string code, StartEndMonthClass startend, int pageSize)
+        public Result depositQuery(long cityID, string code, StartEndMonthClass startend, int pageSize,mode searchType)
         {
             DaftarModelDataContext db = new DaftarModelDataContext(cn);
 
             Result result = new Result();
+
+
+            int depositValue = -1;
+            int refundValue = -1;
+
+            switch (searchType)
+            {
+                case mode.all:
+                    depositValue = -1;
+                    refundValue = -1;
+                    break;
+                case mode.deposit:
+                    depositValue = 0;
+                    refundValue = -1;
+                    break;
+                case mode.refund:
+                    depositValue = -1;
+                    refundValue = 0;
+
+                    break;
+            }
+
             if (cityID == 0)
             {
                 var query = (from c in db.DaftarTables.Where(x => x.RealDate >= startend.startDate &&
-                             x.RealDate <= startend.endDate && x.Deposit.ToString().Contains(code))
+                             x.RealDate <= startend.endDate && x.Deposit.ToString().Contains(code) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                              select c);
                 var count = query.Count();
                 result.recordCount = count;
@@ -791,7 +976,8 @@ namespace negar
             var query2 = (from c in db.DaftarTables.Where(x => x.CityID == cityID &&
                           x.RealDate >= startend.startDate &&
                           x.RealDate <= startend.endDate
-                          && x.Deposit.ToString().Contains(code))
+                          && x.Deposit.ToString().Contains(code) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                           select c);
             var count2 = query2.Count();
             result.recordCount = count2;
@@ -799,15 +985,38 @@ namespace negar
             result.query = query2;
             return result;
         }
-        public Result refundQuery(long cityID, string code, StartEndMonthClass startend, int pageSize)
+        public Result refundQuery(long cityID, string code, StartEndMonthClass startend, int pageSize,mode searchType)
         {
             DaftarModelDataContext db = new DaftarModelDataContext(cn);
 
             Result result = new Result();
+
+
+            int depositValue = -1;
+            int refundValue = -1;
+
+            switch (searchType)
+            {
+                case mode.all:
+                    depositValue = -1;
+                    refundValue = -1;
+                    break;
+                case mode.deposit:
+                    depositValue = 0;
+                    refundValue = -1;
+                    break;
+                case mode.refund:
+                    depositValue = -1;
+                    refundValue = 0;
+
+                    break;
+            }
+
             if (cityID == 0)
             {
                 var query = (from c in db.DaftarTables.Where(x => x.RealDate >= startend.startDate &&
-                             x.RealDate <= startend.endDate && x.Refund.ToString().Contains(code))
+                             x.RealDate <= startend.endDate && x.Refund.ToString().Contains(code) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                              select c);
                 var count = query.Count();
                 result.recordCount = count;
@@ -819,7 +1028,8 @@ namespace negar
             var query2 = (from c in db.DaftarTables.Where(x => x.CityID == cityID &&
                           x.RealDate >= startend.startDate &&
                           x.RealDate <= startend.endDate
-                          && x.Refund.ToString().Contains(code))
+                          && x.Refund.ToString().Contains(code) &&
+                             x.Deposit.Value > depositValue && x.Refund.Value > refundValue)
                           select c);
             var count2 = query2.Count();
             result.recordCount = count2;

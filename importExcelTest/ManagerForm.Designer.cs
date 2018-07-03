@@ -65,17 +65,23 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.validationDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.endDateTimePickerX1 = new BehComponents.DateTimePickerX();
-            this.startDateTimePickerX = new BehComponents.DateTimePickerX();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.validCityComboBox = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.deleteRestrictionButton = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.commitLockButton = new System.Windows.Forms.Button();
+            this.lockLastMonth = new System.Windows.Forms.RadioButton();
+            this.unlockprvMonth = new System.Windows.Forms.RadioButton();
+            this.manualLockButton = new System.Windows.Forms.RadioButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.endDateTimePickerX1 = new BehComponents.DateTimePickerX();
             this.addRestrictionButton = new System.Windows.Forms.Button();
+            this.startDateTimePickerX = new BehComponents.DateTimePickerX();
+            this.deleteRestrictionButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.validCityComboBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvColor = new System.Windows.Forms.Button();
             this.cityTableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -84,12 +90,7 @@
             this.cityTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.daftarTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cityTableTableAdapter2 = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.manualLockButton = new System.Windows.Forms.RadioButton();
-            this.unlockprvMonth = new System.Windows.Forms.RadioButton();
-            this.lockLastMonth = new System.Windows.Forms.RadioButton();
-            this.commitLockButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.validationTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -105,14 +106,14 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.validationDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarTableBindingSource)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // validationTab
@@ -345,7 +346,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(755, 525);
+            this.tabPage2.Size = new System.Drawing.Size(802, 640);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "مدیریت شهرها";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -360,12 +361,12 @@
             this.cityDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.cityDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cityDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cityDataGridView.Location = new System.Drawing.Point(3, 216);
+            this.cityDataGridView.Location = new System.Drawing.Point(3, 331);
             this.cityDataGridView.Name = "cityDataGridView";
             this.cityDataGridView.ReadOnly = true;
             this.cityDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cityDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cityDataGridView.Size = new System.Drawing.Size(749, 306);
+            this.cityDataGridView.Size = new System.Drawing.Size(796, 306);
             this.cityDataGridView.TabIndex = 10;
             // 
             // groupBox2
@@ -381,7 +382,7 @@
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(749, 207);
+            this.groupBox2.Size = new System.Drawing.Size(796, 207);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "مدیریت شهرها";
@@ -390,7 +391,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(697, 62);
+            this.label4.Location = new System.Drawing.Point(721, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 9;
@@ -400,7 +401,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(682, 33);
+            this.label5.Location = new System.Drawing.Point(706, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 8;
@@ -410,17 +411,17 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.button3.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
-            this.button3.Location = new System.Drawing.Point(571, 85);
+            this.button3.Location = new System.Drawing.Point(595, 85);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(42, 24);
             this.button3.TabIndex = 3;
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // CityTextBox
             // 
             this.CityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.CityTextBox.Location = new System.Drawing.Point(561, 59);
+            this.CityTextBox.Location = new System.Drawing.Point(585, 59);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(100, 20);
             this.CityTextBox.TabIndex = 1;
@@ -438,7 +439,7 @@
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.button4.Image = global::negar.Properties.Resources.add_icon__1_;
-            this.button4.Location = new System.Drawing.Point(619, 85);
+            this.button4.Location = new System.Drawing.Point(643, 85);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(42, 24);
             this.button4.TabIndex = 2;
@@ -448,7 +449,7 @@
             // IDTextBox
             // 
             this.IDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.IDTextBox.Location = new System.Drawing.Point(561, 30);
+            this.IDTextBox.Location = new System.Drawing.Point(585, 30);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(100, 20);
             this.IDTextBox.TabIndex = 0;
@@ -497,6 +498,93 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "مدیریت دسترسی ";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.commitLockButton);
+            this.groupBox5.Controls.Add(this.lockLastMonth);
+            this.groupBox5.Controls.Add(this.unlockprvMonth);
+            this.groupBox5.Controls.Add(this.manualLockButton);
+            this.groupBox5.Location = new System.Drawing.Point(294, 27);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(496, 62);
+            this.groupBox5.TabIndex = 39;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "انتخاب قفل";
+            // 
+            // commitLockButton
+            // 
+            this.commitLockButton.Location = new System.Drawing.Point(7, 19);
+            this.commitLockButton.Name = "commitLockButton";
+            this.commitLockButton.Size = new System.Drawing.Size(75, 23);
+            this.commitLockButton.TabIndex = 3;
+            this.commitLockButton.Text = "اعمال";
+            this.commitLockButton.UseVisualStyleBackColor = true;
+            this.commitLockButton.Click += new System.EventHandler(this.commitLockButton_Click);
+            // 
+            // lockLastMonth
+            // 
+            this.lockLastMonth.AutoSize = true;
+            this.lockLastMonth.Location = new System.Drawing.Point(274, 19);
+            this.lockLastMonth.Name = "lockLastMonth";
+            this.lockLastMonth.Size = new System.Drawing.Size(81, 17);
+            this.lockLastMonth.TabIndex = 2;
+            this.lockLastMonth.TabStop = true;
+            this.lockLastMonth.Text = "قفل ماه قبل";
+            this.lockLastMonth.UseVisualStyleBackColor = true;
+            this.lockLastMonth.CheckedChanged += new System.EventHandler(this.lockLastMonth_CheckedChanged);
+            // 
+            // unlockprvMonth
+            // 
+            this.unlockprvMonth.AutoSize = true;
+            this.unlockprvMonth.Location = new System.Drawing.Point(144, 19);
+            this.unlockprvMonth.Name = "unlockprvMonth";
+            this.unlockprvMonth.Size = new System.Drawing.Size(124, 17);
+            this.unlockprvMonth.TabIndex = 1;
+            this.unlockprvMonth.TabStop = true;
+            this.unlockprvMonth.Text = "باز کردن قفل ماه قبل";
+            this.unlockprvMonth.UseVisualStyleBackColor = true;
+            this.unlockprvMonth.CheckedChanged += new System.EventHandler(this.unlockprvMonth_CheckedChanged);
+            // 
+            // manualLockButton
+            // 
+            this.manualLockButton.AutoSize = true;
+            this.manualLockButton.Location = new System.Drawing.Point(370, 19);
+            this.manualLockButton.Name = "manualLockButton";
+            this.manualLockButton.Size = new System.Drawing.Size(74, 17);
+            this.manualLockButton.TabIndex = 0;
+            this.manualLockButton.TabStop = true;
+            this.manualLockButton.Text = "قفل دستی";
+            this.manualLockButton.UseVisualStyleBackColor = true;
+            this.manualLockButton.CheckedChanged += new System.EventHandler(this.manualLockButton_CheckedChanged);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.descriptionTextBox);
+            this.groupBox4.Controls.Add(this.endDateTimePickerX1);
+            this.groupBox4.Controls.Add(this.addRestrictionButton);
+            this.groupBox4.Controls.Add(this.startDateTimePickerX);
+            this.groupBox4.Controls.Add(this.deleteRestrictionButton);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.validCityComboBox);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Location = new System.Drawing.Point(288, 95);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(502, 157);
+            this.groupBox4.TabIndex = 38;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "قفل دستی";
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.descriptionTextBox.Location = new System.Drawing.Point(261, 32);
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.descriptionTextBox.TabIndex = 0;
             // 
             // endDateTimePickerX1
             // 
@@ -571,6 +659,17 @@
             this.endDateTimePickerX1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.endDateTimePickerX1.TextWhenClearButtonClicked = "";
             // 
+            // addRestrictionButton
+            // 
+            this.addRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addRestrictionButton.Image = global::negar.Properties.Resources.add_icon__1_;
+            this.addRestrictionButton.Location = new System.Drawing.Point(54, 29);
+            this.addRestrictionButton.Name = "addRestrictionButton";
+            this.addRestrictionButton.Size = new System.Drawing.Size(42, 26);
+            this.addRestrictionButton.TabIndex = 4;
+            this.addRestrictionButton.UseVisualStyleBackColor = true;
+            this.addRestrictionButton.Click += new System.EventHandler(this.addRestrictionButton_Click);
+            // 
             // startDateTimePickerX
             // 
             this.startDateTimePickerX.AnchorSize = new System.Drawing.Size(182, 25);
@@ -644,6 +743,17 @@
             this.startDateTimePickerX.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.startDateTimePickerX.TextWhenClearButtonClicked = "";
             // 
+            // deleteRestrictionButton
+            // 
+            this.deleteRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.deleteRestrictionButton.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
+            this.deleteRestrictionButton.Location = new System.Drawing.Point(6, 29);
+            this.deleteRestrictionButton.Name = "deleteRestrictionButton";
+            this.deleteRestrictionButton.Size = new System.Drawing.Size(42, 24);
+            this.deleteRestrictionButton.TabIndex = 5;
+            this.deleteRestrictionButton.UseVisualStyleBackColor = true;
+            this.deleteRestrictionButton.Click += new System.EventHandler(this.deleteRestrictionButton_Click);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -653,6 +763,16 @@
             this.label7.TabIndex = 37;
             this.label7.Text = "پایان";
             // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(376, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "نام محدودیت";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -661,16 +781,6 @@
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 36;
             this.label9.Text = "شروع";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(412, 61);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "شهر";
             // 
             // validCityComboBox
             // 
@@ -684,34 +794,15 @@
             this.validCityComboBox.TabIndex = 1;
             this.validCityComboBox.ValueMember = "Id";
             // 
-            // label6
+            // label8
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(376, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "نام محدودیت";
-            // 
-            // deleteRestrictionButton
-            // 
-            this.deleteRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.deleteRestrictionButton.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
-            this.deleteRestrictionButton.Location = new System.Drawing.Point(6, 29);
-            this.deleteRestrictionButton.Name = "deleteRestrictionButton";
-            this.deleteRestrictionButton.Size = new System.Drawing.Size(42, 24);
-            this.deleteRestrictionButton.TabIndex = 5;
-            this.deleteRestrictionButton.UseVisualStyleBackColor = true;
-            this.deleteRestrictionButton.Click += new System.EventHandler(this.deleteRestrictionButton_Click);
-            // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(261, 32);
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(100, 20);
-            this.descriptionTextBox.TabIndex = 0;
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(412, 61);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "شهر";
             // 
             // pictureBox3
             // 
@@ -723,23 +814,12 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // addRestrictionButton
-            // 
-            this.addRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addRestrictionButton.Image = global::negar.Properties.Resources.add_icon__1_;
-            this.addRestrictionButton.Location = new System.Drawing.Point(54, 29);
-            this.addRestrictionButton.Name = "addRestrictionButton";
-            this.addRestrictionButton.Size = new System.Drawing.Size(42, 26);
-            this.addRestrictionButton.TabIndex = 4;
-            this.addRestrictionButton.UseVisualStyleBackColor = true;
-            this.addRestrictionButton.Click += new System.EventHandler(this.addRestrictionButton_Click);
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgvColor);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(755, 525);
+            this.tabPage3.Size = new System.Drawing.Size(802, 640);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "تنظیمات";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -780,83 +860,12 @@
             // 
             this.cityTableTableAdapter2.ClearBeforeFill = true;
             // 
-            // groupBox4
+            // textBox1
             // 
-            this.groupBox4.Controls.Add(this.descriptionTextBox);
-            this.groupBox4.Controls.Add(this.endDateTimePickerX1);
-            this.groupBox4.Controls.Add(this.addRestrictionButton);
-            this.groupBox4.Controls.Add(this.startDateTimePickerX);
-            this.groupBox4.Controls.Add(this.deleteRestrictionButton);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.validCityComboBox);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(288, 95);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(502, 157);
-            this.groupBox4.TabIndex = 38;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "قفل دستی";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.commitLockButton);
-            this.groupBox5.Controls.Add(this.lockLastMonth);
-            this.groupBox5.Controls.Add(this.unlockprvMonth);
-            this.groupBox5.Controls.Add(this.manualLockButton);
-            this.groupBox5.Location = new System.Drawing.Point(294, 27);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(496, 62);
-            this.groupBox5.TabIndex = 39;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "انتخاب قفل";
-            // 
-            // manualLockButton
-            // 
-            this.manualLockButton.AutoSize = true;
-            this.manualLockButton.Location = new System.Drawing.Point(370, 19);
-            this.manualLockButton.Name = "manualLockButton";
-            this.manualLockButton.Size = new System.Drawing.Size(74, 17);
-            this.manualLockButton.TabIndex = 0;
-            this.manualLockButton.TabStop = true;
-            this.manualLockButton.Text = "قفل دستی";
-            this.manualLockButton.UseVisualStyleBackColor = true;
-            this.manualLockButton.CheckedChanged += new System.EventHandler(this.manualLockButton_CheckedChanged);
-            // 
-            // unlockprvMonth
-            // 
-            this.unlockprvMonth.AutoSize = true;
-            this.unlockprvMonth.Location = new System.Drawing.Point(144, 19);
-            this.unlockprvMonth.Name = "unlockprvMonth";
-            this.unlockprvMonth.Size = new System.Drawing.Size(124, 17);
-            this.unlockprvMonth.TabIndex = 1;
-            this.unlockprvMonth.TabStop = true;
-            this.unlockprvMonth.Text = "باز کردن قفل ماه قبل";
-            this.unlockprvMonth.UseVisualStyleBackColor = true;
-            this.unlockprvMonth.CheckedChanged += new System.EventHandler(this.unlockprvMonth_CheckedChanged);
-            // 
-            // lockLastMonth
-            // 
-            this.lockLastMonth.AutoSize = true;
-            this.lockLastMonth.Location = new System.Drawing.Point(274, 19);
-            this.lockLastMonth.Name = "lockLastMonth";
-            this.lockLastMonth.Size = new System.Drawing.Size(81, 17);
-            this.lockLastMonth.TabIndex = 2;
-            this.lockLastMonth.TabStop = true;
-            this.lockLastMonth.Text = "قفل ماه قبل";
-            this.lockLastMonth.UseVisualStyleBackColor = true;
-            this.lockLastMonth.CheckedChanged += new System.EventHandler(this.lockLastMonth_CheckedChanged);
-            // 
-            // commitLockButton
-            // 
-            this.commitLockButton.Location = new System.Drawing.Point(7, 19);
-            this.commitLockButton.Name = "commitLockButton";
-            this.commitLockButton.Size = new System.Drawing.Size(75, 23);
-            this.commitLockButton.TabIndex = 3;
-            this.commitLockButton.Text = "اعمال";
-            this.commitLockButton.UseVisualStyleBackColor = true;
-            this.commitLockButton.Click += new System.EventHandler(this.commitLockButton_Click);
+            this.textBox1.Location = new System.Drawing.Point(124, 36);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 4;
             // 
             // ManagerForm
             // 
@@ -890,16 +899,16 @@
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.validationDataGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarTableBindingSource)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -965,5 +974,6 @@
         private System.Windows.Forms.RadioButton unlockprvMonth;
         private System.Windows.Forms.RadioButton manualLockButton;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

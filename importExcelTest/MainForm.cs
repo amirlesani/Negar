@@ -107,6 +107,7 @@ namespace negar
             string sum = string.Format("{0:n0}", sql.sumPrice(query));
             this.sumStripStatusLabel1.Text = "مجموع واریزی "+sum +" "+ "ریال ";
             paginationQuery(query,pageNumber);
+            refreshLastState(state);
         }
         public void setCityComboBox()
         {
@@ -254,10 +255,10 @@ namespace negar
                 شنیدنToolStripMenuItem.Visible = false;
             }
         }
-         Result  searchResultQuery()
+        private Result  searchResultQuery()
         {
             int value = this.comboBox1.SelectedIndex;
-
+            var searchMode = (mode)this.orderComboBox.SelectedIndex;
             SqlManipulator sql = new SqlManipulator();
          
             if (login.permission)
@@ -285,25 +286,25 @@ namespace negar
             switch (value)
             {
                 case 0:
-                    query = sql.budgetCodeQuery(login.cityID ,(this.searchTextBox.Text),startEnd,pageSize);
+                    query = sql.budgetCodeQuery(login.cityID ,(this.searchTextBox.Text),startEnd,pageSize,searchMode);
                     break;
                 case 1:
-                    query = sql.ownerQuery(login.cityID,this.searchTextBox.Text,startEnd,pageSize);
+                    query =  sql.ownerQuery(login.cityID,this.searchTextBox.Text,startEnd,pageSize, searchMode);
                     break;
                 case 2:
-                    query = sql.AccountTypeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize);
+                    query = sql.AccountTypeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
                 case 3:
-                    query =  sql.billDetailCodeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize);
+                    query =  sql.billDetailCodeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
                 case 4:
-                    query =  sql.depositDetailCodeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize);
+                    query =  sql.depositDetailCodeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
                 case 5:
-                    query =  sql.depositQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize);
+                    query =  sql.depositQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
                 case 6:
-                    query =  sql.refundQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize);
+                    query =  sql.refundQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
 
             }
@@ -358,7 +359,7 @@ namespace negar
                 return;
             }
         }
-        public  void refreshLastState()
+        public  void refreshLastState(LasteStateClass lastState)
         {
             SqlManipulator sql = new SqlManipulator();
             var t = sql.pageResult(lastResult, pageNumber, pageSize);
@@ -370,15 +371,13 @@ namespace negar
             }
             setYearMonthComboBox(login.cityID);
             try {
-                if(lastYearSelected !=null || lastMonthSelected !=null)
+                if(lastState.lastMonthSelected !=null || lastState.lastYearSelected !=null)
                 {
-                    yearComboBox.SelectedIndex = lastYearSelected;
-                    monthComboBox.Enabled = true;
-                    monthComboBox.SelectedIndex = lastMonthSelected;
+                    yearComboBox.SelectedIndex = lastState.lastYearSelected;
+                    monthComboBox.SelectedIndex = lastState.lastMonthSelected;
+                    this.orderComboBox.SelectedIndex = lastState.lastModeSelected;
                 }
-                
-                monthComboBox.Enabled = true;
-            }
+                            }
             catch(Exception)
             {
                 throw;
@@ -545,7 +544,7 @@ namespace negar
                 lst.cityID = login.cityID;
                 lst.date = startEnd;
                 lst.searchValue = this.searchTextBox.Text;
-                refreshLastState();
+                refreshLastState(lst);
 
             }
             else if (dialogResult == DialogResult.No)
@@ -608,7 +607,8 @@ namespace negar
         private void updateButton3_Click(object sender, EventArgs e)
         {
             try {
-                refreshLastState();
+                searchinMonth();
+
             }
             catch(Exception ex)
             {
@@ -634,7 +634,7 @@ namespace negar
                 else
                 {
                     SqlManipulator sql = new SqlManipulator();
-                    var query = sql.searchByDate(login.cityID,pageSize,startEnd.startDate,startEnd.endDate) ;
+                    var query = sql.searchByDate(login.cityID,pageSize,startEnd.startDate,startEnd.endDate,(mode)this.orderComboBox.SelectedIndex) ;
                     var t = sql.pageResult(query, pageNumber, pageSize);
                     makeTable(t.query);
                 }
@@ -803,6 +803,9 @@ namespace negar
             lst.cityID = login.cityID;
             lst.date = startEnd;
             lst.searchValue = this.searchTextBox.Text;
+            lst.lastModeSelected = this.orderComboBox.SelectedIndex;
+            lst.lastYearSelected = this.yearComboBox.SelectedIndex;
+            lst.lastMonthSelected = this.monthComboBox.SelectedIndex;
             saveLastState(lst);
             forwardButton.Enabled = true;
         }
@@ -872,10 +875,8 @@ namespace negar
                 long month = mItem.Value;
                 int year = Convert.ToInt32(yearComboBox.SelectedItem);
 
-                Result result = new Result();
                 try {
                     var starEndofMonth = utl.getStartEndofMonth(year, month);
-                    result = sql.searchByDate(login.cityID, pageSize, starEndofMonth.startDate, starEndofMonth.endDate);
                     startEnd = starEndofMonth;
                 }
                 catch (Exception)
@@ -891,6 +892,10 @@ namespace negar
                 laste.date = startEnd;
                 laste.searchValue = this.searchTextBox.Text;
                 /////alpha testing
+                laste.lastYearSelected = this.yearComboBox.SelectedIndex;
+                laste.lastMonthSelected = this.monthComboBox.SelectedIndex;
+                laste.lastModeSelected = this.orderComboBox.SelectedIndex;
+
                 lastYearSelected = this.yearComboBox.SelectedIndex;
                 lastMonthSelected = this.monthComboBox.SelectedIndex;
                 //// alpha testing
@@ -901,7 +906,7 @@ namespace negar
        
         private void monthComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            searchinMonth();
+          //  searchinMonth();
         }
 
         private void بهعنواناکسلToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1148,7 +1153,7 @@ namespace negar
         {
             try
             {
-                refreshLastState();
+                searchinMonth();
             }
             catch (Exception ex)
             {
@@ -1250,7 +1255,12 @@ namespace negar
             ntp.Show();
         }
 
-       
+      
+
+        private void orderComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            search();
+        }
     }
 
 

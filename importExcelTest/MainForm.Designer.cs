@@ -61,6 +61,7 @@
             this.pageNumberlabel = new System.Windows.Forms.Label();
             this.backwardButton = new System.Windows.Forms.Button();
             this.forwardButton = new System.Windows.Forms.Button();
+            this.orderComboBox = new System.Windows.Forms.ComboBox();
             this.mainDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -70,6 +71,7 @@
             this.changeStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.monthComboBox = new System.Windows.Forms.ComboBox();
@@ -122,7 +124,7 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 94);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 90);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(994, 0);
             this.flowLayoutPanel1.TabIndex = 11;
@@ -131,7 +133,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(943, 22);
+            this.label2.Location = new System.Drawing.Point(943, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 18;
@@ -345,10 +347,10 @@
             this.groupBox2.Controls.Add(this.backwardButton);
             this.groupBox2.Controls.Add(this.forwardButton);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 94);
+            this.groupBox2.Location = new System.Drawing.Point(0, 90);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(994, 59);
+            this.groupBox2.Size = new System.Drawing.Size(994, 79);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو";
@@ -358,7 +360,7 @@
             this.searchAllCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.searchAllCheckBox.AutoSize = true;
-            this.searchAllCheckBox.Location = new System.Drawing.Point(362, 21);
+            this.searchAllCheckBox.Location = new System.Drawing.Point(375, 19);
             this.searchAllCheckBox.Name = "searchAllCheckBox";
             this.searchAllCheckBox.Size = new System.Drawing.Size(121, 17);
             this.searchAllCheckBox.TabIndex = 19;
@@ -375,7 +377,7 @@
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.Location = new System.Drawing.Point(502, 18);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(78, 23);
+            this.button3.Size = new System.Drawing.Size(78, 26);
             this.button3.TabIndex = 0;
             this.button3.Text = "پیشرفته";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -391,7 +393,7 @@
             this.searchButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.searchButton.Location = new System.Drawing.Point(586, 18);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(74, 23);
+            this.searchButton.Size = new System.Drawing.Size(74, 24);
             this.searchButton.TabIndex = 7;
             this.searchButton.Text = "جستجو";
             this.searchButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -428,6 +430,22 @@
             this.forwardButton.UseVisualStyleBackColor = true;
             this.forwardButton.Click += new System.EventHandler(this.forwardButton_Click);
             // 
+            // orderComboBox
+            // 
+            this.orderComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.orderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.orderComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.orderComboBox.FormattingEnabled = true;
+            this.orderComboBox.Items.AddRange(new object[] {
+            "همه",
+            "استهلاکی",
+            "واریزی"});
+            this.orderComboBox.Location = new System.Drawing.Point(435, 23);
+            this.orderComboBox.Name = "orderComboBox";
+            this.orderComboBox.Size = new System.Drawing.Size(132, 23);
+            this.orderComboBox.TabIndex = 21;
+            this.orderComboBox.SelectionChangeCommitted += new System.EventHandler(this.orderComboBox_SelectionChangeCommitted);
+            // 
             // mainDataGridView
             // 
             this.mainDataGridView.AllowUserToAddRows = false;
@@ -446,7 +464,7 @@
             this.mainDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.mainDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.mainDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mainDataGridView.Size = new System.Drawing.Size(988, 385);
+            this.mainDataGridView.Size = new System.Drawing.Size(988, 369);
             this.mainDataGridView.TabIndex = 0;
             this.mainDataGridView.VirtualMode = true;
             this.mainDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.mainDataGridView_CellFormatting);
@@ -462,10 +480,10 @@
             this.groupBox4.Controls.Add(this.mainDataGridView);
             this.groupBox4.Controls.Add(this.statusStrip1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 153);
+            this.groupBox4.Location = new System.Drawing.Point(0, 169);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox4.Size = new System.Drawing.Size(994, 426);
+            this.groupBox4.Size = new System.Drawing.Size(994, 410);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "پایگاه داده";
@@ -477,7 +495,7 @@
             this.counttoolStripStatusLabel1,
             this.sumStripStatusLabel1,
             this.changeStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 401);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 385);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(988, 22);
             this.statusStrip1.TabIndex = 2;
@@ -524,6 +542,8 @@
             // 
             this.groupBox3.AutoSize = true;
             this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.orderComboBox);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.monthComboBox);
@@ -541,16 +561,27 @@
             this.groupBox3.Location = new System.Drawing.Point(0, 24);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox3.Size = new System.Drawing.Size(994, 70);
+            this.groupBox3.Size = new System.Drawing.Size(994, 66);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(528, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 15);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "لیست";
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(660, 5);
+            this.label4.Location = new System.Drawing.Point(687, 5);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 15);
             this.label4.TabIndex = 19;
@@ -561,7 +592,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(794, 5);
+            this.label3.Location = new System.Drawing.Point(821, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 18;
@@ -574,7 +605,7 @@
             this.monthComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.monthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.monthComboBox.FormattingEnabled = true;
-            this.monthComboBox.Location = new System.Drawing.Point(546, 23);
+            this.monthComboBox.Location = new System.Drawing.Point(573, 23);
             this.monthComboBox.Name = "monthComboBox";
             this.monthComboBox.Size = new System.Drawing.Size(133, 23);
             this.monthComboBox.TabIndex = 3;
@@ -637,7 +668,7 @@
             this.yearComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.yearComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.yearComboBox.FormattingEnabled = true;
-            this.yearComboBox.Location = new System.Drawing.Point(685, 23);
+            this.yearComboBox.Location = new System.Drawing.Point(712, 23);
             this.yearComboBox.Name = "yearComboBox";
             this.yearComboBox.Size = new System.Drawing.Size(133, 23);
             this.yearComboBox.TabIndex = 2;
@@ -648,7 +679,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(933, 5);
+            this.label1.Location = new System.Drawing.Point(955, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 15);
             this.label1.TabIndex = 17;
@@ -697,7 +728,7 @@
             this.cityComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cityComboBox.FormattingEnabled = true;
-            this.cityComboBox.Location = new System.Drawing.Point(824, 23);
+            this.cityComboBox.Location = new System.Drawing.Point(851, 23);
             this.cityComboBox.Name = "cityComboBox";
             this.cityComboBox.Size = new System.Drawing.Size(133, 23);
             this.cityComboBox.TabIndex = 0;
@@ -916,5 +947,7 @@
         private System.Windows.Forms.ToolStripMenuItem دفترToolStripMenuItem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox orderComboBox;
+        private System.Windows.Forms.Label label5;
     }
 }
