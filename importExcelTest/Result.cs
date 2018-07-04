@@ -5,7 +5,7 @@ using System.Text;
 
 namespace negar
 {
-    class Result
+   public class  Result
     {
 
         public IQueryable<DaftarTable> query {get; set;}

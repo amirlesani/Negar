@@ -14,12 +14,16 @@ namespace negar
         DaftarTable data;
         MainForm form;
         LoginInfo login;
+        LasteStateClass lastState;
+        int pageNumber;
         bool godmode;
-        public EditForm(DaftarTable data,MainForm form,LoginInfo login,bool godmode)
+        public EditForm(DaftarTable data,MainForm form,LoginInfo login,bool godmode,int pageNumber,LasteStateClass lastState)
         {
             InitializeComponent();
             this.data = data;
             this.form = form;
+            this.pageNumber = pageNumber;
+            this.lastState = lastState;
             this.godmode = godmode;
             this.login = login;
         }
@@ -146,7 +150,7 @@ namespace negar
                 };
                 Report rpt = new Report(sql.update(newDaftar,godmode), (int)errorImages.info);
                 rpt.Show();
-                form.refreshState();
+                form.refreshLastState(lastState, pageNumber);
                 this.Hide();
             }
             catch (Exception ex)

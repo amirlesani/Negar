@@ -31,8 +31,7 @@ namespace negar
         private NoteBook ntp;
         private LoginInfo login;
         private DaftarTable rowsData;
-        int lastYearSelected = 0;
-        int lastMonthSelected = 0;
+
 
         private List<DaftarTable> datasForModify;
         private AdvancedSearchForm adv;
@@ -98,16 +97,8 @@ namespace negar
         }
         private void saveLastState(LasteStateClass state)
         {
-            SqlManipulator sql = new SqlManipulator();
-            var query = searchResultQuery();
-
-            this.lastResult = query;
-            this.pageNumberlabel.Text = "0";
-
-            string sum = string.Format("{0:n0}", sql.sumPrice(query));
-            this.sumStripStatusLabel1.Text = "مجموع واریزی "+sum +" "+ "ریال ";
-            paginationQuery(query,pageNumber);
-            refreshLastState(state);
+        
+            refreshLastState(state,pageNumber);
         }
         public void setCityComboBox()
         {
@@ -235,7 +226,7 @@ namespace negar
                     }
                     
                 }
-                searchinMonth();
+                search();
             }
             catch (Exception) { throw; }
         }
@@ -267,6 +258,7 @@ namespace negar
                 login.cityID = item.Value;
             }
             StartEndMonthClass se = new StartEndMonthClass();
+
            if(searchAllCheckBox.Checked)
             {
                 MaxMinClass allTime = new MaxMinClass();
@@ -351,7 +343,7 @@ namespace negar
                     var refundItems = sql.refund(datasForModify,godmode);
                     Report rpt = new Report(refundItems, (int)errorImages.info);
                     rpt.Show();
-                    refreshState();
+                    refreshLastState(getLastState(),pageNumber);
                 }
             }
             else
@@ -359,11 +351,67 @@ namespace negar
                 return;
             }
         }
-        public  void refreshLastState(LasteStateClass lastState)
+        public void refreshLastState(LasteStateClass lastState, int pageNumber)
         {
+
             SqlManipulator sql = new SqlManipulator();
-            var t = sql.pageResult(lastResult, pageNumber, pageSize);
-            makeTable(t.query);
+            ///if refresh need to make a new table use this state
+            ///if refresh need to just 
+            ///bool
+            ///
+            
+            var  query = searchResultQuery();
+
+            this.lastResult = query;
+
+
+
+          //  this.pageNumberlabel.Text = "0";
+
+            string sum = string.Format("{0:n0}", sql.sumPrice(query));
+            this.sumStripStatusLabel1.Text = "مجموع واریزی " + sum + " " + "ریال ";
+            paginationQuery(query, pageNumber);
+
+
+            //var t = sql.pageResult(lastResult, pageNumber, pageSize);
+            //makeTable(t.query);
+            if (login.permission)
+            {
+                var item = (ComboboxItem)cityComboBox.SelectedItem;
+                login.cityID = item.Value;
+            }
+            setYearMonthComboBox(login.cityID);
+            try
+            {
+                if (lastState.lastMonthSelected != null || lastState.lastYearSelected != null)
+                {
+                    yearComboBox.SelectedIndex = lastState.lastYearSelected;
+                    monthComboBox.SelectedIndex = lastState.lastMonthSelected;
+                    this.orderComboBox.SelectedIndex = lastState.lastModeSelected;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+
+        }
+        public  void refreshLastState(LasteStateClass lastState,int pageNumber,Result query)
+        {
+
+            SqlManipulator sql = new SqlManipulator();
+       
+            this.lastResult = query;               
+            this.pageNumberlabel.Text = "0";
+
+            string sum = string.Format("{0:n0}", sql.sumPrice(query));
+            this.sumStripStatusLabel1.Text = "مجموع واریزی " + sum + " " + "ریال ";
+            paginationQuery(query, pageNumber);
+
+
+            //var t = sql.pageResult(lastResult, pageNumber, pageSize);
+            //makeTable(t.query);
             if (login.permission)
             {
                 var item = (ComboboxItem)cityComboBox.SelectedItem;
@@ -397,13 +445,15 @@ namespace negar
                 var t = sql.pageResult(result, 0, pageSize);
                 makeTable(t.query);
         }
-        private void setPageCountText(Result result)
+        private void setPageCountText(Result result,int pageNumber)
         {
             string spc = " ";
-
+    
             string p = " صفحه "+  result.queryPageNumber.ToString() ;
             this.counttoolStripStatusLabel1.Text = " رکورد "+ spc +result.recordCount.ToString() +"    "+ spc + p;
             if (result.queryPageNumber < 1) { this.forwardButton.Enabled = false; this.backwardButton.Enabled = false; }
+
+            else if ((pageNumber >= result.queryPageNumber)) { forwardButton.Enabled = false; }
             else { forwardButton.Enabled = true; }
             this.statusStrip1.Invalidate();
             this.statusStrip1.Refresh();
@@ -411,7 +461,7 @@ namespace negar
         }
         void paginationQuery(Result result, int pageNumber)
         {
-            setPageCountText(result);
+            setPageCountText(result,pageNumber);
             SqlManipulator sql = new SqlManipulator();
             var t = sql.pageResult(result, pageNumber, pageSize);
             //pageNumber = t.queryPageNumber;
@@ -540,11 +590,7 @@ namespace negar
 
                 datasForModify.Clear();
 
-                LasteStateClass lst = new LasteStateClass();
-                lst.cityID = login.cityID;
-                lst.date = startEnd;
-                lst.searchValue = this.searchTextBox.Text;
-                refreshLastState(lst);
+                refreshLastState(getLastState(),pageNumber);
 
             }
             else if (dialogResult == DialogResult.No)
@@ -565,23 +611,23 @@ namespace negar
         }
         private void updateButton_Click(object sender, EventArgs e)
         {
-            EditForm edit = new EditForm(rowsData,this,login,godmode);
+            EditForm edit = new EditForm(rowsData,this,login,godmode,pageNumber,getLastState());
             edit.Show();
         }
-        public void refreshState()
-        {
-            LasteStateClass lst = new LasteStateClass();
+        //public void refreshState()
+        //{
+        //    LasteStateClass lst = new LasteStateClass();
 
-            if (login.permission)
-            {
-                var item = (ComboboxItem)cityComboBox.SelectedItem;
-                login.cityID = item.Value;
-            }
-            lst.cityID = login.cityID;
-            lst.date = startEnd;
-            lst.searchValue = this.searchTextBox.Text;
-            saveLastState(lst);
-        }
+        //    if (login.permission)
+        //    {
+        //        var item = (ComboboxItem)cityComboBox.SelectedItem;
+        //        login.cityID = item.Value;
+        //    }
+        //    lst.cityID = login.cityID;
+        //    lst.date = startEnd;
+        //    lst.searchValue = this.searchTextBox.Text;
+        //    saveLastState(lst);
+        //}
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
             searchTextBox.Clear();
@@ -597,17 +643,27 @@ namespace negar
         {
             Application.Exit();
         }        
-
+        LasteStateClass getLastState()
+        {
+            LasteStateClass lst = new LasteStateClass();
+            lst.cityID = login.cityID;
+            lst.date = startEnd;
+            lst.searchValue = this.searchTextBox.Text;
+            lst.lastModeSelected = this.orderComboBox.SelectedIndex;
+            lst.lastYearSelected = this.yearComboBox.SelectedIndex;
+            lst.lastMonthSelected = this.monthComboBox.SelectedIndex;
+            return lst;
+        }
         private void addButton_Click(object sender, EventArgs e)
         {
-            AddEditForm add = new AddEditForm(login,this,false, rowsData);
+            AddEditForm add = new AddEditForm(login,this,false, rowsData,pageNumber,getLastState());
             add.Show();
         }
 
         private void updateButton3_Click(object sender, EventArgs e)
         {
             try {
-                searchinMonth();
+                search();
 
             }
             catch(Exception ex)
@@ -633,10 +689,7 @@ namespace negar
                 }
                 else
                 {
-                    SqlManipulator sql = new SqlManipulator();
-                    var query = sql.searchByDate(login.cityID,pageSize,startEnd.startDate,startEnd.endDate,(mode)this.orderComboBox.SelectedIndex) ;
-                    var t = sql.pageResult(query, pageNumber, pageSize);
-                    makeTable(t.query);
+                    search();
                 }
                 yearComboBox.Items.Clear();
                 setYearMonthComboBox(login.cityID);
@@ -774,9 +827,25 @@ namespace negar
         }
         private void search()
         {
-            pageNumber = 0;
-            backwardButton.Enabled = false;
+            Utility utl = new Utility();
+            var mItem = (ComboboxItem)monthComboBox.SelectedItem;
+            long month = mItem.Value;
+            int year = Convert.ToInt32(yearComboBox.SelectedItem);
 
+            try
+            {
+                var starEndofMonth = utl.getStartEndofMonth(year, month);
+                startEnd = starEndofMonth;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("خطا در تاریخ");
+            }
+            pageNumber = 0;
+            page = 0;
+            backwardButton.Enabled = false;
+            forwardButton.Enabled = true;
+            
 
             if (login.permission)
             {
@@ -786,7 +855,7 @@ namespace negar
             var query = searchResultQuery();
             if (!query.query.Any())
             {
-                MessageBox.Show("نتیجه ایی یافت نشد","هشدار ",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(" ! نتیجه ایی یافت نشد","هشدار ",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 return;
             }
             try
@@ -799,15 +868,8 @@ namespace negar
                 MessageBox.Show(ex.ToString());
             }
 
-            LasteStateClass lst = new LasteStateClass();
-            lst.cityID = login.cityID;
-            lst.date = startEnd;
-            lst.searchValue = this.searchTextBox.Text;
-            lst.lastModeSelected = this.orderComboBox.SelectedIndex;
-            lst.lastYearSelected = this.yearComboBox.SelectedIndex;
-            lst.lastMonthSelected = this.monthComboBox.SelectedIndex;
-            saveLastState(lst);
-            forwardButton.Enabled = true;
+            
+            refreshLastState(getLastState(),pageNumber,query);
         }
         public void advanceSearch(StartEndMonthClass date)
         {
@@ -861,48 +923,48 @@ namespace negar
                 }
             }
         }
-        private void searchinMonth()
-        {
-            if (login.permission)
-            {
-                var item = (ComboboxItem)cityComboBox.SelectedItem;
-                login.cityID = item.Value;
-            }
-            try {
-                SqlManipulator sql = new SqlManipulator();
-                Utility utl = new Utility();
-                var mItem = (ComboboxItem)monthComboBox.SelectedItem;
-                long month = mItem.Value;
-                int year = Convert.ToInt32(yearComboBox.SelectedItem);
+        //private void searchinMonth()
+        //{
+        //    if (login.permission)
+        //    {
+        //        var item = (ComboboxItem)cityComboBox.SelectedItem;
+        //        login.cityID = item.Value;
+        //    }
+        //    try {
+        //        SqlManipulator sql = new SqlManipulator();
+        //        Utility utl = new Utility();
+        //        var mItem = (ComboboxItem)monthComboBox.SelectedItem;
+        //        long month = mItem.Value;
+        //        int year = Convert.ToInt32(yearComboBox.SelectedItem);
 
-                try {
-                    var starEndofMonth = utl.getStartEndofMonth(year, month);
-                    startEnd = starEndofMonth;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("خطا در تاریخ");
-                }
-                pageNumber = 0;
-                page = 0;
-                backwardButton.Enabled = false;
-                forwardButton.Enabled = true;
-                LasteStateClass laste = new LasteStateClass();
-                laste.cityID = login.cityID;
-                laste.date = startEnd;
-                laste.searchValue = this.searchTextBox.Text;
-                /////alpha testing
-                laste.lastYearSelected = this.yearComboBox.SelectedIndex;
-                laste.lastMonthSelected = this.monthComboBox.SelectedIndex;
-                laste.lastModeSelected = this.orderComboBox.SelectedIndex;
+        //        try {
+        //            var starEndofMonth = utl.getStartEndofMonth(year, month);
+        //            startEnd = starEndofMonth;
+        //        }
+        //        catch (Exception)
+        //        {
+        //            MessageBox.Show("خطا در تاریخ");
+        //        }
+        //        pageNumber = 0;
+        //        page = 0;
+        //        backwardButton.Enabled = false;
+        //        forwardButton.Enabled = true;
+        //        LasteStateClass laste = new LasteStateClass();
+        //        laste.cityID = login.cityID;
+        //        laste.date = startEnd;
+        //        laste.searchValue = this.searchTextBox.Text;
+        //        /////alpha testing
+        //        laste.lastYearSelected = this.yearComboBox.SelectedIndex;
+        //        laste.lastMonthSelected = this.monthComboBox.SelectedIndex;
+        //        laste.lastModeSelected = this.orderComboBox.SelectedIndex;
 
-                lastYearSelected = this.yearComboBox.SelectedIndex;
-                lastMonthSelected = this.monthComboBox.SelectedIndex;
-                //// alpha testing
-                saveLastState(laste);
-            }
-            catch (Exception) { throw; }
-        }
+        //        lastYearSelected = this.yearComboBox.SelectedIndex;
+        //        lastMonthSelected = this.monthComboBox.SelectedIndex;
+        //        //// alpha testing
+        //        saveLastState(laste);
+        //    }
+        //    catch (Exception) { throw; }
+        //}
        
         private void monthComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -1095,14 +1157,14 @@ namespace negar
 
         private void اضافهToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddEditForm add = new AddEditForm(login, this, false, rowsData);
+            AddEditForm add = new AddEditForm(login, this, false, rowsData,pageNumber,getLastState());
             add.Show();
 
         }
 
         private void تغییرToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditForm edit = new EditForm(rowsData, this, login,godmode);
+            EditForm edit = new EditForm(rowsData, this, login,godmode,pageNumber,getLastState());
             edit.Show();
         }
 
@@ -1140,7 +1202,7 @@ namespace negar
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditForm edit = new EditForm(rowsData, this, login,godmode);
+            EditForm edit = new EditForm(rowsData, this, login,godmode,pageNumber,getLastState());
             edit.Show();
         }
 
@@ -1153,7 +1215,7 @@ namespace negar
         {
             try
             {
-                searchinMonth();
+                search();
             }
             catch (Exception ex)
             {
@@ -1163,7 +1225,7 @@ namespace negar
 
         private void اضافهToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            AddEditForm add = new AddEditForm(login, this, true, rowsData);
+            AddEditForm add = new AddEditForm(login, this, true, rowsData,pageNumber,getLastState());
             add.Show();
         }
 
@@ -1176,12 +1238,12 @@ namespace negar
             }
             if(e.KeyCode == Keys.F2)
             {
-                EditForm edit = new EditForm(rowsData, this, login,godmode);
+                EditForm edit = new EditForm(rowsData, this, login,godmode,pageNumber,getLastState());
                 edit.Show();
             }
             if(e.KeyCode == Keys.F1)
             {
-                AddEditForm add = new AddEditForm(login, this, true, rowsData);
+                AddEditForm add = new AddEditForm(login, this, true, rowsData,pageNumber,getLastState());
                 add.Show();
             }
         }

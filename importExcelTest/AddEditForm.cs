@@ -14,15 +14,19 @@ namespace negar
         LoginInfo login = new LoginInfo();
         MainForm form;
         bool copy;
+        int pageNumber;
         DaftarTable data;
+        LasteStateClass lastState;
         
-        public AddEditForm(LoginInfo login, MainForm form,bool addCopiedRow, DaftarTable data)
+        public AddEditForm(LoginInfo login, MainForm form,bool addCopiedRow, DaftarTable data,int pageNumber,LasteStateClass lastState)
         {
             InitializeComponent();
             this.login = login;
             this.form = form;
             this.data = data;
+            this.lastState = lastState;
             this.AccountTypeComboBox.SelectedIndex = 0;
+            this.pageNumber = pageNumber;
             this.copy = addCopiedRow;
             setPlaceComboBox();
         }
@@ -181,12 +185,11 @@ namespace negar
                     return;
                 };
                
-                Report rpt = new Report( sql.addRow(newDaftar),(int)errorImages.info);
+                    Report rpt = new Report( sql.addRow(newDaftar),(int)errorImages.info);
                     rpt.Show();
 
-                LasteStateClass lastestate = new LasteStateClass();
                     
-                    form.refreshLastState(lastestate);
+                    form.refreshLastState(this.lastState,pageNumber);
                 }
                
             catch (Exception ex)
