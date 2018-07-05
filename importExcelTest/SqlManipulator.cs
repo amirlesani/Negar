@@ -1085,7 +1085,7 @@ namespace negar
             long prices = 0;
             foreach(var a in result.query)
             {
-                prices = prices + Convert.ToInt64(a.Deposit);
+                prices = prices + Convert.ToInt64(a.Deposit+a.Refund);
             }
             return prices;
         }

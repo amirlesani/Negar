@@ -124,7 +124,7 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 90);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 89);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(994, 0);
             this.flowLayoutPanel1.TabIndex = 11;
@@ -168,7 +168,7 @@
             // 
             this.اضافهکردنفایلToolStripMenuItem.Image = global::negar.Properties.Resources.pencil_1;
             this.اضافهکردنفایلToolStripMenuItem.Name = "اضافهکردنفایلToolStripMenuItem";
-            this.اضافهکردنفایلToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.اضافهکردنفایلToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.اضافهکردنفایلToolStripMenuItem.Text = "اضافه کردن فایل";
             this.اضافهکردنفایلToolStripMenuItem.Click += new System.EventHandler(this.اضافهکردنفایلToolStripMenuItem_Click);
             // 
@@ -179,7 +179,7 @@
             this.فایلمتنیToolStripMenuItem});
             this.ذخیرهToolStripMenuItem.Image = global::negar.Properties.Resources.floppy_512;
             this.ذخیرهToolStripMenuItem.Name = "ذخیرهToolStripMenuItem";
-            this.ذخیرهToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.ذخیرهToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ذخیرهToolStripMenuItem.Text = " ذخیره به عنوان ";
             // 
             // بهعنواناکسلToolStripMenuItem
@@ -202,7 +202,7 @@
             // 
             this.چاپToolStripMenuItem.Image = global::negar.Properties.Resources._32x32;
             this.چاپToolStripMenuItem.Name = "چاپToolStripMenuItem";
-            this.چاپToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.چاپToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.چاپToolStripMenuItem.Text = "چاپ";
             this.چاپToolStripMenuItem.Click += new System.EventHandler(this.چاپToolStripMenuItem_Click_1);
             // 
@@ -210,14 +210,14 @@
             // 
             this.تنظیماتToolStripMenuItem.Image = global::negar.Properties.Resources.settings_icon__1_;
             this.تنظیماتToolStripMenuItem.Name = "تنظیماتToolStripMenuItem";
-            this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.تنظیماتToolStripMenuItem.Text = "تنظیمات";
             this.تنظیماتToolStripMenuItem.Click += new System.EventHandler(this.تنظیماتToolStripMenuItem_Click);
             // 
             // خروجToolStripMenuItem
             // 
             this.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem";
-            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.خروجToolStripMenuItem.Text = "خروج";
             this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
@@ -235,7 +235,7 @@
             // 
             this.اضافهToolStripMenuItem.Image = global::negar.Properties.Resources.if_basics_15_2968191;
             this.اضافهToolStripMenuItem.Name = "اضافهToolStripMenuItem";
-            this.اضافهToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.اضافهToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.اضافهToolStripMenuItem.Text = "اضافه";
             this.اضافهToolStripMenuItem.Click += new System.EventHandler(this.اضافهToolStripMenuItem_Click);
             // 
@@ -243,14 +243,14 @@
             // 
             this.حذفToolStripMenuItem.Image = global::negar.Properties.Resources.if_basics_22_296812;
             this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
-            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.حذفToolStripMenuItem.Text = "حذف";
             // 
             // تغییرToolStripMenuItem
             // 
             this.تغییرToolStripMenuItem.Image = global::negar.Properties.Resources.if_081_Pen_183209__1_;
             this.تغییرToolStripMenuItem.Name = "تغییرToolStripMenuItem";
-            this.تغییرToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.تغییرToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.تغییرToolStripMenuItem.Text = "تغییر";
             this.تغییرToolStripMenuItem.Click += new System.EventHandler(this.تغییرToolStripMenuItem_Click);
             // 
@@ -309,7 +309,7 @@
             // 
             this.aboutUsToolStripMenuItem.Image = global::negar.Properties.Resources.open_box;
             this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutUsToolStripMenuItem.Text = "درباره ما";
             this.aboutUsToolStripMenuItem.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click);
             // 
@@ -347,10 +347,10 @@
             this.groupBox2.Controls.Add(this.backwardButton);
             this.groupBox2.Controls.Add(this.forwardButton);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 90);
+            this.groupBox2.Location = new System.Drawing.Point(0, 89);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(994, 79);
+            this.groupBox2.Size = new System.Drawing.Size(994, 76);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو";
@@ -440,7 +440,7 @@
             "همه",
             "استهلاکی",
             "واریزی"});
-            this.orderComboBox.Location = new System.Drawing.Point(435, 23);
+            this.orderComboBox.Location = new System.Drawing.Point(830, 23);
             this.orderComboBox.Name = "orderComboBox";
             this.orderComboBox.Size = new System.Drawing.Size(132, 23);
             this.orderComboBox.TabIndex = 21;
@@ -464,7 +464,7 @@
             this.mainDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.mainDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.mainDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mainDataGridView.Size = new System.Drawing.Size(988, 369);
+            this.mainDataGridView.Size = new System.Drawing.Size(988, 373);
             this.mainDataGridView.TabIndex = 0;
             this.mainDataGridView.VirtualMode = true;
             this.mainDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.mainDataGridView_CellFormatting);
@@ -480,10 +480,10 @@
             this.groupBox4.Controls.Add(this.mainDataGridView);
             this.groupBox4.Controls.Add(this.statusStrip1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 169);
+            this.groupBox4.Location = new System.Drawing.Point(0, 165);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox4.Size = new System.Drawing.Size(994, 410);
+            this.groupBox4.Size = new System.Drawing.Size(994, 414);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "پایگاه داده";
@@ -495,7 +495,7 @@
             this.counttoolStripStatusLabel1,
             this.sumStripStatusLabel1,
             this.changeStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 385);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 389);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(988, 22);
             this.statusStrip1.TabIndex = 2;
@@ -561,7 +561,7 @@
             this.groupBox3.Location = new System.Drawing.Point(0, 24);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox3.Size = new System.Drawing.Size(994, 66);
+            this.groupBox3.Size = new System.Drawing.Size(994, 65);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             // 
@@ -570,7 +570,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(528, 5);
+            this.label5.Location = new System.Drawing.Point(934, 4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 15);
             this.label5.TabIndex = 22;
@@ -581,7 +581,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(687, 5);
+            this.label4.Location = new System.Drawing.Point(524, 5);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 15);
             this.label4.TabIndex = 19;
@@ -592,7 +592,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(821, 5);
+            this.label3.Location = new System.Drawing.Point(658, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 18;
@@ -605,10 +605,11 @@
             this.monthComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.monthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.monthComboBox.FormattingEnabled = true;
-            this.monthComboBox.Location = new System.Drawing.Point(573, 23);
+            this.monthComboBox.Location = new System.Drawing.Point(414, 23);
             this.monthComboBox.Name = "monthComboBox";
             this.monthComboBox.Size = new System.Drawing.Size(133, 23);
             this.monthComboBox.TabIndex = 3;
+            this.monthComboBox.SelectedIndexChanged += new System.EventHandler(this.monthComboBox_SelectedIndexChanged);
             this.monthComboBox.SelectionChangeCommitted += new System.EventHandler(this.monthComboBox_SelectionChangeCommitted);
             // 
             // updateButton3
@@ -620,7 +621,7 @@
             this.updateButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.updateButton3.Location = new System.Drawing.Point(12, 23);
             this.updateButton3.Name = "updateButton3";
-            this.updateButton3.Size = new System.Drawing.Size(94, 26);
+            this.updateButton3.Size = new System.Drawing.Size(94, 28);
             this.updateButton3.TabIndex = 13;
             this.updateButton3.Text = "&بروز رسانی";
             this.updateButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -668,7 +669,7 @@
             this.yearComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.yearComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.yearComboBox.FormattingEnabled = true;
-            this.yearComboBox.Location = new System.Drawing.Point(712, 23);
+            this.yearComboBox.Location = new System.Drawing.Point(553, 23);
             this.yearComboBox.Name = "yearComboBox";
             this.yearComboBox.Size = new System.Drawing.Size(133, 23);
             this.yearComboBox.TabIndex = 2;
@@ -679,7 +680,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(955, 5);
+            this.label1.Location = new System.Drawing.Point(792, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 15);
             this.label1.TabIndex = 17;
@@ -728,7 +729,7 @@
             this.cityComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cityComboBox.FormattingEnabled = true;
-            this.cityComboBox.Location = new System.Drawing.Point(851, 23);
+            this.cityComboBox.Location = new System.Drawing.Point(692, 23);
             this.cityComboBox.Name = "cityComboBox";
             this.cityComboBox.Size = new System.Drawing.Size(133, 23);
             this.cityComboBox.TabIndex = 0;

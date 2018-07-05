@@ -44,6 +44,7 @@ namespace negar
             selectedRowupdate = 0;
             InitializeComponent();
             monthComboBox.Enabled = false;
+            orderComboBox.Enabled = false;
             yearComboBox.Enabled = false;
             godmode = false;
             comboBox1.SelectedIndex = 1;
@@ -406,7 +407,7 @@ namespace negar
             this.pageNumberlabel.Text = "0";
 
             string sum = string.Format("{0:n0}", sql.sumPrice(query));
-            this.sumStripStatusLabel1.Text = "مجموع واریزی " + sum + " " + "ریال ";
+            this.sumStripStatusLabel1.Text = " جمع کل " + sum + " " + "ریال ";
             paginationQuery(query, pageNumber);
 
 
@@ -614,20 +615,7 @@ namespace negar
             EditForm edit = new EditForm(rowsData,this,login,godmode,pageNumber,getLastState());
             edit.Show();
         }
-        //public void refreshState()
-        //{
-        //    LasteStateClass lst = new LasteStateClass();
-
-        //    if (login.permission)
-        //    {
-        //        var item = (ComboboxItem)cityComboBox.SelectedItem;
-        //        login.cityID = item.Value;
-        //    }
-        //    lst.cityID = login.cityID;
-        //    lst.date = startEnd;
-        //    lst.searchValue = this.searchTextBox.Text;
-        //    saveLastState(lst);
-        //}
+        
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
             searchTextBox.Clear();
@@ -881,12 +869,9 @@ namespace negar
 
             startEnd = date;
             monthComboBox.Enabled = false;
-            yearComboBox.Enabled = false;
-            LasteStateClass state = new LasteStateClass();
-            state.cityID = login.cityID;
-            state.searchValue = this.searchTextBox.Text;
-            state.date = startEnd;
-            saveLastState(state);
+            yearComboBox.Enabled =  true;
+            
+            saveLastState(getLastState());
         }
         private void advanceSearchButton_Click_1(object sender, EventArgs e)
         {
@@ -968,7 +953,9 @@ namespace negar
        
         private void monthComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-          //  searchinMonth();
+            //  searchinMonth();
+            search();
+
         }
 
         private void بهعنواناکسلToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1321,7 +1308,11 @@ namespace negar
 
         private void orderComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            search();
+        }
+
+        private void monthComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            orderComboBox.Enabled = true;
         }
     }
 
