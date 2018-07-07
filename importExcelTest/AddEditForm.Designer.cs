@@ -37,12 +37,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.DepositDetailtextBox = new System.Windows.Forms.TextBox();
             this.BudgetCodetextBox = new System.Windows.Forms.TextBox();
-            this.DepositTextBox = new System.Windows.Forms.TextBox();
             this.DepositOwnerDetailTextBox = new System.Windows.Forms.TextBox();
             this.billDetailCodetextBox = new System.Windows.Forms.TextBox();
             this.refundTextBox = new System.Windows.Forms.TextBox();
@@ -52,6 +50,8 @@
             this.dateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.inputErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.DepositTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inputErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -129,16 +129,6 @@
             this.label6.TabIndex = 38;
             this.label6.Text = "نوع حساب";
             // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(312, 180);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "استرداد";
-            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -180,18 +170,6 @@
             this.BudgetCodetextBox.TabIndex = 4;
             this.BudgetCodetextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BudgetCodetextBox_KeyPress);
             this.BudgetCodetextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BudgetCodetextBox_KeyUp);
-            // 
-            // DepositTextBox
-            // 
-            this.DepositTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.DepositTextBox.Location = new System.Drawing.Point(190, 154);
-            this.DepositTextBox.Name = "DepositTextBox";
-            this.DepositTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.DepositTextBox.Size = new System.Drawing.Size(100, 20);
-            this.DepositTextBox.TabIndex = 5;
-            this.DepositTextBox.Tag = "";
-            this.DepositTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DepositTextBox_KeyPress);
-            this.DepositTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DepositTextBox_KeyUp);
             // 
             // DepositOwnerDetailTextBox
             // 
@@ -315,6 +293,28 @@
             this.inputErrorProvider.ContainerControl = this;
             this.inputErrorProvider.RightToLeft = true;
             // 
+            // DepositTextBox
+            // 
+            this.DepositTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.DepositTextBox.Location = new System.Drawing.Point(190, 154);
+            this.DepositTextBox.Name = "DepositTextBox";
+            this.DepositTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DepositTextBox.Size = new System.Drawing.Size(100, 20);
+            this.DepositTextBox.TabIndex = 5;
+            this.DepositTextBox.Tag = "";
+            this.DepositTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DepositTextBox_KeyPress);
+            this.DepositTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DepositTextBox_KeyUp);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(312, 180);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 37;
+            this.label5.Text = "استرداد";
+            // 
             // AddEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,12 +347,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox DepositDetailtextBox;
         private System.Windows.Forms.TextBox BudgetCodetextBox;
-        private System.Windows.Forms.TextBox DepositTextBox;
         private System.Windows.Forms.TextBox DepositOwnerDetailTextBox;
         private System.Windows.Forms.TextBox billDetailCodetextBox;
         private System.Windows.Forms.TextBox refundTextBox;
@@ -362,5 +360,7 @@
         private System.Windows.Forms.MaskedTextBox dateMaskedTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ErrorProvider inputErrorProvider;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox DepositTextBox;
     }
 }

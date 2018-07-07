@@ -48,6 +48,7 @@ namespace negar
             yearComboBox.Enabled = false;
             godmode = false;
             comboBox1.SelectedIndex = 1;
+            this.orderComboBox.SelectedIndex = 0;
             selectedID = new List<long>();
             datasForModify = new List<DaftarTable>();
 
@@ -106,15 +107,22 @@ namespace negar
             try { 
             cityComboBox.Items.Clear();
             if (!login.permission)
-            { SqlManipulator sql = new SqlManipulator();
-                cityComboBox.Items.Add(new ComboboxItem(login.cityName, login.cityID));
-                cityComboBox.SelectedIndex = 0;
-                cityComboBox.Enabled = false;
+            {
+                    try {
+                        SqlManipulator sql = new SqlManipulator();
+                        cityComboBox.Items.Add(new ComboboxItem(login.cityName, login.cityID));
+                        cityComboBox.SelectedIndex = 0;
+                        cityComboBox.Enabled = false;
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
 
             }
             else {
                 try {
-                    cityComboBox.Items.Add(new ComboboxItem("همه", 0));
+                    cityComboBox.Items.Add(new ComboboxItem("همه شهرها", 0));
                     SqlManipulator sql = new SqlManipulator();
                     var cities = sql.queryCities();
                     foreach (var city in cities)
@@ -258,23 +266,16 @@ namespace negar
                 var item = (ComboboxItem)cityComboBox.SelectedItem;
                 login.cityID = item.Value;
             }
-            StartEndMonthClass se = new StartEndMonthClass();
 
            if(searchAllCheckBox.Checked)
             {
                 MaxMinClass allTime = new MaxMinClass();
                 allTime = sql.findMaxminMonthDay(login.cityID);
-                se.startDate = allTime.min;
-                se.endDate = allTime.max;
                 startEnd.startDate = allTime.min;
                 startEnd.endDate = allTime.max;
 
             }
-           else
-            {  
-                se.startDate = startEnd.startDate;
-                se.endDate = startEnd.endDate;
-            }
+         
             Result query = new Result();
             switch (value)
             {
@@ -436,15 +437,21 @@ namespace negar
         }
         void refreshDVGquery(Result result ,  int pageNumber)
         {
-            if (login.permission)
-            {
-                var item = (ComboboxItem)cityComboBox.SelectedItem;
-                login.cityID = item.Value;
-            }
+            try {
+                if (login.permission)
+                {
+                    var item = (ComboboxItem)cityComboBox.SelectedItem;
+                    login.cityID = item.Value;
+                }
                 SqlManipulator sql = new SqlManipulator();
-               this.lastResult = result;
+                this.lastResult = result;
                 var t = sql.pageResult(result, 0, pageSize);
                 makeTable(t.query);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
         private void setPageCountText(Result result,int pageNumber)
         {
@@ -635,7 +642,9 @@ namespace negar
         {
             LasteStateClass lst = new LasteStateClass();
             lst.cityID = login.cityID;
-            lst.date = startEnd;
+            if(!this.searchAllCheckBox.Checked)
+            { lst.date = startEnd; }
+            
             lst.searchValue = this.searchTextBox.Text;
             lst.lastModeSelected = this.orderComboBox.SelectedIndex;
             lst.lastYearSelected = this.yearComboBox.SelectedIndex;
@@ -815,49 +824,95 @@ namespace negar
         }
         private void search()
         {
-            Utility utl = new Utility();
-            var mItem = (ComboboxItem)monthComboBox.SelectedItem;
-            long month = mItem.Value;
-            int year = Convert.ToInt32(yearComboBox.SelectedItem);
+            if (this.searchAllCheckBox.Checked)
+            {
+                if (login.permission)
+                {
+                    var item = (ComboboxItem)cityComboBox.SelectedItem;
+                    login.cityID = item.Value;
+                    this.monthComboBox.Enabled = false;
+                    this.yearComboBox.Enabled = false;
+                }
+                var query1 = searchResultQuery();
+                refreshLastState(getLastState(), pageNumber, query1);
 
-            try
-            {
-                var starEndofMonth = utl.getStartEndofMonth(year, month);
-                startEnd = starEndofMonth;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("خطا در تاریخ");
-            }
-            pageNumber = 0;
-            page = 0;
-            backwardButton.Enabled = false;
-            forwardButton.Enabled = true;
-            
-
-            if (login.permission)
-            {
-                var item = (ComboboxItem)cityComboBox.SelectedItem;
-                login.cityID = item.Value;
-            }
-            var query = searchResultQuery();
-            if (!query.query.Any())
-            {
-                MessageBox.Show(" ! نتیجه ایی یافت نشد","هشدار ",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                return;
-            }
-            try
-            {
-                lastResult = query;
+                if (!query1.query.Any())
+                {
+                    this.mainDataGridView.DataSource = null;
+                    this.forwardButton.Enabled = false;
+                    return;
+                }
+                try
+                {
+                    lastResult = query1;
+                }
+                catch (Exception)
+                {
+                    return;
+                }
 
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
-            }
+                Utility utl = new Utility();
+                int year;
+                long month;
+                try
+                {
+                    var mItem = (ComboboxItem)monthComboBox.SelectedItem;
+                    if (mItem.Value == 0)
+                    {
+                        return;
+                    }
+                    month = mItem.Value;
+                    year = Convert.ToInt32(yearComboBox.SelectedItem);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ابتدا تاریخ را مشخص نمایید");
+                    return;
 
-            
-            refreshLastState(getLastState(),pageNumber,query);
+                }
+                try
+                {
+                    var starEndofMonth = utl.getStartEndofMonth(year, month);
+                    startEnd = starEndofMonth;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("خطا در تاریخ");
+                }
+                pageNumber = 0;
+                page = 0;
+                backwardButton.Enabled = false;
+                forwardButton.Enabled = true;
+
+                if (login.permission)
+                {
+                    var item = (ComboboxItem)cityComboBox.SelectedItem;
+                    login.cityID = item.Value;
+                }
+                var query = searchResultQuery();
+                if (!query.query.Any())
+                {
+                    /// MessageBox.Show(" ! نتیجه ایی یافت نشد","هشدار ",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    /// 
+                    this.mainDataGridView.DataSource = null;
+                    this.forwardButton.Enabled = false;
+                    return;
+                }
+                try
+                {
+                    lastResult = query;
+
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+
+                refreshLastState(getLastState(), pageNumber, query);
+            }
         }
         public void advanceSearch(StartEndMonthClass date)
         {
@@ -892,6 +947,7 @@ namespace negar
                 {
                     long endDate = Convert.ToInt64(utl.formatStringDate(minmax.max.ToString()).ToEn().ToFa("yyyy"));
                     long startDate = Convert.ToInt64(utl.formatStringDate(minmax.min.ToString()).ToEn().ToFa("yyyy"));
+
                     for (long year = startDate; year <= endDate; year++)
                     {
                         yearComboBox.Items.Add(year);
@@ -904,7 +960,9 @@ namespace negar
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                  //  MessageBox.Show(ex.ToString());
+                    MessageBox.Show("تاریخی برای تنظیم اولیه وجود ندارد ! با پشتیبانی تماس بگیرید");
+                    return;
                 }
             }
         }
@@ -1060,7 +1118,15 @@ namespace negar
 
         private void yearComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            monthComboBox.Enabled = true;
+            if(searchAllCheckBox.Checked)
+            {
+                monthComboBox.Enabled = false;
+            }
+            else
+            {
+                monthComboBox.Enabled = true;
+            }
+            
         }
 
 
@@ -1313,6 +1379,11 @@ namespace negar
         private void monthComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             orderComboBox.Enabled = true;
+        }
+
+        private void ShowSelectedDataButton_Click(object sender, EventArgs e)
+        {
+            search();
         }
     }
 

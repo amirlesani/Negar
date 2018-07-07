@@ -271,9 +271,10 @@ namespace negar
                 string date = year + "/" + month + "/" + day;
                 return date;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                MessageBox.Show("خطا در زمان");
+                throw;
                 }
         }
         public int getMonthsDay(String farsiDate)

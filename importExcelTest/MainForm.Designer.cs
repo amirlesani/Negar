@@ -96,6 +96,7 @@
             this.cityTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maliDataSet = new negar.MaliDataSet();
             this.cityTableTableAdapter = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
+            this.ShowSelectedDataButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).BeginInit();
@@ -124,7 +125,7 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 89);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 93);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(994, 0);
             this.flowLayoutPanel1.TabIndex = 11;
@@ -168,7 +169,7 @@
             // 
             this.اضافهکردنفایلToolStripMenuItem.Image = global::negar.Properties.Resources.pencil_1;
             this.اضافهکردنفایلToolStripMenuItem.Name = "اضافهکردنفایلToolStripMenuItem";
-            this.اضافهکردنفایلToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.اضافهکردنفایلToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.اضافهکردنفایلToolStripMenuItem.Text = "اضافه کردن فایل";
             this.اضافهکردنفایلToolStripMenuItem.Click += new System.EventHandler(this.اضافهکردنفایلToolStripMenuItem_Click);
             // 
@@ -179,7 +180,7 @@
             this.فایلمتنیToolStripMenuItem});
             this.ذخیرهToolStripMenuItem.Image = global::negar.Properties.Resources.floppy_512;
             this.ذخیرهToolStripMenuItem.Name = "ذخیرهToolStripMenuItem";
-            this.ذخیرهToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ذخیرهToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ذخیرهToolStripMenuItem.Text = " ذخیره به عنوان ";
             // 
             // بهعنواناکسلToolStripMenuItem
@@ -202,7 +203,7 @@
             // 
             this.چاپToolStripMenuItem.Image = global::negar.Properties.Resources._32x32;
             this.چاپToolStripMenuItem.Name = "چاپToolStripMenuItem";
-            this.چاپToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.چاپToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.چاپToolStripMenuItem.Text = "چاپ";
             this.چاپToolStripMenuItem.Click += new System.EventHandler(this.چاپToolStripMenuItem_Click_1);
             // 
@@ -210,14 +211,14 @@
             // 
             this.تنظیماتToolStripMenuItem.Image = global::negar.Properties.Resources.settings_icon__1_;
             this.تنظیماتToolStripMenuItem.Name = "تنظیماتToolStripMenuItem";
-            this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.تنظیماتToolStripMenuItem.Text = "تنظیمات";
             this.تنظیماتToolStripMenuItem.Click += new System.EventHandler(this.تنظیماتToolStripMenuItem_Click);
             // 
             // خروجToolStripMenuItem
             // 
             this.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem";
-            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.خروجToolStripMenuItem.Text = "خروج";
             this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
@@ -235,7 +236,7 @@
             // 
             this.اضافهToolStripMenuItem.Image = global::negar.Properties.Resources.if_basics_15_2968191;
             this.اضافهToolStripMenuItem.Name = "اضافهToolStripMenuItem";
-            this.اضافهToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.اضافهToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.اضافهToolStripMenuItem.Text = "اضافه";
             this.اضافهToolStripMenuItem.Click += new System.EventHandler(this.اضافهToolStripMenuItem_Click);
             // 
@@ -243,14 +244,14 @@
             // 
             this.حذفToolStripMenuItem.Image = global::negar.Properties.Resources.if_basics_22_296812;
             this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
-            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.حذفToolStripMenuItem.Text = "حذف";
             // 
             // تغییرToolStripMenuItem
             // 
             this.تغییرToolStripMenuItem.Image = global::negar.Properties.Resources.if_081_Pen_183209__1_;
             this.تغییرToolStripMenuItem.Name = "تغییرToolStripMenuItem";
-            this.تغییرToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.تغییرToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.تغییرToolStripMenuItem.Text = "تغییر";
             this.تغییرToolStripMenuItem.Click += new System.EventHandler(this.تغییرToolStripMenuItem_Click);
             // 
@@ -309,7 +310,7 @@
             // 
             this.aboutUsToolStripMenuItem.Image = global::negar.Properties.Resources.open_box;
             this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutUsToolStripMenuItem.Text = "درباره ما";
             this.aboutUsToolStripMenuItem.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click);
             // 
@@ -347,10 +348,10 @@
             this.groupBox2.Controls.Add(this.backwardButton);
             this.groupBox2.Controls.Add(this.forwardButton);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 89);
+            this.groupBox2.Location = new System.Drawing.Point(0, 93);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(994, 76);
+            this.groupBox2.Size = new System.Drawing.Size(994, 73);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو";
@@ -437,10 +438,10 @@
             this.orderComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.orderComboBox.FormattingEnabled = true;
             this.orderComboBox.Items.AddRange(new object[] {
-            "همه",
+            "واریزی + استهلاکی",
             "استهلاکی",
             "واریزی"});
-            this.orderComboBox.Location = new System.Drawing.Point(830, 23);
+            this.orderComboBox.Location = new System.Drawing.Point(859, 23);
             this.orderComboBox.Name = "orderComboBox";
             this.orderComboBox.Size = new System.Drawing.Size(132, 23);
             this.orderComboBox.TabIndex = 21;
@@ -464,7 +465,7 @@
             this.mainDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.mainDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.mainDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mainDataGridView.Size = new System.Drawing.Size(988, 373);
+            this.mainDataGridView.Size = new System.Drawing.Size(988, 372);
             this.mainDataGridView.TabIndex = 0;
             this.mainDataGridView.VirtualMode = true;
             this.mainDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.mainDataGridView_CellFormatting);
@@ -480,10 +481,10 @@
             this.groupBox4.Controls.Add(this.mainDataGridView);
             this.groupBox4.Controls.Add(this.statusStrip1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 165);
+            this.groupBox4.Location = new System.Drawing.Point(0, 166);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox4.Size = new System.Drawing.Size(994, 414);
+            this.groupBox4.Size = new System.Drawing.Size(994, 413);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "پایگاه داده";
@@ -495,7 +496,7 @@
             this.counttoolStripStatusLabel1,
             this.sumStripStatusLabel1,
             this.changeStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 389);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 388);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(988, 22);
             this.statusStrip1.TabIndex = 2;
@@ -542,6 +543,7 @@
             // 
             this.groupBox3.AutoSize = true;
             this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox3.Controls.Add(this.ShowSelectedDataButton);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.orderComboBox);
             this.groupBox3.Controls.Add(this.label4);
@@ -561,7 +563,7 @@
             this.groupBox3.Location = new System.Drawing.Point(0, 24);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox3.Size = new System.Drawing.Size(994, 65);
+            this.groupBox3.Size = new System.Drawing.Size(994, 69);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             // 
@@ -605,7 +607,7 @@
             this.monthComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.monthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.monthComboBox.FormattingEnabled = true;
-            this.monthComboBox.Location = new System.Drawing.Point(414, 23);
+            this.monthComboBox.Location = new System.Drawing.Point(443, 23);
             this.monthComboBox.Name = "monthComboBox";
             this.monthComboBox.Size = new System.Drawing.Size(133, 23);
             this.monthComboBox.TabIndex = 3;
@@ -614,14 +616,15 @@
             // 
             // updateButton3
             // 
-            this.updateButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.updateButton3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.updateButton3.AutoSize = true;
             this.updateButton3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.updateButton3.Image = global::negar.Properties.Resources.if_icon_ios7_refresh_empty_211812;
             this.updateButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.updateButton3.Location = new System.Drawing.Point(12, 23);
             this.updateButton3.Name = "updateButton3";
-            this.updateButton3.Size = new System.Drawing.Size(94, 28);
+            this.updateButton3.Size = new System.Drawing.Size(94, 26);
             this.updateButton3.TabIndex = 13;
             this.updateButton3.Text = "&بروز رسانی";
             this.updateButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -630,7 +633,8 @@
             // 
             // button2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.AutoSize = true;
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -647,7 +651,8 @@
             // 
             // updateButton
             // 
-            this.updateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.updateButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.updateButton.AutoSize = true;
             this.updateButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.updateButton.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -669,7 +674,7 @@
             this.yearComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.yearComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.yearComboBox.FormattingEnabled = true;
-            this.yearComboBox.Location = new System.Drawing.Point(553, 23);
+            this.yearComboBox.Location = new System.Drawing.Point(582, 23);
             this.yearComboBox.Name = "yearComboBox";
             this.yearComboBox.Size = new System.Drawing.Size(133, 23);
             this.yearComboBox.TabIndex = 2;
@@ -688,7 +693,8 @@
             // 
             // esterdadButton
             // 
-            this.esterdadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.esterdadButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.esterdadButton.AutoSize = true;
             this.esterdadButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.esterdadButton.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -706,7 +712,8 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteButton.AutoSize = true;
             this.deleteButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.deleteButton.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -729,7 +736,7 @@
             this.cityComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cityComboBox.FormattingEnabled = true;
-            this.cityComboBox.Location = new System.Drawing.Point(692, 23);
+            this.cityComboBox.Location = new System.Drawing.Point(721, 23);
             this.cityComboBox.Name = "cityComboBox";
             this.cityComboBox.Size = new System.Drawing.Size(133, 23);
             this.cityComboBox.TabIndex = 0;
@@ -845,6 +852,24 @@
             // 
             this.cityTableTableAdapter.ClearBeforeFill = true;
             // 
+            // ShowSelectedDataButton
+            // 
+            this.ShowSelectedDataButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ShowSelectedDataButton.AutoSize = true;
+            this.ShowSelectedDataButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ShowSelectedDataButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ShowSelectedDataButton.Image = global::negar.Properties.Resources.search__1_;
+            this.ShowSelectedDataButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.ShowSelectedDataButton.Location = new System.Drawing.Point(382, 22);
+            this.ShowSelectedDataButton.Name = "ShowSelectedDataButton";
+            this.ShowSelectedDataButton.Size = new System.Drawing.Size(59, 25);
+            this.ShowSelectedDataButton.TabIndex = 23;
+            this.ShowSelectedDataButton.Text = "&نمایش";
+            this.ShowSelectedDataButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ShowSelectedDataButton.UseVisualStyleBackColor = true;
+            this.ShowSelectedDataButton.Click += new System.EventHandler(this.ShowSelectedDataButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -950,5 +975,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox orderComboBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button ShowSelectedDataButton;
     }
 }
