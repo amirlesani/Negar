@@ -304,7 +304,6 @@ namespace negar
         {
             try { 
             validationTable valid = new validationTable();
-            valid.description = (string)this.descriptionTextBox.Text;
 
             DateTime startTime = startDateTimePickerX.SelectedDateInDateTime;
             DateTime endTime = endDateTimePickerX1.SelectedDateInDateTime;
@@ -313,11 +312,21 @@ namespace negar
             date.startDate = Convert.ToInt64(startTime.ToFa("yyyyMMdd"));
             date.endDate = Convert.ToInt64(endTime.ToFa("yyyyMMdd"));
 
+
+            //valid.description = (string)this.descriptionTextBox.Text;
             valid.startDate = date.startDate;
             valid.enDate = date.endDate;
             valid.City = Convert.ToInt64(validCityComboBox.SelectedValue);
             SqlManipulator sql = new SqlManipulator();
-            Report rpt = new Report(sql.addValidation(valid), (int)errorImages.info);
+            var cityName = sql.getCityName(valid.City);
+
+                Utility utl = new Utility();
+                string endDate = utl.formatStringDate(valid.enDate.ToString());
+
+            valid.description = cityName + " " + valid.enDate.ToString();
+
+
+                Report rpt = new Report(sql.addValidation(valid), (int)errorImages.info);
             rpt.Show();
             makeValidationTable(sql.getValidationData());
 
@@ -428,7 +437,7 @@ namespace negar
                         MessageBox.Show("lock");
                         SqlManipulator sql = new SqlManipulator();
                         Int64 city = Convert.ToInt64(validCityComboBox.SelectedValue);
-                        sql.addPRVMonthToRestrictedArea(city,this.textBox1.Text);
+                        //sql.addPRVMonthToRestrictedArea(city,this.textBox1.Text);
 
 
                         break;

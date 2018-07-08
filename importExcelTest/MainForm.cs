@@ -305,7 +305,7 @@ namespace negar
                     break;
 
             }
-            query.query = query.query.OrderBy(x => x.RealDate);
+            query.query = query.query.OrderByDescending(x => x.RealDate);
             return query;
         }
         private void makeTable(IQueryable<DaftarTable> data)

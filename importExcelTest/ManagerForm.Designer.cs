@@ -68,16 +68,12 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.commitLockButton = new System.Windows.Forms.Button();
             this.lockLastMonth = new System.Windows.Forms.RadioButton();
-            this.unlockprvMonth = new System.Windows.Forms.RadioButton();
-            this.manualLockButton = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.endDateTimePickerX1 = new BehComponents.DateTimePickerX();
             this.addRestrictionButton = new System.Windows.Forms.Button();
             this.startDateTimePickerX = new BehComponents.DateTimePickerX();
             this.deleteRestrictionButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.validCityComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -90,7 +86,6 @@
             this.cityTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.daftarTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cityTableTableAdapter2 = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.validationTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -501,11 +496,8 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox1);
             this.groupBox5.Controls.Add(this.commitLockButton);
             this.groupBox5.Controls.Add(this.lockLastMonth);
-            this.groupBox5.Controls.Add(this.unlockprvMonth);
-            this.groupBox5.Controls.Add(this.manualLockButton);
             this.groupBox5.Location = new System.Drawing.Point(294, 27);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(496, 62);
@@ -526,7 +518,7 @@
             // lockLastMonth
             // 
             this.lockLastMonth.AutoSize = true;
-            this.lockLastMonth.Location = new System.Drawing.Point(274, 19);
+            this.lockLastMonth.Location = new System.Drawing.Point(303, 19);
             this.lockLastMonth.Name = "lockLastMonth";
             this.lockLastMonth.Size = new System.Drawing.Size(81, 17);
             this.lockLastMonth.TabIndex = 2;
@@ -535,39 +527,13 @@
             this.lockLastMonth.UseVisualStyleBackColor = true;
             this.lockLastMonth.CheckedChanged += new System.EventHandler(this.lockLastMonth_CheckedChanged);
             // 
-            // unlockprvMonth
-            // 
-            this.unlockprvMonth.AutoSize = true;
-            this.unlockprvMonth.Location = new System.Drawing.Point(144, 19);
-            this.unlockprvMonth.Name = "unlockprvMonth";
-            this.unlockprvMonth.Size = new System.Drawing.Size(124, 17);
-            this.unlockprvMonth.TabIndex = 1;
-            this.unlockprvMonth.TabStop = true;
-            this.unlockprvMonth.Text = "باز کردن قفل ماه قبل";
-            this.unlockprvMonth.UseVisualStyleBackColor = true;
-            this.unlockprvMonth.CheckedChanged += new System.EventHandler(this.unlockprvMonth_CheckedChanged);
-            // 
-            // manualLockButton
-            // 
-            this.manualLockButton.AutoSize = true;
-            this.manualLockButton.Location = new System.Drawing.Point(370, 19);
-            this.manualLockButton.Name = "manualLockButton";
-            this.manualLockButton.Size = new System.Drawing.Size(74, 17);
-            this.manualLockButton.TabIndex = 0;
-            this.manualLockButton.TabStop = true;
-            this.manualLockButton.Text = "قفل دستی";
-            this.manualLockButton.UseVisualStyleBackColor = true;
-            this.manualLockButton.CheckedChanged += new System.EventHandler(this.manualLockButton_CheckedChanged);
-            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.descriptionTextBox);
             this.groupBox4.Controls.Add(this.endDateTimePickerX1);
             this.groupBox4.Controls.Add(this.addRestrictionButton);
             this.groupBox4.Controls.Add(this.startDateTimePickerX);
             this.groupBox4.Controls.Add(this.deleteRestrictionButton);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.validCityComboBox);
             this.groupBox4.Controls.Add(this.label8);
@@ -577,14 +543,6 @@
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "قفل دستی";
-            // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(261, 32);
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(100, 20);
-            this.descriptionTextBox.TabIndex = 0;
             // 
             // endDateTimePickerX1
             // 
@@ -650,7 +608,7 @@
             this.endDateTimePickerX1.DropDownClosedWhenSelectedDateChanged = false;
             this.endDateTimePickerX1.Format = BehComponents.DateTimePickerX.FormatDate.Long;
             this.endDateTimePickerX1.Format4Binding = "yyyy/MM/dd";
-            this.endDateTimePickerX1.Location = new System.Drawing.Point(178, 116);
+            this.endDateTimePickerX1.Location = new System.Drawing.Point(219, 87);
             this.endDateTimePickerX1.Name = "endDateTimePickerX1";
             this.endDateTimePickerX1.RightToLeftLayout = true;
             this.endDateTimePickerX1.ShowClearButton = false;
@@ -663,7 +621,7 @@
             // 
             this.addRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addRestrictionButton.Image = global::negar.Properties.Resources.add_icon__1_;
-            this.addRestrictionButton.Location = new System.Drawing.Point(54, 29);
+            this.addRestrictionButton.Location = new System.Drawing.Point(94, 50);
             this.addRestrictionButton.Name = "addRestrictionButton";
             this.addRestrictionButton.Size = new System.Drawing.Size(42, 26);
             this.addRestrictionButton.TabIndex = 4;
@@ -734,7 +692,7 @@
             this.startDateTimePickerX.DropDownClosedWhenSelectedDateChanged = false;
             this.startDateTimePickerX.Format = BehComponents.DateTimePickerX.FormatDate.Long;
             this.startDateTimePickerX.Format4Binding = "yyyy/MM/dd";
-            this.startDateTimePickerX.Location = new System.Drawing.Point(178, 85);
+            this.startDateTimePickerX.Location = new System.Drawing.Point(219, 56);
             this.startDateTimePickerX.Name = "startDateTimePickerX";
             this.startDateTimePickerX.RightToLeftLayout = true;
             this.startDateTimePickerX.ShowClearButton = false;
@@ -747,7 +705,7 @@
             // 
             this.deleteRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.deleteRestrictionButton.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
-            this.deleteRestrictionButton.Location = new System.Drawing.Point(6, 29);
+            this.deleteRestrictionButton.Location = new System.Drawing.Point(46, 50);
             this.deleteRestrictionButton.Name = "deleteRestrictionButton";
             this.deleteRestrictionButton.Size = new System.Drawing.Size(42, 24);
             this.deleteRestrictionButton.TabIndex = 5;
@@ -757,26 +715,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(408, 116);
+            this.label7.Location = new System.Drawing.Point(449, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 37;
             this.label7.Text = "پایان";
             // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(376, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "نام محدودیت";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(404, 85);
+            this.label9.Location = new System.Drawing.Point(445, 56);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 36;
@@ -788,7 +736,7 @@
             this.validCityComboBox.DisplayMember = "CityName";
             this.validCityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.validCityComboBox.FormattingEnabled = true;
-            this.validCityComboBox.Location = new System.Drawing.Point(239, 58);
+            this.validCityComboBox.Location = new System.Drawing.Point(280, 29);
             this.validCityComboBox.Name = "validCityComboBox";
             this.validCityComboBox.Size = new System.Drawing.Size(121, 21);
             this.validCityComboBox.TabIndex = 1;
@@ -798,7 +746,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(412, 61);
+            this.label8.Location = new System.Drawing.Point(453, 32);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(27, 13);
             this.label8.TabIndex = 16;
@@ -859,13 +807,6 @@
             // cityTableTableAdapter2
             // 
             this.cityTableTableAdapter2.ClearBeforeFill = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(124, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
             // 
             // ManagerForm
             // 
@@ -959,9 +900,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox validCityComboBox;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button deleteRestrictionButton;
-        private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button addRestrictionButton;
         private BehComponents.DateTimePickerX endDateTimePickerX1;
@@ -971,9 +910,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button commitLockButton;
         private System.Windows.Forms.RadioButton lockLastMonth;
-        private System.Windows.Forms.RadioButton unlockprvMonth;
-        private System.Windows.Forms.RadioButton manualLockButton;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
