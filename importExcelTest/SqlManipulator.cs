@@ -688,13 +688,12 @@ namespace negar
                     refundValue = -1;
                     break;
                 case mode.deposit:
-                    depositValue = 0;
-                    refundValue = -1;
+                    depositValue = -1;
+                    refundValue = 0;
                     break;
                 case mode.refund:
-                    depositValue = -1;
-                    refundValue =  0;
-                    
+                    depositValue = 0;
+                    refundValue = -1;
                     break;
             }
 

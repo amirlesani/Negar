@@ -31,6 +31,7 @@ namespace negar
         private NoteBook ntp;
         private LoginInfo login;
         private DaftarTable rowsData;
+        Boolean advancedSearch;
 
 
         private List<DaftarTable> datasForModify;
@@ -46,6 +47,7 @@ namespace negar
             monthComboBox.Enabled = false;
             orderComboBox.Enabled = false;
             yearComboBox.Enabled = false;
+            advancedSearch = false;
             godmode = false;
             comboBox1.SelectedIndex = 1;
             this.orderComboBox.SelectedIndex = 0;
@@ -275,6 +277,7 @@ namespace negar
                 startEnd.endDate = allTime.max;
 
             }
+           
          
             Result query = new Result();
             switch (value)
@@ -302,6 +305,7 @@ namespace negar
                     break;
 
             }
+            query.query = query.query.OrderBy(x => x.RealDate);
             return query;
         }
         private void makeTable(IQueryable<DaftarTable> data)
@@ -365,7 +369,6 @@ namespace negar
             var  query = searchResultQuery();
 
             this.lastResult = query;
-
 
 
           //  this.pageNumberlabel.Text = "0";
@@ -561,7 +564,7 @@ namespace negar
             }
             catch(Exception)
             {
-
+                throw;
             }
         }
       
@@ -642,8 +645,9 @@ namespace negar
         {
             LasteStateClass lst = new LasteStateClass();
             lst.cityID = login.cityID;
-            if(!this.searchAllCheckBox.Checked)
+            if(!this.searchAllCheckBox.Checked || this.advancedSearch)
             { lst.date = startEnd; }
+           
             
             lst.searchValue = this.searchTextBox.Text;
             lst.lastModeSelected = this.orderComboBox.SelectedIndex;
@@ -816,6 +820,16 @@ namespace negar
                 return;
             }
         }
+        private void resetNavigationButtons()
+        {
+            pageNumber = 0;
+            page = 0;
+            backwardButton.Enabled = false;
+            forwardButton.Enabled = true;
+            this.pageNumberlabel.Text = "0";
+
+
+        }
 
         private void search_Button(object sender, EventArgs e)
         {
@@ -834,8 +848,8 @@ namespace negar
                     this.yearComboBox.Enabled = false;
                 }
                 var query1 = searchResultQuery();
+                resetNavigationButtons();
                 refreshLastState(getLastState(), pageNumber, query1);
-
                 if (!query1.query.Any())
                 {
                     this.mainDataGridView.DataSource = null;
@@ -882,10 +896,7 @@ namespace negar
                 {
                     MessageBox.Show("خطا در تاریخ");
                 }
-                pageNumber = 0;
-                page = 0;
-                backwardButton.Enabled = false;
-                forwardButton.Enabled = true;
+                resetNavigationButtons();
 
                 if (login.permission)
                 {
@@ -923,10 +934,14 @@ namespace negar
             } 
 
             startEnd = date;
+            advancedSearch = true;
+
             monthComboBox.Enabled = false;
-            yearComboBox.Enabled =  true;
-            
-            saveLastState(getLastState());
+            yearComboBox.Enabled = false;
+            resetNavigationButtons();
+            refreshLastState(getLastState(), pageNumber);
+
+            //saveLastState(getLastState());
         }
         private void advanceSearchButton_Click_1(object sender, EventArgs e)
         {
