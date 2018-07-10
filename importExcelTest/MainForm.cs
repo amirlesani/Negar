@@ -43,7 +43,7 @@ namespace negar
             MessageBoxManager.Yes = "بله";
             MessageBoxManager.No = "خیر";
             MessageBoxManager.OK = "باشه";
-            MessageBoxManager.Cancel = "";
+            MessageBoxManager.Cancel = "لغو";
             MessageBoxManager.Register();
 
             pageNumber = 0;
