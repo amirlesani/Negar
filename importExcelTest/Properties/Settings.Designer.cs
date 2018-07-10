@@ -122,7 +122,7 @@ namespace negar.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192, 255, 192")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkSeaGreen")]
         public global::System.Drawing.Color dgvColor {
             get {
                 return ((global::System.Drawing.Color)(this["dgvColor"]));

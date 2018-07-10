@@ -167,13 +167,21 @@ namespace negar
         }
         public void DGV_SetStyle(DataGridView Dgv)
         {
-            foreach (DataGridViewRow Row in Dgv.Rows)
+            Dgv.RowsDefaultCellStyle.BackColor = Color.NavajoWhite;
+            Dgv.AlternatingRowsDefaultCellStyle.BackColor = Properties.Settings.Default.dgvColor;
+            Dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            Dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Dgv.AutoResizeColumnHeadersHeight();
+
+            //Dgv.AutoResizeColumns();
+            foreach (DataGridViewColumn col in Dgv.Columns)
             {
-                if (Row.Index % 2 == 0)
-                {  
-                    Row.DefaultCellStyle.BackColor = Properties.Settings.Default.dgvColor;
-                }
+                col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
+            Dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            Dgv.Refresh();
+            Dgv.Invalidate();
+
         }
         private void setUserInformation(LoginInfo login)
         {
@@ -201,7 +209,7 @@ namespace negar
             try {
                 if (login.permission)
                 {
-                    this.cityComboBox.SelectedIndex = 1;
+                    this.cityComboBox.SelectedIndex = 0;
 
                     if (yearComboBox.Items.Count == 0)
                     {

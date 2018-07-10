@@ -193,6 +193,7 @@
     <Compile Include="ExcelGeneratorClass.cs" />
     <Compile Include="ExcelManipulatorcs.cs" />
     <Compile Include="ExcelValidationClass.cs" />
+    <Compile Include="FarsiDateUtil.cs" />
     <Compile Include="FileCheckerForm.cs">
       <SubType>Form</SubType>
     </Compile>

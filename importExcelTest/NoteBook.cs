@@ -101,13 +101,20 @@ namespace negar
         }
         public void DGV_SetStyle(DataGridView Dgv)
         {
-            //foreach (DataGridViewRow Row in Dgv.Rows)
-            //{
-            //    if (Row.Index % 2 == 0)
-            //    {
-            //        Row.DefaultCellStyle.BackColor = Properties.Settings.Default.dgvColor;
-            //    }
-            //}
+            Dgv.RowsDefaultCellStyle.BackColor = Color.NavajoWhite;
+            Dgv.AlternatingRowsDefaultCellStyle.BackColor = Properties.Settings.Default.dgvColor;
+            Dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            Dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Dgv.AutoResizeColumnHeadersHeight();
+
+            //Dgv.AutoResizeColumns();
+            foreach (DataGridViewColumn col in Dgv.Columns)
+            {
+                col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+            Dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            Dgv.Refresh();
+            Dgv.Invalidate();
         }
 
         private void فایلToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,10 +132,8 @@ namespace negar
         {
             this.Hide();
         }
-
-        private void فایلاکسلToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exportExcel()
         {
-
             Stream mystream;
             SaveFileDialog saveExcelDialog = new SaveFileDialog();
             saveExcelDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
@@ -149,8 +154,12 @@ namespace negar
                 }
             }
         }
-
-        private void فایلمتنیToolStripMenuItem_Click(object sender, EventArgs e)
+        private void فایلاکسلToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            exportExcel();
+           
+        }
+        private void exportTextFile()
         {
             SaveFileDialog saveTextDialog = new SaveFileDialog();
             saveTextDialog.Filter = "Text files (*.txt)|*.txt";
@@ -163,6 +172,11 @@ namespace negar
                 CloseProgress();
                 MessageBox.Show("فایل متنی با موفقیت ساخته شد");
             }
+        }
+
+        private void فایلمتنیToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            exportTextFile();
         }
 
         private void NoteBookDataGridView_SelectionChanged(object sender, EventArgs e)
@@ -340,8 +354,19 @@ namespace negar
                 }
             }
           
-                // do something with selectedCell...
+       
         }
-        
+
+       
+        private void excelExportButton_Click_1(object sender, EventArgs e)
+        {
+            exportExcel();
+
+        }
+
+        private void TextExportButton_Click(object sender, EventArgs e)
+        {
+            exportTextFile();
+        }
     }
 }

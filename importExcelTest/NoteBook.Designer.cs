@@ -30,8 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteBook));
-            this.NoteBookDataGridView = new System.Windows.Forms.DataGridView();
             this.notebookGroupBox = new System.Windows.Forms.GroupBox();
+            this.NoteBookDataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TextExportButton = new System.Windows.Forms.Button();
+            this.excelExportButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.فایلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ذخیرهبهعنوانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,11 +45,26 @@
             this.حذفToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.حذفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.NoteBookDataGridView)).BeginInit();
             this.notebookGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NoteBookDataGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // notebookGroupBox
+            // 
+            this.notebookGroupBox.AutoSize = true;
+            this.notebookGroupBox.Controls.Add(this.NoteBookDataGridView);
+            this.notebookGroupBox.Controls.Add(this.groupBox1);
+            this.notebookGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.notebookGroupBox.Location = new System.Drawing.Point(0, 24);
+            this.notebookGroupBox.Name = "notebookGroupBox";
+            this.notebookGroupBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.notebookGroupBox.Size = new System.Drawing.Size(876, 456);
+            this.notebookGroupBox.TabIndex = 1;
+            this.notebookGroupBox.TabStop = false;
+            this.notebookGroupBox.Text = "دفتر";
             // 
             // NoteBookDataGridView
             // 
@@ -59,27 +77,51 @@
             this.NoteBookDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NoteBookDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NoteBookDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.NoteBookDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.NoteBookDataGridView.Location = new System.Drawing.Point(3, 82);
             this.NoteBookDataGridView.Name = "NoteBookDataGridView";
             this.NoteBookDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.NoteBookDataGridView.Size = new System.Drawing.Size(870, 375);
-            this.NoteBookDataGridView.TabIndex = 0;
-            this.NoteBookDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.NoteBookDataGridView_CellMouseClick);
-            this.NoteBookDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.NoteBookDataGridView_CellMouseDown);
-            this.NoteBookDataGridView.SelectionChanged += new System.EventHandler(this.NoteBookDataGridView_SelectionChanged);
-            this.NoteBookDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NoteBookDataGridView_KeyDown);
+            this.NoteBookDataGridView.Size = new System.Drawing.Size(870, 371);
+            this.NoteBookDataGridView.TabIndex = 7;
             // 
-            // notebookGroupBox
+            // groupBox1
             // 
-            this.notebookGroupBox.Controls.Add(this.NoteBookDataGridView);
-            this.notebookGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.notebookGroupBox.Location = new System.Drawing.Point(0, 24);
-            this.notebookGroupBox.Name = "notebookGroupBox";
-            this.notebookGroupBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.notebookGroupBox.Size = new System.Drawing.Size(876, 394);
-            this.notebookGroupBox.TabIndex = 1;
-            this.notebookGroupBox.TabStop = false;
-            this.notebookGroupBox.Text = "دفتر";
+            this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.TextExportButton);
+            this.groupBox1.Controls.Add(this.excelExportButton);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(3, 16);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(870, 66);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            // 
+            // TextExportButton
+            // 
+            this.TextExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextExportButton.Image = global::negar.Properties.Resources.copy_16;
+            this.TextExportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TextExportButton.Location = new System.Drawing.Point(657, 16);
+            this.TextExportButton.Name = "TextExportButton";
+            this.TextExportButton.Size = new System.Drawing.Size(101, 31);
+            this.TextExportButton.TabIndex = 2;
+            this.TextExportButton.Text = "خروجی متنی";
+            this.TextExportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TextExportButton.UseVisualStyleBackColor = true;
+            this.TextExportButton.Click += new System.EventHandler(this.TextExportButton_Click);
+            // 
+            // excelExportButton
+            // 
+            this.excelExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.excelExportButton.Image = global::negar.Properties.Resources.excel;
+            this.excelExportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.excelExportButton.Location = new System.Drawing.Point(764, 16);
+            this.excelExportButton.Name = "excelExportButton";
+            this.excelExportButton.Size = new System.Drawing.Size(103, 31);
+            this.excelExportButton.TabIndex = 1;
+            this.excelExportButton.Text = "خروجی اکسل";
+            this.excelExportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.excelExportButton.UseVisualStyleBackColor = true;
+            this.excelExportButton.Click += new System.EventHandler(this.excelExportButton_Click_1);
             // 
             // menuStrip1
             // 
@@ -110,7 +152,7 @@
             this.ذخیرهبهعنوانToolStripMenuItem.Image = global::negar.Properties.Resources.f3d48a1d;
             this.ذخیرهبهعنوانToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.ذخیرهبهعنوانToolStripMenuItem.Name = "ذخیرهبهعنوانToolStripMenuItem";
-            this.ذخیرهبهعنوانToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ذخیرهبهعنوانToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.ذخیرهبهعنوانToolStripMenuItem.Text = "ذخیره به عنوان";
             // 
             // فایلاکسلToolStripMenuItem
@@ -132,7 +174,7 @@
             // خروجToolStripMenuItem
             // 
             this.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem";
-            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.خروجToolStripMenuItem.Text = "خروج";
             this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
@@ -148,7 +190,7 @@
             // 
             this.حذفToolStripMenuItem1.Image = global::negar.Properties.Resources.if_sign_error_299045;
             this.حذفToolStripMenuItem1.Name = "حذفToolStripMenuItem1";
-            this.حذفToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.حذفToolStripMenuItem1.Size = new System.Drawing.Size(95, 22);
             this.حذفToolStripMenuItem1.Text = "حذف";
             this.حذفToolStripMenuItem1.Click += new System.EventHandler(this.حذفToolStripMenuItem1_Click);
             // 
@@ -171,15 +213,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 418);
+            this.ClientSize = new System.Drawing.Size(876, 480);
             this.Controls.Add(this.notebookGroupBox);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "NoteBook";
             this.Text = "دفتر";
-            ((System.ComponentModel.ISupportInitialize)(this.NoteBookDataGridView)).EndInit();
             this.notebookGroupBox.ResumeLayout(false);
+            this.notebookGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NoteBookDataGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -189,8 +233,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView NoteBookDataGridView;
         private System.Windows.Forms.GroupBox notebookGroupBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem فایلToolStripMenuItem;
@@ -202,5 +244,9 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem حذفToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem حذفToolStripMenuItem1;
+        private System.Windows.Forms.Button excelExportButton;
+        private System.Windows.Forms.Button TextExportButton;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView NoteBookDataGridView;
     }
 }

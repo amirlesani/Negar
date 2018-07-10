@@ -27,7 +27,7 @@
       <Value Profile="(Default)">Data Source=192.168.110.100;Initial Catalog=Mali;Persist Security Info=True;User ID=Xenups;Password=Xenups1368;Connect Timeout=5</Value>
     </Setting>
     <Setting Name="dgvColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">192, 255, 192</Value>
+      <Value Profile="(Default)">DarkSeaGreen</Value>
     </Setting>
     <Setting Name="permission" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

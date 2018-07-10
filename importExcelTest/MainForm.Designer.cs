@@ -71,6 +71,7 @@
             this.changeStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ShowSelectedDataButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -96,7 +97,7 @@
             this.cityTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maliDataSet = new negar.MaliDataSet();
             this.cityTableTableAdapter = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
-            this.ShowSelectedDataButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).BeginInit();
@@ -125,7 +126,7 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 93);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 89);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(994, 0);
             this.flowLayoutPanel1.TabIndex = 11;
@@ -338,6 +339,7 @@
             // 
             this.groupBox2.AutoSize = true;
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.searchAllCheckBox);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.searchButton);
@@ -348,10 +350,10 @@
             this.groupBox2.Controls.Add(this.backwardButton);
             this.groupBox2.Controls.Add(this.forwardButton);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 93);
+            this.groupBox2.Location = new System.Drawing.Point(0, 89);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(994, 73);
+            this.groupBox2.Size = new System.Drawing.Size(994, 67);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو";
@@ -465,7 +467,7 @@
             this.mainDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.mainDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.mainDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mainDataGridView.Size = new System.Drawing.Size(988, 372);
+            this.mainDataGridView.Size = new System.Drawing.Size(988, 382);
             this.mainDataGridView.TabIndex = 0;
             this.mainDataGridView.VirtualMode = true;
             this.mainDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.mainDataGridView_CellFormatting);
@@ -481,10 +483,10 @@
             this.groupBox4.Controls.Add(this.mainDataGridView);
             this.groupBox4.Controls.Add(this.statusStrip1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 166);
+            this.groupBox4.Location = new System.Drawing.Point(0, 156);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox4.Size = new System.Drawing.Size(994, 413);
+            this.groupBox4.Size = new System.Drawing.Size(994, 423);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "پایگاه داده";
@@ -496,7 +498,7 @@
             this.counttoolStripStatusLabel1,
             this.sumStripStatusLabel1,
             this.changeStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 388);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 398);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(988, 22);
             this.statusStrip1.TabIndex = 2;
@@ -563,9 +565,27 @@
             this.groupBox3.Location = new System.Drawing.Point(0, 24);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox3.Size = new System.Drawing.Size(994, 69);
+            this.groupBox3.Size = new System.Drawing.Size(994, 65);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
+            // 
+            // ShowSelectedDataButton
+            // 
+            this.ShowSelectedDataButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ShowSelectedDataButton.AutoSize = true;
+            this.ShowSelectedDataButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ShowSelectedDataButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ShowSelectedDataButton.Image = global::negar.Properties.Resources.search__1_;
+            this.ShowSelectedDataButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.ShowSelectedDataButton.Location = new System.Drawing.Point(382, 22);
+            this.ShowSelectedDataButton.Name = "ShowSelectedDataButton";
+            this.ShowSelectedDataButton.Size = new System.Drawing.Size(59, 25);
+            this.ShowSelectedDataButton.TabIndex = 23;
+            this.ShowSelectedDataButton.Text = "&نمایش";
+            this.ShowSelectedDataButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ShowSelectedDataButton.UseVisualStyleBackColor = true;
+            this.ShowSelectedDataButton.Click += new System.EventHandler(this.ShowSelectedDataButton_Click);
             // 
             // label5
             // 
@@ -852,23 +872,14 @@
             // 
             this.cityTableTableAdapter.ClearBeforeFill = true;
             // 
-            // ShowSelectedDataButton
+            // label6
             // 
-            this.ShowSelectedDataButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ShowSelectedDataButton.AutoSize = true;
-            this.ShowSelectedDataButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ShowSelectedDataButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ShowSelectedDataButton.Image = global::negar.Properties.Resources.search__1_;
-            this.ShowSelectedDataButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ShowSelectedDataButton.Location = new System.Drawing.Point(382, 22);
-            this.ShowSelectedDataButton.Name = "ShowSelectedDataButton";
-            this.ShowSelectedDataButton.Size = new System.Drawing.Size(59, 25);
-            this.ShowSelectedDataButton.TabIndex = 23;
-            this.ShowSelectedDataButton.Text = "&نمایش";
-            this.ShowSelectedDataButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.ShowSelectedDataButton.UseVisualStyleBackColor = true;
-            this.ShowSelectedDataButton.Click += new System.EventHandler(this.ShowSelectedDataButton_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(45, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 13);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "صفحه";
             // 
             // MainForm
             // 
@@ -976,5 +987,6 @@
         private System.Windows.Forms.ComboBox orderComboBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button ShowSelectedDataButton;
+        private System.Windows.Forms.Label label6;
     }
 }

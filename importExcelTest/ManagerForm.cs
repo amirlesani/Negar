@@ -127,13 +127,6 @@ namespace negar
             newLogin.Password = passWordTextBox.Text;
             newLogin.City = Convert.ToInt64(cityComboBox.SelectedValue);
             newLogin.Permission = persmissionCheckBox.Checked;
-            foreach (var a in newLogin.CityTables)
-            {
-                if (a.Id == newLogin.Id)
-                {
-
-                }
-            }
 
             SqlManipulator sql = new SqlManipulator();
             Report rpt = new Report(sql.addUser(newLogin), (int)errorImages.info);
@@ -167,19 +160,27 @@ namespace negar
         private void makeTableUsers(IQueryable accounts)
         {  
             usersDataGridView.DataSource = accounts;
+
             changeColumnName();
             DGV_SetStyle(usersDataGridView);
           
         }
         public void DGV_SetStyle(DataGridView Dgv)
         {
-            foreach (DataGridViewRow Row in Dgv.Rows)
+
+            Dgv.RowsDefaultCellStyle.BackColor = Color.Bisque;
+            Dgv.AlternatingRowsDefaultCellStyle.BackColor = Properties.Settings.Default.dgvColor;
+            Dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            Dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            
+            //Dgv.AutoResizeColumns();
+            foreach(DataGridViewColumn col in Dgv.Columns)
             {
-                if (Row.Index % 2 == 0)
-                {
-                    Row.DefaultCellStyle.BackColor = Properties.Settings.Default.dgvColor;
-                }
+                col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
+            Dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            Dgv.Refresh();
+            Dgv.Invalidate();
         }
 
 
@@ -230,6 +231,7 @@ namespace negar
 
         private void addCityToFormManagerButton_Click(object sender, EventArgs e)
         {
+
             try {
                 CityTable newCity = new CityTable();
                 newCity.CityName = CityTextBox.Text;
@@ -313,20 +315,15 @@ namespace negar
             date.endDate = Convert.ToInt64(endTime.ToFa("yyyyMMdd"));
 
 
-            //valid.description = (string)this.descriptionTextBox.Text;
             valid.startDate = date.startDate;
             valid.enDate = date.endDate;
             valid.City = Convert.ToInt64(validCityComboBox.SelectedValue);
             SqlManipulator sql = new SqlManipulator();
             var cityName = sql.getCityName(valid.City);
-
-                Utility utl = new Utility();
-                string endDate = utl.formatStringDate(valid.enDate.ToString());
-
-            valid.description = cityName + " " + valid.enDate.ToString();
-
-
-                Report rpt = new Report(sql.addValidation(valid), (int)errorImages.info);
+            FarsiDateUtil startDate = new FarsiDateUtil(date.endDate.ToString());
+            FarsiDateUtil endDate = new FarsiDateUtil(date.startDate.ToString());
+            valid.description = "قفل" + " " + cityName + "  " + startDate.MonthName +  startDate.Year;
+            Report rpt = new Report(sql.addValidation(valid), (int)errorImages.info);
             rpt.Show();
             makeValidationTable(sql.getValidationData());
 
@@ -341,8 +338,11 @@ namespace negar
 
         private void deleteRestrictionButton_Click(object sender, EventArgs e)
         {
-
-            try {
+            DialogResult dialogResult = MessageBox.Show("آیا از حذف مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+               
+                try {
                 selectedRow = validationDataGridView.CurrentCell.RowIndex;
 
                 SqlManipulator sql = new SqlManipulator();
@@ -362,6 +362,7 @@ namespace negar
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
             }
         }
 
@@ -496,6 +497,19 @@ namespace negar
         {
             lockchangingRadioButton(sender, e);
 
+        }
+
+        private void usersDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                if (e.Value is bool)
+                {
+                    bool value = (bool)e.Value;
+                    e.Value = (value) ? " مدیر سیستم " : " کاربر ";
+                    e.FormattingApplied = true;
+                }
+            }
         }
     }
 }

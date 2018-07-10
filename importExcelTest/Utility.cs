@@ -12,82 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace negar
 {
     enum errorImages { warning, error, info,watch,puls };
-    interface persianDateFunc
-    {
-        string getMonthName(string unformattedDate);
-        string extractDate();
-    }
-    public class FarsiDate:persianDateFunc
-    {
-        public string Year { get; set; }
-        public string Month { get; set; }
-        public string Day { get; set; }
-        public FarsiDate(string unformattedDate)
-        {
-            extractDate(unformattedDate);
-        }
-        public string getMonthName(int month)
-        {
-
-            try {
-                Dictionary<string, int> monthDictionary =
-                new Dictionary<string, int>();
-                monthDictionary.Add("فروردین", 1); monthDictionary.Add("اردیبهشت", 2);
-                monthDictionary.Add("خرداد", 3); monthDictionary.Add("تیر", 4);
-                monthDictionary.Add("مرداد", 5); monthDictionary.Add("شهریور", 6);
-                monthDictionary.Add("مهر", 7); monthDictionary.Add("آبان", 8);
-                monthDictionary.Add("آذر", 9); monthDictionary.Add("دی", 10);
-                monthDictionary.Add("بهمن", 11); monthDictionary.Add("اسفند", 12);
-
-
-
-                foreach (var a in monthDictionary)
-                {
-                    if (a.Value == month)
-                    {
-                        return a.Key;
-                    }
-                }
-                return "";
-            }
-            catch(Exception)
-            {
-                throw;
-            }
-
-                }
-
-        private string extractDate(string unformattedDate)
-        {
-            try
-            {
-                string year = unformattedDate.Substring(0, 4);
-                this.Year = year;
-                string month = unformattedDate.Substring(4, 2);
-                this.Month = month;
-                string day = unformattedDate.Substring(6, 2);
-                this.Day = day;
-                string date = year + "/" + month + "/" + day;
-                return date;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("خطا در زمان");
-                throw;
-            }
-        }
-
-        public string extractDate()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public string getMonthName(string unformattedDate)
-        {
-            throw new NotImplementedException();
-        }
-    }
+   
     public class ComboboxItem
     {
         public ComboboxItem(string name, long value)
@@ -265,8 +190,7 @@ namespace negar
             try
             {
 
-
-
+       
                 var date= formatStringDate(untitest);
                 //var date = DateTime.Now.AddMonths(-1).ToFa();
                 var splittedDate = date.Split('/');

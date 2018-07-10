@@ -65,9 +65,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.validationDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.commitLockButton = new System.Windows.Forms.Button();
-            this.lockLastMonth = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.endDateTimePickerX1 = new BehComponents.DateTimePickerX();
             this.addRestrictionButton = new System.Windows.Forms.Button();
@@ -101,7 +98,6 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.validationDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -326,13 +322,14 @@
             this.usersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.usersDataGridView.Location = new System.Drawing.Point(3, 347);
+            this.usersDataGridView.Location = new System.Drawing.Point(3, 232);
             this.usersDataGridView.Name = "usersDataGridView";
             this.usersDataGridView.ReadOnly = true;
             this.usersDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.usersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersDataGridView.Size = new System.Drawing.Size(796, 290);
+            this.usersDataGridView.Size = new System.Drawing.Size(796, 405);
             this.usersDataGridView.TabIndex = 8;
+            this.usersDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.usersDataGridView_CellFormatting);
             // 
             // tabPage2
             // 
@@ -356,12 +353,12 @@
             this.cityDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.cityDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cityDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cityDataGridView.Location = new System.Drawing.Point(3, 331);
+            this.cityDataGridView.Location = new System.Drawing.Point(3, 216);
             this.cityDataGridView.Name = "cityDataGridView";
             this.cityDataGridView.ReadOnly = true;
             this.cityDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cityDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cityDataGridView.Size = new System.Drawing.Size(796, 306);
+            this.cityDataGridView.Size = new System.Drawing.Size(796, 421);
             this.cityDataGridView.TabIndex = 10;
             // 
             // groupBox2
@@ -472,17 +469,16 @@
             this.validationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.validationDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.validationDataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.validationDataGridView.Location = new System.Drawing.Point(3, 267);
+            this.validationDataGridView.Location = new System.Drawing.Point(3, 183);
             this.validationDataGridView.Name = "validationDataGridView";
             this.validationDataGridView.ReadOnly = true;
             this.validationDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.validationDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.validationDataGridView.Size = new System.Drawing.Size(796, 370);
+            this.validationDataGridView.Size = new System.Drawing.Size(796, 454);
             this.validationDataGridView.TabIndex = 13;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.pictureBox3);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -494,39 +490,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "مدیریت دسترسی ";
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.commitLockButton);
-            this.groupBox5.Controls.Add(this.lockLastMonth);
-            this.groupBox5.Location = new System.Drawing.Point(294, 27);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(496, 62);
-            this.groupBox5.TabIndex = 39;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "انتخاب قفل";
-            // 
-            // commitLockButton
-            // 
-            this.commitLockButton.Location = new System.Drawing.Point(7, 19);
-            this.commitLockButton.Name = "commitLockButton";
-            this.commitLockButton.Size = new System.Drawing.Size(75, 23);
-            this.commitLockButton.TabIndex = 3;
-            this.commitLockButton.Text = "اعمال";
-            this.commitLockButton.UseVisualStyleBackColor = true;
-            this.commitLockButton.Click += new System.EventHandler(this.commitLockButton_Click);
-            // 
-            // lockLastMonth
-            // 
-            this.lockLastMonth.AutoSize = true;
-            this.lockLastMonth.Location = new System.Drawing.Point(303, 19);
-            this.lockLastMonth.Name = "lockLastMonth";
-            this.lockLastMonth.Size = new System.Drawing.Size(81, 17);
-            this.lockLastMonth.TabIndex = 2;
-            this.lockLastMonth.TabStop = true;
-            this.lockLastMonth.Text = "قفل ماه قبل";
-            this.lockLastMonth.UseVisualStyleBackColor = true;
-            this.lockLastMonth.CheckedChanged += new System.EventHandler(this.lockLastMonth_CheckedChanged);
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.endDateTimePickerX1);
@@ -537,12 +500,11 @@
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.validCityComboBox);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(288, 95);
+            this.groupBox4.Location = new System.Drawing.Point(288, 16);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(502, 157);
+            this.groupBox4.Size = new System.Drawing.Size(502, 155);
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "قفل دستی";
             // 
             // endDateTimePickerX1
             // 
@@ -621,9 +583,9 @@
             // 
             this.addRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addRestrictionButton.Image = global::negar.Properties.Resources.add_icon__1_;
-            this.addRestrictionButton.Location = new System.Drawing.Point(94, 50);
+            this.addRestrictionButton.Location = new System.Drawing.Point(361, 118);
             this.addRestrictionButton.Name = "addRestrictionButton";
-            this.addRestrictionButton.Size = new System.Drawing.Size(42, 26);
+            this.addRestrictionButton.Size = new System.Drawing.Size(42, 24);
             this.addRestrictionButton.TabIndex = 4;
             this.addRestrictionButton.UseVisualStyleBackColor = true;
             this.addRestrictionButton.Click += new System.EventHandler(this.addRestrictionButton_Click);
@@ -705,7 +667,7 @@
             // 
             this.deleteRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.deleteRestrictionButton.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
-            this.deleteRestrictionButton.Location = new System.Drawing.Point(46, 50);
+            this.deleteRestrictionButton.Location = new System.Drawing.Point(313, 118);
             this.deleteRestrictionButton.Name = "deleteRestrictionButton";
             this.deleteRestrictionButton.Size = new System.Drawing.Size(42, 24);
             this.deleteRestrictionButton.TabIndex = 5;
@@ -755,9 +717,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::negar.Properties.Resources.How_to_manage_access_to_permission;
-            this.pictureBox3.Location = new System.Drawing.Point(-26, 27);
+            this.pictureBox3.Location = new System.Drawing.Point(-7, 27);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(272, 155);
+            this.pictureBox3.Size = new System.Drawing.Size(265, 147);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
@@ -840,8 +802,6 @@
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.validationDataGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -907,9 +867,6 @@
         private BehComponents.DateTimePickerX startDateTimePickerX;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button commitLockButton;
-        private System.Windows.Forms.RadioButton lockLastMonth;
         private System.Windows.Forms.GroupBox groupBox4;
     }
 }
