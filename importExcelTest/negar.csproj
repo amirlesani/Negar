@@ -254,6 +254,7 @@
     </Compile>
     <Compile Include="MapClassToPersianClass.cs" />
     <Compile Include="MaxMinClass.cs" />
+    <Compile Include="MessageBoxManager.cs" />
     <Compile Include="NoteBook.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -40,6 +40,12 @@ namespace negar
         private StartEndMonthClass startEnd;
         public MainForm()
         {
+            MessageBoxManager.Yes = "بله";
+            MessageBoxManager.No = "خیر";
+            MessageBoxManager.OK = "باشه";
+            MessageBoxManager.Cancel = "";
+            MessageBoxManager.Register();
+
             pageNumber = 0;
             lastSelectedRow = 0;
             selectedRowupdate = 0;
@@ -594,6 +600,7 @@ namespace negar
         }
         private void delete()
         {
+            
             DialogResult dialogResult = MessageBox.Show("آیا از حذف مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
@@ -1068,7 +1075,8 @@ namespace negar
                             ExcelGeneratorClass createReport = new ExcelGeneratorClass(q.query, saveExcelDialog.FileName,header);
                             mystream.Close();
                             CloseProgress();
-                            MessageBox.Show("فایل اکسل با موفقیت ساخته شد");
+
+                            MessageBox.Show("فایل اکسل با موفقیت ساخته شد", "پیغام سیستم ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         }
                     }
@@ -1117,8 +1125,7 @@ namespace negar
                         StartProgress();
                         textReportClass txt = new textReportClass(q.query, saveTextDialog.FileName);
                         CloseProgress();
-                        MessageBox.Show("فایل متنی با موفقیت ساخته شد");
-
+                        MessageBox.Show("فایل متنی با موفقیت ساخته شد", "پیغام سیستم ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
@@ -1156,25 +1163,32 @@ namespace negar
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Determine if text has changed in the textbox by comparing to original text.
-            // Display a MsgBox asking the user to save changes or abort.
-            // Determine if text has changed in the textbox by comparing to original text.
-            // e.Cancel = false;
-            Environment.Exit(Environment.ExitCode);
+            try {
+                MessageBoxManager.Unregister();
+                // Determine if text has changed in the textbox by comparing to original text.
+                // Display a MsgBox asking the user to save changes or abort.
+                // Determine if text has changed in the textbox by comparing to original text.
+                // e.Cancel = false;
+                Environment.Exit(Environment.ExitCode);
 
 
-            if (System.Windows.Forms.Application.MessageLoop)
-            {
-                // WinForms app
-                System.Windows.Forms.Application.Exit();
+                if (System.Windows.Forms.Application.MessageLoop)
+                {
+                    // WinForms app
+                    System.Windows.Forms.Application.Exit();
+                }
+                else
+                {
+                    // Console app
+                    System.Environment.Exit(1);
+                }
+
+                Application.Exit();
             }
-            else
+            catch(Exception)
             {
-                // Console app
-                System.Environment.Exit(1);
+                throw;
             }
-
-            Application.Exit();
 
         }
 

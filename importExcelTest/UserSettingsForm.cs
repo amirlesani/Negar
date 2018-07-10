@@ -12,19 +12,24 @@ namespace negar
     public partial class UserSettingsForm : Form
     {   
         private MainForm mainForm;
-        private Color color ; 
+        private Color color ;
+        bool isColorSelected;
         public UserSettingsForm(MainForm mainform)
         {
             InitializeComponent();
             this.mainForm = mainform;
+            isColorSelected = false;
         }
 
         private void changeColorButton_Click(object sender, EventArgs e)
         {
+               
+            if(isColorSelected)
+            { color = DGVcolorDialog.Color; }
+            else { color = Properties.Settings.Default.dgvColor; }
               
-                color = DGVcolorDialog.Color;
             
- Properties.Settings.Default.dgvColor = DGVcolorDialog.Color;
+                Properties.Settings.Default.dgvColor = DGVcolorDialog.Color;
                 this.mainForm.refreshDGV();
                  Properties.Settings.Default.Save();
         
@@ -53,6 +58,7 @@ namespace negar
             if (dlg == DialogResult.OK)
             {
                 color = DGVcolorDialog.Color;
+                isColorSelected = true;
                 this.colorPalletePictureBox.BackColor = color;
 
             }

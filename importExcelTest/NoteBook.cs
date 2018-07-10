@@ -149,8 +149,7 @@ namespace negar
                     ExcelGeneratorClass createReport = new ExcelGeneratorClass(tempData, saveExcelDialog.FileName, header);
                     mystream.Close();
                     CloseProgress();
-                    MessageBox.Show("فایل اکسل با موفقیت ساخته شد");
-
+                    MessageBox.Show("فایل اکسل با موفقیت ساخته شد", "پیغام سیستم ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -170,7 +169,7 @@ namespace negar
                 StartProgress();
                 textReportClass txt = new textReportClass(tempData, saveTextDialog.FileName);
                 CloseProgress();
-                MessageBox.Show("فایل متنی با موفقیت ساخته شد");
+                MessageBox.Show("فایل متنی با موفقیت ساخته شد", "پیغام سیستم ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
