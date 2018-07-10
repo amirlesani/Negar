@@ -15,6 +15,7 @@ namespace negar
     {
 
 
+        
         public Report(List<string> list,int errorType)
         {
             
@@ -22,6 +23,7 @@ namespace negar
             listView1.SmallImageList = errorImageList;
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listView1.Update();
 
 
             //   reportListBox.DataSource = list;
@@ -36,6 +38,7 @@ namespace negar
             InitializeComponent();
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listView1.Update();
 
             //reportListBox.DataSource = null;
 
@@ -61,9 +64,6 @@ namespace negar
         private void SetListViewColumnSizes(ListView lvw, int width)
         {
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
-           
-          
           
         }
 

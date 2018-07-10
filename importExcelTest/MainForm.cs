@@ -1354,8 +1354,9 @@ namespace negar
         private void notificate()
         {
             SqlManipulator sql = new SqlManipulator();
-            sql.notify(login.Id);
-
+            var dbname = Properties.Settings.Default.dbName;
+            sql.notify(login.Id,dbname);
+            
         }
 
         private void شنیدنToolStripMenuItem_Click(object sender, EventArgs e)

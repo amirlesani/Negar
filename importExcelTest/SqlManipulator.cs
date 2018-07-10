@@ -23,35 +23,27 @@ namespace negar
 
             cn = Properties.Settings.Default.MainConnectionString;
         }
-        public void notify(int userid)
+        public void notify(int userid,string dbName)
         {
 
             
             Report sender = new Report();
             sender.Text = "حالت شنیدن";
             sender.Show();
-            
-            
-            // See constructor optional parameters to configure it according to your needs                
-                var listener = new SqlDependencyEx(cn, "Mali", "DaftarTable",identity: userid);
+
+            try
+            {
+                var listener = new SqlDependencyEx(cn, dbName, "DaftarTable", identity: userid);
                 // e.Data contains actual changed data in the XML format
                 listener.TableChanged += (o, e) => sender.addItem(e.Data);
 
                 listener.Start();
 
-            //Your code here
-            
-
-
-            // After you call the Start method you will receive table notifications with 
-            // the actual changed data in the XML format
-            
-
-
-            // ... Your code is here 
-
-            // Don'refundStatus forget to stop the listener somewhere!
-            //listener.Stop();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         
         public MaxMinClass findMaxminMonthDay(long cityID)

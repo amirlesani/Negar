@@ -13,7 +13,7 @@ namespace negar
     public partial class ManagerForm : Form
     {
         int selectedRow;
-        
+        private MaxMinClass startendDate;
         private MainForm mainForm;
 
         public ManagerForm(MainForm main)
@@ -102,6 +102,7 @@ namespace negar
                 makeTable(sql.getDataCity());
                 makeTableUsers(sql.getDataLogin());
                 makeValidationTable(sql.getValidationData());
+                startendDate = sql.findMaxminMonthDay(0);
 
                 DGV_SetStyle(this.cityDataGridView);
 
@@ -231,7 +232,6 @@ namespace negar
 
         private void addCityToFormManagerButton_Click(object sender, EventArgs e)
         {
-
             try {
                 CityTable newCity = new CityTable();
                 newCity.CityName = CityTextBox.Text;
@@ -291,38 +291,27 @@ namespace negar
             }
         }
 
-        private void dgvColor_Click(object sender, EventArgs e)
-        {
-            DialogResult dlg = colorDialog1.ShowDialog();
-            if (dlg == DialogResult.OK)
-            {
-                Properties.Settings.Default.dgvColor = colorDialog1.Color;
-                this.mainForm.refreshDGV();
-            }
-           
-        }
+        
 
         private void addRestrictionButton_Click(object sender, EventArgs e)
         {
             try { 
             validationTable valid = new validationTable();
 
-            DateTime startTime = startDateTimePickerX.SelectedDateInDateTime;
             DateTime endTime = endDateTimePickerX1.SelectedDateInDateTime;
 
             StartEndMonthClass date = new StartEndMonthClass();
-            date.startDate = Convert.ToInt64(startTime.ToFa("yyyyMMdd"));
+
             date.endDate = Convert.ToInt64(endTime.ToFa("yyyyMMdd"));
 
-
-            valid.startDate = date.startDate;
+            valid.startDate = startendDate.min;
             valid.enDate = date.endDate;
             valid.City = Convert.ToInt64(validCityComboBox.SelectedValue);
             SqlManipulator sql = new SqlManipulator();
             var cityName = sql.getCityName(valid.City);
-            FarsiDateUtil startDate = new FarsiDateUtil(date.endDate.ToString());
-            FarsiDateUtil endDate = new FarsiDateUtil(date.startDate.ToString());
-            valid.description = "قفل" + " " + cityName + "  " + startDate.MonthName +  startDate.Year;
+            FarsiDateUtil startDate = new FarsiDateUtil(startendDate.min.ToString());
+            FarsiDateUtil endDate = new FarsiDateUtil(date.endDate.ToString());
+            valid.description = "قفل" + " " + cityName + "  " + endDate.MonthName +  endDate.Year;
             Report rpt = new Report(sql.addValidation(valid), (int)errorImages.info);
             rpt.Show();
             makeValidationTable(sql.getValidationData());
@@ -365,101 +354,7 @@ namespace negar
             }
             }
         }
-
-        private void yearComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void setYearMonthComboBox(long cityID)
-        {
-            ////To DO
-            //// 6/17/2018
-            //////yearComboBox.Items.Clear();
-            //////monthComboBox.Items.Clear();
-            //////SqlManipulator sql = new SqlManipulator();
-            //////var minmax = sql.findMaxminMonthDay(cityID);///
-            //////////neeed to change and find the maximum data of month and day into the validation table 
-            //////Utility utl = new Utility();
-            //////if (minmax != null)
-            //////{
-            //////    try
-            //////    {
-            //////        long endDate = Convert.ToInt64(utl.formatStringDate(minmax.max.ToString()).ToEn().ToFa("yyyy"));
-            //////        long startDate = Convert.ToInt64(utl.formatStringDate(minmax.min.ToString()).ToEn().ToFa("yyyy"));
-            //////        for (long year = startDate; year <= endDate; year++)
-            //////        {
-            //////            yearComboBox.Items.Add(year);
-            //////        }
-            //////        for (int month = 1; month <= 12; month++)
-            //////        {
-            //////            monthComboBox.Items.Add(new ComboboxItem(utl.getMonthName(month), month));
-            //////        }
-
-            //////    }
-            //////    catch (Exception ex)
-            //////    {
-            //////        MessageBox.Show(ex.ToString());
-            //////    }
-            //////}
-        }
-        private void monthComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //SqlManipulator sql = new SqlManipulator();
-            //Utility utl = new Utility();
-            
-            //var mItem = (ComboboxItem)monthComboBox.SelectedItem;
-            //long month = mItem.Value;
-            //int year = Convert.ToInt32(yearComboBox.SelectedItem);
-
-            //var item = (ComboboxItem)cityComboBox.SelectedItem;
-            //int cityID =Convert.ToInt32(item.Value);
-
-            //var starEndofMonth = utl.getStartEndofMonth(year, month);
-            //var data = sql.getValidationDataByCityandDate(cityID,starEndofMonth.startDate,starEndofMonth.endDate);
-            //makeValidationTable(data);
-        }
-      
-        private void commitLockButton_Click(object sender, EventArgs e)
-        {
-            Utility utl = new Utility();
-            ///utl.getpr
-          if(lockValue != null)
-            {
-                var value = lockValue;
-                switch(value)
-                {
-                    case (int)lockOption.manualLock:
-                        ///do somthing
-                       MessageBox.Show("manual");
-
-                        break;
-                    case (int)lockOption.lockprvMonth:
-                        MessageBox.Show("lock");
-                        SqlManipulator sql = new SqlManipulator();
-                        Int64 city = Convert.ToInt64(validCityComboBox.SelectedValue);
-                        //sql.addPRVMonthToRestrictedArea(city,this.textBox1.Text);
-
-
-                        break;
-
-                    case (int)lockOption.unlockprvMonth:
-                        MessageBox.Show("unlock");
-
-                        break;
-                }
-            }
-            else
-            {
-                MessageBox.Show("select a radio button please ");
-            }
-        }
-
-        private void manualLockButton_CheckedChanged(object sender, EventArgs e)
-        {
-            lockchangingRadioButton(sender, e);
-
-        }
+        
         enum lockOption { manualLock, lockprvMonth,unlockprvMonth};
         int lockValue;
         private void lockchangingRadioButton(object sender, EventArgs e)

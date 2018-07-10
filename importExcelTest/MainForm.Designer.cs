@@ -55,6 +55,7 @@
             this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.searchAllCheckBox = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
@@ -97,7 +98,6 @@
             this.cityTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maliDataSet = new negar.MaliDataSet();
             this.cityTableTableAdapter = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
-            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).BeginInit();
@@ -353,10 +353,19 @@
             this.groupBox2.Location = new System.Drawing.Point(0, 89);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(994, 67);
+            this.groupBox2.Size = new System.Drawing.Size(994, 64);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(45, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 13);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "صفحه";
             // 
             // searchAllCheckBox
             // 
@@ -467,7 +476,7 @@
             this.mainDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.mainDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.mainDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mainDataGridView.Size = new System.Drawing.Size(988, 382);
+            this.mainDataGridView.Size = new System.Drawing.Size(988, 385);
             this.mainDataGridView.TabIndex = 0;
             this.mainDataGridView.VirtualMode = true;
             this.mainDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.mainDataGridView_CellFormatting);
@@ -483,10 +492,10 @@
             this.groupBox4.Controls.Add(this.mainDataGridView);
             this.groupBox4.Controls.Add(this.statusStrip1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 156);
+            this.groupBox4.Location = new System.Drawing.Point(0, 153);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox4.Size = new System.Drawing.Size(994, 423);
+            this.groupBox4.Size = new System.Drawing.Size(994, 426);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "پایگاه داده";
@@ -498,7 +507,7 @@
             this.counttoolStripStatusLabel1,
             this.sumStripStatusLabel1,
             this.changeStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 398);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 401);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(988, 22);
             this.statusStrip1.TabIndex = 2;
@@ -871,15 +880,6 @@
             // cityTableTableAdapter
             // 
             this.cityTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(45, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 13);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "صفحه";
             // 
             // MainForm
             // 
