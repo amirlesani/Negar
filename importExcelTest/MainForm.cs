@@ -30,23 +30,36 @@ namespace negar
         private  Result lastResult;
         private NoteBook ntp;
         private LoginInfo login;
+        int defaultAscending;
         private DaftarTable rowsData;
         Boolean advancedSearch;
 
-
+        enum ascendingType
+        {
+             cityAscending = 0,
+             dateAscending = 1,
+             depositNameAscending = 2,
+             refundAscending = 3,
+             depositAscending =4,
+             
+        }
+        //private ascendingType  defaultAscending ;
         private List<DaftarTable> datasForModify;
         private AdvancedSearchForm adv;
         bool godmode;
         private StartEndMonthClass startEnd;
         public MainForm()
         {
+
             MessageBoxManager.Yes = "بله";
             MessageBoxManager.No = "خیر";
-            
+            MessageBoxManager.Cancel = "لغو";
             MessageBoxManager.OK = "باشه";
             MessageBoxManager.Register();
 
+           
             pageNumber = 0;
+  
             lastSelectedRow = 0;
             selectedRowupdate = 0;
             InitializeComponent();
@@ -73,8 +86,6 @@ namespace negar
             userToolStripStatusLabel.Text = " کاربر :"+ login.Name + "" + login.family;
             this.statusStrip1.Invalidate();
             this.statusStrip1.Refresh();
-            
-
          }
          int pageSize = Properties.Settings.Default.pageSize;
        public void setPageSize(int pageSize)
@@ -94,7 +105,7 @@ namespace negar
 
                     ///too halat e search e
                 SqlManipulator sql = new SqlManipulator();
-                var query = searchResultQuery();
+                var query = searchResultQuery(defaultAscending);
                 refreshDVGquery(query,pageNumber);
                 
 
@@ -107,8 +118,7 @@ namespace negar
         }
         private void saveLastState(LasteStateClass state)
         {
-        
-            refreshLastState(state,pageNumber);
+                    refreshLastState(state,pageNumber);
         }
         public void setCityComboBox()
         {
@@ -117,6 +127,7 @@ namespace negar
             if (!login.permission)
             {
                     try {
+                        this.نامشهرToolStripMenuItem.Visible = false;
                         SqlManipulator sql = new SqlManipulator();
                         cityComboBox.Items.Add(new ComboboxItem(login.cityName, login.cityID));
                         cityComboBox.SelectedIndex = 0;
@@ -164,6 +175,14 @@ namespace negar
                 mainDataGridView.ResumeLayout();
                 mainDataGridView.ClearSelection();
                 setRowNumber(mainDataGridView);
+                if (login.permission)
+                {
+                    defaultAscending = (int)ascendingType.cityAscending;
+                }
+                else
+                {
+                    defaultAscending = (int)ascendingType.dateAscending;
+                }
 
             }
             catch (Exception ex)
@@ -251,7 +270,7 @@ namespace negar
                     }
                     
                 }
-                search();
+                search(defaultAscending);
             }
             catch (Exception) { throw; }
         }
@@ -271,8 +290,9 @@ namespace negar
                 شنیدنToolStripMenuItem.Visible = false;
             }
         }
-        private Result  searchResultQuery()
+        private Result  searchResultQuery(int orderType)
         {
+
             int value = this.comboBox1.SelectedIndex;
             var searchMode = (mode)this.orderComboBox.SelectedIndex;
             SqlManipulator sql = new SqlManipulator();
@@ -293,34 +313,64 @@ namespace negar
             }
            
          
-            Result query = new Result();
+            Result result = new Result();
             switch (value)
             {
                 case 0:
-                    query = sql.budgetCodeQuery(login.cityID ,(this.searchTextBox.Text),startEnd,pageSize,searchMode);
+                    result = sql.budgetCodeQuery(login.cityID ,(this.searchTextBox.Text),startEnd,pageSize,searchMode);
                     break;
                 case 1:
-                    query =  sql.ownerQuery(login.cityID,this.searchTextBox.Text,startEnd,pageSize, searchMode);
+                    result =  sql.ownerQuery(login.cityID,this.searchTextBox.Text,startEnd,pageSize, searchMode);
                     break;
                 case 2:
-                    query = sql.AccountTypeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
+                    result = sql.AccountTypeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
                 case 3:
-                    query =  sql.billDetailCodeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
+                    result =  sql.billDetailCodeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
                 case 4:
-                    query =  sql.depositDetailCodeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
+                    result =  sql.depositDetailCodeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
                 case 5:
-                    query =  sql.depositQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
+                    result =  sql.depositQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
                 case 6:
-                    query =  sql.refundQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
+                    result =  sql.refundQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
 
             }
-            query.query = query.query.OrderByDescending(x => x.RealDate);
-            return query;
+            if (login.permission)
+            { result.query = result.query.OrderBy(x => x.PlaceName); }
+            else {
+                result.query = result.query.OrderByDescending(x => x.RealDate);
+            }
+            try {
+                switch ((ascendingType)orderType)
+                { 
+                    case ascendingType.depositNameAscending:
+                        result.query = result.query.OrderBy(x => x.DepositOwnerDetail);
+                        return result;
+                    case ascendingType.cityAscending:
+                        result.query = result.query.OrderBy(x => x.PlaceName);
+                        return result;
+                    case ascendingType.dateAscending:
+                        result.query = result.query.OrderByDescending(x => x.RealDate);
+                        return result;
+                    case ascendingType.refundAscending:
+                        result.query = result.query.OrderByDescending(x => x.Refund);
+                        return result;
+                    case ascendingType.depositAscending:
+                        result.query = result.query.OrderByDescending(x => x.Deposit);
+                        return result;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+            return result;
         }
         private void makeTable(IQueryable<DaftarTable> data)
         { 
@@ -380,7 +430,7 @@ namespace negar
             ///bool
             ///
             
-            var  query = searchResultQuery();
+            var  query = searchResultQuery((int)ascendingType.dateAscending);
 
             this.lastResult = query;
 
@@ -393,7 +443,7 @@ namespace negar
 
 
             //var t = sql.pageResult(lastResult, pageNumber, pageSize);
-            //makeTable(t.query);
+            //makeTable(t.result);
             if (login.permission)
             {
                 var item = (ComboboxItem)cityComboBox.SelectedItem;
@@ -430,7 +480,7 @@ namespace negar
 
 
             //var t = sql.pageResult(lastResult, pageNumber, pageSize);
-            //makeTable(t.query);
+            //makeTable(t.result);
             if (login.permission)
             {
                 var item = (ComboboxItem)cityComboBox.SelectedItem;
@@ -679,7 +729,7 @@ namespace negar
         private void updateButton3_Click(object sender, EventArgs e)
         {
             try {
-                search();
+                search(defaultAscending);
 
             }
             catch(Exception ex)
@@ -699,13 +749,13 @@ namespace negar
                 if (this.searchTextBox.Text.Length > 0)
                 {
                     SqlManipulator sql = new SqlManipulator();
-                    var query = searchResultQuery();
+                    var query = searchResultQuery((int)ascendingType.dateAscending);
                     refreshDVGquery(query,pageNumber);
                 
                 }
                 else
                 {
-                    search();
+                    search(defaultAscending);
                 }
                 yearComboBox.Items.Clear();
                 setYearMonthComboBox(login.cityID);
@@ -848,10 +898,10 @@ namespace negar
 
         private void search_Button(object sender, EventArgs e)
         {
-            search();
+            search(defaultAscending);
     
         }
-        private void search()
+        private void search(int orderBy)
         {
             if (this.searchAllCheckBox.Checked)
             {
@@ -862,7 +912,7 @@ namespace negar
                     this.monthComboBox.Enabled = false;
                     this.yearComboBox.Enabled = false;
                 }
-                var searchResult = searchResultQuery();
+                var searchResult = searchResultQuery((int)orderBy);
                 resetNavigationButtons();
                 refreshLastState(getLastState(), pageNumber, searchResult);
                 if (!searchResult.query.Any())
@@ -896,7 +946,7 @@ namespace negar
                     month = mItem.Value;
                     year = Convert.ToInt32(yearComboBox.SelectedItem);
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                      MessageBox.Show(" ! ابتدا تاریخ را مشخص نمائید","هشدار ",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     return;
@@ -918,7 +968,7 @@ namespace negar
                     var item = (ComboboxItem)cityComboBox.SelectedItem;
                     login.cityID = item.Value;
                 }
-                var query = searchResultQuery();
+                var query = searchResultQuery(orderBy);
                 if (!query.query.Any())
                 {
                     /// MessageBox.Show(" ! نتیجه ایی یافت نشد","هشدار ",MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -988,7 +1038,7 @@ namespace negar
                     }
 
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                   //  MessageBox.Show(ex.ToString());
                     MessageBox.Show("تاریخی برای تنظیم اولیه وجود ندارد ! با پشتیبانی تماس بگیرید");
@@ -1042,7 +1092,7 @@ namespace negar
         private void monthComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //  searchinMonth();
-            search();
+            search(defaultAscending);
 
         }
 
@@ -1305,7 +1355,7 @@ namespace negar
         {
             try
             {
-                search();
+                search(defaultAscending);
             }
             catch (Exception ex)
             {
@@ -1360,7 +1410,7 @@ namespace negar
         {
             if ((e.KeyCode == Keys.Enter) || (e.KeyCode == Keys.Return))
             {
-                search();
+                search(defaultAscending);
             }
         }
        
@@ -1421,7 +1471,43 @@ namespace negar
 
         private void ShowSelectedDataButton_Click(object sender, EventArgs e)
         {
-            search();
+            search(defaultAscending);
+        }
+        private void ascendBy(ascendingType ascendby)
+        {
+          
+        }
+
+        private void نامشهرToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            search((int)ascendingType.cityAscending);
+        }
+
+        private void تاریخToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            search((int)ascendingType.dateAscending);
+        }
+
+        private void شمارهقبضToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void نامصاحبسپردهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            search((int)ascendingType.depositNameAscending);
+        }
+
+        private void واریزیToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            search((int)ascendingType.depositAscending);
+
+        }
+
+        private void استردادیToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            search((int)ascendingType.refundAscending);
+
         }
     }
 

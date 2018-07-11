@@ -15,9 +15,18 @@ using System.Xml.Linq;
 
 namespace negar
 {
+    enum searchMode
+    {
+        deposit = 0,
+        refund = 1,
+        nondeposit = -1,
+        nonRefund = 0
+
+    }
     class SqlManipulator
     {
         string cn;
+       
         public SqlManipulator()
         {
 
@@ -452,78 +461,7 @@ namespace negar
         }
 
         
-        public Result searchByDate(long cityID,int pageSize ,long start, long end,mode searchType)
-        {
-            Result result = new Result();
-            //DaftarModelDataContext db = new DaftarModelDataContext(cn);
-            //Utility utl = new Utility();
-   
-            //if (cityID == 0)
-            //{
-            //    switch(searchType)
-            //    {
-            //        case mode.all :
-            //            var query = (from c in db.DaftarTables.Where(x => x.RealDate >= start && x.RealDate <= end) select c);
-            //            var count = query.Count();
-            //            result.recordCount = count;
-            //            result.queryPageNumber = count / pageSize;
-            //            result.query = query;
-            //            return result;
-            //        case mode.deposit:
-            //            var queryDeposit = (from c in db.DaftarTables.Where(x => x.RealDate >= start && x.RealDate <= end && x.Deposit > 0 && x.Refund == 0) select c);
-            //            var countDeposit = queryDeposit.Count();
-            //            result.recordCount = countDeposit;
-            //            result.queryPageNumber = countDeposit / pageSize;
-            //            result.query = queryDeposit;
-            //            return result;
-            //        case mode.refund:
-            //            var queryRefund = (from c in db.DaftarTables.Where(x => x.RealDate >= start && x.RealDate <= end && x.Refund > 0 && x.Deposit ==0) select c);
-            //            var countReund = queryRefund.Count();
-            //            result.recordCount = countReund;
-            //            result.queryPageNumber = countReund / pageSize;
-            //            result.query = queryRefund;
-            //            return result;
-            //    }
-            //}
-            ////var query2 = (from c in db.DaftarTables.Where(x => x.CityID == cityID && x.RealDate >= start && x.RealDate <= end) select c);
-            ////var count2 = query2.Count();
-            //Int64 refund = 0;
-            //Int64 deposit = 0;
-            //switch (searchType)
-            //{
-            //    case mode.all:
-            //        //var query = (from c in db.DaftarTables.Where(x => x.CityID == cityID && x.RealDate >= start && x.RealDate <= end) select c);
-            //        //var count = query.Count();
-            //        //result.recordCount = count;
-            //        //result.queryPageNumber = count / pageSize;
-            //        //result.query = query;
-            //        break;
-                    
-            //    case mode.deposit:
-            //        MessageBox.Show("deposit selected");
-            //        //// ( x.CityID == cityID &&( x.RealDate >= start && x.RealDate <= end ))
-            //        var queryDeposit = (from c in db.DaftarTables.Where(x =>x.Deposit == 0 && x.Refund > 0 ) select c);
-            //        var countDeposit = queryDeposit.Count();
-            //        result.recordCount = countDeposit;
-            //        result.queryPageNumber = countDeposit / pageSize;
-            //        result.query = queryDeposit;
-            //        break;
-                    
-            //    case mode.refund:
-            //        //var queryRefund = (from c in db.DaftarTables.Where(x => x.CityID == cityID && x.RealDate >= start && x.RealDate <= end && x.Refund > 0) select c);
-            //        //var countReund = queryRefund.Count();
-            //        //result.recordCount = countReund;
-            //        //result.queryPageNumber = countReund / pageSize;
-            //        //result.query = queryRefund;
-            //        break;
-                    
-
-            //}
-            return result;
-
-
-
-        }
+      
         public Boolean isRestricted(DaftarTable data,bool permission)
         {
             try {
@@ -728,16 +666,14 @@ namespace negar
                     refundValue = -1;
                     break;
                 case mode.deposit:
+                    depositValue = -1;
+                    refundValue = 0;
+                    break;
+                case mode.refund:
                     depositValue = 0;
                     refundValue = -1;
                     break;
-                case mode.refund:
-                    depositValue = -1;
-                    refundValue = 0;
-
-                    break;
             }
-
 
             DaftarModelDataContext db = new DaftarModelDataContext(cn);
 
@@ -773,7 +709,6 @@ namespace negar
         public Result AccountTypeQuery(long cityID, string accountTypeQuery, StartEndMonthClass startend, int pageSize,mode searchType)
         {
             DaftarModelDataContext db = new DaftarModelDataContext(cn);
-
             int depositValue = -1;
             int refundValue = -1;
 
@@ -784,13 +719,12 @@ namespace negar
                     refundValue = -1;
                     break;
                 case mode.deposit:
-                    depositValue = 0;
-                    refundValue = -1;
-                    break;
-                case mode.refund:
                     depositValue = -1;
                     refundValue = 0;
-
+                    break;
+                case mode.refund:
+                    depositValue = 0;
+                    refundValue = -1;
                     break;
             }
 
@@ -834,16 +768,14 @@ namespace negar
                     refundValue = -1;
                     break;
                 case mode.deposit:
+                    depositValue = -1;
+                    refundValue = 0;
+                    break;
+                case mode.refund:
                     depositValue = 0;
                     refundValue = -1;
                     break;
-                case mode.refund:
-                    depositValue = -1;
-                    refundValue = 0;
-
-                    break;
             }
-
 
 
             Result result = new Result();
@@ -888,17 +820,14 @@ namespace negar
                     refundValue = -1;
                     break;
                 case mode.deposit:
+                    depositValue = -1;
+                    refundValue = 0;
+                    break;
+                case mode.refund:
                     depositValue = 0;
                     refundValue = -1;
                     break;
-                case mode.refund:
-                    depositValue = -1;
-                    refundValue = 0;
-
-                    break;
             }
-
-
             if (cityID == 0)
             {
                 var query = (from c in db.DaftarTables.Where(x => x.RealDate >= startend.startDate &&
@@ -930,7 +859,6 @@ namespace negar
 
             Result result = new Result();
 
-
             int depositValue = -1;
             int refundValue = -1;
 
@@ -941,16 +869,14 @@ namespace negar
                     refundValue = -1;
                     break;
                 case mode.deposit:
+                    depositValue = -1;
+                    refundValue = 0;
+                    break;
+                case mode.refund:
                     depositValue = 0;
                     refundValue = -1;
                     break;
-                case mode.refund:
-                    depositValue = -1;
-                    refundValue = 0;
-
-                    break;
             }
-
             if (cityID == 0)
             {
                 var query = (from c in db.DaftarTables.Where(x => x.RealDate >= startend.startDate &&
@@ -982,7 +908,6 @@ namespace negar
 
             Result result = new Result();
 
-
             int depositValue = -1;
             int refundValue = -1;
 
@@ -993,13 +918,12 @@ namespace negar
                     refundValue = -1;
                     break;
                 case mode.deposit:
-                    depositValue = 0;
-                    refundValue = -1;
-                    break;
-                case mode.refund:
                     depositValue = -1;
                     refundValue = 0;
-
+                    break;
+                case mode.refund:
+                    depositValue = 0;
+                    refundValue = -1;
                     break;
             }
 

@@ -82,6 +82,7 @@
             this.NoteBookDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.NoteBookDataGridView.Size = new System.Drawing.Size(870, 371);
             this.NoteBookDataGridView.TabIndex = 7;
+            this.NoteBookDataGridView.SelectionChanged += new System.EventHandler(this.NoteBookDataGridView_SelectionChanged_1);
             // 
             // groupBox1
             // 

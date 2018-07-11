@@ -180,35 +180,35 @@ namespace negar
 
         private void NoteBookDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            dataForchanging.Clear();
+            //dataForchanging.Clear();
 
-            foreach (DataGridViewRow row in NoteBookDataGridView.SelectedRows)
-            {
-                try
-                {
-                    DaftarTable data = new DaftarTable();
+            //foreach (DataGridViewRow row in NoteBookDataGridView.SelectedRows)
+            //{
+            //    try
+            //    {
+            //        DaftarTable data = new DaftarTable();
 
-                    data.Id = Convert.ToInt64(row.Cells[0].Value);
-                    data.Refund = Convert.ToInt64(row.Cells[1].Value);
-                    data.BillDetailCode = Convert.ToInt64(row.Cells[2].Value);
-                    data.Date = row.Cells[3].Value.ToString();
-                    data.PlaceName = row.Cells[4].Value.ToString();
-                    data.AccountType = row.Cells[5].Value.ToString();
-                    data.DepositOwnerDetail = row.Cells[6].Value.ToString();
-                    data.DepositDetail = Convert.ToInt64(row.Cells[7].Value);
-                    data.Deposit = Convert.ToInt64(row.Cells[8].Value);
-                    data.CodeBudget = Convert.ToInt64(row.Cells[9].Value);
-                    data.CityID = Convert.ToInt64(row.Cells[10].Value);
-                    data.RealDate = Convert.ToInt64(row.Cells[11].Value);
+            //        data.Id = Convert.ToInt64(row.Cells[0].Value);
+            //        data.Refund = Convert.ToInt64(row.Cells[1].Value);
+            //        data.BillDetailCode = Convert.ToInt64(row.Cells[2].Value);
+            //        data.Date = row.Cells[3].Value.ToString();
+            //        data.PlaceName = row.Cells[4].Value.ToString();
+            //        data.AccountType = row.Cells[5].Value.ToString();
+            //        data.DepositOwnerDetail = row.Cells[6].Value.ToString();
+            //        data.DepositDetail = Convert.ToInt64(row.Cells[7].Value);
+            //        data.Deposit = Convert.ToInt64(row.Cells[8].Value);
+            //        data.CodeBudget = Convert.ToInt64(row.Cells[9].Value);
+            //        data.CityID = Convert.ToInt64(row.Cells[10].Value);
+            //        data.RealDate = Convert.ToInt64(row.Cells[11].Value);
 
-                    dataForchanging.Add(data);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
+            //        dataForchanging.Add(data);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.ToString());
+            //    }
 
-            }
+            //}
         }
 
         
@@ -261,9 +261,9 @@ namespace negar
 
                     // selectedBiodataId = Convert.ToInt32(dgrdResults.Rows[e.RowIndex].Cells[1].Value);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    
+                    MessageBox.Show(ex.ToString());
                 }
             }
         }
@@ -366,6 +366,39 @@ namespace negar
         private void TextExportButton_Click(object sender, EventArgs e)
         {
             exportTextFile();
+        }
+
+        private void NoteBookDataGridView_SelectionChanged_1(object sender, EventArgs e)
+        {
+            dataForchanging.Clear();
+
+            foreach (DataGridViewRow row in NoteBookDataGridView.SelectedRows)
+            {
+                try
+                {
+                    DaftarTable data = new DaftarTable();
+
+                    data.Id = Convert.ToInt64(row.Cells[0].Value);
+                    data.Refund = Convert.ToInt64(row.Cells[1].Value);
+                    data.BillDetailCode = Convert.ToInt64(row.Cells[2].Value);
+                    data.Date = row.Cells[3].Value.ToString();
+                    data.PlaceName = row.Cells[4].Value.ToString();
+                    data.AccountType = row.Cells[5].Value.ToString();
+                    data.DepositOwnerDetail = row.Cells[6].Value.ToString();
+                    data.DepositDetail = Convert.ToInt64(row.Cells[7].Value);
+                    data.Deposit = Convert.ToInt64(row.Cells[8].Value);
+                    data.CodeBudget = Convert.ToInt64(row.Cells[9].Value);
+                    data.CityID = Convert.ToInt64(row.Cells[10].Value);
+                    data.RealDate = Convert.ToInt64(row.Cells[11].Value);
+
+                    dataForchanging.Add(data);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+            }
         }
     }
 }
