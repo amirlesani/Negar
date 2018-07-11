@@ -42,8 +42,8 @@ namespace negar
         {
             MessageBoxManager.Yes = "بله";
             MessageBoxManager.No = "خیر";
+            
             MessageBoxManager.OK = "باشه";
-            MessageBoxManager.Cancel = "لغو";
             MessageBoxManager.Register();
 
             pageNumber = 0;
@@ -862,10 +862,10 @@ namespace negar
                     this.monthComboBox.Enabled = false;
                     this.yearComboBox.Enabled = false;
                 }
-                var query1 = searchResultQuery();
+                var searchResult = searchResultQuery();
                 resetNavigationButtons();
-                refreshLastState(getLastState(), pageNumber, query1);
-                if (!query1.query.Any())
+                refreshLastState(getLastState(), pageNumber, searchResult);
+                if (!searchResult.query.Any())
                 {
                     this.mainDataGridView.DataSource = null;
                     this.forwardButton.Enabled = false;
@@ -873,7 +873,7 @@ namespace negar
                 }
                 try
                 {
-                    lastResult = query1;
+                    lastResult = searchResult;
                 }
                 catch (Exception)
                 {
@@ -898,7 +898,7 @@ namespace negar
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("ابتدا تاریخ را مشخص نمایید");
+                     MessageBox.Show(" ! ابتدا تاریخ را مشخص نمائید","هشدار ",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     return;
 
                 }

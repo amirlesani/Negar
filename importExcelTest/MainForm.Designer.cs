@@ -237,7 +237,7 @@
             // 
             this.اضافهToolStripMenuItem.Image = global::negar.Properties.Resources.if_basics_15_2968191;
             this.اضافهToolStripMenuItem.Name = "اضافهToolStripMenuItem";
-            this.اضافهToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.اضافهToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.اضافهToolStripMenuItem.Text = "اضافه";
             this.اضافهToolStripMenuItem.Click += new System.EventHandler(this.اضافهToolStripMenuItem_Click);
             // 
@@ -245,14 +245,14 @@
             // 
             this.حذفToolStripMenuItem.Image = global::negar.Properties.Resources.if_basics_22_296812;
             this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
-            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.حذفToolStripMenuItem.Text = "حذف";
             // 
             // تغییرToolStripMenuItem
             // 
             this.تغییرToolStripMenuItem.Image = global::negar.Properties.Resources.if_081_Pen_183209__1_;
             this.تغییرToolStripMenuItem.Name = "تغییرToolStripMenuItem";
-            this.تغییرToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.تغییرToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.تغییرToolStripMenuItem.Text = "تغییر";
             this.تغییرToolStripMenuItem.Click += new System.EventHandler(this.تغییرToolStripMenuItem_Click);
             // 
@@ -353,7 +353,7 @@
             this.groupBox2.Location = new System.Drawing.Point(0, 89);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(994, 64);
+            this.groupBox2.Size = new System.Drawing.Size(994, 61);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو";
@@ -476,7 +476,7 @@
             this.mainDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.mainDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.mainDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mainDataGridView.Size = new System.Drawing.Size(988, 385);
+            this.mainDataGridView.Size = new System.Drawing.Size(988, 388);
             this.mainDataGridView.TabIndex = 0;
             this.mainDataGridView.VirtualMode = true;
             this.mainDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.mainDataGridView_CellFormatting);
@@ -492,10 +492,10 @@
             this.groupBox4.Controls.Add(this.mainDataGridView);
             this.groupBox4.Controls.Add(this.statusStrip1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 153);
+            this.groupBox4.Location = new System.Drawing.Point(0, 150);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox4.Size = new System.Drawing.Size(994, 426);
+            this.groupBox4.Size = new System.Drawing.Size(994, 429);
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "پایگاه داده";
@@ -507,7 +507,7 @@
             this.counttoolStripStatusLabel1,
             this.sumStripStatusLabel1,
             this.changeStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 401);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 404);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(988, 22);
             this.statusStrip1.TabIndex = 2;

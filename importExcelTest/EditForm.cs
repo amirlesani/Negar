@@ -77,11 +77,17 @@ namespace negar
                 inputErrorProvider.SetError(this.DepositOwnerDetailTextBox, "ورودی خالی است");
                 return false;
             }
-           
+            if (Convert.ToInt64(this.refundTextBox.Text) > 0 && Convert.ToInt64(this.DepositTextBox.Text) > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("مقدار واریزی و استردادی نمی تواند همزمان دارای مقادیر باشد",
+                    "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             if (utl.isNullorWhiteSpace(BudgetCodetextBox.Text))
             {
                 inputErrorProvider.SetError(this.BudgetCodetextBox, "ورودی خالی است");
                 return false;
+
 
             }
             if (utl.isNullorWhiteSpace(DepositTextBox.Text))

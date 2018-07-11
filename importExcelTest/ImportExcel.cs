@@ -97,10 +97,29 @@ namespace negar
                     var bs = new BindingSource();
                     bs.DataSource = data.ToList();
                     excelDataGridView.DataSource = bs;
+                    DGV_SetStyle(this.excelDataGridView);
                 }
               
             }
             catch (Exception ) { throw; }
+        }
+        public void DGV_SetStyle(DataGridView Dgv)
+        {
+            Dgv.RowsDefaultCellStyle.BackColor = Color.NavajoWhite;
+            Dgv.AlternatingRowsDefaultCellStyle.BackColor = Properties.Settings.Default.dgvColor;
+            Dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            Dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Dgv.AutoResizeColumnHeadersHeight();
+
+            //Dgv.AutoResizeColumns();
+            foreach (DataGridViewColumn col in Dgv.Columns)
+            {
+                col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+            Dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            Dgv.Refresh();
+            Dgv.Invalidate();
+
         }
         #region
         LoadingForm loadform = new LoadingForm();

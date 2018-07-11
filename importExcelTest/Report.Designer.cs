@@ -40,7 +40,7 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.Location = new System.Drawing.Point(0, 416);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(354, 23);
+            this.button1.Size = new System.Drawing.Size(461, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "بستن";
             this.button1.UseVisualStyleBackColor = true;
@@ -54,7 +54,7 @@
             this.listView1.Name = "listView1";
             this.listView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.listView1.RightToLeftLayout = true;
-            this.listView1.Size = new System.Drawing.Size(354, 412);
+            this.listView1.Size = new System.Drawing.Size(461, 412);
             this.listView1.SmallImageList = this.errorImageList;
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -75,7 +75,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(354, 439);
+            this.ClientSize = new System.Drawing.Size(461, 439);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

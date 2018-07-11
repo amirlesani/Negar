@@ -104,6 +104,11 @@ namespace negar
                 inputErrorProvider.SetError(dateMaskedTextBox, "تاریخ اشتباه است");
                 return false;
             }
+            if(Convert.ToInt64(this.refundTextBox.Text)>0 && Convert.ToInt64(this.DepositTextBox.Text)>0)
+            {
+                DialogResult dialogResult = MessageBox.Show("مقدار واریزی و استردادی نمی تواند همزمان دارای مقادیر باشد", "خطا", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                return false;
+            }
             if (utl.isNullorWhiteSpace(billDetailCodetextBox.Text))
             {
                 inputErrorProvider.SetError(this.billDetailCodetextBox, "ورودی خالی است");
@@ -287,8 +292,7 @@ namespace negar
         }
         private void numericonly(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-           (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) )
             {
                 e.Handled = true;
             }
