@@ -178,39 +178,7 @@ namespace negar
             exportTextFile();
         }
 
-        private void NoteBookDataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            //dataForchanging.Clear();
-
-            //foreach (DataGridViewRow row in NoteBookDataGridView.SelectedRows)
-            //{
-            //    try
-            //    {
-            //        DaftarTable data = new DaftarTable();
-
-            //        data.Id = Convert.ToInt64(row.Cells[0].Value);
-            //        data.Refund = Convert.ToInt64(row.Cells[1].Value);
-            //        data.BillDetailCode = Convert.ToInt64(row.Cells[2].Value);
-            //        data.Date = row.Cells[3].Value.ToString();
-            //        data.PlaceName = row.Cells[4].Value.ToString();
-            //        data.AccountType = row.Cells[5].Value.ToString();
-            //        data.DepositOwnerDetail = row.Cells[6].Value.ToString();
-            //        data.DepositDetail = Convert.ToInt64(row.Cells[7].Value);
-            //        data.Deposit = Convert.ToInt64(row.Cells[8].Value);
-            //        data.CodeBudget = Convert.ToInt64(row.Cells[9].Value);
-            //        data.CityID = Convert.ToInt64(row.Cells[10].Value);
-            //        data.RealDate = Convert.ToInt64(row.Cells[11].Value);
-
-            //        dataForchanging.Add(data);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.ToString());
-            //    }
-
-            //}
-        }
-
+      
         
         private void rightclick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -220,11 +188,7 @@ namespace negar
             }
         }
 
-        private void NoteBookDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            rightclick(sender, e);
-
-        }
+      
 
         private void حذفToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -248,25 +212,7 @@ namespace negar
             }
         }
 
-        private void NoteBookDataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                try
-                {
-                    NoteBookDataGridView.CurrentCell = NoteBookDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                    // Can leave these here - doesn't hurt
-                    NoteBookDataGridView.Rows[e.RowIndex].Selected = true;
-                    NoteBookDataGridView.Focus();
-
-                    // selectedBiodataId = Convert.ToInt32(dgrdResults.Rows[e.RowIndex].Cells[1].Value);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            }
-        }
+       
 
         private void خروجToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -327,10 +273,7 @@ namespace negar
                 MessageBox.Show(ex.Message);
             }
         }
-        private void حذفهمهToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void NoteBookDataGridView_KeyDown(object sender, KeyEventArgs e)
         {
@@ -399,6 +342,55 @@ namespace negar
                 }
 
             }
+        }
+
+        private void NoteBookDataGridView_CellMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            rightclick(sender, e);
+
+        }
+
+        private void NoteBookDataGridView_CellMouseDown_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                try
+                {
+                    NoteBookDataGridView.CurrentCell = NoteBookDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    // Can leave these here - doesn't hurt
+                    NoteBookDataGridView.Rows[e.RowIndex].Selected = true;
+                    NoteBookDataGridView.Focus();
+
+                    // selectedBiodataId = Convert.ToInt32(dgrdResults.Rows[e.RowIndex].Cells[1].Value);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void NoteBookDataGridView_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                DialogResult dialogResult = MessageBox.Show("آیا از حذف مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (dataForchanging.Any())
+                    {
+                        XMLHandler xml = new XMLHandler();
+                        xml.remove(dataForchanging);
+                        setDataGridView();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("سطری را انتخاب کنید");
+                    }
+                }
+            }
+
         }
     }
 }

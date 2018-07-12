@@ -15,11 +15,13 @@ namespace negar
         int selectedRow;
         private MaxMinClass startendDate;
         private MainForm mainForm;
-
-        public ManagerForm(MainForm main)
+        private LoginInfo login;
+        public ManagerForm(MainForm main,LoginInfo login)
         {
             InitializeComponent();
             this.mainForm = main;
+            this.login = login;
+
         }
         private Boolean changeColumnName()
         {
@@ -138,6 +140,7 @@ namespace negar
         private void removeButton_Click(object sender, EventArgs e)
         {
             try {
+               
                 DialogResult dialogResult = MessageBox.Show("آیا از حذف مطمئن هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -148,6 +151,13 @@ namespace negar
                     deletePerson.Id = (int)newDataRow.Cells[0].Value;
                     deletePerson.User = (string)newDataRow.Cells[1].Value;
                     deletePerson.Password = (string)newDataRow.Cells[2].Value;
+
+                    if (login.Id == deletePerson.Id)
+                    {
+                        MessageBox.Show("این کاربر مجوز حذف خود را ندارد", "پیغام سیستم ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        return;
+                    }
                     sql.removeUser(deletePerson);
                     var logindata = sql.getDataLogin();
                     makeTableUsers(logindata);

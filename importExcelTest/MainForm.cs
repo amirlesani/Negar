@@ -832,7 +832,7 @@ namespace negar
         private void مدیریتToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            ManagerForm mng = new ManagerForm(this);
+            ManagerForm mng = new ManagerForm(this,login);
             mng.Show();
         }
 
@@ -1180,7 +1180,8 @@ namespace negar
                 }
                 else
                 {
-                    MessageBox.Show("تاریخ یا شهر را انتخاب کنید");
+                    MessageBox.Show("تاریخ یا شهر را انتخاب کنید", "پیغام سیستم ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
             }
             catch (Exception ex)
@@ -1402,7 +1403,7 @@ namespace negar
 
         private void مدیریتToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ManagerForm mng = new ManagerForm(this);
+            ManagerForm mng = new ManagerForm(this,this.login);
             mng.Show();
         }
 
@@ -1433,7 +1434,9 @@ namespace negar
             XMLHandler xml = new XMLHandler();
             if (!datasForModify.Any())
             {
-                MessageBox.Show("لطفا سطری را برای اضافه کردن به دفتر انتخاب کنید");
+                MessageBox.Show("لطفا سطری را برای اضافه کردن به دفتر انتخاب کنید", "پیغام سیستم ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
                 return;
             }
             else
