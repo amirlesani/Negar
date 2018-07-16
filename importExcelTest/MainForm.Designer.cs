@@ -55,6 +55,7 @@
             this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.virtualRefundcheckBox = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.searchAllCheckBox = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -86,6 +87,13 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.cityComboBox = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.مرتبسازیبراساسToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.نامشهرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.تاریخToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.تاریخصعودیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.نامصاحبسپردهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.واریزیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.استردادیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.اضافهToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,12 +104,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.اضافهبهدفترToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.مرتبسازیبراساسToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.نامشهرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.تاریخToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.نامصاحبسپردهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.واریزیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.استردادیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cityTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maliDataSet = new negar.MaliDataSet();
             this.cityTableTableAdapter = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
@@ -346,6 +348,7 @@
             // 
             this.groupBox2.AutoSize = true;
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox2.Controls.Add(this.virtualRefundcheckBox);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.searchAllCheckBox);
             this.groupBox2.Controls.Add(this.button3);
@@ -364,6 +367,18 @@
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو";
+            // 
+            // virtualRefundcheckBox
+            // 
+            this.virtualRefundcheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.virtualRefundcheckBox.AutoSize = true;
+            this.virtualRefundcheckBox.Location = new System.Drawing.Point(236, 19);
+            this.virtualRefundcheckBox.Name = "virtualRefundcheckBox";
+            this.virtualRefundcheckBox.Size = new System.Drawing.Size(133, 17);
+            this.virtualRefundcheckBox.TabIndex = 25;
+            this.virtualRefundcheckBox.Text = "لیست مجازی درخواست ";
+            this.virtualRefundcheckBox.UseVisualStyleBackColor = true;
+            this.virtualRefundcheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label6
             // 
@@ -782,6 +797,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.مرتبسازیبراساسToolStripMenuItem,
             this.toolStripSeparator1,
             this.اضافهToolStripMenuItem1,
             this.addToolStripMenuItem,
@@ -791,10 +807,65 @@
             this.بروزرسانیToolStripMenuItem,
             this.toolStripSeparator3,
             this.اضافهبهدفترToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.مرتبسازیبراساسToolStripMenuItem});
+            this.toolStripSeparator4});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(183, 182);
+            // 
+            // مرتبسازیبراساسToolStripMenuItem
+            // 
+            this.مرتبسازیبراساسToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.نامشهرToolStripMenuItem,
+            this.تاریخToolStripMenuItem,
+            this.تاریخصعودیToolStripMenuItem,
+            this.نامصاحبسپردهToolStripMenuItem,
+            this.واریزیToolStripMenuItem,
+            this.استردادیToolStripMenuItem});
+            this.مرتبسازیبراساسToolStripMenuItem.Name = "مرتبسازیبراساسToolStripMenuItem";
+            this.مرتبسازیبراساسToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.مرتبسازیبراساسToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.مرتبسازیبراساسToolStripMenuItem.Text = "مرتب سازی بر اساس ...";
+            // 
+            // نامشهرToolStripMenuItem
+            // 
+            this.نامشهرToolStripMenuItem.Name = "نامشهرToolStripMenuItem";
+            this.نامشهرToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.نامشهرToolStripMenuItem.Text = "نام شهر";
+            this.نامشهرToolStripMenuItem.Click += new System.EventHandler(this.نامشهرToolStripMenuItem_Click);
+            // 
+            // تاریخToolStripMenuItem
+            // 
+            this.تاریخToolStripMenuItem.Name = "تاریخToolStripMenuItem";
+            this.تاریخToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.تاریخToolStripMenuItem.Text = "تاریخ نزولی";
+            this.تاریخToolStripMenuItem.Click += new System.EventHandler(this.تاریخToolStripMenuItem_Click);
+            // 
+            // تاریخصعودیToolStripMenuItem
+            // 
+            this.تاریخصعودیToolStripMenuItem.Name = "تاریخصعودیToolStripMenuItem";
+            this.تاریخصعودیToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.تاریخصعودیToolStripMenuItem.Text = "تاریخ صعودی";
+            this.تاریخصعودیToolStripMenuItem.Click += new System.EventHandler(this.تاریخصعودیToolStripMenuItem_Click);
+            // 
+            // نامصاحبسپردهToolStripMenuItem
+            // 
+            this.نامصاحبسپردهToolStripMenuItem.Name = "نامصاحبسپردهToolStripMenuItem";
+            this.نامصاحبسپردهToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.نامصاحبسپردهToolStripMenuItem.Text = "نام صاحب سپرده";
+            this.نامصاحبسپردهToolStripMenuItem.Click += new System.EventHandler(this.نامصاحبسپردهToolStripMenuItem_Click);
+            // 
+            // واریزیToolStripMenuItem
+            // 
+            this.واریزیToolStripMenuItem.Name = "واریزیToolStripMenuItem";
+            this.واریزیToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.واریزیToolStripMenuItem.Text = "واریزی";
+            this.واریزیToolStripMenuItem.Click += new System.EventHandler(this.واریزیToolStripMenuItem_Click);
+            // 
+            // استردادیToolStripMenuItem
+            // 
+            this.استردادیToolStripMenuItem.Name = "استردادیToolStripMenuItem";
+            this.استردادیToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.استردادیToolStripMenuItem.Text = "استردادی";
+            this.استردادیToolStripMenuItem.Click += new System.EventHandler(this.استردادیToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -880,54 +951,6 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(179, 6);
-            // 
-            // مرتبسازیبراساسToolStripMenuItem
-            // 
-            this.مرتبسازیبراساسToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.نامشهرToolStripMenuItem,
-            this.تاریخToolStripMenuItem,
-            this.نامصاحبسپردهToolStripMenuItem,
-            this.واریزیToolStripMenuItem,
-            this.استردادیToolStripMenuItem});
-            this.مرتبسازیبراساسToolStripMenuItem.Name = "مرتبسازیبراساسToolStripMenuItem";
-            this.مرتبسازیبراساسToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.مرتبسازیبراساسToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.مرتبسازیبراساسToolStripMenuItem.Text = "مرتب سازی بر اساس ...";
-            // 
-            // نامشهرToolStripMenuItem
-            // 
-            this.نامشهرToolStripMenuItem.Name = "نامشهرToolStripMenuItem";
-            this.نامشهرToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.نامشهرToolStripMenuItem.Text = "نام شهر";
-            this.نامشهرToolStripMenuItem.Click += new System.EventHandler(this.نامشهرToolStripMenuItem_Click);
-            // 
-            // تاریخToolStripMenuItem
-            // 
-            this.تاریخToolStripMenuItem.Name = "تاریخToolStripMenuItem";
-            this.تاریخToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.تاریخToolStripMenuItem.Text = "تاریخ";
-            this.تاریخToolStripMenuItem.Click += new System.EventHandler(this.تاریخToolStripMenuItem_Click);
-            // 
-            // نامصاحبسپردهToolStripMenuItem
-            // 
-            this.نامصاحبسپردهToolStripMenuItem.Name = "نامصاحبسپردهToolStripMenuItem";
-            this.نامصاحبسپردهToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.نامصاحبسپردهToolStripMenuItem.Text = "نام صاحب سپرده";
-            this.نامصاحبسپردهToolStripMenuItem.Click += new System.EventHandler(this.نامصاحبسپردهToolStripMenuItem_Click);
-            // 
-            // واریزیToolStripMenuItem
-            // 
-            this.واریزیToolStripMenuItem.Name = "واریزیToolStripMenuItem";
-            this.واریزیToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.واریزیToolStripMenuItem.Text = "واریزی";
-            this.واریزیToolStripMenuItem.Click += new System.EventHandler(this.واریزیToolStripMenuItem_Click);
-            // 
-            // استردادیToolStripMenuItem
-            // 
-            this.استردادیToolStripMenuItem.Name = "استردادیToolStripMenuItem";
-            this.استردادیToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.استردادیToolStripMenuItem.Text = "استردادی";
-            this.استردادیToolStripMenuItem.Click += new System.EventHandler(this.استردادیToolStripMenuItem_Click);
             // 
             // cityTableBindingSource
             // 
@@ -1057,5 +1080,7 @@
         private System.Windows.Forms.ToolStripMenuItem نامصاحبسپردهToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem واریزیToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem استردادیToolStripMenuItem;
+        private System.Windows.Forms.CheckBox virtualRefundcheckBox;
+        private System.Windows.Forms.ToolStripMenuItem تاریخصعودیToolStripMenuItem;
     }
 }

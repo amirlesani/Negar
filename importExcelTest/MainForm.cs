@@ -41,6 +41,7 @@ namespace negar
              depositNameAscending = 2,
              refundAscending = 3,
              depositAscending =4,
+             dateDecending = 5
              
         }
         //private ascendingType  defaultAscending ;
@@ -270,7 +271,7 @@ namespace negar
                     }
                     
                 }
-                search(defaultAscending);
+                search(defaultAscending, this.virtualRefundcheckBox.Checked);
             }
             catch (Exception) { throw; }
         }
@@ -323,7 +324,7 @@ namespace negar
                     result =  sql.ownerQuery(login.cityID,this.searchTextBox.Text,startEnd,pageSize, searchMode);
                     break;
                 case 2:
-                    result = sql.AccountTypeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
+                    result =  sql.AccountTypeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
                     break;
                 case 3:
                     result =  sql.billDetailCodeQuery(login.cityID, this.searchTextBox.Text, startEnd, pageSize, searchMode);
@@ -361,6 +362,9 @@ namespace negar
                         return result;
                     case ascendingType.depositAscending:
                         result.query = result.query.OrderByDescending(x => x.Deposit);
+                        return result;
+                    case ascendingType.dateDecending:
+                        result.query = result.query.OrderBy(x=>x.RealDate);
                         return result;
                 }
             }
@@ -729,7 +733,7 @@ namespace negar
         private void updateButton3_Click(object sender, EventArgs e)
         {
             try {
-                search(defaultAscending);
+                search(defaultAscending, this.virtualRefundcheckBox.Checked);
 
             }
             catch(Exception ex)
@@ -755,7 +759,7 @@ namespace negar
                 }
                 else
                 {
-                    search(defaultAscending);
+                    search(defaultAscending, this.virtualRefundcheckBox.Checked);
                 }
                 yearComboBox.Items.Clear();
                 setYearMonthComboBox(login.cityID);
@@ -898,10 +902,10 @@ namespace negar
 
         private void search_Button(object sender, EventArgs e)
         {
-            search(defaultAscending);
+            search(defaultAscending,this.virtualRefundcheckBox.Checked);
     
         }
-        private void search(int orderBy)
+        private void search(int orderBy,bool virtualRefundList)
         {
             if (this.searchAllCheckBox.Checked)
             {
@@ -913,6 +917,12 @@ namespace negar
                     this.yearComboBox.Enabled = false;
                 }
                 var searchResult = searchResultQuery((int)orderBy);
+                Utility utl = new Utility();
+
+                if (virtualRefundList)
+                {
+                    searchResult.query = utl.makeVirtualRefundTable(searchResult.query);
+                }
                 resetNavigationButtons();
                 refreshLastState(getLastState(), pageNumber, searchResult);
                 if (!searchResult.query.Any())
@@ -977,6 +987,11 @@ namespace negar
                     this.forwardButton.Enabled = false;
                     return;
                 }
+                
+                if(virtualRefundList)
+                {
+                    query.query = utl.makeVirtualRefundTable(query.query);
+                }
                 try
                 {
                     lastResult = query;
@@ -986,7 +1001,6 @@ namespace negar
                 {
                     return;
                 }
-
                 refreshLastState(getLastState(), pageNumber, query);
             }
         }
@@ -1040,59 +1054,16 @@ namespace negar
                 }
                 catch (Exception )
                 {
-                  //  MessageBox.Show(ex.ToString());
                     MessageBox.Show("تاریخی برای تنظیم اولیه وجود ندارد ! با پشتیبانی تماس بگیرید");
                     return;
                 }
             }
         }
-        //private void searchinMonth()
-        //{
-        //    if (login.permission)
-        //    {
-        //        var item = (ComboboxItem)cityComboBox.SelectedItem;
-        //        login.cityID = item.Value;
-        //    }
-        //    try {
-        //        SqlManipulator sql = new SqlManipulator();
-        //        Utility utl = new Utility();
-        //        var mItem = (ComboboxItem)monthComboBox.SelectedItem;
-        //        long month = mItem.Value;
-        //        int year = Convert.ToInt32(yearComboBox.SelectedItem);
 
-        //        try {
-        //            var starEndofMonth = utl.getStartEndofMonth(year, month);
-        //            startEnd = starEndofMonth;
-        //        }
-        //        catch (Exception)
-        //        {
-        //            MessageBox.Show("خطا در تاریخ");
-        //        }
-        //        pageNumber = 0;
-        //        page = 0;
-        //        backwardButton.Enabled = false;
-        //        forwardButton.Enabled = true;
-        //        LasteStateClass laste = new LasteStateClass();
-        //        laste.cityID = login.cityID;
-        //        laste.date = startEnd;
-        //        laste.searchValue = this.searchTextBox.Text;
-        //        /////alpha testing
-        //        laste.lastYearSelected = this.yearComboBox.SelectedIndex;
-        //        laste.lastMonthSelected = this.monthComboBox.SelectedIndex;
-        //        laste.lastModeSelected = this.orderComboBox.SelectedIndex;
-
-        //        lastYearSelected = this.yearComboBox.SelectedIndex;
-        //        lastMonthSelected = this.monthComboBox.SelectedIndex;
-        //        //// alpha testing
-        //        saveLastState(laste);
-        //    }
-        //    catch (Exception) { throw; }
-        //}
-       
         private void monthComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //  searchinMonth();
-            search(defaultAscending);
+            search(defaultAscending, this.virtualRefundcheckBox.Checked);
 
         }
 
@@ -1356,7 +1327,7 @@ namespace negar
         {
             try
             {
-                search(defaultAscending);
+                search(defaultAscending, this.virtualRefundcheckBox.Checked);
             }
             catch (Exception ex)
             {
@@ -1411,7 +1382,7 @@ namespace negar
         {
             if ((e.KeyCode == Keys.Enter) || (e.KeyCode == Keys.Return))
             {
-                search(defaultAscending);
+                search(defaultAscending, this.virtualRefundcheckBox.Checked);
             }
         }
        
@@ -1474,44 +1445,82 @@ namespace negar
 
         private void ShowSelectedDataButton_Click(object sender, EventArgs e)
         {
-            search(defaultAscending);
+            search(defaultAscending, this.virtualRefundcheckBox.Checked);
         }
-        private void ascendBy(ascendingType ascendby)
-        {
-          
-        }
+     
 
         private void نامشهرToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            search((int)ascendingType.cityAscending);
+            search((int)ascendingType.cityAscending, this.virtualRefundcheckBox.Checked);
         }
 
         private void تاریخToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            search((int)ascendingType.dateAscending);
-        }
+            search((int)ascendingType.dateAscending, this.virtualRefundcheckBox.Checked);
+            defaultAscending = (int)ascendingType.dateAscending;
 
-        private void شمارهقبضToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void نامصاحبسپردهToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            search((int)ascendingType.depositNameAscending);
+        {  
+           
+            search((int)ascendingType.depositNameAscending, this.virtualRefundcheckBox.Checked);
+            defaultAscending = (int)ascendingType.depositNameAscending;
         }
 
         private void واریزیToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            search((int)ascendingType.depositAscending);
-
+            search((int)ascendingType.depositAscending, this.virtualRefundcheckBox.Checked);
+            defaultAscending = (int)ascendingType.depositAscending;
         }
 
         private void استردادیToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            search((int)ascendingType.refundAscending);
-
+            search((int)ascendingType.refundAscending, this.virtualRefundcheckBox.Checked);
+            defaultAscending = (int)ascendingType.refundAscending;
         }
+        private void تاریخصعودیToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            search((int)ascendingType.dateDecending, this.virtualRefundcheckBox.Checked);
+            defaultAscending = (int)ascendingType.dateDecending;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(virtualRefundcheckBox.Checked)
+            {
+                //make the virtual refund list
+                //turn of controls
+                this.deleteButton.Enabled = false;
+                this.esterdadButton.Enabled = false;
+                this.updateButton.Enabled = false;
+                this.button2.Enabled = false;
+                this.حذفToolStripMenuItem.Enabled = false;
+                this.اضافهToolStripMenuItem.Enabled = false;
+                this.استردادToolStripMenuItem.Enabled = false;
+                this.ewmoveToolStripMenuItem.Enabled = false;
+                
+
+                search((int)ascendingType.refundAscending, this.virtualRefundcheckBox.Checked);
+
+
+            }
+            else
+            {
+                this.deleteButton.Enabled = true;
+                this.esterdadButton.Enabled = true;
+                this.updateButton.Enabled = true;
+                this.button2.Enabled = true;
+                this.حذفToolStripMenuItem.Enabled = true;
+                this.اضافهToolStripMenuItem.Enabled = true;
+                this.استردادToolStripMenuItem.Enabled = true;
+                this.ewmoveToolStripMenuItem.Enabled = true;
+                search((int)ascendingType.refundAscending, this.virtualRefundcheckBox.Checked);
+
+            }
+        }
+
+      
     }
 
 

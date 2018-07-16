@@ -41,44 +41,45 @@
             this.daftarTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cityTableTableAdapter2 = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.validCityComboBox = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.deleteRestrictionButton = new System.Windows.Forms.Button();
-            this.addRestrictionButton = new System.Windows.Forms.Button();
-            this.endDateTimePickerX1 = new BehComponents.DateTimePickerX();
             this.validationDataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.endDateTimePickerX1 = new BehComponents.DateTimePickerX();
+            this.addRestrictionButton = new System.Windows.Forms.Button();
+            this.deleteRestrictionButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.validCityComboBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.IDTextBox = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.CityTextBox = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.cityDataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.CityTextBox = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.IDTextBox = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.usersDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.passWordTextBox = new System.Windows.Forms.TextBox();
-            this.userNameTextBox = new System.Windows.Forms.TextBox();
-            this.addButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.removeButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.familyTextBox = new System.Windows.Forms.TextBox();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.familyLabel = new System.Windows.Forms.Label();
-            this.cityComboBox = new System.Windows.Forms.ComboBox();
             this.persmissionCheckBox = new System.Windows.Forms.CheckBox();
+            this.cityComboBox = new System.Windows.Forms.ComboBox();
+            this.familyLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.familyTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.removeButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.addButton = new System.Windows.Forms.Button();
+            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.passWordTextBox = new System.Windows.Forms.TextBox();
+            this.usersDataGridView = new System.Windows.Forms.DataGridView();
             this.validationTab = new System.Windows.Forms.TabControl();
+            this.lockAllCitiesCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maliDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maliDataSet)).BeginInit();
@@ -87,18 +88,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarTableBindingSource)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.validationDataGridView)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cityDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cityDataGridView)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
             this.validationTab.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,6 +156,25 @@
             this.tabPage4.Text = "مدیریت دسترسی";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // validationDataGridView
+            // 
+            this.validationDataGridView.AllowUserToAddRows = false;
+            this.validationDataGridView.AllowUserToDeleteRows = false;
+            this.validationDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.validationDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            this.validationDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.validationDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.validationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.validationDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.validationDataGridView.GridColor = System.Drawing.SystemColors.Control;
+            this.validationDataGridView.Location = new System.Drawing.Point(3, 183);
+            this.validationDataGridView.Name = "validationDataGridView";
+            this.validationDataGridView.ReadOnly = true;
+            this.validationDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.validationDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.validationDataGridView.Size = new System.Drawing.Size(796, 454);
+            this.validationDataGridView.TabIndex = 13;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.groupBox4);
@@ -168,18 +188,9 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "مدیریت دسترسی ";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::negar.Properties.Resources.How_to_manage_access_to_permission;
-            this.pictureBox3.Location = new System.Drawing.Point(-7, 27);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(265, 147);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.lockAllCitiesCheckBox);
             this.groupBox4.Controls.Add(this.endDateTimePickerX1);
             this.groupBox4.Controls.Add(this.addRestrictionButton);
             this.groupBox4.Controls.Add(this.deleteRestrictionButton);
@@ -191,59 +202,6 @@
             this.groupBox4.Size = new System.Drawing.Size(502, 155);
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(469, 29);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "شهر";
-            // 
-            // validCityComboBox
-            // 
-            this.validCityComboBox.DataSource = this.cityTableBindingSource2;
-            this.validCityComboBox.DisplayMember = "CityName";
-            this.validCityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.validCityComboBox.FormattingEnabled = true;
-            this.validCityComboBox.Location = new System.Drawing.Point(280, 29);
-            this.validCityComboBox.Name = "validCityComboBox";
-            this.validCityComboBox.Size = new System.Drawing.Size(121, 21);
-            this.validCityComboBox.TabIndex = 1;
-            this.validCityComboBox.ValueMember = "Id";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(407, 56);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 13);
-            this.label7.TabIndex = 37;
-            this.label7.Text = "اعمال قفل تا تاریخ";
-            // 
-            // deleteRestrictionButton
-            // 
-            this.deleteRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.deleteRestrictionButton.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
-            this.deleteRestrictionButton.Location = new System.Drawing.Point(310, 98);
-            this.deleteRestrictionButton.Name = "deleteRestrictionButton";
-            this.deleteRestrictionButton.Size = new System.Drawing.Size(42, 24);
-            this.deleteRestrictionButton.TabIndex = 5;
-            this.deleteRestrictionButton.UseVisualStyleBackColor = true;
-            this.deleteRestrictionButton.Click += new System.EventHandler(this.deleteRestrictionButton_Click);
-            // 
-            // addRestrictionButton
-            // 
-            this.addRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addRestrictionButton.Image = global::negar.Properties.Resources.add_icon__1_;
-            this.addRestrictionButton.Location = new System.Drawing.Point(358, 98);
-            this.addRestrictionButton.Name = "addRestrictionButton";
-            this.addRestrictionButton.Size = new System.Drawing.Size(42, 24);
-            this.addRestrictionButton.TabIndex = 4;
-            this.addRestrictionButton.UseVisualStyleBackColor = true;
-            this.addRestrictionButton.Click += new System.EventHandler(this.addRestrictionButton_Click);
             // 
             // endDateTimePickerX1
             // 
@@ -318,24 +276,68 @@
             this.endDateTimePickerX1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.endDateTimePickerX1.TextWhenClearButtonClicked = "";
             // 
-            // validationDataGridView
+            // addRestrictionButton
             // 
-            this.validationDataGridView.AllowUserToAddRows = false;
-            this.validationDataGridView.AllowUserToDeleteRows = false;
-            this.validationDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.validationDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
-            this.validationDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.validationDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.validationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.validationDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.validationDataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.validationDataGridView.Location = new System.Drawing.Point(3, 183);
-            this.validationDataGridView.Name = "validationDataGridView";
-            this.validationDataGridView.ReadOnly = true;
-            this.validationDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.validationDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.validationDataGridView.Size = new System.Drawing.Size(796, 454);
-            this.validationDataGridView.TabIndex = 13;
+            this.addRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addRestrictionButton.Image = global::negar.Properties.Resources.add_icon__1_;
+            this.addRestrictionButton.Location = new System.Drawing.Point(358, 98);
+            this.addRestrictionButton.Name = "addRestrictionButton";
+            this.addRestrictionButton.Size = new System.Drawing.Size(42, 24);
+            this.addRestrictionButton.TabIndex = 4;
+            this.addRestrictionButton.UseVisualStyleBackColor = true;
+            this.addRestrictionButton.Click += new System.EventHandler(this.addRestrictionButton_Click);
+            // 
+            // deleteRestrictionButton
+            // 
+            this.deleteRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.deleteRestrictionButton.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
+            this.deleteRestrictionButton.Location = new System.Drawing.Point(310, 98);
+            this.deleteRestrictionButton.Name = "deleteRestrictionButton";
+            this.deleteRestrictionButton.Size = new System.Drawing.Size(42, 24);
+            this.deleteRestrictionButton.TabIndex = 5;
+            this.deleteRestrictionButton.UseVisualStyleBackColor = true;
+            this.deleteRestrictionButton.Click += new System.EventHandler(this.deleteRestrictionButton_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(407, 56);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 13);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "اعمال قفل تا تاریخ";
+            // 
+            // validCityComboBox
+            // 
+            this.validCityComboBox.DataSource = this.cityTableBindingSource2;
+            this.validCityComboBox.DisplayMember = "CityName";
+            this.validCityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.validCityComboBox.FormattingEnabled = true;
+            this.validCityComboBox.Location = new System.Drawing.Point(280, 29);
+            this.validCityComboBox.Name = "validCityComboBox";
+            this.validCityComboBox.Size = new System.Drawing.Size(121, 21);
+            this.validCityComboBox.TabIndex = 1;
+            this.validCityComboBox.ValueMember = "Id";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(469, 29);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "شهر";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::negar.Properties.Resources.How_to_manage_access_to_permission;
+            this.pictureBox3.Location = new System.Drawing.Point(-7, 27);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(265, 147);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
             // 
             // tabPage2
             // 
@@ -348,91 +350,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "مدیریت شهرها";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.CityTextBox);
-            this.groupBox2.Controls.Add(this.pictureBox2);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.IDTextBox);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(796, 207);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "مدیریت شهرها";
-            // 
-            // IDTextBox
-            // 
-            this.IDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.IDTextBox.Location = new System.Drawing.Point(585, 30);
-            this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.IDTextBox.TabIndex = 0;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.button4.Image = global::negar.Properties.Resources.add_icon__1_;
-            this.button4.Location = new System.Drawing.Point(643, 85);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(42, 24);
-            this.button4.TabIndex = 2;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.addCityToFormManagerButton_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::negar.Properties.Resources.map_0000;
-            this.pictureBox2.Location = new System.Drawing.Point(26, 30);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(137, 131);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // CityTextBox
-            // 
-            this.CityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.CityTextBox.Location = new System.Drawing.Point(585, 59);
-            this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(100, 20);
-            this.CityTextBox.TabIndex = 1;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.button3.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
-            this.button3.Location = new System.Drawing.Point(595, 85);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(42, 24);
-            this.button3.TabIndex = 3;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.RemoveButton_Click);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(706, 33);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "شناسه شهر";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(721, 62);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = " نام شهر";
             // 
             // cityDataGridView
             // 
@@ -452,6 +369,91 @@
             this.cityDataGridView.Size = new System.Drawing.Size(796, 421);
             this.cityDataGridView.TabIndex = 10;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.CityTextBox);
+            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.IDTextBox);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox2.Size = new System.Drawing.Size(796, 207);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "مدیریت شهرها";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(721, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = " نام شهر";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(706, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "شناسه شهر";
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.button3.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
+            this.button3.Location = new System.Drawing.Point(595, 85);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(42, 24);
+            this.button3.TabIndex = 3;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.RemoveButton_Click);
+            // 
+            // CityTextBox
+            // 
+            this.CityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.CityTextBox.Location = new System.Drawing.Point(585, 59);
+            this.CityTextBox.Name = "CityTextBox";
+            this.CityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CityTextBox.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::negar.Properties.Resources.map_0000;
+            this.pictureBox2.Location = new System.Drawing.Point(26, 30);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(137, 131);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.button4.Image = global::negar.Properties.Resources.add_icon__1_;
+            this.button4.Location = new System.Drawing.Point(643, 85);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(42, 24);
+            this.button4.TabIndex = 2;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.addCityToFormManagerButton_Click);
+            // 
+            // IDTextBox
+            // 
+            this.IDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.IDTextBox.Location = new System.Drawing.Point(585, 30);
+            this.IDTextBox.Name = "IDTextBox";
+            this.IDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.IDTextBox.TabIndex = 0;
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -463,25 +465,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "مدیریت کاربران";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // usersDataGridView
-            // 
-            this.usersDataGridView.AllowUserToAddRows = false;
-            this.usersDataGridView.AllowUserToDeleteRows = false;
-            this.usersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.usersDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
-            this.usersDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.usersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usersDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.usersDataGridView.Location = new System.Drawing.Point(3, 232);
-            this.usersDataGridView.Name = "usersDataGridView";
-            this.usersDataGridView.ReadOnly = true;
-            this.usersDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.usersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersDataGridView.Size = new System.Drawing.Size(796, 405);
-            this.usersDataGridView.TabIndex = 8;
-            this.usersDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.usersDataGridView_CellFormatting);
             // 
             // groupBox1
             // 
@@ -508,119 +491,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "مدیر کاربری";
             // 
-            // passWordTextBox
+            // persmissionCheckBox
             // 
-            this.passWordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.passWordTextBox.Location = new System.Drawing.Point(551, 130);
-            this.passWordTextBox.Name = "passWordTextBox";
-            this.passWordTextBox.Size = new System.Drawing.Size(100, 20);
-            this.passWordTextBox.TabIndex = 4;
-            // 
-            // userNameTextBox
-            // 
-            this.userNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.userNameTextBox.Location = new System.Drawing.Point(551, 106);
-            this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.userNameTextBox.TabIndex = 3;
-            // 
-            // addButton
-            // 
-            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.addButton.Image = global::negar.Properties.Resources.add_icon__1_;
-            this.addButton.Location = new System.Drawing.Point(681, 180);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(42, 26);
-            this.addButton.TabIndex = 6;
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::negar.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(44, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(141, 145);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // removeButton
-            // 
-            this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.removeButton.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
-            this.removeButton.Location = new System.Drawing.Point(633, 180);
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(42, 26);
-            this.removeButton.TabIndex = 7;
-            this.removeButton.UseVisualStyleBackColor = true;
-            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(668, 109);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "نام کاربری";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(679, 137);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "گذر واژه";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(699, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "شهر";
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.nameTextBox.Location = new System.Drawing.Point(551, 19);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 0;
-            // 
-            // familyTextBox
-            // 
-            this.familyTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.familyTextBox.Location = new System.Drawing.Point(551, 48);
-            this.familyTextBox.Name = "familyTextBox";
-            this.familyTextBox.Size = new System.Drawing.Size(100, 20);
-            this.familyTextBox.TabIndex = 1;
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(706, 19);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(20, 13);
-            this.nameLabel.TabIndex = 12;
-            this.nameLabel.Text = "نام";
-            // 
-            // familyLabel
-            // 
-            this.familyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.familyLabel.AutoSize = true;
-            this.familyLabel.Location = new System.Drawing.Point(657, 51);
-            this.familyLabel.Name = "familyLabel";
-            this.familyLabel.Size = new System.Drawing.Size(69, 13);
-            this.familyLabel.TabIndex = 13;
-            this.familyLabel.Text = "نام خانوادگی";
+            this.persmissionCheckBox.AutoSize = true;
+            this.persmissionCheckBox.Location = new System.Drawing.Point(644, 153);
+            this.persmissionCheckBox.Name = "persmissionCheckBox";
+            this.persmissionCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.persmissionCheckBox.Size = new System.Drawing.Size(79, 17);
+            this.persmissionCheckBox.TabIndex = 5;
+            this.persmissionCheckBox.Text = "مدیر سیستم";
+            this.persmissionCheckBox.UseVisualStyleBackColor = true;
             // 
             // cityComboBox
             // 
@@ -634,16 +514,138 @@
             this.cityComboBox.TabIndex = 2;
             this.cityComboBox.ValueMember = "Id";
             // 
-            // persmissionCheckBox
+            // familyLabel
             // 
-            this.persmissionCheckBox.AutoSize = true;
-            this.persmissionCheckBox.Location = new System.Drawing.Point(644, 153);
-            this.persmissionCheckBox.Name = "persmissionCheckBox";
-            this.persmissionCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.persmissionCheckBox.Size = new System.Drawing.Size(79, 17);
-            this.persmissionCheckBox.TabIndex = 5;
-            this.persmissionCheckBox.Text = "مدیر سیستم";
-            this.persmissionCheckBox.UseVisualStyleBackColor = true;
+            this.familyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.familyLabel.AutoSize = true;
+            this.familyLabel.Location = new System.Drawing.Point(657, 51);
+            this.familyLabel.Name = "familyLabel";
+            this.familyLabel.Size = new System.Drawing.Size(69, 13);
+            this.familyLabel.TabIndex = 13;
+            this.familyLabel.Text = "نام خانوادگی";
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(706, 19);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(20, 13);
+            this.nameLabel.TabIndex = 12;
+            this.nameLabel.Text = "نام";
+            // 
+            // familyTextBox
+            // 
+            this.familyTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.familyTextBox.Location = new System.Drawing.Point(551, 48);
+            this.familyTextBox.Name = "familyTextBox";
+            this.familyTextBox.Size = new System.Drawing.Size(100, 20);
+            this.familyTextBox.TabIndex = 1;
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.nameTextBox.Location = new System.Drawing.Point(551, 19);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nameTextBox.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(699, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "شهر";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(679, 137);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "گذر واژه";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(668, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "نام کاربری";
+            // 
+            // removeButton
+            // 
+            this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.removeButton.Image = global::negar.Properties.Resources.Actions_list_remove_icon;
+            this.removeButton.Location = new System.Drawing.Point(633, 180);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(42, 26);
+            this.removeButton.TabIndex = 7;
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::negar.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(44, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(141, 145);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // addButton
+            // 
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.addButton.Image = global::negar.Properties.Resources.add_icon__1_;
+            this.addButton.Location = new System.Drawing.Point(681, 180);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(42, 26);
+            this.addButton.TabIndex = 6;
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // userNameTextBox
+            // 
+            this.userNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.userNameTextBox.Location = new System.Drawing.Point(551, 106);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.userNameTextBox.TabIndex = 3;
+            // 
+            // passWordTextBox
+            // 
+            this.passWordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.passWordTextBox.Location = new System.Drawing.Point(551, 130);
+            this.passWordTextBox.Name = "passWordTextBox";
+            this.passWordTextBox.Size = new System.Drawing.Size(100, 20);
+            this.passWordTextBox.TabIndex = 4;
+            // 
+            // usersDataGridView
+            // 
+            this.usersDataGridView.AllowUserToAddRows = false;
+            this.usersDataGridView.AllowUserToDeleteRows = false;
+            this.usersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.usersDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            this.usersDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.usersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.usersDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.usersDataGridView.Location = new System.Drawing.Point(3, 232);
+            this.usersDataGridView.Name = "usersDataGridView";
+            this.usersDataGridView.ReadOnly = true;
+            this.usersDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.usersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.usersDataGridView.Size = new System.Drawing.Size(796, 405);
+            this.usersDataGridView.TabIndex = 8;
+            this.usersDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.usersDataGridView_CellFormatting);
             // 
             // validationTab
             // 
@@ -659,6 +661,17 @@
             this.validationTab.Size = new System.Drawing.Size(810, 666);
             this.validationTab.TabIndex = 2;
             this.validationTab.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
+            // 
+            // lockAllCitiesCheckBox
+            // 
+            this.lockAllCitiesCheckBox.AutoSize = true;
+            this.lockAllCitiesCheckBox.Location = new System.Drawing.Point(186, 31);
+            this.lockAllCitiesCheckBox.Name = "lockAllCitiesCheckBox";
+            this.lockAllCitiesCheckBox.Size = new System.Drawing.Size(88, 17);
+            this.lockAllCitiesCheckBox.TabIndex = 38;
+            this.lockAllCitiesCheckBox.Text = "تمامی شهرها";
+            this.lockAllCitiesCheckBox.UseVisualStyleBackColor = true;
+            this.lockAllCitiesCheckBox.CheckedChanged += new System.EventHandler(this.lockAllCitiesCheckBox_CheckedChanged);
             // 
             // ManagerForm
             // 
@@ -683,21 +696,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.daftarTableBindingSource)).EndInit();
             this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.validationDataGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.validationDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cityDataGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cityDataGridView)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
             this.validationTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -753,5 +766,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView validationDataGridView;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.CheckBox lockAllCitiesCheckBox;
     }
 }

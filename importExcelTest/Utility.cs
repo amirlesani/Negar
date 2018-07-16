@@ -64,6 +64,21 @@ namespace negar
             return true;
 
         }
+        public IQueryable<DaftarTable> makeVirtualRefundTable(IQueryable<DaftarTable> entities)
+        {
+            
+            foreach (var entity in entities)
+            {
+                if (entity.Refund > 0)
+                {
+                    entity.Deposit = entity.Refund;
+                    entity.Refund = 0;
+                }
+
+            }
+            return entities;
+
+        }
 
         private static bool IsWhiteSpaceLatin1(char c)
         {

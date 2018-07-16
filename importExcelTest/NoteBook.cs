@@ -177,8 +177,6 @@ namespace negar
         {
             exportTextFile();
         }
-
-      
         
         private void rightclick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -291,7 +289,8 @@ namespace negar
                     }
                     else
                     {
-                        MessageBox.Show("سطری را انتخاب کنید");
+                        MessageBox.Show("سطری را انتخاب کنید", "پیغام سیستم ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
                 }
             }
@@ -386,7 +385,7 @@ namespace negar
                     }
                     else
                     {
-                        MessageBox.Show("سطری را انتخاب کنید");
+                        MessageBox.Show("سطری را انتخاب کنید", "پیغام سیستم ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

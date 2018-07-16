@@ -14,5 +14,8 @@ namespace negar
         public int lastMonthSelected;
         public int lastModeSelected;
         public int pageNumber;
+        public int selectedYear;
+        public int selectedMonth;
+        public int selected;
     }
 }

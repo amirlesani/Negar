@@ -48,12 +48,7 @@ namespace negar
         {
             try
             {
-                SqlManipulator sql = new SqlManipulator();
-                var cities = sql.getDataCity();
-                foreach (var city in cities)
-                {
-                    
-                }
+                
                 this.validationDataGridView.Columns[0].HeaderText = "شناسه";
                 this.validationDataGridView.Columns[1].HeaderText = "توضیحات ";
                 this.validationDataGridView.Columns[2].HeaderText = " شهر";
@@ -305,26 +300,41 @@ namespace negar
 
         private void addRestrictionButton_Click(object sender, EventArgs e)
         {
-            try { 
-            validationTable valid = new validationTable();
+            addRestriction();
+            
+        }
+        private void addRestriction()
+        {
+            try
+            {
+                validationTable valid = new validationTable();
 
-            DateTime endTime = endDateTimePickerX1.SelectedDateInDateTime;
+                DateTime endTime = endDateTimePickerX1.SelectedDateInDateTime;
 
-            StartEndMonthClass date = new StartEndMonthClass();
+                StartEndMonthClass date = new StartEndMonthClass();
 
-            date.endDate = Convert.ToInt64(endTime.ToFa("yyyyMMdd"));
+                date.endDate = Convert.ToInt64(endTime.ToFa("yyyyMMdd"));
 
-            valid.startDate = startendDate.min;
-            valid.enDate = date.endDate;
-            valid.City = Convert.ToInt64(validCityComboBox.SelectedValue);
-            SqlManipulator sql = new SqlManipulator();
-            var cityName = sql.getCityName(valid.City);
-            FarsiDateUtil startDate = new FarsiDateUtil(startendDate.min.ToString());
-            FarsiDateUtil endDate = new FarsiDateUtil(date.endDate.ToString());
-            valid.description = "قفل" + " " + cityName + "  " + endDate.MonthName +  endDate.Year;
-            Report rpt = new Report(sql.addValidation(valid), (int)errorImages.info);
-            rpt.Show();
-            makeValidationTable(sql.getValidationData());
+                valid.startDate = startendDate.min;
+                valid.enDate = date.endDate;
+                valid.City = Convert.ToInt64(validCityComboBox.SelectedValue);
+                SqlManipulator sql = new SqlManipulator();
+
+                if (this.lockAllCitiesCheckBox.Checked == true)
+                {
+                    var cities = sql.getDataCity();
+                    foreach(var city in cities)
+                    {
+                        
+                    }
+                }
+                var cityName = sql.getCityName(valid.City);
+                FarsiDateUtil startDate = new FarsiDateUtil(startendDate.min.ToString());
+                FarsiDateUtil endDate = new FarsiDateUtil(date.endDate.ToString());
+                valid.description = "قفل" + " " + cityName + "  " + endDate.MonthName + endDate.Year;
+                Report rpt = new Report(sql.addValidation(valid), (int)errorImages.info);
+                rpt.Show();
+                makeValidationTable(sql.getValidationData());
 
             }
             catch (Exception ex)
@@ -332,7 +342,6 @@ namespace negar
                 MessageBox.Show(ex.ToString());
 
             }
-            
         }
 
         private void deleteRestrictionButton_Click(object sender, EventArgs e)
@@ -414,6 +423,14 @@ namespace negar
                     e.Value = (value) ? " مدیر سیستم " : " کاربر ";
                     e.FormattingApplied = true;
                 }
+            }
+        }
+
+        private void lockAllCitiesCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(this.lockAllCitiesCheckBox.Checked == true)
+            {
+                this.cityComboBox.Enabled = false;
             }
         }
     }
