@@ -246,7 +246,7 @@
             // 
             this.اضافهToolStripMenuItem.Image = global::negar.Properties.Resources.if_basics_15_2968191;
             this.اضافهToolStripMenuItem.Name = "اضافهToolStripMenuItem";
-            this.اضافهToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.اضافهToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.اضافهToolStripMenuItem.Text = "اضافه";
             this.اضافهToolStripMenuItem.Click += new System.EventHandler(this.اضافهToolStripMenuItem_Click);
             // 
@@ -254,14 +254,14 @@
             // 
             this.حذفToolStripMenuItem.Image = global::negar.Properties.Resources.if_basics_22_296812;
             this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
-            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.حذفToolStripMenuItem.Text = "حذف";
             // 
             // تغییرToolStripMenuItem
             // 
             this.تغییرToolStripMenuItem.Image = global::negar.Properties.Resources.if_081_Pen_183209__1_;
             this.تغییرToolStripMenuItem.Name = "تغییرToolStripMenuItem";
-            this.تغییرToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.تغییرToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.تغییرToolStripMenuItem.Text = "تغییر";
             this.تغییرToolStripMenuItem.Click += new System.EventHandler(this.تغییرToolStripMenuItem_Click);
             // 
@@ -372,11 +372,11 @@
             // 
             this.virtualRefundcheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.virtualRefundcheckBox.AutoSize = true;
-            this.virtualRefundcheckBox.Location = new System.Drawing.Point(236, 19);
+            this.virtualRefundcheckBox.Location = new System.Drawing.Point(225, 19);
             this.virtualRefundcheckBox.Name = "virtualRefundcheckBox";
-            this.virtualRefundcheckBox.Size = new System.Drawing.Size(133, 17);
+            this.virtualRefundcheckBox.Size = new System.Drawing.Size(144, 17);
             this.virtualRefundcheckBox.TabIndex = 25;
-            this.virtualRefundcheckBox.Text = "لیست مجازی درخواست ";
+            this.virtualRefundcheckBox.Text = "لیست مجازی درخواست ها";
             this.virtualRefundcheckBox.UseVisualStyleBackColor = true;
             this.virtualRefundcheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 

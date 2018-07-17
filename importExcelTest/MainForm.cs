@@ -271,6 +271,7 @@ namespace negar
                     }
                     
                 }
+                
                 search(defaultAscending, this.virtualRefundcheckBox.Checked);
             }
             catch (Exception) { throw; }
@@ -497,6 +498,7 @@ namespace negar
                     yearComboBox.SelectedIndex = lastState.lastYearSelected;
                     monthComboBox.SelectedIndex = lastState.lastMonthSelected;
                     this.orderComboBox.SelectedIndex = lastState.lastModeSelected;
+
                 }
                             }
             catch(Exception)
@@ -722,6 +724,9 @@ namespace negar
             lst.lastModeSelected = this.orderComboBox.SelectedIndex;
             lst.lastYearSelected = this.yearComboBox.SelectedIndex;
             lst.lastMonthSelected = this.monthComboBox.SelectedIndex;
+
+            
+
             return lst;
         }
         private void addButton_Click(object sender, EventArgs e)
@@ -813,7 +818,7 @@ namespace negar
                     if(searchAllCheckBox.Checked)
                     { yearComboBox.Enabled = false; }
                     else { yearComboBox.Enabled = true; }
-                    monthComboBox.Enabled = false;
+                  //  monthComboBox.Enabled = false;
                     
                 }
                 catch (Exception ex)
@@ -922,6 +927,7 @@ namespace negar
                 if (virtualRefundList)
                 {
                     searchResult.query = utl.makeVirtualRefundTable(searchResult.query);
+                    
                 }
                 resetNavigationButtons();
                 refreshLastState(getLastState(), pageNumber, searchResult);
@@ -991,6 +997,7 @@ namespace negar
                 if(virtualRefundList)
                 {
                     query.query = utl.makeVirtualRefundTable(query.query);
+                   
                 }
                 try
                 {
@@ -1029,7 +1036,7 @@ namespace negar
 
         private void setYearMonthComboBox(long cityID)
         {
-
+            var lastState = getLastState();
             yearComboBox.Items.Clear();
             monthComboBox.Items.Clear();
             SqlManipulator sql = new SqlManipulator();
@@ -1051,7 +1058,18 @@ namespace negar
                         monthComboBox.Items.Add(new ComboboxItem(utl.getMonthName(month), month));
                     }
 
+                    if (lastState.lastYearSelected > this.yearComboBox.Items.Count)
+                    {
+                        MessageBox.Show("تاریخ مورد نظر حذف شده است");
+                    }
+                    else {
+                        this.yearComboBox.SelectedIndex = lastState.lastYearSelected;
+                        this.monthComboBox.SelectedIndex = lastState.lastMonthSelected;
+                    }
+
+
                 }
+                
                 catch (Exception )
                 {
                     MessageBox.Show("تاریخی برای تنظیم اولیه وجود ندارد ! با پشتیبانی تماس بگیرید");
@@ -1499,9 +1517,10 @@ namespace negar
                 this.اضافهToolStripMenuItem.Enabled = false;
                 this.استردادToolStripMenuItem.Enabled = false;
                 this.ewmoveToolStripMenuItem.Enabled = false;
-                
-
-                search((int)ascendingType.refundAscending, this.virtualRefundcheckBox.Checked);
+                this.addToolStripMenuItem.Enabled = false;
+                this.اضافهToolStripMenuItem1.Enabled = false;
+                this.تغییرToolStripMenuItem.Enabled = false;
+                search(defaultAscending, this.virtualRefundcheckBox.Checked);
 
 
             }
@@ -1515,7 +1534,11 @@ namespace negar
                 this.اضافهToolStripMenuItem.Enabled = true;
                 this.استردادToolStripMenuItem.Enabled = true;
                 this.ewmoveToolStripMenuItem.Enabled = true;
-                search((int)ascendingType.refundAscending, this.virtualRefundcheckBox.Checked);
+                this.addToolStripMenuItem.Enabled = true;
+                this.اضافهToolStripMenuItem1.Enabled = true;
+                this.تغییرToolStripMenuItem.Enabled = true;
+
+                search(defaultAscending, this.virtualRefundcheckBox.Checked);
 
             }
         }
