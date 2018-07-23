@@ -285,7 +285,7 @@ namespace negar
                 string date = year + "/" + month + "/" + day;
                 return date;
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                 MessageBox.Show("خطا در زمان");
                 throw;

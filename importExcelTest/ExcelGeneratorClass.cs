@@ -12,9 +12,9 @@ namespace negar
     
     class ExcelGeneratorClass
     {
-        private string fileName;
-        private List<string> header;
-        private IQueryable<DaftarTable> query;
+        //private string fileName;
+        //private List<string> header;
+        //private IQueryable<DaftarTable> query;
 
        
 

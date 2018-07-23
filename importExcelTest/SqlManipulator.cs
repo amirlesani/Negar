@@ -495,7 +495,7 @@ namespace negar
             }
 
             //duplicate record
-            catch (System.Data.SqlClient.SqlException ex)
+            catch (System.Data.SqlClient.SqlException )
             {
                // MessageBox.Show(ex.ToString()); 
                 // DaftarModelDataContext db = new DaftarModelDataContext(cn);

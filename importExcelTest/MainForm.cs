@@ -459,12 +459,11 @@ namespace negar
                 setYearMonthComboBox(login.cityID);
                 try
                 {
-                    if (lastState.lastMonthSelected != null || lastState.lastYearSelected != null)
-                    {
+                   
                         yearComboBox.SelectedIndex = lastState.lastYearSelected;
                         monthComboBox.SelectedIndex = lastState.lastMonthSelected;
                         this.orderComboBox.SelectedIndex = lastState.lastModeSelected;
-                    }
+                  
                 }
                 catch (Exception)
                 {
@@ -495,13 +494,12 @@ namespace negar
             }
             setYearMonthComboBox(login.cityID);
             try {
-                if(lastState.lastMonthSelected !=null || lastState.lastYearSelected !=null)
-                {
+              
                     yearComboBox.SelectedIndex = lastState.lastYearSelected;
                     monthComboBox.SelectedIndex = lastState.lastMonthSelected;
                     this.orderComboBox.SelectedIndex = lastState.lastModeSelected;
 
-                }
+                
                             }
             catch(Exception)
             {
@@ -852,37 +850,48 @@ namespace negar
         
         private void forwardButton_Click(object sender, EventArgs e)
         {
+            forward();
+            
+        }
+        private bool isTheLastPage = false;
+        private void forward()
+        {
             pageNumber++;
             var s = this.lastResult.queryPageNumber.ToString();
-            page = this.lastResult.queryPageNumber ;
+            page = this.lastResult.queryPageNumber;
             backwardButton.Enabled = true;
-            if (pageNumber > page )
+            if (pageNumber > page)
             {
                 forwardButton.Enabled = false;
+                isTheFirstPage = true;
                 return;
             }
             pageNumberlabel.Text = pageNumber.ToString();
 
 
-                var p = this.lastResult;
-                if (lastResult.queryPageNumber == 0)
-                {
-                    forwardButton.Enabled = false;
-                    return;
-                }
-                paginationQuery(p,pageNumber);
-                backwardButton.Enabled = true;
+            var p = this.lastResult;
+            if (lastResult.queryPageNumber == 0)
+            {
+                forwardButton.Enabled = false;
+                return;
+            }
+            paginationQuery(p, pageNumber);
+            backwardButton.Enabled = true;
 
             if (pageNumber >= page)
             {
                 forwardButton.Enabled = false;
             }
-            
         }
 
         private void backardButton_Click(object sender, EventArgs e)
         {
 
+            backward(); 
+        }
+        private bool isTheFirstPage = false;
+        private void backward()
+        {
             forwardButton.Enabled = true;
             pageNumber--;
 
@@ -893,6 +902,7 @@ namespace negar
             if (pageNumber == 0)
             {
                 backwardButton.Enabled = false;
+                isTheFirstPage = true;
                 return;
             }
         }
@@ -1006,7 +1016,7 @@ namespace negar
                     lastResult = query;
 
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                     return;
                 }
@@ -1378,6 +1388,9 @@ namespace negar
                 AddEditForm add = new AddEditForm(login, this, true, rowsData,pageNumber,getLastState());
                 add.Show();
             }
+
+
+           
         }
 
         private void checkToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1474,6 +1487,7 @@ namespace negar
         private void نامشهرToolStripMenuItem_Click(object sender, EventArgs e)
         {
             search((int)ascendingType.cityAscending, this.virtualRefundcheckBox.Checked);
+            defaultAscending = (int)ascendingType.cityAscending;
         }
 
         private void تاریخToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1547,7 +1561,39 @@ namespace negar
             }
         }
 
-      
+        private void mainDataGridView_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)Keys.Right)
+            {
+                MessageBox.Show("Enter key pressed");
+            }
+            if (e.KeyChar == (char)Keys.Left)
+            {
+                MessageBox.Show("Enter key pressed");
+            }
+        }
+        protected override bool IsInputKey(Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Right:
+                case Keys.Left:
+                case Keys.Up:
+                case Keys.Down:
+                    return true;
+                case Keys.Shift | Keys.Right:
+                case Keys.Shift | Keys.Left:
+                case Keys.Shift | Keys.Up:
+                case Keys.Shift | Keys.Down:
+                    return true;
+            }
+            return base.IsInputKey(keyData);
+        }
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+          
+        }
     }
 
 

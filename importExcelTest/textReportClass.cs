@@ -40,9 +40,9 @@ namespace negar
                     writer.Close();
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                
+                throw;
             }
 
           }

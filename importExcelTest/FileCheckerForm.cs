@@ -51,7 +51,7 @@ namespace negar
                 return;
             }
             }
-            catch(Exception ex)
+            catch(Exception )
             {
                 MessageBox.Show("جدول خارج از قالب است");
             }

@@ -507,6 +507,7 @@
             this.mainDataGridView.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.mainDataGridView_CellMouseLeave);
             this.mainDataGridView.SelectionChanged += new System.EventHandler(this.mainDataGridView_SelectionChanged);
             this.mainDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mainDataGridView_KeyDown);
+            this.mainDataGridView.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mainDataGridView_KeyPress);
             // 
             // groupBox4
             // 
