@@ -194,7 +194,7 @@ namespace negar
                     rpt.Show();
 
                     
-                    form.refreshLastState(this.lastState,pageNumber);
+                    form.refreshLastState(this.lastState,pageNumber,false);
                 }
                
             catch (Exception ex)

@@ -190,8 +190,10 @@
     <Compile Include="EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EntityToExcelSheet.cs" />
     <Compile Include="ExcelGeneratorClass.cs" />
     <Compile Include="ExcelManipulatorcs.cs" />
+    <Compile Include="ExcelReportOnFormat.cs" />
     <Compile Include="ExcelValidationClass.cs" />
     <Compile Include="FarsiDateUtil.cs" />
     <Compile Include="FileCheckerForm.cs">

@@ -156,7 +156,7 @@ namespace negar
                 };
                 Report rpt = new Report(sql.update(newDaftar,godmode), (int)errorImages.info);
                 rpt.Show();
-                form.refreshLastState(lastState, pageNumber);
+                form.refreshLastState(lastState, pageNumber,false);
                 this.Hide();
             }
             catch (Exception ex)

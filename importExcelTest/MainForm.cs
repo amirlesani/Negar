@@ -119,7 +119,7 @@ namespace negar
         }
         private void saveLastState(LasteStateClass state)
         {
-                    refreshLastState(state,pageNumber);
+                    refreshLastState(state,pageNumber,false);
         }
         public void setCityComboBox()
         {
@@ -418,7 +418,7 @@ namespace negar
                     var refundItems = sql.refund(datasForModify,godmode);
                     Report rpt = new Report(refundItems, (int)errorImages.info);
                     rpt.Show();
-                    refreshLastState(getLastState(),pageNumber);
+                    refreshLastState(getLastState(),pageNumber,false);
                 }
             }
             else
@@ -426,7 +426,7 @@ namespace negar
                 return;
             }
         }
-        public void refreshLastState(LasteStateClass lastState, int pageNumber)
+        public void refreshLastState(LasteStateClass lastState, int pageNumber,bool advancedDateSearch)
         {
 
             SqlManipulator sql = new SqlManipulator();
@@ -454,22 +454,24 @@ namespace negar
                 var item = (ComboboxItem)cityComboBox.SelectedItem;
                 login.cityID = item.Value;
             }
-            setYearMonthComboBox(login.cityID);
-            try
+            if(!advancedDateSearch)
             {
-                if (lastState.lastMonthSelected != null || lastState.lastYearSelected != null)
+                setYearMonthComboBox(login.cityID);
+                try
                 {
-                    yearComboBox.SelectedIndex = lastState.lastYearSelected;
-                    monthComboBox.SelectedIndex = lastState.lastMonthSelected;
-                    this.orderComboBox.SelectedIndex = lastState.lastModeSelected;
+                    if (lastState.lastMonthSelected != null || lastState.lastYearSelected != null)
+                    {
+                        yearComboBox.SelectedIndex = lastState.lastYearSelected;
+                        monthComboBox.SelectedIndex = lastState.lastMonthSelected;
+                        this.orderComboBox.SelectedIndex = lastState.lastModeSelected;
+                    }
                 }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+                catch (Exception)
+                {
+                    throw;
+                }
 
-
+            }
         }
         public  void refreshLastState(LasteStateClass lastState,int pageNumber,Result query)
         {
@@ -672,7 +674,7 @@ namespace negar
 
                 datasForModify.Clear();
 
-                refreshLastState(getLastState(),pageNumber);
+                refreshLastState(getLastState(),pageNumber,false);
 
             }
             else if (dialogResult == DialogResult.No)
@@ -1025,7 +1027,7 @@ namespace negar
             monthComboBox.Enabled = false;
             yearComboBox.Enabled = false;
             resetNavigationButtons();
-            refreshLastState(getLastState(), pageNumber);
+            refreshLastState(getLastState(), pageNumber,true);
 
             //saveLastState(getLastState());
         }
@@ -1464,6 +1466,8 @@ namespace negar
         private void ShowSelectedDataButton_Click(object sender, EventArgs e)
         {
             search(defaultAscending, this.virtualRefundcheckBox.Checked);
+            this.monthComboBox.Enabled = true;
+            this.yearComboBox.Enabled = true;
         }
      
 

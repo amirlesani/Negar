@@ -320,14 +320,14 @@ namespace negar
                 valid.City = Convert.ToInt64(validCityComboBox.SelectedValue);
                 SqlManipulator sql = new SqlManipulator();
 
-                if (this.lockAllCitiesCheckBox.Checked == true)
-                {
-                    var cities = sql.getDataCity();
-                    foreach(var city in cities)
-                    {
+                //if (this.lockAllCitiesCheckBox.Checked == true)
+                //{
+                //    var cities = sql.getDataCity();
+                //    foreach(var city in cities)
+                //    {
                         
-                    }
-                }
+                //    }
+                //}
                 var cityName = sql.getCityName(valid.City);
                 FarsiDateUtil startDate = new FarsiDateUtil(startendDate.min.ToString());
                 FarsiDateUtil endDate = new FarsiDateUtil(date.endDate.ToString());
@@ -428,10 +428,10 @@ namespace negar
 
         private void lockAllCitiesCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if(this.lockAllCitiesCheckBox.Checked == true)
-            {
-                this.cityComboBox.Enabled = false;
-            }
+            //if(this.lockAllCitiesCheckBox.Checked == true)
+            //{
+            //    this.cityComboBox.Enabled = false;
+            //}
         }
     }
 }

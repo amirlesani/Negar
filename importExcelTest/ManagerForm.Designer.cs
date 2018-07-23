@@ -79,7 +79,6 @@
             this.passWordTextBox = new System.Windows.Forms.TextBox();
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
             this.validationTab = new System.Windows.Forms.TabControl();
-            this.lockAllCitiesCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maliDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maliDataSet)).BeginInit();
@@ -190,7 +189,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.lockAllCitiesCheckBox);
             this.groupBox4.Controls.Add(this.endDateTimePickerX1);
             this.groupBox4.Controls.Add(this.addRestrictionButton);
             this.groupBox4.Controls.Add(this.deleteRestrictionButton);
@@ -662,17 +660,6 @@
             this.validationTab.TabIndex = 2;
             this.validationTab.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
-            // lockAllCitiesCheckBox
-            // 
-            this.lockAllCitiesCheckBox.AutoSize = true;
-            this.lockAllCitiesCheckBox.Location = new System.Drawing.Point(186, 31);
-            this.lockAllCitiesCheckBox.Name = "lockAllCitiesCheckBox";
-            this.lockAllCitiesCheckBox.Size = new System.Drawing.Size(88, 17);
-            this.lockAllCitiesCheckBox.TabIndex = 38;
-            this.lockAllCitiesCheckBox.Text = "تمامی شهرها";
-            this.lockAllCitiesCheckBox.UseVisualStyleBackColor = true;
-            this.lockAllCitiesCheckBox.CheckedChanged += new System.EventHandler(this.lockAllCitiesCheckBox_CheckedChanged);
-            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -766,6 +753,5 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView validationDataGridView;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.CheckBox lockAllCitiesCheckBox;
     }
 }

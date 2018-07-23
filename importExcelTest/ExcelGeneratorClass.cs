@@ -20,11 +20,24 @@ namespace negar
 
         public ExcelGeneratorClass(IQueryable<DaftarTable> data ,string path,List<string> header)
         {
-            
-            string newFileName = path  + ".xlsx";
+
+            string newFileName = path + ".xlsx";
             var q = data.OrderBy(o => o.PlaceName);
             //var t = from a in q select new { a.CodeBudget,a.DepositOwnerDetail,a.AccountType,a.PlaceName,a.BillDetailCode,a.DepositDetail,a.Deposit,a.Refund };
-            makeReport(q.ToList(), newFileName,header);
+            makeReport(q.ToList(), newFileName, header);
+
+            //var p = (from a in data select new { a.CodeBudget, a.DepositOwnerDetail });
+
+            //List<ExcelReportOnFormat> excelReport = new List<ExcelReportOnFormat>();
+
+            //string newFileName2 = path + ".xlsx";
+            //makeReport(data.ToList(),newFileName2,header);
+
+
+
+            //var q = from row in db.DaftarTables
+            //        group row by true into r
+            //        select new { min = r.Min(z => z.RealDate), max = r.Max(z => z.RealDate) };
         }
         public string ReplaceXMLEncodedCharacters(string input)
         {
@@ -62,7 +75,7 @@ namespace negar
             string result = "report finished";
             try
             {
-                var data = correctToXmlChar(source);
+               var data = correctToXmlChar(source);
                 CreateExcelFile.CreateExcelDocument<DaftarTable>(data,dest,header,true);
                 //checking file 
                 // CreateExcelFile.validation(dest);
@@ -74,5 +87,6 @@ namespace negar
             }
             return result;
         }
+      
     }
 }
