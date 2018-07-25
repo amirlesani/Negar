@@ -68,7 +68,10 @@ namespace negar
             orderComboBox.Enabled = false;
             yearComboBox.Enabled = false;
             advancedSearch = false;
-            godmode = false;
+            //this.emptyDataLable.Enabled = false;
+            this.emptyDataPictureBox.Visible = false;
+
+            godmode = true;
             comboBox1.SelectedIndex = 1;
             this.orderComboBox.SelectedIndex = 0;
             selectedID = new List<long>();
@@ -294,7 +297,6 @@ namespace negar
         }
         private Result  searchResultQuery(int orderType)
         {
-
             int value = this.comboBox1.SelectedIndex;
             var searchMode = (mode)this.orderComboBox.SelectedIndex;
             SqlManipulator sql = new SqlManipulator();
@@ -381,6 +383,16 @@ namespace negar
         { 
             try
             {
+                if(data == null)
+                {
+                    //this.emptyDataLable.Enabled = true;
+                    this.emptyDataPictureBox.Visible = true;
+                }
+                else
+                {
+                    //this.emptyDataLable.Enabled = false;
+                    this.emptyDataPictureBox.Visible = false;
+                }
               
                 mainDataGridView.DataSource = data.ToList();
                 mainDataGridView.ClearSelection();
@@ -707,10 +719,14 @@ namespace negar
             ImportExcel excelForm = new ImportExcel(this,this.login);
             excelForm.Show();
         }
-
+         
         private void خروجToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+         
+            this.Close();
+
+            
+          
         }        
         LasteStateClass getLastState()
         {
@@ -768,6 +784,7 @@ namespace negar
                 }
                 yearComboBox.Items.Clear();
                 setYearMonthComboBox(login.cityID);
+                
             }
             catch (Exception ex)
             {
@@ -922,8 +939,11 @@ namespace negar
             search(defaultAscending,this.virtualRefundcheckBox.Checked);
     
         }
-        private void search(int orderBy,bool virtualRefundList)
+        private void search(int orderBy,bool isVirtualRefundList)
         {
+            //this.emptyDataLable.Enabled = false;
+            this.emptyDataPictureBox.Visible = false;
+
             if (this.searchAllCheckBox.Checked)
             {
                 if (login.permission)
@@ -936,7 +956,7 @@ namespace negar
                 var searchResult = searchResultQuery((int)orderBy);
                 Utility utl = new Utility();
 
-                if (virtualRefundList)
+                if (isVirtualRefundList)
                 {
                     searchResult.query = utl.makeVirtualRefundTable(searchResult.query);
                     
@@ -946,7 +966,9 @@ namespace negar
                 if (!searchResult.query.Any())
                 {
                     this.mainDataGridView.DataSource = null;
-                    this.forwardButton.Enabled = false;
+                    this.emptyDataPictureBox.Enabled = true;
+                    this.emptyDataPictureBox.Visible = true;
+                    this.forwardButton.Enabled = true;
                     return;
                 }
                 try
@@ -1001,12 +1023,21 @@ namespace negar
                 {
                     /// MessageBox.Show(" ! نتیجه ایی یافت نشد","هشدار ",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     /// 
+                  //  //this.emptyDataLable.Enabled = true;
+                    this.emptyDataPictureBox.Visible = true;
+
                     this.mainDataGridView.DataSource = null;
                     this.forwardButton.Enabled = false;
                     return;
                 }
-                
-                if(virtualRefundList)
+                else
+                {
+                    //this.emptyDataLable.Enabled = false;
+                    this.emptyDataPictureBox.Visible = false;
+
+                }
+
+                if (isVirtualRefundList)
                 {
                     query.query = utl.makeVirtualRefundTable(query.query);
                    

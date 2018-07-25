@@ -195,6 +195,7 @@ namespace negar
             if (e.TabPage == tabPage1)
             {
                 selectedRow = 0;
+                
                 SqlManipulator sql = new SqlManipulator();
                 try
                 {

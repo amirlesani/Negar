@@ -107,6 +107,7 @@
             this.cityTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maliDataSet = new negar.MaliDataSet();
             this.cityTableTableAdapter = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
+            this.emptyDataPictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).BeginInit();
@@ -116,6 +117,7 @@
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maliDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyDataPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // searchTextBox
@@ -512,6 +514,7 @@
             // groupBox4
             // 
             this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox4.Controls.Add(this.emptyDataPictureBox);
             this.groupBox4.Controls.Add(this.mainDataGridView);
             this.groupBox4.Controls.Add(this.statusStrip1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -967,6 +970,17 @@
             // 
             this.cityTableTableAdapter.ClearBeforeFill = true;
             // 
+            // emptyDataPictureBox
+            // 
+            this.emptyDataPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emptyDataPictureBox.Image = global::negar.Properties.Resources.search_icon_animation;
+            this.emptyDataPictureBox.Location = new System.Drawing.Point(3, 16);
+            this.emptyDataPictureBox.Name = "emptyDataPictureBox";
+            this.emptyDataPictureBox.Size = new System.Drawing.Size(988, 390);
+            this.emptyDataPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.emptyDataPictureBox.TabIndex = 4;
+            this.emptyDataPictureBox.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1000,6 +1014,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maliDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyDataPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1083,5 +1098,6 @@
         private System.Windows.Forms.ToolStripMenuItem استردادیToolStripMenuItem;
         private System.Windows.Forms.CheckBox virtualRefundcheckBox;
         private System.Windows.Forms.ToolStripMenuItem تاریخصعودیToolStripMenuItem;
+        private System.Windows.Forms.PictureBox emptyDataPictureBox;
     }
 }

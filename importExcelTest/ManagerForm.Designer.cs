@@ -277,7 +277,7 @@
             // addRestrictionButton
             // 
             this.addRestrictionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addRestrictionButton.Image = global::negar.Properties.Resources.add_icon__1_;
+            this.addRestrictionButton.Image = global::negar.Properties.Resources.add_icon;
             this.addRestrictionButton.Location = new System.Drawing.Point(358, 98);
             this.addRestrictionButton.Name = "addRestrictionButton";
             this.addRestrictionButton.Size = new System.Drawing.Size(42, 24);
@@ -436,7 +436,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.button4.Image = global::negar.Properties.Resources.add_icon__1_;
+            this.button4.Image = global::negar.Properties.Resources.add_icon;
             this.button4.Location = new System.Drawing.Point(643, 85);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(42, 24);
@@ -602,7 +602,7 @@
             // addButton
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.addButton.Image = global::negar.Properties.Resources.add_icon__1_;
+            this.addButton.Image = global::negar.Properties.Resources.add_icon;
             this.addButton.Location = new System.Drawing.Point(681, 180);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(42, 26);

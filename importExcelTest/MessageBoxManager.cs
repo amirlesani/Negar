@@ -97,6 +97,8 @@ namespace negar
         /// <summary>
         /// Retry text
         /// </summary>
+        /// 
+        public static string Save = "&Save";
         public static string Retry = "&Retry";
         /// <summary>
         /// Ignore text

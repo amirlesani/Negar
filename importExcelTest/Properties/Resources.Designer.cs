@@ -223,16 +223,6 @@ namespace negar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap d6046650703785_58d789fda431f {
-            get {
-                object obj = ResourceManager.GetObject("d6046650703785.58d789fda431f", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap e_commerce_icon_icon {
             get {
                 object obj = ResourceManager.GetObject("e-commerce-icon-icon", resourceCulture);
@@ -286,26 +276,6 @@ namespace negar.Properties {
         internal static System.Drawing.Bitmap floppy_512 {
             get {
                 object obj = ResourceManager.GetObject("floppy-512", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap giphy {
-            get {
-                object obj = ResourceManager.GetObject("giphy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap giphy__1_ {
-            get {
-                object obj = ResourceManager.GetObject("giphy (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -503,16 +473,6 @@ namespace negar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap loadinganimation {
-            get {
-                object obj = ResourceManager.GetObject("loadinganimation", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap map_0000 {
             get {
                 object obj = ResourceManager.GetObject("map-0000", resourceCulture);
@@ -593,6 +553,16 @@ namespace negar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap search_icon_animation {
+            get {
+                object obj = ResourceManager.GetObject("search_icon_animation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
@@ -606,26 +576,6 @@ namespace negar.Properties {
         internal static System.Drawing.Bitmap settings_icon__1_ {
             get {
                 object obj = ResourceManager.GetObject("settings-icon (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap stp {
-            get {
-                object obj = ResourceManager.GetObject("stp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap stp1 {
-            get {
-                object obj = ResourceManager.GetObject("stp1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
