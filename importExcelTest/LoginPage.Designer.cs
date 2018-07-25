@@ -152,7 +152,7 @@
             this.MaximizeBox = false;
             this.Name = "LoginPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "سامانه نگار ویژه مدیر سیستم ";
+            this.Text = "سامانه نگار ";
             this.Load += new System.EventHandler(this.LoginPage_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

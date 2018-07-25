@@ -71,7 +71,7 @@ namespace negar
             //this.emptyDataLable.Enabled = false;
             this.emptyDataPictureBox.Visible = false;
 
-            godmode = true;
+            godmode = false;
             comboBox1.SelectedIndex = 1;
             this.orderComboBox.SelectedIndex = 0;
             selectedID = new List<long>();
