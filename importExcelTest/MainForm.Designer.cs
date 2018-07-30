@@ -66,6 +66,7 @@
             this.orderComboBox = new System.Windows.Forms.ComboBox();
             this.mainDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.emptyDataPictureBox = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.userToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.counttoolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -107,17 +108,16 @@
             this.cityTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maliDataSet = new negar.MaliDataSet();
             this.cityTableTableAdapter = new negar.MaliDataSetTableAdapters.CityTableTableAdapter();
-            this.emptyDataPictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyDataPictureBox)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maliDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptyDataPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // searchTextBox
@@ -304,7 +304,7 @@
             // 
             // شنیدنToolStripMenuItem
             // 
-            this.شنیدنToolStripMenuItem.Image = global::negar.Properties.Resources.analytic;
+            this.شنیدنToolStripMenuItem.Image = global::negar.Properties.Resources.box00000;
             this.شنیدنToolStripMenuItem.Name = "شنیدنToolStripMenuItem";
             this.شنیدنToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.شنیدنToolStripMenuItem.Text = "شنیدن";
@@ -480,7 +480,6 @@
             this.orderComboBox.Name = "orderComboBox";
             this.orderComboBox.Size = new System.Drawing.Size(132, 23);
             this.orderComboBox.TabIndex = 21;
-            this.orderComboBox.SelectionChangeCommitted += new System.EventHandler(this.orderComboBox_SelectionChangeCommitted);
             // 
             // mainDataGridView
             // 
@@ -525,6 +524,18 @@
             this.groupBox4.TabIndex = 25;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "پایگاه داده";
+            // 
+            // emptyDataPictureBox
+            // 
+            this.emptyDataPictureBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.emptyDataPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emptyDataPictureBox.Image = global::negar.Properties.Resources.search_icon_animation;
+            this.emptyDataPictureBox.Location = new System.Drawing.Point(3, 16);
+            this.emptyDataPictureBox.Name = "emptyDataPictureBox";
+            this.emptyDataPictureBox.Size = new System.Drawing.Size(988, 390);
+            this.emptyDataPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.emptyDataPictureBox.TabIndex = 4;
+            this.emptyDataPictureBox.TabStop = false;
             // 
             // statusStrip1
             // 
@@ -970,17 +981,6 @@
             // 
             this.cityTableTableAdapter.ClearBeforeFill = true;
             // 
-            // emptyDataPictureBox
-            // 
-            this.emptyDataPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emptyDataPictureBox.Image = global::negar.Properties.Resources.search_icon_animation;
-            this.emptyDataPictureBox.Location = new System.Drawing.Point(3, 16);
-            this.emptyDataPictureBox.Name = "emptyDataPictureBox";
-            this.emptyDataPictureBox.Size = new System.Drawing.Size(988, 390);
-            this.emptyDataPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.emptyDataPictureBox.TabIndex = 4;
-            this.emptyDataPictureBox.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1007,6 +1007,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGridView)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyDataPictureBox)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1014,7 +1015,6 @@
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maliDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptyDataPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

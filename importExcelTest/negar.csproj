@@ -263,12 +263,6 @@
     <Compile Include="NoteBook.Designer.cs">
       <DependentUpon>NoteBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderForm.Designer.cs">
-      <DependentUpon>OrderForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="PersianCultureHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -346,9 +340,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NoteBook.resx">
       <DependentUpon>NoteBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderForm.resx">
-      <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
@@ -439,50 +430,22 @@
     <None Include="Resources\Icon1.ico" />
     <None Include="Resources\if_basics-15_296819.png" />
     <None Include="Resources\settings-icon %281%29.png" />
-    <None Include="Resources\settings-icon.png" />
     <None Include="Resources\add-icon %281%29.png" />
     <None Include="Resources\e-commerce-icon-icon.png" />
     <None Include="Resources\Actions-list-remove-icon.png" />
     <None Include="Resources\Actions-edit-redo-icon.png" />
     <None Include="Resources\add-icon.png" />
-    <None Include="Resources\90000000.png" />
-    <None Include="Resources\80000000.png" />
-    <None Include="Resources\70000000.png" />
-    <None Include="Resources\60000000.png" />
-    <None Include="Resources\50000000.png" />
-    <None Include="Resources\40000000.png" />
-    <None Include="Resources\30000000.png" />
     <None Include="Resources\20000000.png" />
-    <None Include="Resources\10000001.png" />
-    <None Include="Resources\10000000.png" />
-    <None Include="Resources\target00.png" />
-    <None Include="Resources\speakers.png" />
-    <None Include="Resources\shopping.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\printer-.png" />
     <None Include="Resources\pencil-1.png" />
-    <None Include="Resources\package0.png" />
     <None Include="Resources\open-box.png" />
-    <None Include="Resources\match-12.png" />
     <None Include="Resources\map-0000.png" />
-    <None Include="Resources\man00000.png" />
-    <None Include="Resources\like-128.png" />
-    <None Include="Resources\laptop-1.png" />
-    <None Include="Resources\keyboard.png" />
-    <None Include="Resources\joypad00.png" />
     <None Include="Resources\imac0000.png" />
-    <None Include="Resources\heart-12.png" />
     <None Include="Resources\graph000.png" />
-    <None Include="Resources\football.png" />
-    <None Include="Resources\clock000.png" />
-    <None Include="Resources\bubbles0.png" />
-    <None Include="Resources\browser0.png" />
     <None Include="Resources\Briefcas.png" />
     <None Include="Resources\box-1280.png" />
     <None Include="Resources\box00000.png" />
-    <None Include="Resources\analytic.png" />
-    <None Include="Resources\669348-l.png" />
-    <None Include="Resources\669347-w.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -490,9 +453,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logout.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-shutdown-48.png" />
