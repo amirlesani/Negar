@@ -39,8 +39,7 @@ namespace negar
     #endregion
 		
 		public UserManagerDataClassesDataContext() : 
-				base("Data Source=PML-PC;Initial Catalog=Mali;Persist Security Info=True;User ID=Xenups" +
-						";Password=Xenups1368", mappingSource)
+				base("Data Source=.;Initial Catalog=Mali;Integrated Security=True", mappingSource)
 		{
 			OnCreated();
 		}
@@ -233,6 +232,14 @@ namespace negar
 		
 		private System.Nullable<bool> _Permission;
 		
+		private string _Messages;
+		
+		private System.Nullable<bool> _Update;
+		
+		private System.Nullable<bool> _AdminVersion;
+		
+		private System.Nullable<int> _Version;
+		
 		private EntitySet<CityTable> _CityTables;
 		
     #region Extensibility Method Definitions
@@ -253,6 +260,14 @@ namespace negar
     partial void OnFamilyChanged();
     partial void OnPermissionChanging(System.Nullable<bool> value);
     partial void OnPermissionChanged();
+    partial void OnMessagesChanging(string value);
+    partial void OnMessagesChanged();
+    partial void OnUpdateChanging(System.Nullable<bool> value);
+    partial void OnUpdateChanged();
+    partial void OnAdminVersionChanging(System.Nullable<bool> value);
+    partial void OnAdminVersionChanged();
+    partial void OnVersionChanging(System.Nullable<int> value);
+    partial void OnVersionChanged();
     #endregion
 		
 		public UserTable()
@@ -397,6 +412,86 @@ namespace negar
 					this._Permission = value;
 					this.SendPropertyChanged("Permission");
 					this.OnPermissionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Messages", DbType="NVarChar(MAX)")]
+		public string Messages
+		{
+			get
+			{
+				return this._Messages;
+			}
+			set
+			{
+				if ((this._Messages != value))
+				{
+					this.OnMessagesChanging(value);
+					this.SendPropertyChanging();
+					this._Messages = value;
+					this.SendPropertyChanged("Messages");
+					this.OnMessagesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Update]", Storage="_Update", DbType="Bit")]
+		public System.Nullable<bool> Update
+		{
+			get
+			{
+				return this._Update;
+			}
+			set
+			{
+				if ((this._Update != value))
+				{
+					this.OnUpdateChanging(value);
+					this.SendPropertyChanging();
+					this._Update = value;
+					this.SendPropertyChanged("Update");
+					this.OnUpdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminVersion", DbType="Bit")]
+		public System.Nullable<bool> AdminVersion
+		{
+			get
+			{
+				return this._AdminVersion;
+			}
+			set
+			{
+				if ((this._AdminVersion != value))
+				{
+					this.OnAdminVersionChanging(value);
+					this.SendPropertyChanging();
+					this._AdminVersion = value;
+					this.SendPropertyChanged("AdminVersion");
+					this.OnAdminVersionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", DbType="Int")]
+		public System.Nullable<int> Version
+		{
+			get
+			{
+				return this._Version;
+			}
+			set
+			{
+				if ((this._Version != value))
+				{
+					this.OnVersionChanging(value);
+					this.SendPropertyChanging();
+					this._Version = value;
+					this.SendPropertyChanged("Version");
+					this.OnVersionChanged();
 				}
 			}
 		}

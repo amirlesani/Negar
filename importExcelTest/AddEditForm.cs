@@ -190,7 +190,7 @@ namespace negar
                     return;
                 };
                
-                    Report rpt = new Report( sql.addRow(newDaftar),(int)errorImages.info);
+                    Reporter rpt = new Reporter( sql.addRow(newDaftar),(int)errorImages.info);
                     rpt.Show();
 
                     

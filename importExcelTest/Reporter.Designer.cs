@@ -1,6 +1,6 @@
 ﻿namespace negar
 {
-    partial class Report
+    partial class Reporter
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Report));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reporter));
             this.button1 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.errorImageList = new System.Windows.Forms.ImageList(this.components);
@@ -70,7 +70,7 @@
             this.errorImageList.Images.SetKeyName(3, "512px-Eye_open_font_awesome.svg.png");
             this.errorImageList.Images.SetKeyName(4, "pulse_gq-1.gif");
             // 
-            // Report
+            // Reporter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -81,7 +81,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Report";
+            this.Name = "Reporter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "گزارش";
             this.Load += new System.EventHandler(this.Report_Load);

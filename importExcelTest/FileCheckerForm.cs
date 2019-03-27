@@ -18,7 +18,6 @@ namespace negar
         {
             InitializeComponent();
             this.openFileDialog1.Multiselect = true;
-
         }
 
         string[] files;
@@ -60,7 +59,7 @@ namespace negar
         }
         private void CreateAndShowForm(List<List<string>> list)
         {
-            Report frm =  new Report(list);
+            Reporter frm =  new Reporter(list);
             frm.ShowDialog();
         }
 

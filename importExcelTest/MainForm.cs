@@ -70,10 +70,9 @@ namespace negar
             advancedSearch = false;
             //this.emptyDataLable.Enabled = false;
             this.emptyDataPictureBox.Visible = false;
+          
 
-            godmode = false;
-            comboBox1.SelectedIndex = 1;
-            this.orderComboBox.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 1; this.orderComboBox.SelectedIndex = 0;
             selectedID = new List<long>();
             datasForModify = new List<DaftarTable>();
 
@@ -87,6 +86,7 @@ namespace negar
         public void setLoginData(LoginInfo login)
         {
             this.login = login;
+            godmode = login.adminVersion;
             userToolStripStatusLabel.Text = " کاربر :"+ login.Name + "" + login.family;
             this.statusStrip1.Invalidate();
             this.statusStrip1.Refresh();
@@ -227,6 +227,7 @@ namespace negar
             backwardButton.Enabled = false;
             setUserInformation(login);
             setPermission();
+            this.orderComboBox.SelectedIndex = 0;
             this.backwardButton.Enabled = false;
             this.forwardButton.Enabled = false;
             
@@ -428,7 +429,7 @@ namespace negar
                 else
                 {
                     var refundItems = sql.refund(datasForModify,godmode);
-                    Report rpt = new Report(refundItems, (int)errorImages.info);
+                    Reporter rpt = new Reporter(refundItems, (int)errorImages.info);
                     rpt.Show();
                     refreshLastState(getLastState(),pageNumber,false);
                 }
@@ -679,7 +680,7 @@ namespace negar
                 }
                 var rpt = sql.remove(datasForModify,godmode,login.permission);
 
-                Report r = new Report(rpt, (int)errorImages.info);
+                Reporter r = new Reporter(rpt, (int)errorImages.info);
                 r.Show();
 
                 datasForModify.Clear();
@@ -1109,8 +1110,8 @@ namespace negar
                         this.yearComboBox.SelectedIndex = lastState.lastYearSelected;
                         this.monthComboBox.SelectedIndex = lastState.lastMonthSelected;
                     }
-
-
+                  //  this.orderComboBox.Sorted = true;
+                    
                 }
                 
                 catch (Exception )
@@ -1498,9 +1499,7 @@ namespace negar
 
       
 
-        private void orderComboBox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-        }
+        
 
         private void monthComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1595,14 +1594,14 @@ namespace negar
         private void mainDataGridView_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            if (e.KeyChar == (char)Keys.Right)
-            {
-                MessageBox.Show("Enter key pressed");
-            }
-            if (e.KeyChar == (char)Keys.Left)
-            {
-                MessageBox.Show("Enter key pressed");
-            }
+            //if (e.KeyChar == (char)Keys.Right)
+            //{
+            //    MessageBox.Show("Enter key pressed");
+            //}
+            //if (e.KeyChar == (char)Keys.Left)
+            //{
+            //    MessageBox.Show("Enter key pressed");
+            //}
         }
         protected override bool IsInputKey(Keys keyData)
         {
@@ -1624,6 +1623,11 @@ namespace negar
         protected override void OnKeyDown(KeyEventArgs e)
         {
           
+        }
+
+        private void pDFفایلToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PDFGenerator pdf = new PDFGenerator(this.lastResult.query,"c:\\");
         }
     }
 

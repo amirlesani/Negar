@@ -203,7 +203,7 @@ namespace negar
                     }
                     else
                     {
-                        Report rpt = new Report(valid.report, (int)errorImages.info);
+                        Reporter rpt = new Reporter(valid.report, (int)errorImages.info);
                         rpt.Show();
                         importButton1.Enabled = false;
                     }
@@ -300,7 +300,7 @@ namespace negar
                     if (this.refundRadioButton.Checked)
                     {
                         var report = sql.refundFromFile(query, id);
-                        Report rpt = new Report(report, Convert.ToInt32(errorImages.info));
+                        Reporter rpt = new Reporter(report, Convert.ToInt32(errorImages.info));
                         rpt.Show();
                     }
                     if (this.depositRadioButton.Checked)
@@ -325,7 +325,7 @@ namespace negar
                     {
 
                         var report =  sql.refundFromFile(query, login.cityID);
-                        Report rpt = new Report(report,Convert.ToInt32(errorImages.info));
+                        Reporter rpt = new Reporter(report,Convert.ToInt32(errorImages.info));
                         rpt.Show();
                     }
                     if (this.depositRadioButton.Checked)

@@ -21,6 +21,7 @@ namespace negar
             InitializeComponent();
             this.mainForm = main;
             this.login = login;
+            if (!this.login.adminVersion) { this.ControlTab.TabPages.Remove(tabPage3); };
 
         }
         private Boolean changeColumnName()
@@ -34,7 +35,12 @@ namespace negar
                 usersDataGridView.Columns[3].HeaderText = "نام کاربری";
                 usersDataGridView.Columns[4].HeaderText = "گذر واژه";
                 usersDataGridView.Columns[5].HeaderText = "دسترسی";
-                usersDataGridView.Columns[6].HeaderText = "شهر";
+                usersDataGridView.Columns[6].HeaderText = "دسترسی ادمین";
+                usersDataGridView.Columns[7].HeaderText = "پیغام";
+                usersDataGridView.Columns[8].HeaderText = "شهر";
+
+
+
                 return true;
             }
             catch(Exception )
@@ -100,7 +106,8 @@ namespace negar
                 makeTableUsers(sql.getDataLogin());
                 makeValidationTable(sql.getValidationData());
                 startendDate = sql.findMaxminMonthDay(0);
-
+                this.versionTextBox.Text = global.currentVersion.ToString();
+                this.versionTextBox.Enabled = false;
                 DGV_SetStyle(this.cityDataGridView);
 
 
@@ -125,9 +132,12 @@ namespace negar
             newLogin.Password = passWordTextBox.Text;
             newLogin.City = Convert.ToInt64(cityComboBox.SelectedValue);
             newLogin.Permission = persmissionCheckBox.Checked;
+            newLogin.AdminVersion = AdminCheckBox.Checked;
+            newLogin.Update = false;
+            newLogin.Messages = " ";
 
             SqlManipulator sql = new SqlManipulator();
-            Report rpt = new Report(sql.addUser(newLogin), (int)errorImages.info);
+            Reporter rpt = new Reporter(sql.addUser(newLogin), (int)errorImages.info);
             rpt.Show();
             makeTableUsers(sql.getDataLogin());
         }
@@ -333,7 +343,7 @@ namespace negar
                 FarsiDateUtil startDate = new FarsiDateUtil(startendDate.min.ToString());
                 FarsiDateUtil endDate = new FarsiDateUtil(date.endDate.ToString());
                 valid.description = "قفل" + " " + cityName + "  " + endDate.MonthName + endDate.Year;
-                Report rpt = new Report(sql.addValidation(valid), (int)errorImages.info);
+                Reporter rpt = new Reporter(sql.addValidation(valid), (int)errorImages.info);
                 rpt.Show();
                 makeValidationTable(sql.getValidationData());
 
@@ -425,6 +435,20 @@ namespace negar
                     e.FormattingApplied = true;
                 }
             }
+            if (e.ColumnIndex == 6)
+            {
+                if (e.Value is bool)
+                {
+                    bool value = (bool)e.Value;
+                    e.Value = (value) ? " بله " : " خیر ";
+                    e.FormattingApplied = true;
+                }
+                else
+                {
+                    e.Value = "خیر";
+
+                }
+            }
         }
 
         private void lockAllCitiesCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -433,6 +457,51 @@ namespace negar
             //{
             //    this.cityComboBox.Enabled = false;
             //}
+        }
+
+        private void ColumnSyncButton_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            SqlManipulator sql = new SqlManipulator();
+           if (sql.sendMessages(this.MessageRichTextBox.Text))
+            { MessageBox.Show("پیغام با موفقیت ارسال شد ، در ورود جدید به کاربران پیغام شما نمایش خواهد داده شد  "); }
+            else { MessageBox.Show("خطایی رخ داده است "); };
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            try {
+                if (activateCheckBox.Checked)
+                {
+                    SqlManipulator sql = new SqlManipulator();
+                   if( sql.sendUpdateNotify(Int32.Parse(this.versionTextBox.Text.ToString())))
+                    { MessageBox.Show("با  موفقیت پیام بروزرسانی ارسال شد ، کاربران ملزم به استفاده از  نسخه جدید می باشند "); }
+                }
+                else
+                {
+                    this.versionTextBox.Text = global.currentVersion.ToString();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void activateCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(this.activateCheckBox.Checked)
+            {
+                this.versionTextBox.Enabled = true;
+            }
+            else
+            {
+                this.versionTextBox.Enabled = false;
+            }
         }
     }
 }

@@ -114,12 +114,20 @@
       <HintPath>..\packages\DocumentFormat.OpenXml.2.8.1\lib\net35\DocumentFormat.OpenXml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LinqToExcel, Version=1.11.0.0, Culture=neutral, PublicKeyToken=9c8ea65a58f03f1f, processorArchitecture=MSIL">
-      <HintPath>..\packages\LinqToExcel.1.11.0\lib\LinqToExcel.dll</HintPath>
+    <Reference Include="DoddleReport, Version=1.4.0.0, Culture=neutral, PublicKeyToken=183ffec7490b24a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\DoddleReport.iTextSharp.1.4\lib\net35\DoddleReport.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    <Reference Include="DoddleReport.iTextSharp, Version=1.4.0.0, Culture=neutral, PublicKeyToken=183ffec7490b24a9, processorArchitecture=MSIL">
+      <HintPath>..\packages\DoddleReport.iTextSharp.1.4\lib\net35\DoddleReport.iTextSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.1.1.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\DoddleReport.iTextSharp.1.4\lib\net35\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqToExcel, Version=1.11.0.0, Culture=neutral, PublicKeyToken=9c8ea65a58f03f1f, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\LinqToExcel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PersianDate, Version=3.5.6587.38230, Culture=neutral, processorArchitecture=MSIL">
@@ -257,12 +265,19 @@
     <Compile Include="MapClassToPersianClass.cs" />
     <Compile Include="MaxMinClass.cs" />
     <Compile Include="MessageBoxManager.cs" />
+    <Compile Include="MessagesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessagesForm.Designer.cs">
+      <DependentUpon>MessagesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NoteBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NoteBook.Designer.cs">
       <DependentUpon>NoteBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="PDFGenerator.cs" />
     <Compile Include="PersianCultureHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -271,11 +286,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Report.cs">
+    <Compile Include="Reporter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report.Designer.cs">
-      <DependentUpon>Report.cs</DependentUpon>
+    <Compile Include="Reporter.Designer.cs">
+      <DependentUpon>Reporter.cs</DependentUpon>
     </Compile>
     <Compile Include="Result.cs" />
     <Compile Include="ServiceBrokerListener.cs" />
@@ -338,11 +353,14 @@
     <EmbeddedResource Include="ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MessagesForm.resx">
+      <DependentUpon>MessagesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NoteBook.resx">
       <DependentUpon>NoteBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report.resx">
-      <DependentUpon>Report.cs</DependentUpon>
+    <EmbeddedResource Include="Reporter.resx">
+      <DependentUpon>Reporter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>

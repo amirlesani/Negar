@@ -15,5 +15,10 @@ namespace negar
         public string user { get; set; }
         public bool permission { get; set; }
 
+        public string messages { get; set; }
+        public bool update { get; set; }
+
+        public bool adminVersion { get; set; }
+        public int version { get; set; }
     }
 }

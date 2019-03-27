@@ -154,7 +154,7 @@ namespace negar
                     MessageBoxIcon.Error);
                     return;
                 };
-                Report rpt = new Report(sql.update(newDaftar,godmode), (int)errorImages.info);
+                Reporter rpt = new Reporter(sql.update(newDaftar,godmode), (int)errorImages.info);
                 rpt.Show();
                 form.refreshLastState(lastState, pageNumber,false);
                 this.Hide();

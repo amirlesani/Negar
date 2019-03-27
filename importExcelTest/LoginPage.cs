@@ -9,11 +9,14 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace negar
-{
+{   
+    
     public partial class LoginPage : Form
     {
         private bool permission;
         MainForm form;
+         
+        int currentVersion = global.currentVersion;
         SplashScreenForm formwait;
         public LoginPage()
         {
@@ -79,11 +82,38 @@ namespace negar
                             login.family = q.Family;
                             login.permission = q.Permission.Value;
                             login.user = q.User;
+                            login.update = q.Update.Value;
+                            login.messages = q.Messages;
+                            login.version  = q.Version ?? default(int) ;
+                            login.adminVersion = q.AdminVersion ?? default(bool);
+                            if ( login.version > currentVersion && !login.adminVersion)
+                            {
+                                MessageBox.Show(login.messages, "نسخه شما بروز نیست . آخرین نسخه بروز شده را نصب کنید ",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Stop);
+                                this.Close();
+                                return;
+                            }
+                          
+
                             SqlManipulator sql = new SqlManipulator();
+                            if (!login.adminVersion)
+                            {
+                                if (login.update)
+                                {
+                                    MessageBox.Show(login.messages, "پیغام ",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                                    try {
+                                        sql.MessagesSeenStatus(false, login);
+                                    }
+                                    catch(Exception)
+                                    { MessageBox.Show("خطا در  پیغام"); }
+                                }
+                            }
                             string cityName = sql.getCityName(login.cityID);
                             login.cityName = cityName;
-
-                            form.setLoginData(login);
+                                                       form.setLoginData(login);
                             
                             Properties.Settings.Default.LastUser = this.UserNametextBox.Text;
 
@@ -185,4 +215,8 @@ namespace negar
 
         }
     }
+}
+public static class global
+{
+    public static Int32 currentVersion = 1;
 }

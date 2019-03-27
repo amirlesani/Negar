@@ -181,7 +181,7 @@
             // 
             this.اضافهکردنفایلToolStripMenuItem.Image = global::negar.Properties.Resources.pencil_1;
             this.اضافهکردنفایلToolStripMenuItem.Name = "اضافهکردنفایلToolStripMenuItem";
-            this.اضافهکردنفایلToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.اضافهکردنفایلToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.اضافهکردنفایلToolStripMenuItem.Text = "اضافه کردن فایل";
             this.اضافهکردنفایلToolStripMenuItem.Click += new System.EventHandler(this.اضافهکردنفایلToolStripMenuItem_Click);
             // 
@@ -192,14 +192,14 @@
             this.فایلمتنیToolStripMenuItem});
             this.ذخیرهToolStripMenuItem.Image = global::negar.Properties.Resources.floppy_512;
             this.ذخیرهToolStripMenuItem.Name = "ذخیرهToolStripMenuItem";
-            this.ذخیرهToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.ذخیرهToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ذخیرهToolStripMenuItem.Text = " ذخیره به عنوان ";
             // 
             // بهعنواناکسلToolStripMenuItem
             // 
             this.بهعنواناکسلToolStripMenuItem.Image = global::negar.Properties.Resources.excel_integration;
             this.بهعنواناکسلToolStripMenuItem.Name = "بهعنواناکسلToolStripMenuItem";
-            this.بهعنواناکسلToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.بهعنواناکسلToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.بهعنواناکسلToolStripMenuItem.Text = " فایل اکسل";
             this.بهعنواناکسلToolStripMenuItem.Click += new System.EventHandler(this.بهعنواناکسلToolStripMenuItem_Click);
             // 
@@ -207,7 +207,7 @@
             // 
             this.فایلمتنیToolStripMenuItem.Image = global::negar.Properties.Resources.note;
             this.فایلمتنیToolStripMenuItem.Name = "فایلمتنیToolStripMenuItem";
-            this.فایلمتنیToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.فایلمتنیToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.فایلمتنیToolStripMenuItem.Text = "فایل متنی";
             this.فایلمتنیToolStripMenuItem.Click += new System.EventHandler(this.فایلمتنیToolStripMenuItem_Click);
             // 
@@ -215,7 +215,7 @@
             // 
             this.چاپToolStripMenuItem.Image = global::negar.Properties.Resources._32x32;
             this.چاپToolStripMenuItem.Name = "چاپToolStripMenuItem";
-            this.چاپToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.چاپToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.چاپToolStripMenuItem.Text = "چاپ";
             this.چاپToolStripMenuItem.Click += new System.EventHandler(this.چاپToolStripMenuItem_Click_1);
             // 
@@ -223,14 +223,14 @@
             // 
             this.تنظیماتToolStripMenuItem.Image = global::negar.Properties.Resources.settings_icon__1_;
             this.تنظیماتToolStripMenuItem.Name = "تنظیماتToolStripMenuItem";
-            this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.تنظیماتToolStripMenuItem.Text = "تنظیمات";
             this.تنظیماتToolStripMenuItem.Click += new System.EventHandler(this.تنظیماتToolStripMenuItem_Click);
             // 
             // خروجToolStripMenuItem
             // 
             this.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem";
-            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.خروجToolStripMenuItem.Text = "خروج";
             this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
@@ -442,7 +442,7 @@
             this.pageNumberlabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pageNumberlabel.Location = new System.Drawing.Point(56, 22);
             this.pageNumberlabel.Name = "pageNumberlabel";
-            this.pageNumberlabel.Size = new System.Drawing.Size(13, 13);
+            this.pageNumberlabel.Size = new System.Drawing.Size(14, 13);
             this.pageNumberlabel.TabIndex = 7;
             this.pageNumberlabel.Text = "0";
             // 
@@ -473,9 +473,9 @@
             this.orderComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.orderComboBox.FormattingEnabled = true;
             this.orderComboBox.Items.AddRange(new object[] {
-            "واریزی + استهلاکی",
+            "استهلاکی + واریزی",
             "استهلاکی",
-            "واریزی"});
+            "واریزی "});
             this.orderComboBox.Location = new System.Drawing.Point(859, 23);
             this.orderComboBox.Name = "orderComboBox";
             this.orderComboBox.Size = new System.Drawing.Size(132, 23);

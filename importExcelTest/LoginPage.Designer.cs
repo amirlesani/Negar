@@ -106,7 +106,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "نسخه 1.2";
+            this.label3.Text = "نسخه 1.5";
             // 
             // GearPictureBox
             // 

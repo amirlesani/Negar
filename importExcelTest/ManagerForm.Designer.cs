@@ -63,6 +63,7 @@
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.AdminCheckBox = new System.Windows.Forms.CheckBox();
             this.persmissionCheckBox = new System.Windows.Forms.CheckBox();
             this.cityComboBox = new System.Windows.Forms.ComboBox();
             this.familyLabel = new System.Windows.Forms.Label();
@@ -78,7 +79,13 @@
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.passWordTextBox = new System.Windows.Forms.TextBox();
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
-            this.validationTab = new System.Windows.Forms.TabControl();
+            this.ControlTab = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.sendButton = new System.Windows.Forms.Button();
+            this.MessageRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.versionTextBox = new System.Windows.Forms.TextBox();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.activateCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.cityTableBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maliDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maliDataSet)).BeginInit();
@@ -99,7 +106,8 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
-            this.validationTab.SuspendLayout();
+            this.ControlTab.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // cityTableBindingSource2
@@ -466,6 +474,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.AdminCheckBox);
             this.groupBox1.Controls.Add(this.persmissionCheckBox);
             this.groupBox1.Controls.Add(this.cityComboBox);
             this.groupBox1.Controls.Add(this.familyLabel);
@@ -488,6 +497,17 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "مدیر کاربری";
+            // 
+            // AdminCheckBox
+            // 
+            this.AdminCheckBox.AutoSize = true;
+            this.AdminCheckBox.Location = new System.Drawing.Point(530, 153);
+            this.AdminCheckBox.Name = "AdminCheckBox";
+            this.AdminCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.AdminCheckBox.Size = new System.Drawing.Size(78, 17);
+            this.AdminCheckBox.TabIndex = 14;
+            this.AdminCheckBox.Text = "کاربر ادمین";
+            this.AdminCheckBox.UseVisualStyleBackColor = true;
             // 
             // persmissionCheckBox
             // 
@@ -645,27 +665,89 @@
             this.usersDataGridView.TabIndex = 8;
             this.usersDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.usersDataGridView_CellFormatting);
             // 
-            // validationTab
+            // ControlTab
             // 
-            this.validationTab.Controls.Add(this.tabPage1);
-            this.validationTab.Controls.Add(this.tabPage2);
-            this.validationTab.Controls.Add(this.tabPage4);
-            this.validationTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.validationTab.Location = new System.Drawing.Point(0, 0);
-            this.validationTab.Name = "validationTab";
-            this.validationTab.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.validationTab.RightToLeftLayout = true;
-            this.validationTab.SelectedIndex = 0;
-            this.validationTab.Size = new System.Drawing.Size(810, 666);
-            this.validationTab.TabIndex = 2;
-            this.validationTab.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
+            this.ControlTab.Controls.Add(this.tabPage1);
+            this.ControlTab.Controls.Add(this.tabPage2);
+            this.ControlTab.Controls.Add(this.tabPage4);
+            this.ControlTab.Controls.Add(this.tabPage3);
+            this.ControlTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ControlTab.Location = new System.Drawing.Point(0, 0);
+            this.ControlTab.Name = "ControlTab";
+            this.ControlTab.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ControlTab.RightToLeftLayout = true;
+            this.ControlTab.SelectedIndex = 0;
+            this.ControlTab.Size = new System.Drawing.Size(810, 666);
+            this.ControlTab.TabIndex = 2;
+            this.ControlTab.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.activateCheckBox);
+            this.tabPage3.Controls.Add(this.updateButton);
+            this.tabPage3.Controls.Add(this.versionTextBox);
+            this.tabPage3.Controls.Add(this.MessageRichTextBox);
+            this.tabPage3.Controls.Add(this.sendButton);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(802, 640);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "مدیریت پشتیبان";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // sendButton
+            // 
+            this.sendButton.Location = new System.Drawing.Point(582, 118);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(75, 23);
+            this.sendButton.TabIndex = 0;
+            this.sendButton.Text = "ارسال پیغام";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
+            // 
+            // MessageRichTextBox
+            // 
+            this.MessageRichTextBox.Location = new System.Drawing.Point(582, 15);
+            this.MessageRichTextBox.Name = "MessageRichTextBox";
+            this.MessageRichTextBox.Size = new System.Drawing.Size(212, 97);
+            this.MessageRichTextBox.TabIndex = 1;
+            this.MessageRichTextBox.Text = "";
+            // 
+            // versionTextBox
+            // 
+            this.versionTextBox.Location = new System.Drawing.Point(633, 173);
+            this.versionTextBox.Name = "versionTextBox";
+            this.versionTextBox.Size = new System.Drawing.Size(161, 20);
+            this.versionTextBox.TabIndex = 2;
+            // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(633, 203);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 3;
+            this.updateButton.Text = "تغییر نسخه";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
+            // activateCheckBox
+            // 
+            this.activateCheckBox.AutoSize = true;
+            this.activateCheckBox.Location = new System.Drawing.Point(714, 203);
+            this.activateCheckBox.Name = "activateCheckBox";
+            this.activateCheckBox.Size = new System.Drawing.Size(80, 17);
+            this.activateCheckBox.TabIndex = 4;
+            this.activateCheckBox.Text = "فعال سازی";
+            this.activateCheckBox.UseVisualStyleBackColor = true;
+            this.activateCheckBox.CheckedChanged += new System.EventHandler(this.activateCheckBox_CheckedChanged);
             // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 666);
-            this.Controls.Add(this.validationTab);
+            this.Controls.Add(this.ControlTab);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -698,7 +780,9 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
-            this.validationTab.ResumeLayout(false);
+            this.ControlTab.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -714,7 +798,7 @@
         private MaliDataSet maliDataSet;
         private System.Windows.Forms.BindingSource cityTableBindingSource2;
         private MaliDataSetTableAdapters.CityTableTableAdapter cityTableTableAdapter2;
-        private System.Windows.Forms.TabControl validationTab;
+        private System.Windows.Forms.TabControl ControlTab;
         private System.Windows.Forms.DataGridView usersDataGridView;
         private System.Windows.Forms.TextBox passWordTextBox;
         private System.Windows.Forms.TextBox userNameTextBox;
@@ -753,5 +837,12 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView validationDataGridView;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.CheckBox AdminCheckBox;
+        private System.Windows.Forms.RichTextBox MessageRichTextBox;
+        private System.Windows.Forms.Button sendButton;
+        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.TextBox versionTextBox;
+        private System.Windows.Forms.CheckBox activateCheckBox;
     }
 }

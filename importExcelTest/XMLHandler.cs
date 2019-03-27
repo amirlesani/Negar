@@ -72,7 +72,7 @@ namespace negar
                             if (query.Where(x => x.Id == d.Id).Any())
                             {
                                 report.Add("شناسه در لیست وجود دارد" + " " + d.Id);
-                                Report rpt = new Report(report, 1);
+                                Reporter rpt = new Reporter(report, 1);
                                 rpt.Show();
                                 return false;
                             }
@@ -105,7 +105,7 @@ namespace negar
                     writeXmlData(xml);
                 }
                 
-                Report rpt2 = new Report(report, 0);
+                Reporter rpt2 = new Reporter(report, 0);
                 rpt2.Show();
                 return true;
 

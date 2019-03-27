@@ -11,14 +11,12 @@ using System.Xml.Linq;
 
 namespace negar
 {
-    public partial class Report : Form
+    public partial class Reporter : Form
     {
 
-
         
-        public Report(List<string> list,int errorType)
+        public Reporter(List<string> list,int errorType)
         {
-            
             InitializeComponent();
             listView1.SmallImageList = errorImageList;
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -33,7 +31,7 @@ namespace negar
             }
             SetListViewColumnSizes(listView1, -2);
         }
-        public Report()
+        public Reporter()
         {
             InitializeComponent();
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -43,7 +41,7 @@ namespace negar
             //reportListBox.DataSource = null;
 
         }
-        public Report(List<List<string>> lists)
+        public Reporter(List<List<string>> lists)
         {
             InitializeComponent();
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);

@@ -23,10 +23,6 @@ namespace negar
 
         private void changeColorButton_Click(object sender, EventArgs e)
         {
-
-
-
-          
             if (isColorSelected)
             { color = DGVcolorDialog.Color; }
             else { color = Properties.Settings.Default.dgvColor; }

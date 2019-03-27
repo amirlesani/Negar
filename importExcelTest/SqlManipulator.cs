@@ -36,7 +36,7 @@ namespace negar
         {
 
             
-            Report sender = new Report();
+            Reporter sender = new Reporter();
             sender.Text = "حالت شنیدن";
             sender.Show();
 
@@ -267,8 +267,64 @@ namespace negar
                     join d in db.CityTables on c.City equals d.Id
                     select new
                     {
-                        c.Id,c.Name,c.Family,c.User,c.Password,c.Permission,d.CityName };
+                        c.Id,c.Name,c.Family,c.User,c.Password,c.Permission,c.AdminVersion,c.Messages,d.CityName };
             return q;
+        }
+        public bool sendMessages(string messages)
+        {
+            try {
+                var logindata = getDataLogin();
+                UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext();
+                var data = from a in db.UserTables select a;
+                foreach (var d in data)
+                {
+                    d.Messages = messages;
+                    d.Update = true;
+                }
+                db.SubmitChanges();
+                return true;
+            }
+            catch(Exception)
+            { return true; }
+           
+        }
+        public bool MessagesSeenStatus(bool status,LoginInfo login)
+        {
+            try
+            {
+                var logindata = getDataLogin();
+                UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext();
+                var data = from a in db.UserTables select a;
+
+                foreach (var d in data)
+                {
+                    if(d.Id == login.Id)
+                    { d.Update = status; }
+                }
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            { return true; }
+
+        }
+        public bool sendUpdateNotify(int newVersion)
+        {
+            try {
+                var logindata = getDataLogin();
+                UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext();
+                var data = from a in db.UserTables select a;
+                foreach (var d in data)
+                {
+                    d.Version = newVersion;
+                }
+                db.SubmitChanges();
+                return true;
+            }
+            catch(Exception )
+            {
+                return false;
+            }
         }
         public IQueryable getDataCity()
         {
@@ -598,11 +654,46 @@ namespace negar
             {
                 MessageBox.Show(ex.Message);
                 List<string> list = new List<string>();
-                Report rpt = new Report(list, (int)errorImages.info);
+                Reporter rpt = new Reporter(list, (int)errorImages.info);
                 rpt.Show();
                 return list;
             }
         }
+
+        public List<string> syncColumnValues(DaftarTable daftar, Int64 syncValue)
+        {
+            try
+            {
+                DaftarModelDataContext db = new DaftarModelDataContext(cn);
+                var data = from a in db.DaftarTables.Where(x => x.Id == daftar.Id) select a;
+                List<string> list = new List<string>();
+                list.Add("شناسه های ");
+                foreach (var a in data)
+                {
+         
+                       
+                        a.DepositDetail = daftar.DepositDetail;
+                        a.CodeBudget =daftar.CodeBudget;
+
+
+                        list.Add(a.Id.ToString() + " " + a.DepositOwnerDetail.ToString() + " با موفقیت بروزرسانی شد ");
+                }
+                db.SubmitChanges();
+
+                return list;
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+                List<string> list = new List<string>();
+                Reporter rpt = new Reporter(list, (int)errorImages.info);
+                rpt.Show();
+                return list;
+            }
+        }
+
+
+
         public Result ownerQuery(long cityID, string code, StartEndMonthClass startend, int pageSize,mode searchType)
         {
             DaftarModelDataContext db = new DaftarModelDataContext(cn);

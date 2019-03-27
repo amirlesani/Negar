@@ -14,8 +14,9 @@ namespace WindowsFormsApplication1
     {
         public ExcelManipulatorcs()
         {
-            
+           // setSheetColumns();
         }
+       
         public IEnumerable<string> getColumnsName(string sheetName,ExcelQueryFactory excelFile)
         {
             try {
@@ -115,8 +116,8 @@ namespace WindowsFormsApplication1
             var query = convertedData.AsQueryable();
             return query;
         }
-          public ExcelValidationClass check(List<IQueryable<Daftarcs>> excelData, string fileName)
-           {
+        public ExcelValidationClass check(List<IQueryable<Daftarcs>> excelData, string fileName)
+        {
             bool valid = true;
             List<string> errs = new List<string>();
             List<string> list = new List<string>();
@@ -132,10 +133,10 @@ namespace WindowsFormsApplication1
                             sheet.Where(z => z.DepositOwnerDetail != null && z.Date != null && z.CodeBudget != null)
                                  select a;
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     valid = false;
-                  //  MessageBox.Show(exp.ToString());
+                    //  MessageBox.Show(exp.ToString());
                 }
                 try
                 {
@@ -151,11 +152,11 @@ namespace WindowsFormsApplication1
                         long id = utl.idGenerator(1, a.Date, Convert.ToInt64(a.BillDetailCode));
                         ids.Add(id);
 
-                        if ( a.BillDetailCode == 0 ||  !utl.isvalidDate(a.Date))
+                        if (a.BillDetailCode == 0 || !utl.isvalidDate(a.Date))
                         {
                             string spc = " ";
                             int j = i + 2;
-                            msg = " سطر  "+spc+j.ToString() + spc+a.DepositOwnerDetail.ToString() +spc+ "حاوی مقادیر اشتباه است " ;
+                            msg = " سطر  " + spc + j.ToString() + spc + a.DepositOwnerDetail.ToString() + spc + "حاوی مقادیر اشتباه است ";
                             list.Add(msg);
                             valid = false;
 
@@ -172,9 +173,9 @@ namespace WindowsFormsApplication1
                     }
 
                 }
-                catch (Exception )
+                catch (Exception)
                 {
-                  //  MessageBox.Show(ex.ToString());
+                    //  MessageBox.Show(ex.ToString());
                     valid = false;
                 }
             }
@@ -183,7 +184,7 @@ namespace WindowsFormsApplication1
             validation.report = list;
             validation.isValid = valid;
             return validation;
-    
-           }
+
+        }
     }
 }
