@@ -135,6 +135,7 @@ namespace negar
             newLogin.AdminVersion = AdminCheckBox.Checked;
             newLogin.Update = false;
             newLogin.Messages = " ";
+            newLogin.Version = global.currentVersion;
 
             SqlManipulator sql = new SqlManipulator();
             Reporter rpt = new Reporter(sql.addUser(newLogin), (int)errorImages.info);

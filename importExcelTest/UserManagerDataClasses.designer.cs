@@ -39,7 +39,7 @@ namespace negar
     #endregion
 		
 		public UserManagerDataClassesDataContext() : 
-				base("Data Source=.;Initial Catalog=Mali;Integrated Security=True", mappingSource)
+				base(global::negar.Properties.Settings.Default.MaliConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

@@ -24,8 +24,7 @@ namespace negar
             form = new MainForm();
 
            
-            //try {  }
-            //catch(Exception ex) { MessageBox.Show(ex.ToString()); };
+        
 
 
 
@@ -88,7 +87,7 @@ namespace negar
                             login.adminVersion = q.AdminVersion ?? default(bool);
                             if ( login.version > currentVersion && !login.adminVersion)
                             {
-                                MessageBox.Show(login.messages, "نسخه شما بروز نیست . آخرین نسخه بروز شده را نصب کنید ",
+                                MessageBox.Show( "نسخه شما بروز نیست . آخرین نسخه بروز شده را نصب کنید ","پیغام",
                                    MessageBoxButtons.OK,
                                    MessageBoxIcon.Stop);
                                 this.Close();

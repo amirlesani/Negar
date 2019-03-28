@@ -177,5 +177,16 @@ namespace negar.Properties {
                 return ((string)(this["MaliConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.120.0.50;Initial Catalog=Mali;User ID=Xenups;Password=Xenups136812" +
+            "8")]
+        public string MaliConnectionString2 {
+            get {
+                return ((string)(this["MaliConnectionString2"]));
+            }
+        }
     }
 }

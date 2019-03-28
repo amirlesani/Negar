@@ -51,5 +51,13 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=PML-PC;Initial Catalog=Mali;Persist Security Info=True;User ID=Xenups;Password=Xenups1368</Value>
     </Setting>
+    <Setting Name="MaliConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=10.120.0.50;Initial Catalog=Mali;User ID=Xenups;Password=Xenups1368128&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=10.120.0.50;Initial Catalog=Mali;User ID=Xenups;Password=Xenups1368128</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

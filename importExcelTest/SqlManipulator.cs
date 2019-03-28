@@ -138,7 +138,7 @@ namespace negar
         public List<string> addUser(UserTable newLogin)
         {
             try
-            {
+            { 
                 UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext(cn);
                 db.UserTables.InsertOnSubmit(newLogin);
                 db.SubmitChanges();
@@ -273,9 +273,11 @@ namespace negar
         public bool sendMessages(string messages)
         {
             try {
-                var logindata = getDataLogin();
-                UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext();
+               // var logindata = getDataLogin();
+                UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext(cn);
                 var data = from a in db.UserTables select a;
+
+
                 foreach (var d in data)
                 {
                     d.Messages = messages;
@@ -284,8 +286,11 @@ namespace negar
                 db.SubmitChanges();
                 return true;
             }
-            catch(Exception)
-            { return true; }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
            
         }
         public bool MessagesSeenStatus(bool status,LoginInfo login)
@@ -293,7 +298,7 @@ namespace negar
             try
             {
                 var logindata = getDataLogin();
-                UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext();
+                UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext(cn);
                 var data = from a in db.UserTables select a;
 
                 foreach (var d in data)
@@ -304,15 +309,17 @@ namespace negar
                 db.SubmitChanges();
                 return true;
             }
-            catch (Exception)
-            { return true; }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false; }
 
         }
         public bool sendUpdateNotify(int newVersion)
         {
             try {
                 var logindata = getDataLogin();
-                UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext();
+                UserManagerDataClassesDataContext db = new UserManagerDataClassesDataContext(cn);
                 var data = from a in db.UserTables select a;
                 foreach (var d in data)
                 {
